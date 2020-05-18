@@ -1,14 +1,48 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/explore/explore",
+    "pages/message/message",
+    "pages/my/my",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "聚玩Gathering",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#2db7f5",
+    "color": "#909090",
+    "list": [
+      {
+        "text": "首页",
+        "iconPath": "images/tabbar/首页.png",
+        "selectedIconPath": "images/tabbar/首页.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "探索",
+        "iconPath": "images/tabbar/探索.png",
+        "selectedIconPath": "images/tabbar/探索.png",
+        "pagePath": "pages/explore/explore"
+      },
+      {
+        "text": "通知",
+        "iconPath": "images/tabbar/通知.png",
+        "selectedIconPath": "images/tabbar/通知.png",
+        "pagePath": "pages/message/message"
+      },
+      {
+        "text": "我的",
+        "iconPath": "images/tabbar/我的.png",
+        "selectedIconPath": "images/tabbar/我的.png",
+        "pagePath": "pages/my/my"
+      }
+    ]
   },
   "style": "v2",
+
   "sitemapLocation": "sitemap.json"
 }

@@ -1,5 +1,44 @@
 <!--index.wxml-->
-<view class="container">
+<view class="padding text-lg">我创建的小组</view>
+<view class="flex">
+  <view wx:for="{{group}}" class="flex">
+    <view class="bg-blue margin-sm padding-sm">{{item.name}}</view>
+  </view>
+  <image src="/images/add.png" class="img padding-sm"></image>
+</view>
+
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+<view class="menu bg-white">
+  <view bindtap="jump" data-id="0" class="menu-item">
+    <image src="/images/tabbar/线上游戏.png" class="menu-img"></image>
+    <text class="menu-name text-bold">线上游戏</text>
+  </view>
+  <view bindtap="jump" data-id="1" class="menu-item">
+    <image src="/images/tabbar/经验分享.png" class="menu-img"></image>
+    <text class="menu-name text-bold">经验分享</text>
+  </view>
+  <view bindtap="jump" data-id="2" class="menu-item">
+    <image src="/images/tabbar/影视鉴赏.png" class="menu-img"></image>
+    <text class="menu-name text-bold">影视鉴赏</text>
+  </view>
+  <view bindtap="jump" data-id="3" class="menu-item">
+    <image src="/images/tabbar/美食探店.png" class="menu-img"></image>
+    <text class="menu-name text-bold">美食探店</text>
+  </view>
+</view>
+<view class="bg-white padding margin-top ">
+  <view bindtap="jump" data-id="{{0}}">
+    <text class="cu-bar-title text-bold text-black ">人气总榜</text>
+    <text class="text-right text-black ">全部</text>
+    <image class="icon2" src="/images/array.png"></image>
+  </view>
+</view>
+<!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -10,4 +49,4 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-</view>
+</view> -->

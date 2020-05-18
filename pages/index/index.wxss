@@ -19,3 +19,50 @@
 .usermotto {
   margin-top: 200px;
 }
+.menu-item {
+  width: 20%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu-name {
+ position: relative;
+ left: 80rpx;
+}
+
+.menu-name2 {
+  /* text-align: center; */
+  font-size: 25rpx;
+}
+
+.menu-img {
+  width: 100rpx;
+  height: 100rpx;
+  padding: 10rpx;
+  margin-left: 80rpx;
+}
+
+.menu {
+  display: flex; /*弹性布局*/
+  flex-wrap: wrap; /*允许换行*/
+  /* margin-left: 60rpx; */
+}
+.img{
+  height: 90rpx;
+  width: 90rpx;
+}
+.icon2 {
+  position: relative;
+  width: 40rpx;
+  height: 40rpx;
+  right: -500rpx;
+}
+.text-right{
+  position: relative;
+  left: 500rpx;
+  bottom: 10rpx;
+  color:#1296db;
+}
