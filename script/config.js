@@ -1,12 +1,11 @@
 // api地址
-var apiUrl = 'https://house.cooltian.cn/v1'
 // var apiUrl = "http://127.0.0.1:5000/v1"
-module.exports = {
-  apiList: {
-    user: apiUrl + '/user',
-    form: apiUrl + '/form'
-  },
-}
+// module.exports = {
+//   apiList: {
+//     user: apiUrl + '/user',
+//     form: apiUrl + '/form'
+//   },
+// }
 
 //模版
 // wx.request({

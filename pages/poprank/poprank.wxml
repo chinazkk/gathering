@@ -1,0 +1,14 @@
+<!--pages/poprank/poprank.wxml-->
+<view wx:for="{{list}}" class="flex" style="height:200rpx;">
+	<view class="indexs padding">
+		<view class="index padding">{{index}}</view>
+	</view>
+  <view class="flex">
+    <image src="{{item.img}}" class="img"></image>
+    <view class="desc">
+      <view class="padding-sm">{{item.name}}</view>
+      <view class="padding-sm">{{item.name}}</view>
+      <view class="padding-sm">{{item.name}}</view>
+    </view>
+  </view>
+</view>

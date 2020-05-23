@@ -8,27 +8,27 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
-    wx.login({
-      success: res => {
-        wx.request({
-          url: config.apiList.user + '/login/' + res.code,
-          method: 'POST',
-          success: res => {
-            console.log("[app.js]/user/login/获取成功", res.data)
-            if (res.data.code == 200) {
-              this.globalData.userId = res.data.data
-              wx.setStorageSync("sessionid", res.header["Set-Cookie"])
-              wx.setStorageSync("userId", res.data.data)
+    // wx.login({
+    //   success: res => {
+    //     wx.request({
+    //       url: config.apiList.user + '/login/' + res.code,
+    //       method: 'POST',
+    //       success: res => {
+    //         console.log("[app.js]/user/login/获取成功", res.data)
+    //         if (res.data.code == 200) {
+    //           this.globalData.userId = res.data.data
+    //           wx.setStorageSync("sessionid", res.header["Set-Cookie"])
+    //           wx.setStorageSync("userId", res.data.data)
               
-            } else {
-            }
-          },
-        })
-      },
-      fail: res => {
-        console.log(res)
-      }
-    })
+    //         } else {
+    //         }
+    //       },
+    //     })
+    //   },
+    //   fail: res => {
+    //     console.log(res)
+    //   }
+    // })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -51,6 +51,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    URL: '',
   }
 })

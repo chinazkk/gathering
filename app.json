@@ -4,7 +4,10 @@
     "pages/explore/explore",
     "pages/message/message",
     "pages/my/my",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/poprank/poprank",
+    "pages/creategroup/creategroup"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

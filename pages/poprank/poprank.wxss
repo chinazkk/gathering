@@ -1,0 +1,14 @@
+/* pages/poprank/poprank.wxss */
+.index{
+  font-size: 60rpx;
+  border: 6px solid gray ;
+  border-radius: 50%;
+
+}
+.indexs{
+
+}
+.img{
+  height: 180rpx;
+  width: 300rpx;
+}

@@ -1,0 +1,60 @@
+<form>
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >小组名称：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getid" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+	</view>
+
+	<view class="flex-sub text-left">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >小组简介：</text>
+		</view>
+	</view>
+	<view class="cu-form-group area">
+		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="输入内容（100字以内）"></textarea>
+	</view>
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >小组人数设定：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getid" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+	</view>
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >加入小组问题设定：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getid" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+	</view>
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+		上传图片
+		</view>
+		<view class="action">
+			{{imgList.length}}/1
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-id="1" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-id='1' data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" data-id='1' wx:if="{{imgList.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+</form>
+<view class="flex padding">
+ <button class="cu-btn round line-orange padding margin">保存</button>
+ <button class="cu-btn round bg-orange padding margin">提交</button>
+</view>
