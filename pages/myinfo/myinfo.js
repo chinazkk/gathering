@@ -1,18 +1,13 @@
-// pages/creategroup/creategroup.js
+// pages/myinfo/myinfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList: [],
-    id:'',
+
   },
-  getid(e){
-    this.setData({
-        id:e.detail.value
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

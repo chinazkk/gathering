@@ -1,0 +1,7 @@
+<!-- popup-bottom.wxml -->
+<view class="wrap" hidden="{{!myVisible}}">
+  <view class="mask {{visible ? 'mask-show' : ''}}" bindtap="_onCancel"></view>
+  <view class="box" id="modal-box" animation="{{animationData}}">
+    <slot />
+  </view>
+</view>

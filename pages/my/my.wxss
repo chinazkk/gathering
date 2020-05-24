@@ -1,1 +1,41 @@
-/* pages/my/my.wxss */
+.touimage {
+  /* 居中 */
+  margin: 0 auto;  
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 161rpx;
+  height: 161rpx;
+  border-radius: 50%;
+  top: 60rpx;
+}
+.justify{
+  justify-content: center;
+
+}
+.area{
+  /* background-color: #d8d8d8; */
+  width:84%;
+  position: relative;
+  left: 8%;
+  top: 120rpx;
+}
+.bottom{
+  top: 200rpx;
+}
+.button1{
+  width: 100rpx;
+}
+.button2{
+ font-size: 28rpx;
+ background-color: #bfbfbf;
+}
+.btnImg {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+.input{
+  height: 40rpx;
+  min-height:40rpx;
+}

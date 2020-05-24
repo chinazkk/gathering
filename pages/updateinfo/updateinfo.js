@@ -1,16 +1,46 @@
-// pages/creategroup/creategroup.js
+// pages/updateinfo/updateinfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList: [],
-    id:'',
+    check1: false,
+    check2: false,
+    name: '',
+    loc: '',
+    info: '',
+    tag: ''
   },
-  getid(e){
+  getname(e) {
     this.setData({
-        id:e.detail.value
+      name: e.detail.value
+    })
+  },
+  getloc(e) {
+    this.setData({
+      loc: e.detail.value
+    })
+  },
+  getinfo(e) {
+    this.setData({
+      info: e.detail.value
+    })
+  },
+  gettag(e) {
+    this.setData({
+      tag: e.detail.value
+    })
+  },
+  check1(e) {
+    console.log('wd')
+    this.setData({
+      check1: !this.data.check1
+    })
+  },
+  check2(e) {
+    this.setData({
+      check2: !this.data.check2
     })
   },
   /**

@@ -1,0 +1,42 @@
+.input{
+  height: 50rpx;
+  padding: 40rpx;
+  /* margin-bottom: 60rpx; */
+  width:86%;
+  position: relative;
+  left: 7%;
+}
+.bottom{
+  position: relative;
+  top: 80rpx;
+}
+.touimage {
+  /* 居中 */
+  margin: 0 auto;  
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 161rpx;
+  height: 161rpx;
+  border-radius: 50%;
+  top: 60rpx;
+  padding-bottom: 60rpx;
+}
+.backcolor{
+  background-color:#d8d8d8 ;
+}
+.area{
+  background-color: #d8d8d8;
+  width:86%;
+  position: relative;
+  left: 7%;
+}
+.checkbos{
+  transform: scale(0.7,0.7);
+  padding: 20rpx;
+  left: 20rpx;
+  /* top: 15rpx; */
+}
+page{
+  background: white;
+}

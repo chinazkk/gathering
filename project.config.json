@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -21,7 +21,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -69,6 +69,41 @@
 					"id": -1,
 					"name": "人气总榜",
 					"pathName": "pages/poprank/poprank",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的日历",
+					"pathName": "pages/mycalendar/mycalendar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/mycollect/mycollect",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改个人信息",
+					"pathName": "pages/updateinfo/updateinfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的信息主页",
+					"pathName": "pages/myinfo/myinfo",
 					"scene": null
 				}
 			]

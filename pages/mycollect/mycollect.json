@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "popup-bottom": "../component/popup/popup"
+  },
+  "navigationBarTitleText": "我的收藏"
+}

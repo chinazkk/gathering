@@ -1,0 +1,16 @@
+<view class="flex" wx:for="{{info}}">
+	<image src="{{item.img}}" class="img padding"></image>
+	<view class="desc padding-sm">
+		<view class="flex">
+			<view class="padding-sm text-bold">{{item.name}}</view>
+			<view class="point text-bold " bindtap="handleShow" data-id="{{index}}">...</view>
+		</view>
+		<view class="padding-bottom-sm">{{item.name}}</view>
+		<view class="padding-bottom-sm">{{item.name}}</view>
+		<view class="padding-bottom-sm">{{item.name}}</view>
+	</view>
+</view>
+	<popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
+  <view bindtap="bind">取消收藏</view>
+  <view bindtap="handleCancel">取消</view>
+</popup-bottom>

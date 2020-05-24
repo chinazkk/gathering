@@ -1,0 +1,11 @@
+
+	<view class="bg-white">
+		<view class="cu-avatar  touimage margin-top" style="background-image:url({{}})"></view>
+		<view class="text-blue padding update" >编辑</view>
+
+
+	<view class="text-center text-bold padding-top">昵称</view>
+	<view class="text-center text-bold ">位置</view>
+	<view class="text-center text-bold ">简介：</view>
+	<view class="text-center text-bold ">兴趣标签</view>
+  	</view>

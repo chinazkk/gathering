@@ -1,0 +1,13 @@
+.img{
+  height: 250rpx;
+  width: 420rpx;
+}
+.point{
+  float: right;
+  position: fixed;
+  right: 20rpx;
+  font-size: 50rpx;
+}
+page{
+  background: white;
+}

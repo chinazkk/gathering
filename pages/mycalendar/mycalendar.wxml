@@ -1,0 +1,15 @@
+<scroll-view scroll-x class="bg-white nav">
+	<view class="flex text-center">
+		<view class="cu-item flex-sub text-bold {{index==TabCur?'text-orange cur':''}}" wx:for="{{3}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+			{{list[index]}}
+		</view>
+	</view>
+</scroll-view>
+<view class="flex" wx:for="{{info}}">
+	<image src="{{item.img}}" class="img padding"></image>
+	<view class="desc padding-sm">
+		<view class="padding-sm text-bold">{{item.name}}</view>
+		<view class="padding-sm">{{item.name}}</view>
+		<view class="padding-sm">{{item.name}}</view>
+	</view>
+</view>

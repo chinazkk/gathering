@@ -35,7 +35,8 @@ Promise.prototype.finally = function (callback) {
         data: data,
         method: 'POST',
         header: { 
-          'content-type': 'application/x-www-form-urlencoded',
+          "content-type": "application/json",
+          'cookie': wx.getStorageSync("sessionid"), //读取cookie
           // 'token':wx.getStorageSync('token')
         },
         success: function (res) {//服务器返回数据

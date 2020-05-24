@@ -6,6 +6,10 @@
     "pages/my/my",
     "pages/logs/logs",
     "pages/poprank/poprank",
+    "pages/mycalendar/mycalendar",
+    "pages/mycollect/mycollect",
+    "pages/updateinfo/updateinfo",
+    "pages/myinfo/myinfo",
     "pages/creategroup/creategroup"
 
   ],

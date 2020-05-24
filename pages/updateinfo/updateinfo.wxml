@@ -1,0 +1,50 @@
+<view>
+	<view class="cu-avatar  touimage" style="background-image:url({{}})"></view>
+	<view class="text-center text-bold bottom">点击头像可更换图片</view>
+</view>
+<form class="bottom">
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >我的昵称：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getname" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+	</view>
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >我的位置：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getloc" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+	</view>
+	<view class="flex-sub text-left">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >我的简介：</text>
+		</view>
+	</view>
+	<view class="cu-form-group area">
+		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="getinfo" placeholder="输入内容（100字以内）"></textarea>
+	</view>
+
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >我的标签：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="gettag" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+	</view>
+	<view class="flex">
+		<checkbox class="checkbos" bindtap="check1" checked="{{check1}}"></checkbox>
+		<view class="title padding">允许陌生人私信</view>
+	</view>
+	<view class="flex">
+		<checkbox class="checkbos" bindtap="check2" checked="{{check2}}"></checkbox>
+		<view class="title padding">向陌生人展示你的全部小组/活动</view>
+	</view>
+</form>
+<view class="flex padding bottom" >
+	<button class="cu-btn  bg-grey padding margin" style="width:20%">保存</button>
+</view>

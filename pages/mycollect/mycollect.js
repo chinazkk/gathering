@@ -1,17 +1,40 @@
-// pages/creategroup/creategroup.js
+// pages/mycollect/mycollect.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgList: [],
-    id:'',
+    visible: false,
+    info:[{
+      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+      name:'asd',
+
+    },
+    {
+      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+      name:'asdw',
+      
+    },
+    {
+      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+      name:'awdsd',
+      
+    }]
   },
-  getid(e){
+  bind(e){
+    console.log(this.data.chooseindex)
+  },
+  handleShow: function (e) {
+    console.log(e.currentTarget.dataset.id)
     this.setData({
-        id:e.detail.value
+      chooseindex:e.currentTarget.dataset.id
     })
+    this.setData({ visible: true });
+  },
+
+  handleCancel: function () {
+    this.setData({ visible: false });
   },
   /**
    * 生命周期函数--监听页面加载
