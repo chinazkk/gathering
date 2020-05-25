@@ -5,7 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
+    list:[{
+      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+      name:'asd',
 
+    },
+    {
+      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+      name:'asdw',
+      
+    },
+   ],
+   joingroup:[],
+   mycreate:[],
+   joinact:[]
   },
 
   /**
