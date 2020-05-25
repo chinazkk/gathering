@@ -1,4 +1,5 @@
-// pages/creategroup/creategroup.js
+const app = getApp();
+var util = require("../../script/utils.js");
 Page({
 
   /**
@@ -7,10 +8,184 @@ Page({
   data: {
     imgList: [],
     id:'',
+    name:'',
+    area:'',
+    num:0,
+    question:''
   },
-  getid(e){
+  getname(e){
     this.setData({
-        id:e.detail.value
+        name:e.detail.value
+    })
+  },
+  getnum(e){
+    this.setData({
+        num:e.detail.value
+    })
+  },
+  getque(e){
+    this.setData({
+        question:e.detail.value
+    })
+  },
+  textareaAInput(e){
+    this.setData({
+        area:e.detail.value
+    })
+  },
+  commit(e){
+    let url = app.globalData.URL + '/group';
+    var data={
+        id: 0,
+        name: this.data.name,
+        introduction: this.data.area,
+        number: this.data.num,
+        question: this.data.question,
+        image: "string"
+    }
+    util.post(url, data).then(function(res) {
+      console.log(res.data)
+      if (res.data.code == 0) {
+        wx.showToast({ 
+          title: '提交成功',
+           duration: 2000,
+           success: function() { 
+            setTimeout(function() { 
+              wx.reLaunch({
+                url: '/pages/index/index',
+              }) 
+            }, 2000); 
+          }
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          image: '/img/fail.png',
+          icon: 'success',
+          duration: 2000
+        })
+      }
+    }).catch(function(res) {
+      console.log(res)
+      wx.showToast({
+        title: '提交失败！',
+        icon: 'success',
+        duration: 2000
+      })
+    })
+  },
+  
+  ChooseImage() {
+    wx.chooseImage({
+      count: 1, //默认9
+      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album'], //从相册选择
+      success: (res) => {
+        if (this.data.imgList.length != 0) {
+          this.setData({
+            imgList: this.data.imgList.concat(res.tempFilePaths)
+          })
+        } else {
+          this.setData({
+            imgList: res.tempFilePaths
+          })
+          console.log(res.tempFilePaths)
+          let data={
+            img:res.tempFilePaths[0],
+            type:'image'
+          }
+          let url = app.globalData.URL + '/user/img';
+          util.post(url, data).then(function(res) {
+            console.log(res.data)
+            if (res.data.code == 0) {
+              wx.showToast({ 
+                title: '提交成功',
+                 duration: 2000,
+                 success: function() { 
+                  // setTimeout(function() { 
+                  //   wx.reLaunch({
+                  //     url: '/pages/index/index',
+                  //   }) 
+                  // }, 2000); 
+                }
+              })
+            } else {
+              wx.showToast({
+                title: res.data.msg,
+                image: '/img/fail.png',
+                icon: 'success',
+                duration: 2000
+              })
+            }
+          }).catch(function(res) {
+            console.log(res)
+            wx.showToast({
+              title: '提交失败！',
+              icon: 'success',
+              duration: 2000
+            })
+          })
+        }
+      }
+    });
+  },
+  uploadpic(){
+    let data={
+      img:this.data.imgList[0],
+      type:'image'
+    }
+    let url = app.globalData.URL + '/user/img';
+    util.post(url, data).then(function(res) {
+      console.log(res.data)
+      if (res.data.code == 0) {
+        wx.showToast({ 
+          title: '提交成功',
+           duration: 2000,
+           success: function() { 
+            // setTimeout(function() { 
+            //   wx.reLaunch({
+            //     url: '/pages/index/index',
+            //   }) 
+            // }, 2000); 
+          }
+        })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          image: '/img/fail.png',
+          icon: 'success',
+          duration: 2000
+        })
+      }
+    }).catch(function(res) {
+      console.log(res)
+      wx.showToast({
+        title: '提交失败！',
+        icon: 'success',
+        duration: 2000
+      })
+    })
+  },
+  ViewImage(e) {
+    wx.previewImage({
+      urls: this.data.imgList,
+      current: e.currentTarget.dataset.url
+    });
+  },
+  DelImg(e) {
+    wx.showModal({
+      title: '召唤师',
+      content: '确定要删除这段回忆吗？',
+      cancelText: '再看看',
+      confirmText: '再见',
+      success: res => {
+        if (res.confirm) {
+          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
+          this.setData({
+            imgList: this.data.imgList
+          })
+        }
+      }
     })
   },
   /**
