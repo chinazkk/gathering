@@ -1,0 +1,8 @@
+<!--pages/choosetag/choosetag.wxml-->
+<view class="padding content text-bold text-xl">活动标签选择:</view>
+
+<view class="menu">
+	<view class="menu-item padding" wx:for="{{taglist}}">
+		<text class="menu-name">{{item}}</text>
+	</view>
+</view>

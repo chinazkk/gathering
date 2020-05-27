@@ -19,6 +19,7 @@
     "pages/createactivity/createactivity",
     "pages/groupdetail/groupdetail",
     "pages/groupdetail2/groupdetail2",
+    "pages/choosetag/choosetag",
     
     "pages/updategroup/updategroup"
 
@@ -26,7 +27,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "聚玩Gathering",
+    "navigationBarTitleText": "聚玩 Gathering",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

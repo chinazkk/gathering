@@ -1,2 +1,10 @@
-<!--pages/explore/explore.wxml-->
-<text>pages/explore/explore.wxml</text>
+<view class="cu-bar bg-white search " style="top:{{CustomBar}}px">
+  <view class="search-form radius">
+    <text class="cuIcon-search xl" ></text>
+    <input type="text"   placeholder="搜索" confirm-type="search" bindinput="searchIcon"></input>
+  </view>
+</view>
+<view class="flex solid-bottom padding-sm justify-between bg-white">
+	<view class=" padding-xs text-bold  radius">热门标签</view>
+	<navigator url="/pages/choosetag/choosetag" class="padding-xs  radius  text-blue " bindtap="toupdate">全部</navigator>
+</view>

@@ -18,6 +18,25 @@
   left: 7%;
 }
 
+.icon {
+  position: relative;
+  top: 30rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.menu-name {
+  background-color: #d8d8d8;
+  /* padding: 10rpx; */
+  position: relative;
+  right: 20rpx;
+  margin: 20rpx;
+  /* padding-top: 10rpx;
+  padding-bottom: 10rpx; */
+  text-align: center;
+  font-weight: bold;
+}
+
 .checkbos {
   transform: scale(0.6, 0.6);
   /* padding: 20rpx; */

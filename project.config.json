@@ -21,7 +21,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -132,6 +132,20 @@
 					"id": 10,
 					"name": "创建活动",
 					"pathName": "pages/createactivity/createactivity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "探索",
+					"pathName": "pages/explore/explore",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "标签选择",
+					"pathName": "pages/choosetag/choosetag",
 					"query": "",
 					"scene": null
 				}

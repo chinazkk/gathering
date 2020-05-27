@@ -40,10 +40,9 @@
 	<view class="backcolor cu-form-group input">
 		<input placeholder="{{id}}" class="" bindinput="getnum" placeholder-style="color:white" placeholder="输入内容（一个小组的人数上限为50人）"></input>
 	</view>
-	<!-- 
 	<view class="cu-bar bg-white margin-top">
 		<view class="action">
-		小组封面图
+		活动预览图
 		</view>
 		<view class="action">
 			{{imgList.length}}/1
@@ -61,9 +60,12 @@
 				<text class="cuIcon-cameraadd"></text>
 			</view>
 		</view>
-	</view> -->
-  <view class="padding text-lg">活动标签选择：</view>
-
+	</view>
+	<view class="flex">
+  <view class="padding text-lg" style="backgroud-color:blue">活动标签选择：</view>
+	<view wx:for="{{taglist}}" wx:if="{{taglist}}" class="menu-name padding-xs text-blue" wx:if="{{index<3}}">{{item}}</view>
+	<image src="/images/array.png" class="icon" wx:if="{{taglist}}" bindtap="totag"></image>
+</view>
   <view class="padding text-lg">活动提醒</view>
 	<view class="flex">
 		<checkbox class="checkbos" bindtap="check" checked="{{check}}"></checkbox>

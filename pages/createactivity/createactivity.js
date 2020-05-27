@@ -14,7 +14,13 @@ Page({
     num:0,
     place:'',
     time:'',
+    taglist:['#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx',],
     check:false
+  },
+  totag(){
+    wx.navigateTo({
+      url: '/pages/choosetag/choosetag',
+    })
   },
   getname(e){
     this.setData({
