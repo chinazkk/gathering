@@ -1,45 +1,15 @@
-// pages/updateinfo/updateinfo.js
+// pages/groupdetail/groupdetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    check1: false,
-    check2: false,
-    name: '',
-    loc: '',
-    info: '',
-    tag: ''
+
   },
-  getname(e) {
-    this.setData({
-      name: e.detail.value
-    })
-  },
-  getloc(e) {
-    this.setData({
-      loc: e.detail.value
-    })
-  },
-  getinfo(e) {
-    this.setData({
-      info: e.detail.value
-    })
-  },
-  gettag(e) {
-    this.setData({
-      tag: e.detail.value
-    })
-  },
-  check1(e) {
-    this.setData({
-      check1: !this.data.check1
-    })
-  },
-  check2(e) {
-    this.setData({
-      check2: !this.data.check2
+  toupdate(){
+    wx.navigateTo({
+      url: '/pages/updategroup/updategroup',
     })
   },
   /**

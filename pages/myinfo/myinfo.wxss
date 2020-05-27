@@ -22,7 +22,6 @@
   margin-top: 20rpx;
   background: #c6c8c9;
   width: 100%;
-
   height: 5rpx;
  }
 .update{

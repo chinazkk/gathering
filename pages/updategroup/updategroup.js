@@ -7,7 +7,6 @@ Page({
    */
   data: {
     imgList: [],
-    imgurl:'',
     id:'',
     name:'',
     area:'',
@@ -34,8 +33,21 @@ Page({
         area:e.detail.value
     })
   },
+
+  delgroup(e){
+    wx.showModal({
+      title: '删除该小组',
+      content: '确定删除后不能撤回',
+      cancelText: '取消',
+      confirmText: '删除',
+      success: res => {
+        if (res.confirm) {
+          console.log('delete group')
+        }
+      }
+    })
+  },
   commit(e){
-    // console.log(this.data.imgurl.data.url)
     let url = app.globalData.URL + '/group';
     var data={
         id: 0,
@@ -43,25 +55,25 @@ Page({
         introduction: this.data.area,
         number: this.data.num,
         question: this.data.question,
-        image: this.data.imgurl
+        image: "string"
     }
     util.post(url, data).then(function(res) {
       console.log(res.data)
-      if (res.data.code == 200) {
+      if (res.data.code == 0) {
         wx.showToast({ 
           title: '提交成功',
            duration: 2000,
            success: function() { 
             setTimeout(function() { 
-              wx.navigateTo({
-                url: '/pages/groupdetail/groupdetail',
+              wx.reLaunch({
+                url: '/pages/index/index',
               }) 
             }, 2000); 
           }
         })
       } else {
         wx.showToast({
-          title: '提交失败',
+          title: res.data.msg,
           image: '/img/fail.png',
           icon: 'success',
           duration: 2000
@@ -96,49 +108,77 @@ Page({
             img:res.tempFilePaths[0],
             type:'image'
           }
+          let url = app.globalData.URL + '/user/img';
+          util.post(url, data).then(function(res) {
+            console.log(res.data)
+            if (res.data.code == 0) {
+              wx.showToast({ 
+                title: '提交成功',
+                 duration: 2000,
+                 success: function() { 
+                  // setTimeout(function() { 
+                  //   wx.reLaunch({
+                  //     url: '/pages/index/index',
+                  //   }) 
+                  // }, 2000); 
+                }
+              })
+            } else {
+              wx.showToast({
+                title: res.data.msg,
+                image: '/img/fail.png',
+                icon: 'success',
+                duration: 2000
+              })
+            }
+          }).catch(function(res) {
+            console.log(res)
+            wx.showToast({
+              title: '提交失败！',
+              icon: 'success',
+              duration: 2000
+            })
+          })
         }
       }
     });
   },
   uploadpic(){
-    var that=this
     let data={
       img:this.data.imgList[0],
       type:'image'
     }
     let url = app.globalData.URL + '/user/img';
-    wx.chooseImage({
-      success (res) {
-        const tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths[0])
-        that.setData({
-          imgList: res.tempFilePaths
-        })
-        wx.showLoading({
-          title: '上传中...',
-          mask: true //显示触摸蒙层  防止事件穿透触发
-        });
-        wx.uploadFile({
-          url: url, 
-          filePath: tempFilePaths[0],
-          name: 'img',
-          header:{
-            "content-type": "application/json"
-          },
-          formData: {
-            type: 'image'
-          },
-          success (res){
-            wx.hideLoading()
-            let t=JSON.parse(res.data)
-            that.setData({
-              imgurl:t.data.url
-            })
+    util.post(url, data).then(function(res) {
+      console.log(res.data)
+      if (res.data.code == 0) {
+        wx.showToast({ 
+          title: '提交成功',
+           duration: 2000,
+           success: function() { 
+            // setTimeout(function() { 
+            //   wx.reLaunch({
+            //     url: '/pages/index/index',
+            //   }) 
+            // }, 2000); 
           }
         })
+      } else {
+        wx.showToast({
+          title: res.data.msg,
+          image: '/img/fail.png',
+          icon: 'success',
+          duration: 2000
+        })
       }
+    }).catch(function(res) {
+      console.log(res)
+      wx.showToast({
+        title: '提交失败！',
+        icon: 'success',
+        duration: 2000
+      })
     })
-
   },
   ViewImage(e) {
     wx.previewImage({
@@ -148,7 +188,7 @@ Page({
   },
   DelImg(e) {
     wx.showModal({
-      title: '删除图片',
+      title: '您好',
       content: '确定要删除这张照片吗',
       cancelText: '取消',
       confirmText: '删除',

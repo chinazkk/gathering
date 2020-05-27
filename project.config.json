@@ -21,7 +21,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -104,6 +104,35 @@
 					"id": -1,
 					"name": "我的信息主页",
 					"pathName": "pages/myinfo/myinfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "修改小组",
+					"pathName": "pages/updategroup/updategroup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "小组详情页",
+					"pathName": "pages/groupdetail/groupdetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "小组详情页2 用户",
+					"pathName": "pages/groupdetail2/groupdetail2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "创建活动",
+					"pathName": "pages/createactivity/createactivity",
+					"query": "",
 					"scene": null
 				}
 			]

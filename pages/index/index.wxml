@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="padding text-lg">我创建的小组</view>
 <view class="flex">
-	<view wx:for="{{group}}" class="flex">
+	<view wx:for="{{mygroup}}" class="flex">
 		<view class="bg-blue margin-sm padding-sm">{{item.name}}</view>
 	</view>
 	<image src="/images/add.png" class="img padding-sm" bindtap="tocreate"></image>
@@ -14,22 +14,22 @@
 	</swiper-item>
 </swiper>
 <view class="menu bg-white">
-	<view bindtap="jump" data-id="0" class="menu-item">
+	<navigator url="/pages/onlinegame/onlinegame" class="menu-item">
 		<image src="/images/tabbar/线上游戏.png" class="menu-img"></image>
 		<text class="menu-name text-bold">线上游戏</text>
-	</view>
-	<view bindtap="jump" data-id="1" class="menu-item">
+	</navigator>
+	<navigator url="/pages/experience/experience" class="menu-item">
 		<image src="/images/tabbar/经验分享.png" class="menu-img"></image>
 		<text class="menu-name text-bold">经验分享</text>
-	</view>
-	<view bindtap="jump" data-id="2" class="menu-item">
+	</navigator>
+	<navigator url="/pages/videoenjoy/videoenjoy" class="menu-item">
 		<image src="/images/tabbar/影视鉴赏.png" class="menu-img"></image>
 		<text class="menu-name text-bold">影视鉴赏</text>
-	</view>
-	<view bindtap="jump" data-id="3" class="menu-item">
+	</navigator>
+	<navigator url="/pages/foodenjoy/foodenjoy" class="menu-item">
 		<image src="/images/tabbar/美食探店.png" class="menu-img"></image>
 		<text class="menu-name text-bold">美食探店</text>
-	</view>
+	</navigator>
 </view>
 <view class="bg-white padding margin-top ">
 	<view bindtap="jump" data-id="{{0}}" bindtap="topop">

@@ -1,0 +1,48 @@
+<!--pages/groupdetail/groupdetail.wxml-->
+<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="widthFix"></image>
+
+<view class="flex solid-bottom padding-sm justify-between bg-white">
+	<view class=" padding-sm  radius">xxxx</view>
+	<view class=" padding-sm  radius  text-blue " wx:if="{{isjoin}}" bindtap="quitgroup">退出小组</view>
+	<view class=" padding-sm  radius  text-blue " wx:else bindtap="tojoin">申请加入</view>
+</view>
+<view class="padding-sm bg-white">
+	<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{ColorList}}" wx:key>
+		<text class="avatar-text">{{item.name}}</text>
+	</view>
+</view>
+<view class="bg-white">
+	<view class="padding  flex">
+		<view class="">
+			<view class="content padding-xs">成员数量：</view>
+			<view class="content padding-xs">小组类别：</view>
+			<view class="content padding-xs">小组简介：</view>
+			<view class="content padding-xs">组织者昵称：</view>
+		</view>
+		<view class="cu-avatar touimage margin-top" style="background-image:url({{avatarUrl}})"></view>
+	</view>
+	<view class="divLine"></view>
+	<view class="padding">
+		<view class="content text-lg padding-xs">小组公告</view>
+		<text class="padding-xxl  text-gray title1">你还没发表公告</text>
+		<text class="padding-xxl  text-gray title1">xxxxx</text>
+	</view>
+</view>
+<view class="flex solid-bottom padding-sm justify-between">
+	<view class=" padding-sm  radius">活动</view>
+	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">查看全部</view>
+</view>
+<image src="/images/add2.png" class="img padding " bindtap="tocreate"></image>
+
+<view class="flex solid-bottom padding-sm justify-between">
+	<view class=" padding-sm  radius">讨论区</view>
+	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">查看全部</view>
+</view>
+<text class="padding-xxl  text-gray title2">该小组暂无评论喔</text>
+
+<!-- <view class="container" class="zn-uploadimg">  
+    <button type="primary"bindtap="modalinput">modal有输入框</button>   
+</view>   -->
+<modal hidden="{{hiddenmodalput}}" title="xxx(组织者设定问题)" confirm-text="提交" cancel-text='取消'bindcancel="cancel" bindconfirm="confirm">  
+    <input type='text' bindinput="getans" placeholder="请输入内容" auto-focus/>  
+</modal>  

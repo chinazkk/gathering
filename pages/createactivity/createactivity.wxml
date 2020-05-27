@@ -1,0 +1,76 @@
+<form>
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >活动标题：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getname" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+	</view>
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >活动时间：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="gettime" placeholder-style="color:white" placeholder="输入内容"></input>
+	</view>
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >活动地点/形式：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getplace" type="number" bindinput="getnum" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+	</view>
+	<view class="flex-sub text-left">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >活动概述：</text>
+		</view>
+	</view>
+	<view class="cu-form-group area">
+		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="输入内容（100字以内）"></textarea>
+	</view>
+
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >活动人数设定：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getnum" placeholder-style="color:white" placeholder="输入内容（一个小组的人数上限为50人）"></input>
+	</view>
+	<!-- 
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+		小组封面图
+		</view>
+		<view class="action">
+			{{imgList.length}}/1
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub" >
+			<view class="bg-img" style="postion:relative; left:50rpx;" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-id="1" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-id='1' data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" style="postion:relative; left:30rpx;" bindtap="uploadpic" wx:if="{{imgList.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view> -->
+  <view class="padding text-lg">活动标签选择：</view>
+
+  <view class="padding text-lg">活动提醒</view>
+	<view class="flex">
+		<checkbox class="checkbos" bindtap="check" checked="{{check}}"></checkbox>
+		<view class="title padding-xs">活动开始前给参与者发送提醒</view>
+	</view>
+</form>
+<view class="flex padding">
+	<button class="cu-btn radius line-orange padding margin" style="width:200rpx">保存</button>
+	<button class="cu-btn radius bg-orange padding margin" style="width:200rpx" bindtap="commit">提交</button>
+</view>

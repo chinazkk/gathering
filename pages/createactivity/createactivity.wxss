@@ -1,0 +1,31 @@
+.input {
+  height: 50rpx;
+  padding: 40rpx;
+  /* margin-bottom: 60rpx; */
+  width: 86%;
+  position: relative;
+  left: 7%;
+}
+
+.backcolor {
+  background-color: #d8d8d8;
+}
+
+.area {
+  background-color: #d8d8d8;
+  width: 86%;
+  position: relative;
+  left: 7%;
+}
+
+.checkbos {
+  transform: scale(0.6, 0.6);
+  /* padding: 20rpx; */
+  padding-right: 10rpx;
+  left: 15rpx;
+  /* top: 15rpx; */
+}
+
+page {
+  background: white;
+}

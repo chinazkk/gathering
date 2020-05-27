@@ -5,12 +5,22 @@
     "pages/message/message",
     "pages/my/my",
     "pages/logs/logs",
+
     "pages/poprank/poprank",
-    "pages/mycalendar/mycalendar",
+    "pages/onlinegame/onlinegame",
+    "pages/experience/experience",
+    "pages/videoenjoy/videoenjoy",
+    "pages/foodenjoy/foodenjoy",
+    
     "pages/mycollect/mycollect",
     "pages/updateinfo/updateinfo",
     "pages/myinfo/myinfo",
-    "pages/creategroup/creategroup"
+    "pages/creategroup/creategroup",
+    "pages/createactivity/createactivity",
+    "pages/groupdetail/groupdetail",
+    "pages/groupdetail2/groupdetail2",
+    
+    "pages/updategroup/updategroup"
 
   ],
   "window": {

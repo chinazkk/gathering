@@ -50,10 +50,36 @@ App({
       }
     })
   },
+
+ getimg(url, callback, errFun){
+    wx.request({
+      url: this.globalData.URL+'/user/img',
+      data: {
+        url:url
+      },
+      header: {
+        'content-type': 'application/json',
+        'cookie': wx.getStorageSync("sessionid")//读取cookie
+        // 'token': wx.getStorageSync('token')
+      },
+      success: function (res) {//服务器返回数据
+        if (res.statusCode == 200) {
+          callback(res.data);
+        } else {//返回错误提示信息
+          callback(res.data);
+        }
+      },
+      error: function (e) {
+        errFun(res);
+      }
+    })
+  },
+
   globalData: {
     userInfo: null,
     nickName:'',
     avatarUrl:'',
     URL: 'https://gathering.chinazkk.cn/v1',
+    imgurl:'https://gathering.chinazkk.cn/v1/user/img?url='
   }
 })

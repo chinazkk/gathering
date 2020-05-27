@@ -12,11 +12,18 @@ Page({
     name:'',
     area:'',
     num:0,
-    question:''
+    place:'',
+    time:'',
+    check:false
   },
   getname(e){
     this.setData({
         name:e.detail.value
+    })
+  },
+  gettime(e){
+    this.setData({
+        time:e.detail.value
     })
   },
   getnum(e){
@@ -24,9 +31,9 @@ Page({
         num:e.detail.value
     })
   },
-  getque(e){
+  getplace(e){
     this.setData({
-        question:e.detail.value
+        place:e.detail.value
     })
   },
   textareaAInput(e){
@@ -160,6 +167,11 @@ Page({
           })
         }
       }
+    })
+  },
+  check(e) {
+    this.setData({
+      check: !this.data.check
     })
   },
   /**

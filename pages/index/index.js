@@ -1,11 +1,11 @@
-//index.js
-//获取应用实例
-const app = getApp()
+const app = getApp();
+var util = require("../../script/utils.js");
 
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    mygroup: [],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     group: [{
@@ -31,23 +31,24 @@ Page({
       url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
     }],
   },
-  tocreate(){
+  tocreate() {
     wx.navigateTo({
       url: '/pages/creategroup/creategroup',
     })
   },
-  topop(){
+  topop() {
     wx.navigateTo({
       url: '/pages/poprank/poprank',
     })
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  onLoad: function() {
+  onLoad: function () {
+    var that = this
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -74,8 +75,22 @@ Page({
         }
       })
     }
+    let url = app.globalData.URL + '/group/list';
+    var data = {
+      limit: '3',
+      page: '1',
+      user_id: wx.getStorageSync('userId'),
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      that.setData({
+        mygroup: res.data.data
+      })
+    })
+
   },
-  getUserInfo: function(e) {
+
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
