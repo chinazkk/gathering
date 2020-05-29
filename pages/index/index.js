@@ -76,9 +76,9 @@ Page({
         }
       })
     }
-    let url = app.globalData.URL + '/group/list';
+    let url = app.globalData.URL + '/group/activity/list';
     var data = {
-      limit: '3',
+      limit: '1',
       page: '1',
       user_id: wx.getStorageSync('userId'),
     }

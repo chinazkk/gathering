@@ -1,0 +1,4 @@
+{
+  "usingComponents": {"popup-bottom": "../component/popup/popup"},
+  "navigationBarTitleText": "小组成员"
+}

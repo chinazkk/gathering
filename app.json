@@ -20,7 +20,9 @@
     "pages/groupdetail/groupdetail",
     "pages/groupdetail2/groupdetail2",
     "pages/choosetag/choosetag",
-    
+    "pages/groupdeMate/groupdeMate",
+    "pages/groupdAct/groupdAct",
+    "pages/groupdDiscuss/groupdDiscuss",
     "pages/updategroup/updategroup"
 
   ],

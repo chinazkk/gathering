@@ -1,0 +1,8 @@
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+
+  <input class="solid-bottom" placeholder-class="input" bindfocus="InputFocus" bindinput="gettext" bindblur="InputBlur" adjust-position="{{false}}" placeholder="输入内容（字数限制300）" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+  <view class="action">
+    <!-- <text class="cuIcon-emojifill text-grey"></text> -->
+  </view>
+  <button class="cu-btn bg-grey shadow " style="width:150rpx">提交</button>
+</view>

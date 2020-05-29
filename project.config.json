@@ -21,7 +21,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -147,6 +147,26 @@
 					"name": "标签选择",
 					"pathName": "pages/choosetag/choosetag",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "小组活动",
+					"pathName": "pages/groupdAct/groupdAct",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "小组成员",
+					"pathName": "pages/groupdeMate/groupdeMate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "小组讨论",
+					"pathName": "pages/groupdDiscuss/groupdDiscuss",
 					"scene": null
 				}
 			]

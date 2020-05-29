@@ -1,0 +1,10 @@
+.items{
+  height: 80rpx;
+  position: fixed;
+  right: 50rpx;
+  top: 120rpx;
+}
+.item{
+  position: relative;
+  top:50rpx;
+}

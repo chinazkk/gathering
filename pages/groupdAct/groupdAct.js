@@ -1,48 +1,24 @@
-const app = getApp();
-var util = require("../../script/utils.js");
+// pages/groupdeMate/groupdeMate.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    hotgroup:[],
-    imgurl:app.globalData.imgurl,
-    list:[{
-      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
-      name:'asd',
-
-    },
-    {
-      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
-      name:'asdw',
-      
-    },
-    {
-      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
-      name:'awdsd',
-      
-    }]
+    tag:['排序','参与人数','最新发布'],
+    tagindex:0,
   },
-
+  choose(e){
+    console.log(e.currentTarget.dataset.id)
+    this.setData({
+      tagindex:e.currentTarget.dataset.id
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this
-    let url = app.globalData.URL + '/group/list';
-    var data = {
-      limit: '5',
-      page: '1',
-      isHot:'1',
-      user_id: wx.getStorageSync('userId'),
-    }
-    util.get(url, data).then(function (res) {
-      console.log(res.data)
-      that.setData({
-        hotgroup: res.data.data
-      })
-    })
+
   },
 
   /**
