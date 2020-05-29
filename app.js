@@ -10,6 +10,7 @@ App({
     //登录
     wx.login({
       success: res => {
+        // console.log(res.code)
         wx.request({
           url: this.globalData.URL + '/user/login/' + res.code,
           method: 'POST',

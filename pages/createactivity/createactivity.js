@@ -7,69 +7,97 @@ Page({
    */
   data: {
     imgList: [],
-    imgurl:'',
-    id:'',
-    name:'',
-    area:'',
-    num:0,
-    place:'',
-    time:'',
-    taglist:['#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx',],
-    check:false
+    type:0,
+    imgurl: '',
+    id: '',
+    name: '',
+    select:false,
+    tihuoWay:'未选择类别',
+    area: '',
+    num: 0,
+    location: '',
+    time: '',
+    taglist: ['#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', ],
+    check: false,
+    timenow: '',
+    index: null,
+    picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
   },
-  totag(){
+  totag() {
     wx.navigateTo({
       url: '/pages/choosetag/choosetag',
     })
   },
-  getname(e){
+  getname(e) {
     this.setData({
-        name:e.detail.value
+      name: e.detail.value
     })
   },
-  gettime(e){
+  gettime(e) {
     this.setData({
-        time:e.detail.value
+      time: e.detail.value
     })
   },
-  getnum(e){
+  getnum(e) {
     this.setData({
-        num:e.detail.value
+      num: e.detail.value
     })
   },
-  getplace(e){
+  getlocation(e) {
     this.setData({
-        place:e.detail.value
+      location: e.detail.value
     })
   },
-  textareaAInput(e){
+  textareaAInput(e) {
     this.setData({
-        area:e.detail.value
+      area: e.detail.value
     })
   },
-  commit(e){
+  //下拉框
+  bindShowMsg() {
+    this.setData({
+      select: !this.data.select
+    })
+  },
+  mySelect(e) {
+    var name = e.currentTarget.dataset.name
+    this.setData({
+      type:e.currentTarget.dataset.id,
+      tihuoWay: name,
+      select: false
+    })
+  },
+
+  commit(e) {
     // console.log(this.data.imgurl.data.url)
-    let url = app.globalData.URL + '/group';
-    var data={
-        id: 0,
-        name: this.data.name,
-        introduction: this.data.area,
-        number: this.data.num,
-        question: this.data.question,
-        image: this.data.imgurl
+    var that=this
+    let url = app.globalData.URL + '/group/activity';
+    var data = {
+      type: this.data.type,
+      group_id: this.data.groupnum,
+      title: this.data.name,
+      time: this.data.time,
+      location:this.data.location,
+      summarize: this.data.area,
+      number: this.data.num,
+      image: this.data.imgurl,
+      tags:''
     }
-    util.post(url, data).then(function(res) {
+    util.post(url, data).then(function (res) {
       console.log(res.data)
       if (res.data.code == 200) {
-        wx.showToast({ 
+        wx.showToast({
           title: '提交成功',
-           duration: 2000,
-           success: function() { 
-            setTimeout(function() { 
-              wx.navigateTo({
-                url: '/pages/groupdetail/groupdetail',
-              }) 
-            }, 2000); 
+          duration: 2000,
+          success: function () {
+            setTimeout(function () {
+              // wx.navigateTo({
+              //   url: '/pages/groupdetail/groupdetail?id=' + that.data.groupnum,
+              // })
+              wx.navigateBack({
+                delta: 1,
+              })
+            }, 2000);
           }
         })
       } else {
@@ -80,7 +108,7 @@ Page({
           duration: 2000
         })
       }
-    }).catch(function(res) {
+    }).catch(function (res) {
       console.log(res)
       wx.showToast({
         title: '提交失败！',
@@ -89,7 +117,7 @@ Page({
       })
     })
   },
-  
+
   ChooseImage() {
     wx.chooseImage({
       count: 1, //默认9
@@ -105,23 +133,23 @@ Page({
             imgList: res.tempFilePaths
           })
           console.log(res.tempFilePaths)
-          let data={
-            img:res.tempFilePaths[0],
-            type:'image'
+          let data = {
+            img: res.tempFilePaths[0],
+            type: 'image'
           }
         }
       }
     });
   },
-  uploadpic(){
-    var that=this
-    let data={
-      img:this.data.imgList[0],
-      type:'image'
+  uploadpic() {
+    var that = this
+    let data = {
+      img: this.data.imgList[0],
+      type: 'image'
     }
     let url = app.globalData.URL + '/user/img';
     wx.chooseImage({
-      success (res) {
+      success(res) {
         const tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths[0])
         that.setData({
@@ -132,20 +160,20 @@ Page({
           mask: true //显示触摸蒙层  防止事件穿透触发
         });
         wx.uploadFile({
-          url: url, 
+          url: url,
           filePath: tempFilePaths[0],
           name: 'img',
-          header:{
+          header: {
             "content-type": "application/json"
           },
           formData: {
             type: 'image'
           },
-          success (res){
+          success(res) {
             wx.hideLoading()
-            let t=JSON.parse(res.data)
+            let t = JSON.parse(res.data)
             that.setData({
-              imgurl:t.data.url
+              imgurl: t.data.url
             })
           }
         })
@@ -184,7 +212,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.id)
+    var that = this
+    that.setData({
+      groupnum: options.id
+    })
   },
 
   /**

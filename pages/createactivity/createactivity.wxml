@@ -1,5 +1,24 @@
+
 <form>
 	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >活动类别选择：</text>
+		</view>
+	</view>
+  <view class='list-msg'>
+    <view class='list-msg2' bindtap='bindShowMsg'>
+        <text class=" ">{{tihuoWay}}</text>
+        <image style='height:20rpx;width:20rpx;' src='/images/down.png'></image>
+    </view>
+    <cover-view class="select_box" wx:if="{{select}}">
+        <cover-view class="select_one" bindtap="mySelect" data-name="线上游戏" data-id="0">线上游戏</cover-view>
+        <cover-view class="select_one" bindtap="mySelect" data-name="经验分享" data-id="1">经验分享</cover-view>
+        <cover-view class="select_one" bindtap="mySelect" data-name="影视鉴赏" data-id="2">影视鉴赏</cover-view>
+        <cover-view class="select_one" bindtap="mySelect" data-name="美食探店" data-id="3">美食探店</cover-view>
+    </cover-view>
+  </view>
+<!-- <view style="position:relative;top:40rpx"> -->
+	<view class="flex-sub text-left bg-white" >
 		<view class="solid-bottom text-lg padding">
 			<text class="text-black text-bold" >活动标题：</text>
 		</view>
@@ -13,7 +32,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="gettime" placeholder-style="color:white" placeholder="输入内容"></input>
+		<input placeholder="{{id}}" class="" bindinput="gettime" placeholder-style="color:white" placeholder="输入内容(xxxx-xx-xx)"></input>
 	</view>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
@@ -21,7 +40,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getplace" type="number" bindinput="getnum" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getlocation" type="number" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
 	</view>
 	<view class="flex-sub text-left">
 		<view class="solid-bottom text-lg padding">
@@ -42,14 +61,14 @@
 	</view>
 	<view class="cu-bar bg-white margin-top">
 		<view class="action">
-		活动预览图
+			活动预览图
 		</view>
 		<view class="action">
 			{{imgList.length}}/1
 		</view>
 	</view>
 	<view class="cu-form-group">
-		<view class="grid col-4 grid-square flex-sub" >
+		<view class="grid col-4 grid-square flex-sub">
 			<view class="bg-img" style="postion:relative; left:50rpx;" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-id="1" data-url="{{imgList[index]}}">
 				<image src='{{imgList[index]}}' mode='aspectFill'></image>
 				<view class="cu-tag bg-red" catchtap="DelImg" data-id='1' data-index="{{index}}">
@@ -62,11 +81,11 @@
 		</view>
 	</view>
 	<view class="flex">
-  <view class="padding text-lg" style="backgroud-color:blue">活动标签选择：</view>
-	<view wx:for="{{taglist}}" wx:if="{{taglist}}" class="menu-name padding-xs text-blue" wx:if="{{index<3}}">{{item}}</view>
-	<image src="/images/array.png" class="icon" wx:if="{{taglist}}" bindtap="totag"></image>
-</view>
-  <view class="padding text-lg">活动提醒</view>
+		<view class="padding text-lg" style="backgroud-color:blue">活动标签选择：</view>
+		<view wx:for="{{taglist}}" wx:if="{{taglist}}" class="menu-name padding-xs text-blue" wx:if="{{index<3}}">{{item}}</view>
+		<image src="/images/array.png" class="icon" wx:if="{{taglist}}" bindtap="totag"></image>
+	</view>
+	<view class="padding text-lg">活动提醒</view>
 	<view class="flex">
 		<checkbox class="checkbos" bindtap="check" checked="{{check}}"></checkbox>
 		<view class="title padding-xs">活动开始前给参与者发送提醒</view>

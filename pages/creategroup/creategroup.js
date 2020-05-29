@@ -38,7 +38,6 @@ Page({
     // console.log(this.data.imgurl.data.url)
     let url = app.globalData.URL + '/group';
     var data={
-        id: 0,
         name: this.data.name,
         introduction: this.data.area,
         number: this.data.num,
@@ -54,7 +53,7 @@ Page({
            success: function() { 
             setTimeout(function() { 
               wx.navigateTo({
-                url: '/pages/groupdetail/groupdetail',
+                url: '/pages/groupdetail/groupdetail?id='+res.data.data,
               }) 
             }, 2000); 
           }
@@ -130,7 +129,9 @@ Page({
           },
           success (res){
             wx.hideLoading()
+            console.log('upload',res)
             let t=JSON.parse(res.data)
+            console.log(t)
             that.setData({
               imgurl:t.data.url
             })
@@ -154,9 +155,10 @@ Page({
       confirmText: '删除',
       success: res => {
         if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
+          // this.data.imgurl.splice(e.currentTarget.dataset.index, 1);
           this.setData({
-            imgList: this.data.imgList
+            imgurl: '',
+            imgList:[]
           })
         }
       }

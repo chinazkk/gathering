@@ -1,8 +1,8 @@
 <!--pages/groupdetail/groupdetail.wxml-->
-<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="widthFix"></image>
+<image src="{{imgurl}}{{info.image}}" mode="widthFix"></image>
 
 <view class="flex solid-bottom padding-sm justify-between bg-white">
-	<view class=" padding-sm  radius">xxxx</view>
+	<view class=" padding-sm  radius">{{info.name}}</view>
 	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">编辑</view>
 </view>
 <view class="padding-sm bg-white">
@@ -13,12 +13,12 @@
 <view class="bg-white">
 	<view class="padding  flex">
 		<view class="">
-			<view class="content padding-xs">成员数量：</view>
+			<view class="content padding-xs">成员数量：{{}}/{{info.number}}</view>
 			<view class="content padding-xs">小组类别：</view>
-			<view class="content padding-xs">小组简介：</view>
-			<view class="content padding-xs">组织者昵称：</view>
+			<view class="content padding-xs">小组简介：{{info.introduction}}</view>
+			<view class="content padding-xs">组织者昵称：{{info.user.nick}}</view>
 		</view>
-		<view class="cu-avatar touimage margin-top" style="background-image:url({{avatarUrl}})"></view>
+		<view class="cu-avatar touimage margin-top" style="background-image:url({{info.user.avatar}})"></view>
 	</view>
 	<view class="divLine"></view>
 	<view class="padding">

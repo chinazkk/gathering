@@ -8,6 +8,7 @@ Page({
     mygroup: [],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    imgurl:app.globalData.imgurl,
     group: [{
       id: 0,
       name: '123',
@@ -89,7 +90,18 @@ Page({
     })
 
   },
-
+  todetail(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/groupdetail/groupdetail?id='+e.currentTarget.dataset.id,
+    })
+  },
+  toswiperdetail(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/groupdetail/groupdetail?id='+e.currentTarget.dataset.id,
+    })
+  },
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -102,4 +114,7 @@ Page({
     var tmp = e.currentTarget.dataset.id;
 
   },
+  onShow(){
+		this.onLoad()
+	}
 })

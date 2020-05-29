@@ -6,6 +6,18 @@
   position: relative;
   left: 7%;
 }
+.touimage {
+  /* 居中 */
+  margin: 0 auto;  
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 161rpx;
+  height: 161rpx;
+  border-radius: 50%;
+  padding-top: 60rpx;
+  padding-bottom: 60rpx;
+}
 .backcolor{
   background-color:#d8d8d8 ;
 }

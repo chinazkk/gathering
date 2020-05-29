@@ -28,6 +28,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "聚玩 Gathering",
+    "enablePullDownRefresh": true,
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

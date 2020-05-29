@@ -1,3 +1,5 @@
+		<view class="cu-avatar  touimage" style="background-image:url({{avatarUrl}})"></view>
+
 <form>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
@@ -5,7 +7,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getname" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getname"  placeholder-style="color:white" placeholder="{{info.name}}"></input>
 	</view>
 
 	<view class="flex-sub text-left">
@@ -14,7 +16,7 @@
 		</view>
 	</view>
 	<view class="cu-form-group area">
-		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="输入内容（100字以内）"></textarea>
+		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="{{info.introduction}}"></textarea>
 	</view>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
@@ -22,7 +24,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getid" type="number" bindinput="getnum"placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getid" type="number" bindinput="getnum"placeholder-style="color:white" placeholder="{{info.number}}"></input>
 	</view>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
@@ -30,11 +32,11 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getque" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getque" placeholder-style="color:white" placeholder="{{info.question}}"></input>
 	</view>
 	<view class="cu-bar bg-white margin-top">
 		<view class="action">
-		上传图片
+		小组封面图
 		</view>
 		<view class="action">
 			{{imgList.length}}/1
@@ -48,13 +50,13 @@
 					<text class="cuIcon-close"></text>
 				</view>
 			</view>
-			<view class="solids" style="postion:relative; left:30rpx;" bindtap="ChooseImage" data-id='1' wx:if="{{imgList.length<1}}">
+			<view class="solids" style="postion:relative; left:30rpx;" bindtap="uploadpic" data-id='1' wx:if="{{imgList.length<1}}">
 				<text class="cuIcon-cameraadd"></text>
 			</view>
 		</view>
 	</view>
 </form>
 <view class="flex padding">
- <button class="cu-btn radius text-blue padding margin" style="width:150rpx">提交</button>
+ <button class="cu-btn radius text-blue padding margin" style="width:150rpx" bindtap="commit">提交</button>
  <button class="cu-btn radius  text-red  padding margin" style="width:200rpx" bindtap="delgroup">删除该小组</button>
 </view>
