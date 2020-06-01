@@ -8,3 +8,13 @@
   position: relative;
   top:50rpx;
 }
+/* pages/poprank/poprank.wxss */
+.index{
+  font-size: 60rpx;
+  border: 5px solid #d8d8d8 ;
+  border-radius: 80%;
+}
+.img{
+  height: 180rpx;
+  width: 250rpx;
+}

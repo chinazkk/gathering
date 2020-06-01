@@ -9,7 +9,7 @@
   top:50rpx;
 }
 .divLine{
-  margin-top: 5rpx;
+  margin-top: 3rpx;
   background: #c6c8c9;
   width: 120%;
   position: relative;

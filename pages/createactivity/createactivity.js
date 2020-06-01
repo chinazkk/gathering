@@ -81,7 +81,7 @@ Page({
       summarize: this.data.area,
       number: this.data.num,
       image: this.data.imgurl,
-      tags:''
+      tags:'string'
     }
     util.post(url, data).then(function (res) {
       console.log(res.data)

@@ -1,2 +1,22 @@
-<!--pages/videoenjoy/videoenjoy.wxml-->
-<text>pages/videoenjoy/videoenjoy.wxml</text>
+<view class="cu-bar bg-white search " style="top:{{CustomBar}}px">
+	<view class="search-form radius">
+		<text class="cuIcon-search xl" ></text>
+		<input type="text" placeholder="搜索" confirm-type="search" bindinput="getkeyword"></input>
+	</view>
+</view>
+<view class="items text-center">
+	<view class="padding-xs bg-orange">排序</view>
+	<view class="padding-xs bg-{{order==0?'grey':'gray'}}" bindtap="choose" data-id="0">参与人数</view>
+	<view class="padding-xs bg-{{order==1?'grey':'gray'}}" bindtap="choose" data-id="1">最新发布</view>
+
+</view>
+<view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">
+  <view class="flex" bindtap="todetail" data-id="{{item.id}}">
+    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+    <view class="desc">
+      <view class="padding-sm text-bold">{{item.title}}</view>
+      <view class="padding-xs">{{item.time}}</view>
+      <view class="padding-xs">{{item.number}}人已报名/共{{item.number}}个名额</view>
+    </view>
+  </view>
+</view>

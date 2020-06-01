@@ -1,4 +1,5 @@
-// pages/groupdeMate/groupdeMate.js
+const app = getApp();
+var util = require("../../script/utils.js");
 Page({
 
   /**
@@ -7,6 +8,7 @@ Page({
   data: {
     tag:['排序','参与人数','最新发布'],
     tagindex:0,
+    imgurl: app.globalData.imgurl,
   },
   choose(e){
     console.log(e.currentTarget.dataset.id)
@@ -18,7 +20,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this
+    console.log(options.id)
+    this.setData({
+      groupnum:options.id
+    })
+       //小组活动
+       let url = app.globalData.URL + '/group/activity/list';
+       let data = {
+         group_id: options.id,
+         limit: '3',
+         page: '1'
+       }
+       util.get(url, data).then(function (res) {
+         console.log(res.data)
+         that.setData({
+           groupinfo: res.data.data,
+         })
+       })
   },
 
   /**

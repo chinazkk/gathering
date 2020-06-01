@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "线上游戏"
+  "navigationBarTitleText": "线上游戏",
+  "enablePullDownRefresh":true,
+  "onReachBottom":50
 }

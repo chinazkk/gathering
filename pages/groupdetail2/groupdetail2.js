@@ -1,10 +1,24 @@
-// pages/groupdetail/groupdetail.js
+const app = getApp();
+var util = require("../../script/utils.js");
 Page({
   data: {
     isjoin: false,
-    ans:'',
+    ans: '',
     hiddenmodalput: true,
     //可以通过hidden是否掩藏弹出框的属性，来指定那个弹出框  
+    id: '',
+    info: [], //小组信息
+    groupnum: '', //小组编号
+    activityinfo: [], //活动
+    talkinfo: [], //讨论
+    imgurl: app.globalData.imgurl,
+    test: [{
+        avatar: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ervn5p4iczibJjA5ZVRLibE4VwU7IMK9pkuP068LaAcjj7dHJVpuicppFeudLAs3Sj78cgHKUp92lJjaA/132'
+      },
+      {
+        avatar: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ervn5p4iczibJjA5ZVRLibE4VwU7IMK9pkuP068LaAcjj7dHJVpuicppFeudLAs3Sj78cgHKUp92lJjaA/132'
+      }
+    ]
   },
   //点击按钮痰喘指定的hiddenmodalput弹出框  
   modalinput: function () {
@@ -21,29 +35,35 @@ Page({
   },
   //确认  
   confirm: function () {
+    var that=this
     this.setData({
       hiddenmodalput: true
     })
-    // wx.showToast({ 
-    //   title: '你的申请已发送',
-    //    duration: 2000,
-    //    success: function() { 
-    //     setTimeout(function() { 
-    //     }, 2000); 
-    //   }
-    // })
+    let url = app.globalData.URL + '/group/join';
+    var data = {
+      group_id:this.data.groupnum
+    }
+    util.post(url, data).then(function (res) {
+      console.log(res.data)
+      if (res.data.code == 200) {
+        that.setData({
+          isjoin:true
+        })
+        console.log('join success')
+      } 
+    })
     wx.showModal({
       title: '你的申请已发送',
       // content: '这是一个模态弹窗',
-      showCancel:false,
-      success (res) {
+      showCancel: false,
+      success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
-        } 
+        }
       }
     })
   },
-  quitgroup(e){
+  quitgroup(e) {
     wx.showModal({
       title: '退出该小组',
       // content: '确定要删除这张照片吗',
@@ -52,14 +72,14 @@ Page({
       success: res => {
         if (res.confirm) {
           console.log('quit group confirm')
- 
+
         }
       }
     })
   },
-  getans(e){
+  getans(e) {
     this.setData({
-      ans:e.detail.value
+      ans: e.detail.value
     })
   },
   toupdate() {
@@ -69,7 +89,7 @@ Page({
   },
 
   tojoin() {
-    var that=this
+    var that = this
     wx.showModal({
       title: '申请加入该小组',
       // content: '确定要删除这张照片吗',
@@ -88,10 +108,91 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
 
+  toupdate() {
+    wx.navigateTo({
+      url: '/pages/updategroup/updategroup?id=' + this.data.groupnum,
+    })
   },
-
+  tocreate() {
+    wx.navigateTo({
+      url: '/pages/createactivity/createactivity?id=' + this.data.groupnum,
+    })
+  },
+  tojoindetail() {
+    wx.navigateTo({
+      url: '/pages/groupdeMate/groupdeMate?id=' + this.data.groupnum,
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // console.log(options.id)
+    var that = this
+    //小组信息
+    let url = app.globalData.URL + '/group';
+    var data = {
+      id: options.id
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      that.setData({
+        info: res.data.data,
+        groupnum: options.id
+      })
+    })
+    //小组活动
+    url = app.globalData.URL + '/group/activity/list';
+    data = {
+      group_id: options.id,
+      limit: '2',
+      page: '1'
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      that.setData({
+        activityinfo: res.data.data,
+      })
+    })
+    //小组讨论
+    url = app.globalData.URL + '/group/topic/list';
+    data = {
+      group_id: options.id,
+      limit: '3',
+      page: '1'
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      that.setData({
+        talkinfo: res.data.data,
+      })
+    })
+    //小组参与者
+    url = app.globalData.URL + '/groupjoin/user/list';
+    data = {
+      group_id: options.id,
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      that.setData({
+        joininfo: res.data.data,
+      })
+    })
+  },
+  toallact(e) {
+    wx.navigateTo({
+      url: '/pages/groupdAct/groupdAct?id=' + this.data.groupnum,
+    })
+  },
+  toalltalk(e) {
+    wx.navigateTo({
+      url: '/pages/groupdDiscuss/groupdDiscuss?id=' + this.data.groupnum,
+    })
+  },
+  onPullDownRefresh() {
+    this.onLoad()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

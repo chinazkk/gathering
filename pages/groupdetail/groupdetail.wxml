@@ -5,11 +5,14 @@
 	<view class=" padding-sm  radius">{{info.name}}</view>
 	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">编辑</view>
 </view>
-<view class="padding-sm bg-white">
-	<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{ColorList}}" wx:key>
-		<text class="avatar-text">{{item.name}}</text>
+
+	<view class="padding-xs bg-white content flex">
+		<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joininfo}}" wx:key="key" style="background-image:url({{item.avatar}});">
+			<!-- <text class="avatar-text">{{item.avatar}}</text> -->
+		</view>
+		<image wx:if="{{joininfo.length}}" src="/images/array.png" bindtap="tojoindetail" class="icon"></image>
 	</view>
-</view>
+
 <view class="bg-white">
 	<view class="padding  flex">
 		<view class="">
@@ -29,12 +32,23 @@
 </view>
 <view class="flex solid-bottom padding-sm justify-between">
 	<view class=" padding-sm  radius">活动</view>
-	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">查看全部</view>
+	<view class=" padding-sm  radius  text-blue " bindtap="toallact">查看全部</view>
 </view>
-<image src="/images/add2.png" class="img padding " bindtap="tocreate"></image>
-
+<view class="flex menu">
+	<view wx:for="{{activityinfo}}"  class=" padding-sm ">
+		<image src="{{imgurl}}{{item.image}}" class="actimg" mode="aspectFit"></image>
+	</view>
+	<image src="/images/add2.png" class="img padding " bindtap="tocreate"></image>
+</view>
 <view class="flex solid-bottom padding-sm justify-between">
 	<view class=" padding-sm  radius">讨论区</view>
-	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">查看全部</view>
+	<view class=" padding-sm  radius  text-blue " bindtap="toalltalk">查看全部</view>
 </view>
-<text class="padding-xxl  text-gray title2">该小组暂无评论喔</text>
+<view class="padding-xs" wx:for="{{talkinfo}}" wx:if="{{talkinfo}}">
+	<view class="flex padding-sm menu" style="background-color:#d8d8d8">
+		<view class="cu-avatar lg round margin-left" style="background-image:url({{item.user.avatar}})"></view>
+		<view class="pading text-lg margin">{{item.user.nick}}: </view>
+		<view class="pading text-lg ">{{item.content}}</view>
+	</view>
+</view>
+<text class="padding-xxl  text-gray title2" wx:if="{{!talkinfo.length}}">该小组暂无评论喔</text>

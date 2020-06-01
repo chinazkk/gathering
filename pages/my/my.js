@@ -6,25 +6,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    islogin:false,
-    list:[{
-      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
-      name:'asd',
+    islogin: false,
+    list: [{
+        img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+        name: 'asd',
 
-    },
-    {
-      img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
-      name:'asdw',
-      
-    },
-   ],
-   joingroup:[],
-   mycreate:[],
-   joinact:[]
+      },
+      {
+        img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
+        name: 'asdw',
+
+      },
+    ],
+    joingroup: [],
+    mycreate: [],
+    joinact: [],
+    imgurl:app.globalData.imgurl,
   },
 
   login2(e) {
-    var that=this
+    var that = this
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -33,34 +34,41 @@ Page({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               wx.setStorageSync('userInfo', res.userInfo)
+              let url2 = app.globalData.URL + '/user';
+              var data = {
+                // openid: "string",
+                id:wx.getStorageSync('userId'),
+                nick: res.userInfo.nickName,
+                avatar: res.userInfo.avatarUrl,
+                identity: 0,
+                access_right: true,
+                status: 0
+              }
+              util.other(url2, data, 'PUT').then(function (res) {
+                console.log(res.data)
+                if (res.data.code == 200) {
+                  console.log('put info ')
+                }
+              })
+              that.afterlogin()
               app.globalData.nickName = res.userInfo.nickName
               app.globalData.avatarUrl = res.userInfo.avatarUrl
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
+
               console.log(app.globalData.nickName)
               this.setData({
                 nickname: app.globalData.nickName,
-                avatarUrl:app.globalData.avatarUrl,
-                
+                avatarUrl: app.globalData.avatarUrl,
               })
               wx.showToast({
                 title: '登陆成功',
                 duration: 2000,
                 success: function () {
-                  // setTimeout(function () {
-                  //   wx.navigateTo({
-                  //     url: '/pages/myinfo/myinfo',
-                  //   })
-                  // }, 2000);
                   that.setData({
-                    islogin:true
+                    islogin: true
                   })
                 }
               })
-        
+
             }
           })
         }
@@ -68,7 +76,6 @@ Page({
     })
   },
   login(e) {
-
     var that = this
     wx.login({
       success: function (res) {
@@ -91,7 +98,25 @@ Page({
                   that.setData({
                     userInfoAll: res.data.data
                   })
-                  wx.setStorageSync({ //将用户信息存入缓存 名称为userinfo
+
+                  let url2 = app.globalData.URL + '/group';
+                  var data = {
+                    // openid: "string",
+                    id:wx.getStorageSync('userId'),
+                    nick: res.data.data.nickName,
+                    avatar: res.data.data.avatarUrl,
+                    identity: 0,
+                    access_right: true,
+                    status: 0
+                  }
+                  util.other(url2, data, 'PUT').then(function (res) {
+                    console.log(res.data)
+                    if (res.data.code == 200) {
+                      console.log('put info ')
+                    }
+                  })
+
+                  wx.setStorageSync({ //将用户信息存入缓存 名称为userInfo
                     key: "userInfo",
                     data: res.data.data
                   });
@@ -123,15 +148,30 @@ Page({
     })
 
   },
+  afterlogin(){
+    var that=this
+    let url = app.globalData.URL + '/group/list';
+    var data = {
+      limit: '3',
+      page: '1',
+      user_id: wx.getStorageSync('userId'),
+    }
+    util.get(url, data).then(function (res) {
+      that.setData({
+        mygroup: res.data.data
+      })
+    })
+  },  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     console.log(app.globalData.avatarUrl)
-    let t=wx.getStorageSync('userInfo')
+    let t = wx.getStorageSync('userInfo')
     this.setData({
-      avatarUrl:t.avatarUrl
+      avatarUrl: t.avatarUrl
     })
+
   },
 
   /**

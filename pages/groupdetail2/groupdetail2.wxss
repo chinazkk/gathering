@@ -42,5 +42,82 @@
   width: 120rpx;
   position: relative;
   right: 25rpx;
+}
+.touimage {
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  left: 140rpx;
+  top: 40rpx;
+  overflow: hidden;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  /* padding-top: 60rpx;
+  padding-bottom: 60rpx; */
+}
 
+.actimg {
+  height: 200rpx;
+  width: 200rpx;
+
+}
+
+.menu {
+  display: flex;
+  /*弹性布局*/
+  /* justify-content: center; */
+  align-items: center;
+  /* margin-left: 60rpx; */
+}
+
+.align {
+  justify-content: space-between;
+  /* text-align: center; */
+}
+
+.icon {
+  position: relative;
+  /* left: 700rpx;
+  bottom: -15rpx; */
+  top: 30rpx;
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.divLine {
+  margin-top: 5rpx;
+  background: #c6c8c9;
+  width: 90%;
+  position: relative;
+  left: 5%;
+  height: 5rpx;
+}
+
+.title1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 28rpx;
+}
+
+.title2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200rpx;
+  padding-bottom: 200rpx;
+  width: 100%;
+  height: 100%;
+  font-size: 28rpx;
+}
+
+.img {
+  height: 150rpx;
+  width: 150rpx;
+  position: relative;
+  right: 25rpx;
+  margin-left: 40rpx;
 }

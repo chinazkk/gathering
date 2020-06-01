@@ -5,6 +5,7 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    activity:[],
     mygroup: [],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -42,6 +43,9 @@ Page({
       url: '/pages/poprank/poprank',
     })
   },
+  onPullDownRefresh() {
+    this.onLoad()
+  },
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
@@ -76,22 +80,31 @@ Page({
         }
       })
     }
-    let url = app.globalData.URL + '/group/activity/list';
+    let url = app.globalData.URL + '/group/list';
     var data = {
-      limit: '1',
+      limit: '3',
       page: '1',
       user_id: wx.getStorageSync('userId'),
     }
     util.get(url, data).then(function (res) {
-      console.log(res.data)
       that.setData({
         mygroup: res.data.data
       })
     })
-
+    url = app.globalData.URL + '/group/activity/list';
+    data = {
+      limit: '1',
+      page: '3',
+    }
+    util.get(url, data).then(function (res) {
+      // console.log(res.data)
+      that.setData({
+        activity: res.data.data
+      })
+    })
   },
   todetail(e){
-    console.log(e.currentTarget.dataset.id)
+    console.log('index',e.currentTarget.dataset.id)
     wx.navigateTo({
       url: '/pages/groupdetail/groupdetail?id='+e.currentTarget.dataset.id,
     })
@@ -99,7 +112,7 @@ Page({
   toswiperdetail(e){
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/groupdetail/groupdetail?id='+e.currentTarget.dataset.id,
+      url: '/pages/groupdetail2/groupdetail2?id='+e.currentTarget.dataset.id,
     })
   },
   getUserInfo: function (e) {

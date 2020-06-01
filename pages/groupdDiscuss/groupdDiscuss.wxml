@@ -1,8 +1,31 @@
 <view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
 
-  <input class="solid-bottom" placeholder-class="input" bindfocus="InputFocus" bindinput="gettext" bindblur="InputBlur" adjust-position="{{false}}" placeholder="输入内容（字数限制300）" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
-  <view class="action">
-    <!-- <text class="cuIcon-emojifill text-grey"></text> -->
-  </view>
-  <button class="cu-btn bg-grey shadow " style="width:150rpx">提交</button>
+	<input class="solid-bottom" placeholder-class="input" bindfocus="InputFocus" bindinput="gettext" bindblur="InputBlur" adjust-position="{{false}}" placeholder="输入内容（字数限制300）" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+	<view class="action">
+		<!-- <text class="cuIcon-emojifill text-grey"></text> -->
+	</view>
+	<button class="cu-btn bg-grey shadow " style="width:150rpx" bindtap="commit">提交</button>
 </view>
+
+  <view class="cu-list menu-avatar" wx:for="{{talkinfo}}">
+    <view class="cu-item">
+      <view class="cu-avatar round lg" style="background-image:url({{item.user.avatar}});"></view>
+      <view class="content">
+        <view class="text-black text-bold text-lg">{{item.user.nick}} {{item.lasttime}}</view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">
+							<text class="margin-right-xs text-bold ">{{item.content}}</text>
+          </text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <view class="text-cut" bindtap="tothumb" data-index="{{index}}" data-id="{{item.id}}">
+							<text  class="cuIcon-appreciate{{talkinfo[index].thumb==1?'fill':''}} lg pading-xs text-red  margin-right-xs"></text> 
+          </view>
+        </view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs text-xxl ">...</view>
+        <!-- <view class="cu-tag round bg-grey sm">5</view> -->
+      </view>
+    </view>
+  </view>

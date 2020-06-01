@@ -1,14 +1,14 @@
 <!--index.wxml-->
 <view class="padding text-lg">我创建的小组</view>
 <view class="flex">
-	<view wx:for="{{mygroup}}" class="flex" bindtap="todetail" data-id="{{item.id}}">
+	<view wx:for="{{mygroup}}" wx:key="key"  class="flex" bindtap="todetail" data-id="{{item.id}}">
 		<view class="bg-blue margin-sm padding-sm">{{item.name}}</view>
 	</view>
 	<image src="/images/add.png" class="img padding-sm" bindtap="tocreate"></image>
 </view>
 
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-	<swiper-item wx:for="{{mygroup}}" bindtap="toswiperdetail" data-id="{{item.id}}" wx:key>
+	<swiper-item wx:for="{{activity}}" bindtap="toswiperdetail" data-id="{{item.id}}" wx:key="key">
 		<image src="{{imgurl}}{{item.image}}" mode="aspectFill" ></image>
 		<!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
 	</swiper-item>

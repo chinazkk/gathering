@@ -10,3 +10,13 @@
 	<view class="padding-xs bg-{{tagindex==2?'grey':'gray'}}" bindtap="choose" data-id="2">最近添加</view>
 	<view class="padding-xs bg-{{tagindex==3?'grey':'gray'}}" bindtap="choose" data-id="3">按字母排序</view>
 </view>
+<view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">
+  <view class="flex">
+    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+    <view class="desc">
+      <view class="padding-xs text-bold">{{item.title}}</view>
+      <view class="padding-xs">{{item.time}}</view>
+      <view class="padding-xs">{{item.number}}人已报名/共{{item.number}}个名额</view>
+    </view>
+  </view>
+</view>
