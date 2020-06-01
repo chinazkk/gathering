@@ -14,19 +14,19 @@
 	</swiper-item>
 </swiper>
 <view class="menu bg-white">
-	<navigator url="/pages/onlinegame/onlinegame" class="menu-item">
+	<navigator url="/pages/onlinegame/onlinegame" class="menu-item" hover-class="none">
 		<image src="/images/tabbar/线上游戏.png" class="menu-img"></image>
 		<text class="menu-name text-bold">线上游戏</text>
 	</navigator>
-	<navigator url="/pages/experience/experience" class="menu-item">
+	<navigator url="/pages/experience/experience" class="menu-item" hover-class="none">
 		<image src="/images/tabbar/经验分享.png" class="menu-img"></image>
 		<text class="menu-name text-bold">经验分享</text>
 	</navigator>
-	<navigator url="/pages/videoenjoy/videoenjoy" class="menu-item">
+	<navigator url="/pages/videoenjoy/videoenjoy" class="menu-item" hover-class="none">
 		<image src="/images/tabbar/影视鉴赏.png" class="menu-img"></image>
 		<text class="menu-name text-bold">影视鉴赏</text>
 	</navigator>
-	<navigator url="/pages/foodenjoy/foodenjoy" class="menu-item">
+	<navigator url="/pages/foodenjoy/foodenjoy" class="menu-item" hover-class="none">
 		<image src="/images/tabbar/美食探店.png" class="menu-img"></image>
 		<text class="menu-name text-bold">美食探店</text>
 	</navigator>

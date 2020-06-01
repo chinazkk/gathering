@@ -11,6 +11,7 @@
     "pages/experience/experience",
     "pages/videoenjoy/videoenjoy",
     "pages/foodenjoy/foodenjoy",
+    "pages/activityDetail/activityDetail",
     
     "pages/mycollect/mycollect",
     "pages/updateinfo/updateinfo",
