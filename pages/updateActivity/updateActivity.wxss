@@ -1,0 +1,106 @@
+.input {
+  height: 50rpx;
+  padding: 40rpx;
+  /* margin-bottom: 60rpx; */
+  width: 86%;
+  position: relative;
+  left: 7%;
+}
+
+.backcolor {
+  background-color: #d8d8d8;
+}
+
+.area {
+  background-color: #d8d8d8;
+  width: 86%;
+  position: relative;
+  left: 7%;
+}
+
+.icon {
+  position: relative;
+  top: 30rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.menu-name {
+  background-color: #d8d8d8;
+  /* padding: 10rpx; */
+  position: relative;
+  right: 20rpx;
+  margin: 20rpx;
+  /* padding-top: 10rpx;
+  padding-bottom: 10rpx; */
+  text-align: center;
+  font-weight: bold;
+}
+
+.checkbos {
+  transform: scale(0.6, 0.6);
+  /* padding: 20rpx; */
+  padding-right: 10rpx;
+  left: 15rpx;
+  /* top: 15rpx; */
+}
+.list-msg {
+  margin: 0 50rpx;
+  /* background-color: rgb(124, 122, 122); */
+   position: relative; 
+   height: 60rpx;
+  width: 88%;
+  
+}
+
+.list-msg1 {
+  /* height: 60rpx; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-msg .list-msg2 {
+  /* height: 60rpx; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 0 10rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+
+}
+
+.select_box {
+  background-color: #eee;
+  padding: 0 10rpx;
+  width: 97%;
+  /* width: 900rpx; */
+  position: absolute;
+  /* top: 130rpx; */
+  z-index: 1;
+  overflow: hidden;
+  animation: myfirst 0.5s;
+}
+
+@keyframes myfirst {
+  from {
+      height: 0rpx;
+  }
+
+  to {
+      height: 210rpx;/* 设置显示的长度  和效果配合才有效  这个不写也行 */
+  }
+}
+
+.select_one {
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #ccc;
+  width: 88%;
+
+}
+page {
+  background: white;
+}

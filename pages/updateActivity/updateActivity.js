@@ -7,12 +7,12 @@ Page({
    */
   data: {
     imgList: [],
-    type:0,
+    type: 0,
     imgurl: '',
     id: '',
     name: '',
-    select:false,
-    tihuoWay:'未选择类别',
+    select: false,
+    tihuoWay: '未选择类别',
     area: '',
     num: 0,
     location: '',
@@ -22,6 +22,7 @@ Page({
     timenow: '',
     index: null,
     picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
+    imgurl: app.globalData.imgurl
   },
   totag() {
     wx.navigateTo({
@@ -29,28 +30,33 @@ Page({
     })
   },
   getname(e) {
+    let t = 'info.title'
     this.setData({
-      name: e.detail.value
+      [t]: e.detail.value
     })
   },
   gettime(e) {
+    let t = 'info.time'
     this.setData({
-      time: e.detail.value
+      [t]: e.detail.value
     })
   },
   getnum(e) {
+    let t = 'info.number'
     this.setData({
-      num: e.detail.value
+      [t]: e.detail.value
     })
   },
   getlocation(e) {
+    let t = 'info.location'
     this.setData({
-      location: e.detail.value
+      [t]: e.detail.value
     })
   },
   textareaAInput(e) {
+    let t = 'info.summarize'
     this.setData({
-      area: e.detail.value
+      [t]: e.detail.value
     })
   },
   //下拉框
@@ -60,9 +66,10 @@ Page({
     })
   },
   mySelect(e) {
+    let t = 'info.type'
     var name = e.currentTarget.dataset.name
     this.setData({
-      type:e.currentTarget.dataset.id,
+      [t]: e.currentTarget.dataset.id,
       tihuoWay: name,
       select: false
     })
@@ -70,24 +77,25 @@ Page({
 
   commit(e) {
     // console.log(this.data.imgurl.data.url)
-    var that=this
+    var that = this.data.info
     let url = app.globalData.URL + '/group/activity';
     var data = {
-      type: this.data.type,
-      group_id: this.data.groupnum,
-      title: this.data.name,
-      time: this.data.time,
-      location:this.data.location,
-      summarize: this.data.area,
-      number: this.data.num,
-      image: this.data.imgurl,
-      tags:this.data.tagchoose
+      id: that.id,
+      type: that.type,
+      group_id: that.group_id,
+      title: that.title,
+      time: that.time,
+      location: that.location,
+      summarize: that.summarize,
+      number: that.num,
+      image: that.image,
+      tags: 'string'
     }
-    util.post(url, data).then(function (res) {
+    util.other(url, data, 'PUT').then(function (res) {
       console.log(res.data)
       if (res.data.code == 200) {
         wx.showToast({
-          title: '提交成功',
+          title: '修改成功',
           duration: 2000,
           success: function () {
             setTimeout(function () {
@@ -95,7 +103,7 @@ Page({
               //   url: '/pages/groupdetail/groupdetail?id=' + that.data.groupnum,
               // })
               wx.navigateBack({
-                delta: 1,
+                delta: 2,
               })
             }, 2000);
           }
@@ -117,7 +125,57 @@ Page({
       })
     })
   },
-
+  delactivity() {
+    var that = this
+    wx.showModal({
+      title: '删除该活动',
+      // content: '确定要删除这张照片吗',
+      cancelText: '取消',
+      confirmText: '确认',
+      success: res => {
+        if (res.confirm) {
+          let url = app.globalData.URL + '/group/activity';
+          var data = {
+            id:that.data.info.id
+          }
+          console.log('delete act confirm')
+          util.other(url, data, 'DELETE').then(function (res) {
+            console.log(res.data)
+            if (res.data.code == 200) {
+              wx.showToast({
+                title: '删除成功',
+                duration: 2000,
+                success: function () {
+                  setTimeout(function () {
+                    // wx.navigateTo({
+                    //   url: '/pages/groupdetail/groupdetail?id=' + that.data.groupnum,
+                    // })
+                    wx.navigateBack({
+                      delta: 2,
+                    })
+                  }, 2000);
+                }
+              })
+            } else {
+              wx.showToast({
+                title: '提交失败',
+                image: '/img/fail.png',
+                icon: 'success',
+                duration: 2000
+              })
+            }
+          }).catch(function (res) {
+            console.log(res)
+            wx.showToast({
+              title: '提交失败！',
+              icon: 'success',
+              duration: 2000
+            })
+          })
+        }
+      }
+    })
+  },
   ChooseImage() {
     wx.chooseImage({
       count: 1, //默认9
@@ -172,8 +230,9 @@ Page({
           success(res) {
             wx.hideLoading()
             let t = JSON.parse(res.data)
+            let u = 'info.image'
             that.setData({
-              imgurl: t.data.url
+              [u]: t.data.url
             })
           }
         })
@@ -215,9 +274,41 @@ Page({
     console.log(options.id)
     var that = this
     that.setData({
-      groupnum: options.id
+      actid: options.id
     })
-    wx.removeStorageSync('tag')
+    var that = this
+    let url = app.globalData.URL + '/group/activity';
+    var data = {
+      id: options.id
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      let t = res.data.data.image
+      let tmp = that.data.imgList
+      tmp.push(that.data.imgurl + t)
+      let _type = res.data.data.type
+      if (_type == '0')
+        that.setData({
+          tihuoWay: '线上游戏'
+        })
+      else if (_type == '1')
+        that.setData({
+          tihuoWay: '经验分享'
+        })
+      else if (_type == '2')
+        that.setData({
+          tihuoWay: '影视鉴赏'
+        })
+      else if (_type == '3')
+        that.setData({
+          tihuoWay: '美食探店'
+        })
+      that.setData({
+        info: res.data.data,
+        type: _type,
+        imgList: tmp
+      })
+    })
   },
 
   /**
@@ -232,9 +323,10 @@ Page({
    */
   onShow: function () {
     let t=wx.getStorageSync('tag')
+    let n='info.tags'
     console.log(t)
     this.setData({
-      tagchoose:t
+      [n]:t
     })
   },
 

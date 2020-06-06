@@ -167,6 +167,20 @@
 					"id": -1,
 					"name": "小组讨论",
 					"pathName": "pages/groupdDiscuss/groupdDiscuss",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "更新活动",
+					"pathName": "pages/updateActivity/updateActivity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建活动的标签选择",
+					"pathName": "pages/choosetagForAct/choosetagForAct",
 					"scene": null
 				}
 			]

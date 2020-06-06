@@ -1,2 +1,48 @@
-<!--pages/activityDetail/activityDetail.wxml-->
-<text>pages/activityDetail/activityDetail.wxml</text>
+<view class="flex" style="height:200rpx;">
+	<view class="flex">
+		<image src="{{imgurl}}{{groupinfo.image}}" class="img" mode="aspectFit"></image>
+		<view class="desc">
+			<view class="padding-sm text-bold">{{groupinfo.name}}</view>
+			<view class="padding-sm">小组类别：{{actinfo.time}}</view>
+			<view class="padding-sm">剩余活动席位：{{groupinfo.number-joinnum}}</view>
+		</view>
+	</view>
+</view>
+
+<view class="flex solid-bottom padding-sm justify-between margin-top-xl">
+	<view class=" padding-sm  radius text-lg text-boldw">{{actinfo.title}}</view>
+	<view wx:if="{{iscreater}}" class=" padding-sm  radius  text-blue" bindtap="editact">编辑</view>
+	<view wx:else>
+		<view wx:if="{{!isjoin}}" class="flex">
+			<view class=" padding-sm  radius  text-blue " wx:if="{{!iscollect}}" bindtap="tocollect">收藏</view>
+			<view class=" padding-sm  radius  text-grey " wx:else bindtap="cancelcollect">收藏</view>
+			<view class=" padding-sm  radius  text-blue ">|</view>
+			<view class=" padding-sm  radius  text-blue " bindtap="tojoin">参加</view>
+		</view>
+		<view wx:else class=" padding-sm  radius  text-blue" bindtap="quitact">退出该活动</view>
+	</view>
+</view>
+<view class="padding-sm">
+	<view class="padding-xs text-lg text-bold">活动举办时间</view>
+	<view class="padding-xs">{{actinfo.time}}</view>
+	<view class="padding-xs text-lg text-bold">地点/形式</view>
+	<view class="padding-xs ">{{actinfo.location}}</view>
+	<view class="padding-xs text-lg text-bold">组织者</view>
+	<view class="padding-xs">{{actinfo.location}}</view>
+	<view class="padding-xs text-lg text-bold">已报名参加的人</view>
+	<view class="padding-xs content flex">
+		<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joinlist}}" wx:key="key" style="background-image:url({{item.avatar}});">
+			<!-- <text class="avatar-text">{{item.avatar}}</text> -->
+		</view>
+		<view wx:if="{{joinlist.length}}" class="padding-xs">暂无已参加</view>
+	</view>
+	<view class="padding-xs text-lg">活动描述</view>
+	<view class="padding-xs">{{actinfo.summarize}}</view>
+</view>
+<image class="padding" mode="aspectFit" src="{{imgurl}}{{actinfo.image}}"></image>
+
+<view class="content padding text-lg text-bold ">同一小组的其他活动</view>
+<view class="padding-sm" wx:for="{{groupOtherActivity}}">
+	<image class="padding" mode="aspectFit" src="{{imgurl}}{{item.image}}" class="" bindtap="toOtherAct" data-id="{{item.id}}"></image>
+	<view class="padding-sm text-center">{{item.title}}</view>
+</view>

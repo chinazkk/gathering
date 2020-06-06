@@ -41,6 +41,7 @@ Page({
     })
     let url = app.globalData.URL + '/group/join';
     var data = {
+      answer:this.data.ans,
       group_id:this.data.groupnum
     }
     util.post(url, data).then(function (res) {
@@ -72,7 +73,41 @@ Page({
       success: res => {
         if (res.confirm) {
           console.log('quit group confirm')
-
+          let url = app.globalData.URL + '/group/join';
+          let data = {
+            id: this.data.groupnum
+          }
+          util.other(url, data, 'DELETE').then(function (res) {
+            console.log(res.data)
+            if (res.data.code == 200) {
+              wx.showToast({
+                title: '删除',
+                duration: 2000,
+                success: function () {
+                  // setTimeout(function () {
+                  //   wx.switchTab({
+                  //     url: '/pages/index/index',
+                  //   })
+                  // }, 2000);
+                  console.log('quit group success')
+                }
+              })
+            } else {
+              wx.showToast({
+                title: '失败',
+                image: '/images/fail.png',
+                icon: 'success',
+                duration: 2000
+              })
+            }
+          }).catch(function (res) {
+            console.log(res)
+            wx.showToast({
+              title: '提交失败！',
+              icon: 'success',
+              duration: 2000
+            })
+          })
         }
       }
     })
@@ -178,6 +213,26 @@ Page({
       that.setData({
         joininfo: res.data.data,
       })
+    })
+    //判断用户是否加入小组
+    url = app.globalData.URL + '/group/join/list';
+    data = {
+      audit_status:0,
+      limit:6,
+      page:1,
+      user_id:wx.getStorageSync('userId')
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      that.setData({
+        joininfo: res.data.data,
+      })
+    })
+  },
+  toactdetail(e)
+  {
+    wx.navigateTo({
+      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
     })
   },
   toallact(e) {

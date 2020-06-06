@@ -11,7 +11,7 @@
 	<view class="padding-xs bg-{{tagindex==3?'grey':'gray'}}" bindtap="choose" data-id="3">按字母排序</view>
 </view>
 <view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">
-  <view class="flex">
+  <view class="flex"  bindtap="toactdetail" data-id="{{item.id}}">
     <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
     <view class="desc">
       <view class="padding-xs text-bold">{{item.title}}</view>

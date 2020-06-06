@@ -43,7 +43,7 @@
 	<view class=" padding-sm  radius  text-blue " bindtap="toallact">查看全部</view>
 </view>
 <view class="flex menu">
-	<view wx:for="{{activityinfo}}" class=" padding-sm ">
+	<view wx:for="{{activityinfo}}" class=" padding-sm " bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="actimg" mode="aspectFit"></image>
 	</view>
 	<image src="/images/add2.png" class="img padding " bindtap="tocreate"></image>

@@ -2,7 +2,9 @@
 <view class="padding content text-bold text-xl">活动标签选择:</view>
 
 <view class="menu">
-	<view class="menu-item padding" wx:for="{{taglist}}">
-		<text class="menu-name">{{item}}</text>
+	<view class="menu-item padding" wx:for="{{tags}}">
+		<text class="menu-name bg-{{tagindex==index?'orange':''}}" bindtap="choosetag" data-id="{{index}}" >{{item}}</text>
 	</view>
 </view>
+
+<button class=" text-blue cu-btn center margin-top" bindtap="tosearch" style="width:150rpx; background-color:#d8d8d8;">搜索</button>

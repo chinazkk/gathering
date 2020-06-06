@@ -1,13 +1,67 @@
-// pages/explore/explore.js
+const app = getApp();
+var util = require("../../script/utils.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    needflesh:true,
+    currentpage: 1, //当前页数
+    fleshlimit: '7', //每次刷新页数
+    info:[],
+    imgurl: app.globalData.imgurl
   },
-
+  getkeyword(e) {
+    this.setData({
+      keyword: e.detail.value
+    })
+    this.flesh()
+  },
+  //搜索刷新 或 选择刷新
+  flesh() {
+    var that = this
+    let url = app.globalData.URL + '/group/activity/list';
+    let data = {
+      keyword: that.data.keyword,
+      limit: that.data.fleshlimit,
+      page: that.data.currentpage
+    }
+    util.get(url, data).then(function (res) {
+      console.log('flesh', res.data)
+      that.setData({
+        info: res.data.data,
+      })
+    })
+  },
+  onReachBottom: function () {
+    var that = this
+    if (that.data.needflesh) {
+      console.log("上拉刷新")
+      let url = app.globalData.URL + '/group/activity/list';
+      let data = {
+        keyword: that.data.keyword,
+        limit: that.data.fleshlimit,
+        page: that.data.currentpage+1
+      }
+      util.get(url, data).then(function (res) {
+        console.log('flesh', res.data)
+        if (!res.data.data.length) {
+          that.setData({
+            needflesh: false
+          })
+        } else {
+          let tmp = that.data.info
+          for (let i of res.data.data)
+            tmp.push(i)
+          that.setData({
+            info: tmp,
+            currentpage: that.data.currentpage + 1
+          })
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

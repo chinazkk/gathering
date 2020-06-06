@@ -73,7 +73,6 @@ Page({
   },
 
   choose(e) {
-    console.log(e.currentTarget.dataset.id)
     this.setData({
       tagindex: e.currentTarget.dataset.id
     })

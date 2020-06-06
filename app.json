@@ -21,10 +21,12 @@
     "pages/groupdetail/groupdetail",
     "pages/groupdetail2/groupdetail2",
     "pages/choosetag/choosetag",
+    "pages/choosetagForAct/choosetagForAct",
     "pages/groupdeMate/groupdeMate",
     "pages/groupdAct/groupdAct",
     "pages/groupdDiscuss/groupdDiscuss",
-    "pages/updategroup/updategroup"
+    "pages/updategroup/updategroup",
+    "pages/updateActivity/updateActivity"
 
   ],
   "window": {

@@ -30,12 +30,11 @@ Page({
    */
   onLoad: function (options) {
     var that=this
-    let url = app.globalData.URL + '/group/list';
+    let url = app.globalData.URL + '/group/activity/list';
     var data = {
-      limit: '5',
+      limit: '7',
       page: '1',
-      isHot:'1',
-      user_id: wx.getStorageSync('userId'),
+      isHot:'1'
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
@@ -44,7 +43,12 @@ Page({
       })
     })
   },
-
+  toactdetail(e)
+  {
+    wx.navigateTo({
+      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

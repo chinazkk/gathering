@@ -1,1 +1,47 @@
-/* pages/explore/explore.wxss */
+.items{
+  height: 80rpx;
+  position: fixed;
+  right: 50rpx;
+  top: 120rpx;
+}
+.item{
+  position: relative;
+  top:50rpx;
+}
+/* pages/poprank/poprank.wxss */
+.index{
+  font-size: 60rpx;
+  border: 5px solid #d8d8d8 ;
+  border-radius: 80%;
+}
+.img{
+  height: 180rpx;
+  width: 250rpx;
+}
+.menu {
+  display: flex; /*弹性布局*/
+  flex-wrap: wrap; /*允许换行*/
+}
+.menu-item {
+  width: 25%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu-name {
+  background-color: #d8d8d8;
+  padding: 10rpx;
+  /* padding-top: 10rpx;
+  padding-bottom: 10rpx; */
+  text-align: center;
+  font-weight: bold;
+}
+.center{
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="padding text-lg">我创建的小组</view>
 <view class="flex">
-	<view wx:for="{{mygroup}}" wx:key="key"  class="flex" bindtap="todetail" data-id="{{item.id}}">
+	<view wx:for="{{mygroup}}" wx:key="key" class="flex" bindtap="todetail" data-id="{{item.id}}">
 		<view class="bg-blue margin-sm padding-sm">{{item.name}}</view>
 	</view>
 	<image src="/images/add.png" class="img padding-sm" bindtap="tocreate"></image>
@@ -9,7 +9,7 @@
 
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
 	<swiper-item wx:for="{{activity}}" bindtap="toswiperdetail" data-id="{{item.id}}" wx:key="key">
-		<image src="{{imgurl}}{{item.image}}" mode="aspectFill" ></image>
+		<image src="{{imgurl}}{{item.image}}" mode="aspectFill"></image>
 		<!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
 	</swiper-item>
 </swiper>
@@ -38,38 +38,20 @@
 		<image class="icon2" src="/images/array.png"></image>
 	</view>
 </view>
-
-<view>
-	<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="widthFix">
-	</image>
-	<view class="padding bg-white">
-		<text class="cu-bar-title text-bold text-black ">标题</text>
-	</view>
-	<!-- <view class="flex bg-white padding-sm">
-		<text class="text-left">x人已报名/x个名额</text>
-		<text class="text-right">距离报名截止日期还有x天</text>
-	</view> -->
-	<view class="bg-white padding ">
-		<text class="cu-bar-title text-bold text-black ">x人已报名/x个名额</text>
-		<text class="text-black right">距离报名截止日期还有x天</text>
+<view wx:for="{{hotactivity}}">
+	<view bindtap="toactdetail" data-id="{{item.id}}">
+		<image src="{{imgurl}}{{item.image}}" mode="aspectFit">
+		</image>
+		<view class="padding-sm padding-left bg-white">
+			<text class="cu-bar-title text-bold text-black text-lg ">{{item.title}}</text>
+		</view>
+		<view class="bg-white padding ">
+			<text class="cu-bar-title text-bold text-black ">x人已报名/{{item.number}}个名额</text>
+			<text class="text-black right">距离报名截止日期还有{{item.lasttime}}天</text>
+		</view>
 	</view>
 </view>
 
-<view>
-	<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="widthFix">
-	</image>
-	<view class="padding bg-white">
-		<text class="cu-bar-title text-bold text-black ">标题</text>
-	</view>
-	<!-- <view class="flex bg-white padding-sm">
-		<text class="text-left">x人已报名/x个名额</text>
-		<text class="text-right">距离报名截止日期还有x天</text>
-	</view> -->
-	<view class="bg-white padding ">
-		<text class="cu-bar-title text-bold text-black ">x人已报名/x个名额</text>
-		<text class="text-black right">距离报名截止日期还有x天</text>
-	</view>
-</view>
 <!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>

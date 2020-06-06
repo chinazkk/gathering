@@ -64,7 +64,7 @@
 	<view class="text-left padding text-bold text-lg">我创建的小组：</view>
 	<view wx:if="{{mygroup}}" wx:for="{{mygroup}}">
 		<view class="flex">
-			<image src="{{imgurl}}{{item.img}}" class="img padding"></image>
+			<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 			<view class="desc">
 				<view class="padding-sm">{{item.name}}</view>
 				<view class="padding-sm">{{item.name}}</view>

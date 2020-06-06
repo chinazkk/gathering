@@ -21,7 +21,7 @@ Page({
     joingroup: [],
     mycreate: [],
     joinact: [],
-    imgurl:app.globalData.imgurl,
+    imgurl: app.globalData.imgurl,
   },
 
   login2(e) {
@@ -37,7 +37,7 @@ Page({
               let url2 = app.globalData.URL + '/user';
               var data = {
                 // openid: "string",
-                id:wx.getStorageSync('userId'),
+                id: wx.getStorageSync('userId'),
                 nick: res.userInfo.nickName,
                 avatar: res.userInfo.avatarUrl,
                 identity: 0,
@@ -102,7 +102,7 @@ Page({
                   let url2 = app.globalData.URL + '/group';
                   var data = {
                     // openid: "string",
-                    id:wx.getStorageSync('userId'),
+                    id: wx.getStorageSync('userId'),
                     nick: res.data.data.nickName,
                     avatar: res.data.data.avatarUrl,
                     identity: 0,
@@ -148,8 +148,8 @@ Page({
     })
 
   },
-  afterlogin(){
-    var that=this
+  afterlogin() {
+    var that = this
     let url = app.globalData.URL + '/group/list';
     var data = {
       limit: '3',
@@ -161,17 +161,21 @@ Page({
         mygroup: res.data.data
       })
     })
-  },  
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this
     console.log(app.globalData.avatarUrl)
     let t = wx.getStorageSync('userInfo')
-    this.setData({
-      avatarUrl: t.avatarUrl
-    })
-
+    if (t) {
+      this.setData({
+        avatarUrl: t.avatarUrl,
+        islogin: true
+      })
+    }
+    that.afterlogin()
   },
 
   /**

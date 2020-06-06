@@ -1,15 +1,18 @@
 const app = getApp();
 var util = require("../../script/utils.js");
-
+var time = require("../../script/time.js");
 Page({
   data: {
     motto: 'Hello World',
+    fleshpage: '3',
+    currentpage: 1,
     userInfo: {},
-    activity:[],
+    activity: [],
     mygroup: [],
+    hotactivity: [],
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    imgurl:app.globalData.imgurl,
+    imgurl: app.globalData.imgurl,
     group: [{
       id: 0,
       name: '123',
@@ -80,9 +83,10 @@ Page({
         }
       })
     }
+    //获取我的小组
     let url = app.globalData.URL + '/group/list';
     var data = {
-      limit: '3',
+      limit: '4',
       page: '1',
       user_id: wx.getStorageSync('userId'),
     }
@@ -91,10 +95,11 @@ Page({
         mygroup: res.data.data
       })
     })
+    //获取首页轮播图
     url = app.globalData.URL + '/group/activity/list';
     data = {
-      limit: '1',
-      page: '3',
+      limit: '3',
+      page: '1',
     }
     util.get(url, data).then(function (res) {
       // console.log(res.data)
@@ -102,17 +107,36 @@ Page({
         activity: res.data.data
       })
     })
+    //获取人气总榜
+    url = app.globalData.URL + '/group/activity/list';
+    data = {
+      limit: '3',
+      page: '1',
+      isHot: '1'
+    }
+    util.get(url, data).then(function (res) {
+      // console.log(res.data)
+      let tmp = res.data.data
+      for (let i of tmp) {
+        i.lasttime = time.formatMsgTime(i.time)
+
+      }
+      that.setData({
+        hotactivity: tmp
+      })
+    })
+    
   },
-  todetail(e){
-    console.log('index',e.currentTarget.dataset.id)
+  todetail(e) {
+    console.log('index', e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/groupdetail/groupdetail?id='+e.currentTarget.dataset.id,
+      url: '/pages/groupdetail/groupdetail?id=' + e.currentTarget.dataset.id,
     })
   },
-  toswiperdetail(e){
+  toswiperdetail(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/groupdetail2/groupdetail2?id='+e.currentTarget.dataset.id,
+      url: '/pages/groupdetail2/groupdetail2?id=' + e.currentTarget.dataset.id,
     })
   },
   getUserInfo: function (e) {
@@ -123,11 +147,17 @@ Page({
       hasUserInfo: true
     })
   },
+  toactdetail(e)
+  {
+    wx.navigateTo({
+      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+    })
+  },
   jump(e) {
     var tmp = e.currentTarget.dataset.id;
 
   },
-  onShow(){
-		this.onLoad()
-	}
+  onShow() {
+    this.onLoad()
+  }
 })

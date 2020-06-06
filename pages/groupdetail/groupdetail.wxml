@@ -6,12 +6,12 @@
 	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">编辑</view>
 </view>
 
-	<view class="padding-xs bg-white content flex">
-		<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joininfo}}" wx:key="key" style="background-image:url({{item.avatar}});">
-			<!-- <text class="avatar-text">{{item.avatar}}</text> -->
-		</view>
-		<image wx:if="{{joininfo.length}}" src="/images/array.png" bindtap="tojoindetail" class="icon"></image>
+<view class="padding-xs bg-white content flex">
+	<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joininfo}}" wx:key="key" style="background-image:url({{item.avatar}});">
+		<!-- <text class="avatar-text">{{item.avatar}}</text> -->
 	</view>
+	<image wx:if="{{joininfo.length}}" src="/images/array.png" bindtap="tojoindetail" class="icon"></image>
+</view>
 
 <view class="bg-white">
 	<view class="padding  flex">
@@ -35,7 +35,7 @@
 	<view class=" padding-sm  radius  text-blue " bindtap="toallact">查看全部</view>
 </view>
 <view class="flex menu">
-	<view wx:for="{{activityinfo}}"  class=" padding-sm ">
+	<view wx:for="{{activityinfo}}" class="padding-sm" bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="actimg" mode="aspectFit"></image>
 	</view>
 	<image src="/images/add2.png" class="img padding " bindtap="tocreate"></image>

@@ -1,0 +1,15 @@
+  <view class="padding content text-bold text-xl">活动标签选择:</view>
+
+  <!-- <view class="comment-btn">
+  	<button wx:for="{{tags}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" class="btn {{item.selected ? 'btn-selected' : ''}}">
+  		{{item.title}}
+  	</button>
+  </view> -->
+
+<view class="menu">
+	<view class="menu-item padding-xs" wx:for="{{tags}}">
+		<text bindtap="checkboxChange" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}"  class="menu-name btn {{item.selected ? 'btn-selected' : ''}}" >{{item.title}}</text>
+	</view>
+</view>
+
+	<button class=" text-blue cu-btn center margin-top" bindtap="finish" style="width:150rpx; background-color:#d8d8d8;">完成</button>

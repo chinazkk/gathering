@@ -90,6 +90,12 @@ Page({
       })
     })
   },
+  toactdetail(e)
+  {
+    wx.navigateTo({
+      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+    })
+  },
   toallact(e){
     wx.navigateTo({
       url: '/pages/groupdAct/groupdAct?id='+this.data.groupnum,

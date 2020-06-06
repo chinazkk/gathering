@@ -1,14 +1,14 @@
 <!--pages/poprank/poprank.wxml-->
-<view wx:for="{{hotgroup}}" class="flex" style="height:200rpx;">
+<view wx:for="{{hotgroup}}" class="flex" style="height:200rpx;" bindtap="toactdetail" data-id="{{item.id}}">
 	<view class="indexs padding">
-		<view class="index padding text-grey">{{index}}</view>
+		<view class="index padding text-grey">{{index+1}}</view>
 	</view>
   <view class="flex">
-    <image src="{{imgurl}}{{item.image}}" class="img"></image>
+    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
     <view class="desc">
-      <view class="padding-xs">{{item.name}}</view>
-      <view class="padding-xs">{{item.name}}</view>
-      <view class="padding-xs">{{item.number}}人已报名/共{{item.name}}个名额</view>
+      <view class="padding-xs text-xl">{{item.title}}</view>
+      <view class="padding-xs">{{item.time}}</view>
+      <view class="padding-xs">{{item.number}}人已报名/共{{item.number}}个名额</view>
     </view>
   </view>
 </view>

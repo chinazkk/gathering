@@ -19,11 +19,17 @@ Page({
     util.get(url, {}).then(function (res) {
       console.log(res.data)
       that.setData({
-        tags: res.data.data
+        tags: res.data.data.tags
       })
     })
   },
-
+  choosetag(e)
+  {
+    // console.log(e.currentTarget.dataset.id)
+    this.setData({
+      tagindex:e.currentTarget.dataset.id
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

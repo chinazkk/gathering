@@ -6,5 +6,5 @@
 }
 .img{
   height: 180rpx;
-  width: 300rpx;
+  width: 250rpx;
 }
