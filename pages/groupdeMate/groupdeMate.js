@@ -82,6 +82,11 @@ Page({
       modalName: null
     })
   },
+  touserinfo(e){
+    wx.navigateTo({
+      url: '/pages/viewUserInfo/viewUserInfo?id='+e.currentTarget.dataset.id,
+    })
+  },
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target

@@ -1,0 +1,81 @@
+
+
+	<view class="bg-white">
+		<view class="cu-avatar  touimage margin-top" style="background-image:url({{avatarUrl}})"></view>
+		<navigator url="/pages/updateinfo/updateinfo" class="text-blue padding update">编辑</navigator>
+
+
+		<view class="text-center text-bold padding-top">{{nickname}}</view>
+		<view class="text-center text-bold ">位置</view>
+		<view class="text-center text-bold ">简介：</view>
+		<view class="text-center text-bold ">兴趣标签</view>
+	</view>
+
+
+	<view class="padding ">
+		<view class="text-left padding text-bold text-lg">他创建的小组：</view>
+		<view wx:if="{{mycreategroup}}" wx:for="{{mycreategroup}}">
+			<view class="flex" bindtap="toactdetail"  data-id="{{item.id}}"> 
+				<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
+				<view class="desc">
+					<view class="padding-sm">{{item.name}}</view>
+					<view class="padding-sm">现有参与者人数：{{item.applicantNum}}</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{!list}}">
+			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		</view>
+		<view class="divLine"></view>
+	</view>
+
+	<view class="padding ">
+		<view class="text-left padding text-bold text-lg">他加入的小组：</view>
+		<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}">
+			<view class="flex" bindtap="toactdetail2"  data-id="{{item.id}}">
+				<image src="{{imgurl}}{{item.image}}" class="img padding"></image>
+				<view class="desc">
+					<view class="padding-sm">{{item.name}}</view>
+					<view class="padding-sm">{{item.name}}</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{!joingroup.length}}">
+			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		</view>
+		<view class="divLine"></view>
+	</view>
+
+	<view class="padding ">
+		<view class="text-left padding text-bold text-lg">他创建的活动：</view>
+		<view wx:if="{{mycreate}}" wx:for="{{mycreate}}">
+			<view class="flex">
+				<image src="{{item.image}}" class="img padding"></image>
+				<view class="desc">
+					<view class="padding-sm">{{item.name}}</view>
+					<view class="padding-sm">{{item.name}}</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{!mycreate.length}}">
+			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		</view>
+		<view class="divLine"></view>
+	</view>
+
+	<view class="padding ">
+		<view class="text-left padding text-bold text-lg">他加入的活动：</view>
+		<view wx:if="{{joinact}}" wx:for="{{joinact}}">
+			<view class="flex">
+				<image src="{{item.image}}" class="img padding"></image>
+				<view class="desc">
+					<view class="padding-sm">{{item.name}}</view>
+					<view class="padding-sm">{{item.name}}</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{!joinact.length}}">
+			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		</view>
+		<view class="divLine"></view>
+	</view>

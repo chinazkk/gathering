@@ -6,15 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    taglist:['#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx','#xxxx',],
-    tags:[]
+    taglist: ['#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', '#xxxx', ],
+    tags: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this
+    var that = this
     let url = app.globalData.URL + '/admin/tag';
     util.get(url, {}).then(function (res) {
       console.log(res.data)
@@ -23,11 +23,16 @@ Page({
       })
     })
   },
-  choosetag(e)
-  {
+  choosetag(e) {
     // console.log(e.currentTarget.dataset.id)
     this.setData({
-      tagindex:e.currentTarget.dataset.id
+      tagindex: e.currentTarget.dataset.id
+    })
+  },
+  tosearch() {
+    wx.setStorageSync('searchTag', this.data.tagindex)
+    wx.navigateBack({
+      delta: 1
     })
   },
   /**

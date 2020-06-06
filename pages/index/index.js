@@ -119,7 +119,6 @@ Page({
       let tmp = res.data.data
       for (let i of tmp) {
         i.lasttime = time.formatMsgTime(i.time)
-
       }
       that.setData({
         hotactivity: tmp

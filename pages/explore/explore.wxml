@@ -1,25 +1,40 @@
 <view class="cu-bar bg-white search " style="top:{{CustomBar}}px">
-  <view class="search-form radius">
-    <text class="cuIcon-search xl" ></text>
-    <input type="text"   placeholder="搜索" confirm-type="search" bindinput="getkeyword"></input>
-  </view>
+	<view class="search-form radius">
+		<text class="cuIcon-search xl" ></text>
+		<input type="text" placeholder="搜索" confirm-type="search" bindinput="getkeyword"></input>
+	</view>
 </view>
 <view class="flex solid-bottom padding-sm justify-between bg-white">
-	<view class=" padding-xs text-bold  radius">热门标签</view>
+	<view class=" padding-xs text-bold  radius text-lg">热门标签</view>
 	<navigator url="/pages/choosetag/choosetag" class="padding-xs  radius  text-blue " bindtap="toupdate">全部</navigator>
 </view>
 <view class="menu">
-	<view class="menu-item padding" wx:for="{{tags}}">
-		<text class="menu-name bg-{{tagindex==index?'orange':''}}" bindtap="choosetag" data-id="{{index}}" >{{item}}</text>
+	<view class="menu-item padding" wx:for="{{tags}}" wx:if="{{index<6}}">
+		<text class="menu-name text-{{tagindex==index?'orange':''}} bg-{{tagindex==index?'orange':''}}" bindtap="choosetag" data-id="{{index}}" >{{item}}</text>
 	</view>
 </view>
-<view wx:for="{{info}}" class="flex" style="height:200rpx;">
-  <view class="flex" bindtap="todetail" data-id="{{item.id}}">
-    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
-    <view class="desc">
-      <view class="padding-sm text-bold">{{item.title}}</view>
-      <view class="padding-xs">{{item.time}}</view>
-      <view class="padding-xs">{{item.number}}人已报名/共{{item.number}}个名额</view>
-    </view>
-  </view>
-</view>
+<block wx:if="{{!issearch}}">
+  <view class="padding content text-bold text-lg">即将到来的活动</view>
+	<view wx:for="{{lastactivity}}" class="flex" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">
+		<view class="flex">
+			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+			<view class="desc">
+				<view class="padding-sm text-bold">{{item.title}}</view>
+				<view class="padding-xs">{{item.time}}</view>
+				<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
+			</view>
+		</view>
+	</view>
+</block>
+<block wx:else>
+	<view wx:for="{{info}}" class="flex" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">
+		<view class="flex" >
+			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+			<view class="desc">
+				<view class="padding-sm text-bold">{{item.title}}</view>
+				<view class="padding-xs">{{item.time}}</view>
+				<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
+			</view>
+		</view>
+	</view>
+</block>

@@ -26,7 +26,8 @@
     "pages/groupdAct/groupdAct",
     "pages/groupdDiscuss/groupdDiscuss",
     "pages/updategroup/updategroup",
-    "pages/updateActivity/updateActivity"
+    "pages/updateActivity/updateActivity",
+    "pages/viewUserInfo/viewUserInfo"
 
   ],
   "window": {

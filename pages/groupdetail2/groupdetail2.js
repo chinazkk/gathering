@@ -212,6 +212,7 @@ Page({
       console.log(res.data)
       that.setData({
         joininfo: res.data.data,
+        joinnum: res.data.data.length
       })
     })
     //判断用户是否加入小组

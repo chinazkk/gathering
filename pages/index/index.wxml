@@ -46,7 +46,7 @@
 			<text class="cu-bar-title text-bold text-black text-lg ">{{item.title}}</text>
 		</view>
 		<view class="bg-white padding ">
-			<text class="cu-bar-title text-bold text-black ">x人已报名/{{item.number}}个名额</text>
+			<text class="cu-bar-title text-bold text-black ">{{item.applicantNum}}人已报名/{{item.number}}个名额</text>
 			<text class="text-black right">距离报名截止日期还有{{item.lasttime}}天</text>
 		</view>
 	</view>

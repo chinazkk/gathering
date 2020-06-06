@@ -7,17 +7,18 @@ Page({
    */
   data: {
     id: '',
-    info: [],//小组信息
-    groupnum: '',//小组编号
-    activityinfo: [],//活动
-    talkinfo: [],//讨论
+    info: [], //小组信息
+    groupnum: '', //小组编号
+    activityinfo: [], //活动
+    talkinfo: [], //讨论
     imgurl: app.globalData.imgurl,
-    test:[{
-      avatar:'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ervn5p4iczibJjA5ZVRLibE4VwU7IMK9pkuP068LaAcjj7dHJVpuicppFeudLAs3Sj78cgHKUp92lJjaA/132'
-    },
-    {
-      avatar:'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ervn5p4iczibJjA5ZVRLibE4VwU7IMK9pkuP068LaAcjj7dHJVpuicppFeudLAs3Sj78cgHKUp92lJjaA/132'
-    }]
+    test: [{
+        avatar: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ervn5p4iczibJjA5ZVRLibE4VwU7IMK9pkuP068LaAcjj7dHJVpuicppFeudLAs3Sj78cgHKUp92lJjaA/132'
+      },
+      {
+        avatar: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ervn5p4iczibJjA5ZVRLibE4VwU7IMK9pkuP068LaAcjj7dHJVpuicppFeudLAs3Sj78cgHKUp92lJjaA/132'
+      }
+    ]
   },
   toupdate() {
     wx.navigateTo({
@@ -29,7 +30,7 @@ Page({
       url: '/pages/createactivity/createactivity?id=' + this.data.groupnum,
     })
   },
-  tojoindetail(){
+  tojoindetail() {
     wx.navigateTo({
       url: '/pages/groupdeMate/groupdeMate?id=' + this.data.groupnum,
     })
@@ -87,23 +88,23 @@ Page({
       console.log(res.data)
       that.setData({
         joininfo: res.data.data,
+        joinnum: res.data.data.length
       })
     })
   },
-  toactdetail(e)
-  {
+  toactdetail(e) {
     wx.navigateTo({
-      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+      url: '/pages/activityDetail/activityDetail?id=' + e.currentTarget.dataset.id,
     })
   },
-  toallact(e){
+  toallact(e) {
     wx.navigateTo({
-      url: '/pages/groupdAct/groupdAct?id='+this.data.groupnum,
+      url: '/pages/groupdAct/groupdAct?id=' + this.data.groupnum,
     })
   },
-  toalltalk(e){
+  toalltalk(e) {
     wx.navigateTo({
-      url: '/pages/groupdDiscuss/groupdDiscuss?id='+this.data.groupnum,
+      url: '/pages/groupdDiscuss/groupdDiscuss?id=' + this.data.groupnum,
     })
   },
   /**
