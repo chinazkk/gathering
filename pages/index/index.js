@@ -1,6 +1,7 @@
 const app = getApp();
 var util = require("../../script/utils.js");
 var time = require("../../script/time.js");
+const sigUtils = require('../../utils/sigUtils.js')
 Page({
   data: {
     motto: 'Hello World',
@@ -85,11 +86,12 @@ Page({
     }
     //获取我的小组
     let url = app.globalData.URL + '/group/list';
-    var data = {
+    var data = sigUtils.genSig('GET', url,
+    {
       limit: '4',
       page: '1',
       user_id: wx.getStorageSync('userId'),
-    }
+    })
     util.get(url, data).then(function (res) {
       that.setData({
         mygroup: res.data.data
