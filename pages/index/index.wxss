@@ -59,6 +59,9 @@
   position: relative;
   top: 10rpx;
 }
+.imglimit{
+  height: 250rpx;
+}
 .icon2 {
   position: relative;
   width: 40rpx;

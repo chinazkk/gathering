@@ -1,4 +1,5 @@
-// pages/mycollect/mycollect.js
+const app = getApp();
+var util = require("../../script/utils.js");
 Page({
 
   /**
@@ -40,7 +41,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that=this
+    //获取我的小组
+    let url = app.globalData.URL + '/group/collection/list';
+    var data = {
+      limit: '6',
+      page: '1',
+    }
+    util.get(url, data).then(function (res) {
+      that.setData({
+        collect: res.data
+      })
+    })
   },
 
   /**

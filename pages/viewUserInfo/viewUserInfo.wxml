@@ -2,7 +2,7 @@
 
 	<view class="bg-white">
 		<view class="cu-avatar  touimage margin-top" style="background-image:url({{avatarUrl}})"></view>
-		<navigator url="/pages/updateinfo/updateinfo" class="text-blue padding update">编辑</navigator>
+		<navigator url="/pages/updateinfo/updateinfo" class="text-blue padding update">私信</navigator>
 
 
 		<view class="text-center text-bold padding-top">{{nickname}}</view>

@@ -39,10 +39,10 @@
 	<view class="padding-xs text-lg">活动描述</view>
 	<view class="padding-xs">{{actinfo.summarize}}</view>
 </view>
-<image class="padding" mode="aspectFit" src="{{imgurl}}{{actinfo.image}}"></image>
+<image class="padding imglimit" mode="aspectFit" src="{{imgurl}}{{actinfo.image}}"></image>
 
 <view class="content padding text-lg text-bold ">同一小组的其他活动</view>
 <view class="padding-sm" wx:for="{{groupOtherActivity}}">
-	<image class="padding" mode="aspectFit" src="{{imgurl}}{{item.image}}" class="" bindtap="toOtherAct" data-id="{{item.id}}"></image>
+	<image class="padding" mode="aspectFit" src="{{imgurl}}{{item.image}}" class="imglimit" bindtap="toOtherAct" data-id="{{item.id}}"></image>
 	<view class="padding-sm text-center">{{item.title}}</view>
 </view>

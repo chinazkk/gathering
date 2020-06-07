@@ -1,4 +1,5 @@
-// pages/message/message.js
+const app = getApp();
+var util = require("../../script/utils.js");
 Page({
 
   /**
@@ -12,7 +13,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that=this
+    //获取我的小组
+    let url = app.globalData.URL + '/inform/list';
+    var data = {
+      limit: '6',
+      page: '1',
+    }
+    util.get(url, data).then(function (res) {
+      that.setData({
+        message: res.data.data
+      })
+    })
   },
 
   /**

@@ -22,3 +22,6 @@
   width: 600rpx;
   height: 300rpx;
 }
+.imglimit{
+  height: 250rpx;
+}
