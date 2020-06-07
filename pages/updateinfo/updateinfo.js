@@ -89,6 +89,44 @@ Page({
       })
     })
   },
+  
+  uploadpic() {
+    var that = this
+
+    let url = app.globalData.URL + '/user/img';
+    wx.chooseImage({
+      success(res) {
+        const tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths[0])
+        that.setData({
+          imgList: res.tempFilePaths
+        })
+        wx.showLoading({
+          title: '上传中...',
+          mask: true //显示触摸蒙层  防止事件穿透触发
+        });
+        wx.uploadFile({
+          url: url,
+          filePath: tempFilePaths[0],
+          name: 'img',
+          header: {
+            "content-type": "application/json"
+          },
+          formData: {
+            type: 'image'
+          },
+          success(res) {
+            wx.hideLoading()
+            let t = JSON.parse(res.data)
+            that.setData({
+              imgurl: t.data.url
+            })
+          }
+        })
+      }
+    })
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */

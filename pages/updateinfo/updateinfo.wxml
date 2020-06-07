@@ -1,6 +1,6 @@
 <view>
-	<view class="cu-avatar  touimage" style="background-image:url({{}})"></view>
-	<view class="text-center text-bold bottom">点击头像可更换图片</view>
+	<view class="cu-avatar  touimage" bindtap="uploadpic" style="background-image:url({{userinfo.avatar}})"></view>
+	<view class="text-center text-bold bottom" >点击头像可更换图片</view>
 </view>
 <form class="bottom">
 	<view class="flex-sub text-left bg-white">

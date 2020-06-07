@@ -65,6 +65,9 @@ Page({
       })
     })
   },
+  message(e){
+    
+  },
   //我创建的小组
   toactdetail(e){
     wx.navigateTo({
