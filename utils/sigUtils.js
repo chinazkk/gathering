@@ -36,12 +36,7 @@ const genSig = function genSig (method, url, params) {
 	// 使用key对拼接后的字符串进行散列值计算
   var hmac_result = CryptoJS.HmacSHA1(comb, key).toString()
 	// base64编码
-  var hmac_b64 = base64.btoa(binascii.unhexlify(hmac_result))
-  // url编码
-  var sig = escape(hmac_b64)
-  for (var i = 0; i < oldSym.length; i++) {
-    sig = sig.replace(new RegExp(oldSym[i],'g'), newSym[i])
-  }
+  var sig = base64.btoa(binascii.unhexlify(hmac_result))
   // 添加ts、sig字段
 	origin_params['ts'] = ts
   origin_params['sig'] = sig
@@ -58,7 +53,7 @@ const genSig = function genSig (method, url, params) {
 const chkSig = function genSig (method, url, params) {
   // 提取ts、sig字段
 	var ts = params['ts']
-	var sig = params['sig']
+	var sig = unescape(params['sig'])
   delete params.ts
   delete params.sig
 	// 对url及params进行url编码，替换部分特殊字符
@@ -74,12 +69,7 @@ const chkSig = function genSig (method, url, params) {
 	// 使用key对拼接后的字符串进行散列值计算
   var hmac_result = CryptoJS.HmacSHA1(comb, key).toString()
 	// base64编码
-  var hmac_b64 = base64.btoa(binascii.unhexlify(hmac_result))
-  // url编码
-  var chk = escape(hmac_b64)
-  for (var i = 0; i < oldSym.length; i++) {
-    chk = chk.replace(new RegExp(oldSym[i],'g'), newSym[i])
-  }
+  var chk = base64.btoa(binascii.unhexlify(hmac_result))
 	// 验证通过返回1，不通过返回0
   if (chk == sig) {
 		return 1
