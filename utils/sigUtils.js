@@ -1,6 +1,6 @@
 /*
-  sigUtils 爱码仕签名算法 v0.1.0.200607
-  by SalzFischKatze 2020年6月7日
+  sigUtils 爱码仕签名算法 v0.1.1.200609
+  by SalzFischKatze 2020年6月9日
   仅限于学习研究使用
   QQ523301264
 */
@@ -10,8 +10,9 @@ const binascii = require('binascii')
 
 const key = '723a80b7adf38fc8'  // HmacSHA1密钥
 // url编码替换的特殊字符
-const oldSym = ['\\*', '\\/', '\\-', '\\_', '\\.', '\\:', '%22', '\\+']
-const newSym = ['%2A', '%2F', '%2D', '%5F', '%2E', '%3A', '', '%2B']
+// %20 - py会将空格编码，js不会; %5C - py会将unicode编码为%5Cuxxxx，js为%uxxxx
+const oldSym = ['\\*', '\\/', '\\-', '\\_', '\\.', '\\:', '%20', '%22', '\\+', '%5C', '%u']
+const newSym = ['%2A', '%2F', '%2D', '%5F', '%2E', '%3A', '', '', '%2B', '%', 'u']
 
 /** @description 生成签名
 * @param {string} method - 网络请求的方法，例如’GET’、’POST’
@@ -21,22 +22,22 @@ const newSym = ['%2A', '%2F', '%2D', '%5F', '%2E', '%3A', '', '%2B']
 */
 const genSig = function genSig (method, url, params) {
 	// 拷贝params
-	var origin_params = params
+	let origin_params = params
 	// 生成当前时间戳
-  var ts = new Date().getTime()
+  let ts = new Date().getTime()
 	// 对url及params进行url编码，替换部分特殊字符
-  url = escape(url.replace(/\n/g, '').replace(/\r/g, ''))
-  params = escape(JSON.stringify(params).replace(/\n/g, '').replace(/\r/g, ''))
-  for (var i = 0; i < oldSym.length; i++) {
+  url = escape(url.replace(/\n/g, '').replace(/\r/g, '').replace(/\\/g, ''))
+  params = escape(JSON.stringify(params).replace(/\n/g, '').replace(/\r/g, '').replace(/\\/g, ''))
+  for (let i = 0; i < oldSym.length; i++) {
     url = url.replace(new RegExp(oldSym[i],'g'), newSym[i])
     params = params.replace(new RegExp(oldSym[i],'g'), newSym[i])
   }
 	// 将method、url、params、ts用&拼接
-  var comb = method + '&' + url + '&' + params + '&' + ts
+  let comb = method + '&' + url + '&' + params + '&' + ts
 	// 使用key对拼接后的字符串进行散列值计算
-  var hmac_result = CryptoJS.HmacSHA1(comb, key).toString()
+  let hmac_result = CryptoJS.HmacSHA1(comb, key).toString()
 	// base64编码
-  var sig = base64.btoa(binascii.unhexlify(hmac_result))
+  let sig = base64.btoa(binascii.unhexlify(hmac_result))
   // 添加ts、sig字段
 	origin_params['ts'] = ts
   origin_params['sig'] = sig
@@ -51,25 +52,30 @@ const genSig = function genSig (method, url, params) {
 * @returns {int} 验证通过:1; 验证不通过:0
 */
 const chkSig = function genSig (method, url, params) {
-  // 提取ts、sig字段
-	var ts = params['ts']
-	var sig = unescape(params['sig'])
+  let ts, sig
+  if (params['ts'] && params['sig']) {
+    // 提取ts、sig字段
+    ts = params['ts']
+    sig = unescape(params['sig'])
+  } else {
+    return 40001
+  }
+	// 删除ts、sig字段后计算散列值
   delete params.ts
   delete params.sig
 	// 对url及params进行url编码，替换部分特殊字符
-  url = escape(url.replace(/\n/g, '').replace(/\r/g, ''))
-  params = escape(JSON.stringify(params).replace(/\n/g, '').replace(/\r/g, ''))
-  for (var i = 0; i < oldSym.length; i++) {
+  url = escape(url.replace(/\n/g, '').replace(/\r/g, '').replace(/\\/g, ''))
+  params = escape(JSON.stringify(params).replace(/\n/g, '').replace(/\r/g, '').replace(/\\/g, ''))
+  for (let i = 0; i < oldSym.length; i++) {
     url = url.replace(new RegExp(oldSym[i],'g'), newSym[i])
     params = params.replace(new RegExp(oldSym[i],'g'), newSym[i])
   }
 	// 将method、url、params、ts用&拼接
-  var comb = method + '&' + url + '&' + params + '&' + ts
-  console.log(comb)
+  let comb = method + '&' + url + '&' + params + '&' + ts
 	// 使用key对拼接后的字符串进行散列值计算
-  var hmac_result = CryptoJS.HmacSHA1(comb, key).toString()
+  let hmac_result = CryptoJS.HmacSHA1(comb, key).toString()
 	// base64编码
-  var chk = base64.btoa(binascii.unhexlify(hmac_result))
+  let chk = base64.btoa(binascii.unhexlify(hmac_result))
 	// 验证通过返回1，不通过返回0
   if (chk == sig) {
 		return 1
