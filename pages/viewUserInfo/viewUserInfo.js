@@ -64,6 +64,17 @@ Page({
         myjoingroup: res.data.data
       })
     })
+    //获取浏览用户信息
+    url = app.globalData.URL + '/user';
+    data = {
+      user_id:options.id
+    }
+    util.get(url, data).then(function (res) {
+      that.setData({
+        userinfo: res.data.data
+      })
+    })
+
   },
   message(e){
     

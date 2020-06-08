@@ -39,7 +39,7 @@
 		<image class="icon2" src="/images/array.png"></image>
 	</view>
 </view>
-<view wx:for="{{hotactivity}}">
+<view wx:for="{{hotactivity}}" wx:key="key">
 	<view bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" mode="aspectFit" class="imglimit">
 		</image>

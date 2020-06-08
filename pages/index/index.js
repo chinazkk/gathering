@@ -86,12 +86,17 @@ Page({
     }
     //获取我的小组
     let url = app.globalData.URL + '/group/list';
-    var data = sigUtils.genSig('GET', url,
-    {
+    // var data = sigUtils.genSig('GET', url,
+    // {
+    //   limit: '4',
+    //   page: '1',
+    //   user_id: wx.getStorageSync('userId'),
+    // })
+    var data = {
       limit: '4',
       page: '1',
       user_id: wx.getStorageSync('userId'),
-    })
+    }
     util.get(url, data).then(function (res) {
       that.setData({
         mygroup: res.data.data
@@ -126,7 +131,7 @@ Page({
         hotactivity: tmp
       })
     })
-    
+
   },
   todetail(e) {
     console.log('index', e.currentTarget.dataset.id)
@@ -148,10 +153,9 @@ Page({
       hasUserInfo: true
     })
   },
-  toactdetail(e)
-  {
+  toactdetail(e) {
     wx.navigateTo({
-      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+      url: '/pages/activityDetail/activityDetail?id=' + e.currentTarget.dataset.id,
     })
   },
   jump(e) {

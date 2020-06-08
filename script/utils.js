@@ -1,4 +1,7 @@
 //添加finally：因为还有一个参数里面还有一个complete方法。
+
+const sigUtils = require('../utils/sigUtils.js')
+
 Promise.prototype.finally = function (callback) {
   let P = this.constructor;
   return this.then(
@@ -32,9 +35,10 @@ const showModalPromisified = wxPromisify(wx.showModal); //弹窗
 const post = (url, data) => {
   var promise = new Promise((resolve, reject) => {
     //网络请求
+    var signdata=sigUtils.genSig('POST', url, data)
     wx.request({
       url: url,
-      data: data,
+      data: signdata,
       method: 'POST',
       header: {
         "content-type": "application/json",
@@ -58,9 +62,10 @@ const post = (url, data) => {
 const get = (url, data) => {
   var promise = new Promise((resolve, reject) => {
     //网络请求
+    var signdata=sigUtils.genSig('GET', url, data)
     wx.request({
       url: url,
-      data: data,
+      data: signdata,
       header: {
         'content-type': 'application/json',
         'cookie': wx.getStorageSync("sessionid") //读取cookie
@@ -84,9 +89,10 @@ const get = (url, data) => {
 const other = (url, data, method) => {
   var promise = new Promise((resolve, reject) => {
     //网络请求
+    var signdata=sigUtils.genSig(method, url, data)
     wx.request({
       url: url,
-      data: data,
+      data: signdata,
       method: method,
       header: {
         'content-type': 'application/json',

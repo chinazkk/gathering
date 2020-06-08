@@ -80,7 +80,7 @@ Page({
       })
     })
     //小组参与者
-    url = app.globalData.URL + '/groupjoin/user/list';
+    url = app.globalData.URL + '/group/join/user/list';
     data = {
       group_id: options.id,
     }

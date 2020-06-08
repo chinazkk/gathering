@@ -10,7 +10,7 @@
 	</view>
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">他创建的小组：</view>
-		<view wx:if="{{mycreategroup}}" wx:for="{{mycreategroup}}">
+		<view wx:if="{{mycreategroup}}" wx:for="{{mycreategroup}}" wx:key="key">
 			<view class="flex" bindtap="toactdetail"  data-id="{{item.id}}"> 
 				<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 				<view class="desc">
@@ -27,7 +27,7 @@
 
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">他加入的小组：</view>
-		<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}">
+		<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}" wx:key="key">
 			<view class="flex" bindtap="toactdetail2"  data-id="{{item.id}}">
 				<image src="{{imgurl}}{{item.image}}" class="img padding"></image>
 				<view class="desc">
@@ -44,7 +44,7 @@
 
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">他创建的活动：</view>
-		<view wx:if="{{mycreate}}" wx:for="{{mycreate}}">
+		<view wx:if="{{mycreate}}" wx:for="{{mycreate}}" wx:key="key">
 			<view class="flex">
 				<image src="{{item.image}}" class="img padding"></image>
 				<view class="desc">
@@ -61,7 +61,7 @@
 
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">他加入的活动：</view>
-		<view wx:if="{{joinact}}" wx:for="{{joinact}}">
+		<view wx:if="{{joinact}}" wx:for="{{joinact}}" wx:key="key">
 			<view class="flex">
 				<image src="{{item.image}}" class="img padding"></image>
 				<view class="desc">

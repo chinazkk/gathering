@@ -44,7 +44,7 @@ Page({
         })
       })
       //获取加入小组人数
-      url = app.globalData.URL + '/groupjoin/user/list'
+      url = app.globalData.URL + '/group/join/user/list'
       data = {
         group_id: res.data.data.group_id
       }

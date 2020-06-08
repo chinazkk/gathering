@@ -43,7 +43,7 @@
 	<view class=" padding-sm  radius  text-blue " bindtap="toallact">查看全部</view>
 </view>
 <view class="flex menu">
-	<view wx:for="{{activityinfo}}" class=" padding-sm " bindtap="toactdetail" data-id="{{item.id}}">
+	<view wx:for="{{activityinfo}}" class=" padding-sm " wx:key="key" bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="actimg" mode="aspectFit"></image>
 	</view>
 	<image src="/images/add2.png" class="img padding " bindtap="tocreate"></image>
@@ -52,7 +52,7 @@
 	<view class=" padding-sm  radius">讨论区</view>
 	<view class=" padding-sm  radius  text-blue " bindtap="toalltalk">查看全部</view>
 </view>
-<view class="padding-xs" wx:for="{{talkinfo}}" wx:if="{{talkinfo}}">
+<view class="padding-xs" wx:for="{{talkinfo}}" wx:if="{{talkinfo}}" wx:key="key">
 	<view class="flex padding-sm menu" style="background-color:#d8d8d8">
 		<view class="cu-avatar lg round margin-left" style="background-image:url({{item.user.avatar}})"></view>
 		<view class="pading text-lg margin">{{item.user.nick}}: </view>

@@ -98,7 +98,7 @@ Page({
   onLoad: function (options) {
     var that = this
     //小组信息
-    let url = app.globalData.URL + '/groupjoin/user/list';
+    let url = app.globalData.URL + '/group/join/user/list';
     var data = {
       group_id: options.id
     }
