@@ -52,9 +52,10 @@ Page({
     let url = app.globalData.URL + '/user';
     var data = {
       id: this.data.groupnum,
-      name: this.data.info.name,
+      nick: this.data.info.name,
       introduction: this.data.info.introduction,
       number: this.data.info.number,
+      location:this.data.info.location,
       question: this.data.info.question,
       image: this.data.info.image
     }
@@ -117,8 +118,10 @@ Page({
           },
           success(res) {
             wx.hideLoading()
+            let tmp='userinfo.avatar'
             let t = JSON.parse(res.data)
             that.setData({
+              [tmp]:t.data.url,
               imgurl: t.data.url
             })
           }
@@ -133,7 +136,10 @@ Page({
   onLoad: function (options) {
     var that = this
     let url = app.globalData.URL + '/user';
-    util.get(url, {}).then(function (res) {
+    let data={
+      user_id: wx.getStorageSync('userId'),
+    }
+    util.get(url, data).then(function (res) {
       console.log(res.data)
       that.setData({
         userinfo:res.data.data

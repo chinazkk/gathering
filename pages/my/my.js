@@ -161,6 +161,16 @@ Page({
         mygroup: res.data.data
       })
     })
+    //我的信息
+    url = app.globalData.URL + '/user';
+    data = {
+      user_id: wx.getStorageSync('userId'),
+    }
+    util.get(url, data).then(function (res) {
+      that.setData({
+        userinfodetail: res.data.data
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -171,6 +181,7 @@ Page({
     let t = wx.getStorageSync('userInfo')
     if (t) {
       this.setData({
+        userinfo:t,
         avatarUrl: t.avatarUrl,
         islogin: true
       })

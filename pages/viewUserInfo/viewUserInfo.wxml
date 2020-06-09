@@ -1,12 +1,12 @@
 
 
 	<view class="bg-white">
-		<view class="cu-avatar  touimage margin-top" style="background-image:url({{avatarUrl}})"></view>
-		<view url="/pages/updateinfo/updateinfo" bindtap="message" class="text-blue padding update">私信</view>
+		<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfo.avatar}})"></view>
+		<view url="/pages/updateinfo/updateinfo" bindtap="modalinput" class="text-blue padding update">私信</view>
 		<view class="text-center text-bold padding-top">{{nickname}}</view>
-		<view class="text-center text-bold ">位置</view>
-		<view class="text-center text-bold ">简介：</view>
-		<view class="text-center text-bold ">兴趣标签</view>
+		<view class="text-center text-bold margin-top">位置：{{userinfo.location=='null'?userinfo.location:'暂无'}}</view>
+		<view class="text-center text-bold ">简介：{{userinfo.introduction=='null'?userinfo.introduction:'暂无'}}</view>
+		<view class="text-center text-bold ">兴趣标签:{{userinfo.tags=='null'?userinfo.tags:'暂无'}}</view>
 	</view>
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">他创建的小组：</view>
@@ -20,7 +20,7 @@
 			</view>
 		</view>
 		<view wx:if="{{!list}}">
-			<text class="padding-xxl text-bold text-gray title1">无 </text>
+			<text class="padding-xxl text-bold text-gray title1">该用户暂无创建小组</text>
 		</view>
 		<view class="divLine"></view>
 	</view>
@@ -31,37 +31,37 @@
 			<view class="flex" bindtap="toactdetail2"  data-id="{{item.id}}">
 				<image src="{{imgurl}}{{item.image}}" class="img padding"></image>
 				<view class="desc">
-					<view class="padding-sm">{{item.name}}</view>
-					<view class="padding-sm">{{item.name}}</view>
+					<view class="padding-sm">{{item.user.name}}</view>
+					<view class="padding-sm">现有参与者人数：{{item.user.number}}</view>
 				</view>
 			</view>
 		</view>
-		<view wx:if="{{!joingroup.length}}">
-			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		<view wx:if="{{!myjoingroup.length}}">
+			<text class="padding-xxl text-bold text-gray title1">该用户暂无加入小组</text>
 		</view>
 		<view class="divLine"></view>
 	</view>
 
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">他创建的活动：</view>
-		<view wx:if="{{mycreate}}" wx:for="{{mycreate}}" wx:key="key">
+		<view wx:if="{{myCreateActivity}}" wx:for="{{myCreateActivity}}" wx:key="key">
 			<view class="flex">
-				<image src="{{item.image}}" class="img padding"></image>
+				<image src="{{imgurl}}{{item.image}}" class="img padding"></image>
 				<view class="desc">
-					<view class="padding-sm">{{item.name}}</view>
-					<view class="padding-sm">{{item.name}}</view>
+					<view class="padding-sm">{{item.title}}</view>
+					<view class="padding-sm">活动举办时间：{{item.time}}</view>
 				</view>
 			</view>
 		</view>
-		<view wx:if="{{!mycreate.length}}">
-			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		<view wx:if="{{!myCreateActivity.length}}">
+			<text class="padding-xxl text-bold text-gray title1">该用户暂无创建活动</text>
 		</view>
 		<view class="divLine"></view>
 	</view>
 
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">他加入的活动：</view>
-		<view wx:if="{{joinact}}" wx:for="{{joinact}}" wx:key="key">
+		<view wx:if="{{myJoinActivity}}" wx:for="{{myJoinActivity}}" wx:key="key">
 			<view class="flex">
 				<image src="{{item.image}}" class="img padding"></image>
 				<view class="desc">
@@ -70,8 +70,12 @@
 				</view>
 			</view>
 		</view>
-		<view wx:if="{{!joinact.length}}">
-			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		<view wx:if="{{!myJoinActivity.length}}">
+			<text class="padding-xxl text-bold text-gray title1">该用户暂无加入活动</text>
 		</view>
 		<view class="divLine"></view>
 	</view>
+
+<modal hidden="{{hiddenmodalput}}" title="请输入私信内容" confirm-text="提交" cancel-text='取消'bindcancel="cancel" bindconfirm="confirm">  
+    <input type='text' bindinput="getmessage" placeholder="请输入内容" auto-focus/>  
+</modal>  

@@ -42,7 +42,7 @@ Page({
    */
   onLoad: function (options) {
     let that=this
-    //获取我的小组
+    //获取我的收藏
     let url = app.globalData.URL + '/group/collection/list';
     var data = {
       limit: '6',

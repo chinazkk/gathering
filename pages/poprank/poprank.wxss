@@ -7,12 +7,17 @@
 
   /* flex-shrink:0; */
 }
+.left{
+  position: relative;
+  left: 50rpx;
+}
 .img{
   height: 180rpx;
   width: 250rpx;
+  position: relative;
+  left: 40rpx;
 }
 .indexs{
-  flex-shrink:0;
   border: 5px solid #d8d8d8 ;
   border-radius: 50%;
   height: 120rpx;
