@@ -1,6 +1,6 @@
 /*
-  sigUtils 爱码仕签名算法 v0.1.1.200609
-  by SalzFischKatze 2020年6月9日
+  sigUtils 爱码仕签名算法 v0.1.2.200610
+  by SalzFischKatze 2020年6月10日
   仅限于学习研究使用
   QQ523301264
 */
@@ -32,6 +32,8 @@ const genSig = function genSig (method, url, params) {
     url = url.replace(new RegExp(oldSym[i],'g'), newSym[i])
     params = params.replace(new RegExp(oldSym[i],'g'), newSym[i])
   }
+  // 将中文unicode大写转为小写，与py保持同步
+  params = params.replace(/u[A-Z0-9]{4}/g, match => match.toLowerCase())
 	// 将method、url、params、ts用&拼接
   let comb = method + '&' + url + '&' + params + '&' + ts
 	// 使用key对拼接后的字符串进行散列值计算
@@ -70,6 +72,8 @@ const chkSig = function genSig (method, url, params) {
     url = url.replace(new RegExp(oldSym[i],'g'), newSym[i])
     params = params.replace(new RegExp(oldSym[i],'g'), newSym[i])
   }
+  // 将中文unicode大写转为小写，与py保持同步
+  params = params.replace(/u[A-Z0-9]{4}/g, match => match.toLowerCase())
 	// 将method、url、params、ts用&拼接
   let comb = method + '&' + url + '&' + params + '&' + ts
 	// 使用key对拼接后的字符串进行散列值计算
