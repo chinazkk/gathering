@@ -1,4 +1,4 @@
 .img{
   height: 250rpx;
-  width: 420rpx;
+  width: 300rpx;
 }

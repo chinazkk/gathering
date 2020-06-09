@@ -39,14 +39,14 @@
 </block>
 <block wx:else>
 <view class="bg-white">
-	<view class="cu-avatar  touimage margin-top" style="background-image:url({{avatarUrl}})"></view>
+	<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfodetail.avatar}})"></view>
 	<navigator url="/pages/updateinfo/updateinfo" class="text-blue padding update">编辑</navigator>
 
 
-	<view class="text-center text-bold padding-top">{{nickname}}</view>
-	<view class="text-center text-bold ">位置</view>
-	<view class="text-center text-bold ">简介：</view>
-	<view class="text-center text-bold ">兴趣标签</view>
+	<view class="text-center text-bold padding-top padding-xs margin-top-xl">{{userinfodetail.nick}}</view>
+	<view class="text-center text-bold padding-xs">位置:{{userinfodetail.location=='null'?userinfodetail.location:'暂无'}}</view>
+	<view class="text-center text-bold padding-xs">简介：{{userinfodetail.introduction=='null'?userinfodetail.introduction:'暂无'}}</view>
+	<view class="text-center text-bold padding-xs">兴趣标签:{{userinfodetail.tags=='null'?userinfodetail.tags:'暂无'}}</view>
 </view>
 
 <view class="flex title1 margin-top">

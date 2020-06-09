@@ -39,7 +39,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options.id)
+    console.log('detail',options.id)
+    let ids=options.id
     var that = this
     //小组信息
     let url = app.globalData.URL + '/group';
@@ -50,7 +51,7 @@ Page({
       console.log(res.data)
       that.setData({
         info: res.data.data,
-        groupnum: options.id
+        groupnum: ids
       })
     })
     //小组活动
@@ -118,7 +119,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.onLoad()
+    // this.onLoad()
   },
   onPullDownRefresh() {
     this.onLoad()
