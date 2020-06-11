@@ -23,7 +23,21 @@ Page({
     joinact: [],
     imgurl: app.globalData.imgurl,
   },
-
+  toCreateGroup(e){
+    wx.navigateTo({
+      url: '/pages/groupdetail/groupdetail?id'+e.currentTarget.dataset.id,
+    })
+  },
+  toJoinGroup(e){
+    wx.navigateTo({
+      url: '/pages/groupdetail2/groupdetail2?id'+e.currentTarget.dataset.id,
+    })
+  },
+  toActivity(e){
+    wx.navigateTo({
+      url: '/pages/activityDetail/activityDetail?id'+e.currentTarget.dataset.id,
+    })
+  },
   login2(e) {
     var that = this
     wx.getSetting({
@@ -148,7 +162,9 @@ Page({
     })
 
   },
+  //登录后 读取用户信息
   afterlogin() {
+    //我创建的小组
     var that = this
     let url = app.globalData.URL + '/group/list';
     var data = {
@@ -158,9 +174,45 @@ Page({
     }
     util.get(url, data).then(function (res) {
       that.setData({
-        mygroup: res.data.data
+        myCreateGroup: res.data.data
       })
     })
+     // 获取参加的小组
+     url = app.globalData.URL + '/group/join/list';
+     data = {
+       limit: '3',
+       page: '1',
+       user_id: wx.getStorageSync('userId'),
+     }
+     util.get(url, data).then(function (res) {
+       that.setData({
+         myjoingroup: res.data.data
+       })
+     })
+     // 获取用户创建的活动
+     url = app.globalData.URL + '/group/activity/list';
+     data = {
+       limit: '3',
+       page: '1',
+       user_id: wx.getStorageSync('userId'),
+     }
+     util.get(url, data).then(function (res) {
+       that.setData({
+         myCreateActivity: res.data.data
+       })
+     })
+     // 获取用户参加的活动
+     url = app.globalData.URL + '/group/activity/join/list';
+     data = {
+       limit: '3',
+       page: '1',
+       user_id: wx.getStorageSync('userId'),
+     }
+     util.get(url, data).then(function (res) {
+       that.setData({
+         myJoinActivity: res.data.data
+       })
+     })
     //我的信息
     url = app.globalData.URL + '/user';
     data = {

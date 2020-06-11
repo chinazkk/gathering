@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "popup-bottom": "../component/popup/popup"
+  },
   "navigationBarTitleText": "编辑信息"
 }

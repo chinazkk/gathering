@@ -62,16 +62,16 @@
 
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">我创建的小组：</view>
-	<view wx:if="{{mygroup}}" wx:for="{{mygroup}}">
+	<view wx:if="{{myCreateGroup}}" wx:for="{{myCreateGroup}}" bindtap="toCreateGroup" data-id="{{item.id}}">
 		<view class="flex">
 			<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 			<view class="desc">
 				<view class="padding-sm">{{item.name}}</view>
-				<view class="padding-sm">{{item.name}}</view>
+				<view class="padding-sm">现有参与者人数：{{item.applicantNum}}</view>
 			</view>
 		</view>
 	</view>
-	<view wx:if="{{!list}}">
+	<view wx:if="{{!myCreateGroup}}">
 		<text class="padding-xxl text-bold text-gray title1">无 </text>
 	</view>
 	<view class="divLine"></view>
@@ -79,16 +79,16 @@
 
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">我加入的小组：</view>
-	<view wx:if="{{joingroup}}" wx:for="{{joingroup}}">
+	<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}"  bindtap="toJoinGroup" data-id="{{item.id}}">
 		<view class="flex">
-			<image src="{{item.img}}" class="img padding"></image>
+			<image src="{{item.img}}" class="img padding" mode="aspectFit"></image>
 			<view class="desc">
-				<view class="padding-sm">{{item.name}}</view>
-				<view class="padding-sm">{{item.name}}</view>
+				<view class="padding-sm">{{item.user.name}}</view>
+				<view class="padding-sm">现有参与者人数:{{item.applicantNum}}</view>
 			</view>
 		</view>
 	</view>
-	<view wx:if="{{!joingroup.length}}">
+	<view wx:if="{{!myjoingroup.length}}">
 		<text class="padding-xxl text-bold text-gray title1">无 </text>
 	</view>
 	<view class="divLine"></view>
@@ -96,16 +96,16 @@
 
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">我创建的活动：</view>
-	<view wx:if="{{mycreate}}" wx:for="{{mycreate}}">
+	<view wx:if="{{myCreateActivity}}" wx:for="{{myCreateActivity}}" bindtap="toActivity" data-id="{{item.id}}">
 		<view class="flex">
-			<image src="{{item.img}}" class="img padding"></image>
+			<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 			<view class="desc">
-				<view class="padding-sm">{{item.name}}</view>
-				<view class="padding-sm">{{item.name}}</view>
+				<view class="padding-sm">{{item.title}}</view>
+				<view class="padding-sm">活动举办时间:{{item.time}}</view>
 			</view>
 		</view>
 	</view>
-	<view wx:if="{{!mycreate.length}}">
+	<view wx:if="{{!myCreateActivity.length}}">
 		<text class="padding-xxl text-bold text-gray title1">无 </text>
 	</view>
 	<view class="divLine"></view>
@@ -113,16 +113,16 @@
 
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">我加入的活动：</view>
-	<view wx:if="{{joinact}}" wx:for="{{joinact}}">
+	<view wx:if="{{myJoinActivity}}" wx:for="{{myJoinActivity}}" bindtap="toActivity" data-id="{{item.id}}">
 		<view class="flex">
-			<image src="{{item.img}}" class="img padding"></image>
+			<image src="{{item.img}}" class="img padding" mode="aspectFit"></image>
 			<view class="desc">
-				<view class="padding-sm">{{item.name}}</view>
-				<view class="padding-sm">{{item.name}}</view>
+				<view class="padding-sm">{{item.user.name}}</view>
+				<view class="padding-sm">活动举办时间：{{item.name}}</view>
 			</view>
 		</view>
 	</view>
-	<view wx:if="{{!joinact.length}}">
+	<view wx:if="{{!myJoinActivity.length}}">
 		<text class="padding-xxl text-bold text-gray title1">无 </text>
 	</view>
 	<view class="divLine"></view>

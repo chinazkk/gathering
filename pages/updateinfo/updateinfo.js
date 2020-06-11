@@ -6,33 +6,35 @@ Page({
    * 页面的初始数据
    */
   data: {
+    visible: false,
     check1: false,
     check2: false,
     name: '',
     loc: '',
     info: '',
-    tag: ''
+    tag: '',
+    globalimg: app.globalData.imgurl
   },
   getname(e) {
-    let t='userinfo.nick'
+    let t = 'userinfo.nick'
     this.setData({
       [t]: e.detail.value
     })
   },
   getloc(e) {
-    let t='userinfo.location'
+    let t = 'userinfo.location'
     this.setData({
       [t]: e.detail.value
     })
   },
   getinfo(e) {
-    let t='userinfo.introduction'
+    let t = 'userinfo.introduction'
     this.setData({
       [t]: e.detail.value
     })
   },
   gettag(e) {
-    let t='userinfo.tags'
+    let t = 'userinfo.tags'
     this.setData({
       [t]: e.detail.value
     })
@@ -47,7 +49,21 @@ Page({
       check2: !this.data.check2
     })
   },
+  handleShow: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    this.setData({
+      chooseindex: e.currentTarget.dataset.id
+    })
+    this.setData({
+      visible: true
+    });
+  },
 
+  handleCancel: function () {
+    this.setData({
+      visible: false
+    });
+  },
   saveinfo(e) {
     let url = app.globalData.URL + '/user';
     var data = {
@@ -55,24 +71,34 @@ Page({
       nick: this.data.info.name,
       introduction: this.data.info.introduction,
       number: this.data.info.number,
-      location:this.data.info.location,
+      location: this.data.info.location,
       question: this.data.info.question,
       image: this.data.info.image
     }
     util.other(url, data, 'PUT').then(function (res) {
       console.log(res.data)
       if (res.data.code == 200) {
-        wx.showToast({
-          title: '提交成功',
-          duration: 2000,
-          success: function () {
-            setTimeout(function () {
-              wx.reLaunch({
-                url: '/pages/index/index',
-              })
-            }, 2000);
+        wx.showModal({
+          title: '你的修改已保存',
+          confirmText: '确认',
+          showCancel: false, //是否显示取消按钮-----》false去掉取消按钮
+          success: res => {
+            if (res.confirm) {
+              console.log('finish update')
+            }
           }
         })
+        // wx.showToast({
+        //   title: '提交成功',
+        //   duration: 2000,
+        //   success: function () {
+        //     setTimeout(function () {
+        //       wx.reLaunch({
+        //         url: '/pages/index/index',
+        //       })
+        //     }, 2000);
+        //   }
+        // })
       } else {
         wx.showToast({
           title: res.data.msg,
@@ -90,10 +116,21 @@ Page({
       })
     })
   },
-  
+  ViewImage(e) {
+    let url
+    if (this.data.userinfo.avatar.length < 40)
+      url = this.data.globalimg + this.data.userinfo.avatar
+    else
+      url = this.data.userinfo.avatar
+    let tmp = []
+    tmp.push(url)
+    wx.previewImage({
+      urls: tmp,
+      current: this.data.userinfo.avatar
+    });
+  },
   uploadpic() {
     var that = this
-
     let url = app.globalData.URL + '/user/img';
     wx.chooseImage({
       success(res) {
@@ -118,10 +155,10 @@ Page({
           },
           success(res) {
             wx.hideLoading()
-            let tmp='userinfo.avatar'
+            let tmp = 'userinfo.avatar'
             let t = JSON.parse(res.data)
             that.setData({
-              [tmp]:t.data.url,
+              [tmp]: t.data.url,
               imgurl: t.data.url
             })
           }
@@ -136,13 +173,13 @@ Page({
   onLoad: function (options) {
     var that = this
     let url = app.globalData.URL + '/user';
-    let data={
+    let data = {
       user_id: wx.getStorageSync('userId'),
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
       that.setData({
-        userinfo:res.data.data
+        userinfo: res.data.data
       })
     })
   },

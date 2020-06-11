@@ -1,1 +1,11 @@
 <!--pages/message/message.wxml-->
+<view wx:for="{{message}}" class="flex" style="height:200rpx;">
+  <view class="flex" bindtap="todetail" data-id="{{item.id}}">
+    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+    <view class="desc">
+      <view class="padding-sm text-bold">{{item.content}}</view>
+      <view class="padding-xs">{{item.lasttime}}</view>
+      <!-- <view class="padding-xs">{{item.number}}人已报名/共{{item.number}}个名额</view> -->
+    </view>
+  </view>
+</view>

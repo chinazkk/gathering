@@ -1,5 +1,6 @@
 const app = getApp();
 var util = require("../../script/utils.js");
+var time = require("../../script/time.js");
 Page({
   // 通知类型
   // 0-小组审核 
@@ -12,7 +13,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentpage: 1, //当前页数
+    fleshlimit: '7', //每次刷新页数
+    imgurl: app.globalData.imgurl
   },
 
   /**
@@ -20,15 +23,19 @@ Page({
    */
   onLoad: function (options) {
     let that=this
-    //获取我的小组
+    //获取通知列表
     let url = app.globalData.URL + '/inform/list';
     var data = {
-      limit: '6',
-      page: '1',
+      limit: that.data.fleshlimit,
+      page: that.data.currentpage
     }
     util.get(url, data).then(function (res) {
+      let tmp = res.data.data
+      for (let i of tmp) {
+        i.lasttime = time.formatMsgTime(i.create_time)
+      }
       that.setData({
-        message: res.data.data
+        message: tmp
       })
     })
   },

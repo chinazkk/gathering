@@ -21,7 +21,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -188,6 +188,13 @@
 					"id": -1,
 					"name": "查看用户信息",
 					"pathName": "pages/viewUserInfo/viewUserInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "通知栏",
+					"pathName": "pages/message/message",
 					"scene": null
 				}
 			]

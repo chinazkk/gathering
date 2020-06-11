@@ -3,9 +3,6 @@ var util = require("../../script/utils.js");
 var time = require("../../script/time.js");
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     thumb: 1,
     text: '',

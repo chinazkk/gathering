@@ -10,7 +10,7 @@
 		<view class="padding-bottom-sm">{{item.name}}</view>
 	</view>
 </view>
-	<popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
-  <view bindtap="bind">取消收藏</view>
-  <view bindtap="handleCancel">取消</view>
+<popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
+	<view bindtap="bind">取消收藏</view>
+	<view bindtap="handleCancel">取消</view>
 </popup-bottom>
