@@ -68,12 +68,12 @@ Page({
     let url = app.globalData.URL + '/user';
     var data = {
       id: this.data.groupnum,
-      nick: this.data.info.name,
-      introduction: this.data.info.introduction,
-      number: this.data.info.number,
-      location: this.data.info.location,
-      question: this.data.info.question,
-      image: this.data.info.image
+      nick: this.data.userinfo.name,
+      introduction: this.data.userinfo.introduction,
+      number: this.data.userinfo.number,
+      location: this.data.userinfo.location,
+      question: this.data.userinfo.question,
+      image: this.data.userinfo.image
     }
     util.other(url, data, 'PUT').then(function (res) {
       console.log(res.data)

@@ -7,6 +7,7 @@ Page({
    */
   data: {
     visible: false,
+    imgurl:app.globalData.imgurl,
     info:[{
       img:'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
       name:'asd',
@@ -23,8 +24,27 @@ Page({
       
     }]
   },
-  bind(e){
+  cutcollect(e){
     console.log(this.data.chooseindex)
+    var that = this
+    let url = app.globalData.URL + '/group/collection';
+    var data = {
+      id: this.data.chooseindex
+    }
+    util.other(url, data, 'DELETE').then(function (res) {
+      console.log(res.data)
+      if (res.data.code == 200) {
+        that.setData({ visible: false });
+        wx.showToast({
+          title: '取消收藏',
+          duration: 2000,
+          success: function () {
+            console.log('cancel collection success')
+            that.onLoad()
+          }
+        })
+      }
+    })
   },
   handleShow: function (e) {
     console.log(e.currentTarget.dataset.id)
@@ -50,7 +70,7 @@ Page({
     }
     util.get(url, data).then(function (res) {
       that.setData({
-        collect: res.data
+        collect: res.data.data
       })
     })
   },

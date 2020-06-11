@@ -19,7 +19,7 @@
         </view>
         <view class="text-gray text-sm flex">
           <view class="text-cut" bindtap="tothumb" data-index="{{index}}" data-id="{{item.id}}">
-							<text  class="cuIcon-appreciate{{talkinfo[index].thumb==1?'fill':''}} lg pading-xs text-red  margin-right-xs"></text> 
+							<text  class="cuIcon-appreciate{{item.praise==true?'fill':''}} lg pading-xs text-red  margin-right-xs"></text> 
           </view>
         </view>
       </view>

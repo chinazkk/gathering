@@ -119,13 +119,33 @@ Page({
     data = {
       limit: '3',
       page: '1',
+      isExpired:0,
       isHot: '1'
     }
     util.get(url, data).then(function (res) {
       // console.log(res.data)
       let tmp = res.data.data
+      var timestamp = Date.parse(new Date());
+      timestamp = timestamp / 1000;
+      // console.log("当前时间戳为：" + timestamp);
+      var n = timestamp * 1000;
+      var date = new Date(n);
+      //年  
+      var Y = date.getFullYear();
+      //月  
+      var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+      //日  
+      var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+      //时  
+      var h = date.getHours();
+      //分  
+      var m = date.getMinutes();
+      //秒  
+      var s = date.getSeconds();
+      var nowtime = Y +"-" + M +"-" + D +" " + h + ":" + m + ":" + s
+      console.log(nowtime)
       for (let i of tmp) {
-        i.lasttime = time.formatMsgTime(i.time)
+        i.lasttime = that.checkDate(nowtime, i.time)
       }
       that.setData({
         hotactivity: tmp
@@ -133,6 +153,20 @@ Page({
     })
 
   },
+  checkDate: function (startTime, endTime) {
+    //日期格式化
+    var start_date = new Date(startTime.replace(/-/g, "/"));
+    var end_date = new Date(endTime.replace(/-/g, "/"));
+    //转成毫秒数，两个日期相减
+    var ms = end_date.getTime() - start_date.getTime();
+    //转换成天数
+    var day = parseInt(ms / (1000 * 60 * 60 * 24));
+    //do something
+    // console.log("day = ", day);
+    return day
+
+  },
+
   todetail(e) {
     console.log('index', e.currentTarget.dataset.id)
     wx.navigateTo({

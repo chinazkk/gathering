@@ -31,6 +31,8 @@ const formatMsgTime = function (dateStr) {
   }
   return timeSpanStr;
 }
+
+
 module.exports = {
   formatMsgTime: formatMsgTime
 }

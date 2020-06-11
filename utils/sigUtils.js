@@ -44,7 +44,7 @@ const genSig = function genSig (method, url, params) {
 	origin_params['ts'] = ts
   origin_params['sig'] = sig
   // 返回原始参数加上ts、sig字段
-  console.log(origin_params)
+  // console.log(origin_params)
 	return origin_params
 }
 

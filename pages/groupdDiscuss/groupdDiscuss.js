@@ -38,10 +38,10 @@ Page({
     }
     util.post(url, data).then(function (res) {
       console.log(res.data)
-      let tmp='talkinfo['+t+'].thumb'
+      let tmp='talkinfo['+t+'].praise'
       if (res.data.code == 200) {
         that.setData({
-          [tmp]:1
+          [tmp]:true
         })
         wx.showToast({
           title: '点赞成功',
@@ -83,19 +83,6 @@ Page({
       let tmp = res.data.data
       for (let i of tmp) {
         i.lasttime = time.formatMsgTime(i.create_time)
-        util.get(url2, {
-          id: i.id
-        }).then(function (res) {
-          console.log(res.data)
-          if (res.data.code == 200) {
-            i.thumb = 1
-          } else {
-            i.thumb = 0
-          }
-          // that.setData({
-          //   tags: res.data.data
-          // })
-        })
       }
       that.setData({
         talkinfo: tmp,

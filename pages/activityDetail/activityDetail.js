@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    iscreater:false,
+    iscreater: false,
     imgurl: app.globalData.imgurl,
     groupinfo: [],
     actinfo: [],
@@ -26,11 +26,10 @@ Page({
       that.setData({
         actinfo: res.data.data
       })
-      let userid=wx.getStorageSync('userId')
-      if(res.data.data.user.id==userid)
-      {
+      let userid = wx.getStorageSync('userId')
+      if (res.data.data.user.id == userid) {
         that.setData({
-          iscreater:true
+          iscreater: true
         })
       }
       //获取小组情况
@@ -49,7 +48,7 @@ Page({
         group_id: res.data.data.group_id
       }
       util.get(url, data).then(function (res) {
-        console.log('joinnum',res.data.data.length)
+        console.log('joinnum', res.data.data.length)
         that.setData({
           joinnum: res.data.data.length
         })
@@ -58,11 +57,11 @@ Page({
       url = app.globalData.URL + '/group/activity/list'
       data = {
         group_id: res.data.data.group_id,
-        limit:5,
-        page:1
+        limit: 5,
+        page: 1
       }
       util.get(url, data).then(function (res) {
-        console.log('groupOtherActivity',res.data.data)
+        console.log('groupOtherActivity', res.data.data)
         that.setData({
           groupOtherActivity: res.data.data
         })
@@ -74,45 +73,44 @@ Page({
       activity_id: options.id
     }
     util.get(url, data).then(function (res) {
-      console.log('iscollect',res.data.data)
+      console.log('iscollect', res.data.data)
       that.setData({
-        iscollect:res.data.data
+        iscollect: res.data.data
       })
     })
-     //获取用户是否加入了活动
-     url = app.globalData.URL + '/group/activity/join'
-     data = {
-       activity_id: options.id
-     }
-     util.get(url, data).then(function (res) {
-       console.log('isjoin',res.data.data)
-       that.setData({
-        isjoin:res.data.data
+    //获取用户是否加入了活动
+    url = app.globalData.URL + '/group/activity/join'
+    data = {
+      activity_id: options.id
+    }
+    util.get(url, data).then(function (res) {
+      console.log('isjoin', res.data.data)
+      that.setData({
+        isjoin: res.data.data
       })
-     })
-       //获取活动用户列表
-       url = app.globalData.URL + '/group/activity/join/list'
-       data = {
-         limit:10,
-         page:1,
-         activity_id: options.id
-       }
-       util.get(url, data).then(function (res) {
-         console.log('joinlist',res.data.data)
-         that.setData({
-          joinlist:res.data.data
-        })
-       })
-  },
-  toOtherAct(e)
-  {
-    wx.navigateTo({
-      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+    })
+    //获取活动用户列表
+    url = app.globalData.URL + '/group/activity/join/list'
+    data = {
+      limit: 10,
+      page: 1,
+      activity_id: options.id
+    }
+    util.get(url, data).then(function (res) {
+      console.log('joinlist', res.data.data)
+      that.setData({
+        joinlist: res.data.data
+      })
     })
   },
-  editact(e){
+  toOtherAct(e) {
     wx.navigateTo({
-      url: '/pages/updateActivity/updateActivity?id='+this.data.actinfo.id,
+      url: '/pages/activityDetail/activityDetail?id=' + e.currentTarget.dataset.id,
+    })
+  },
+  editact(e) {
+    wx.navigateTo({
+      url: '/pages/updateActivity/updateActivity?id=' + this.data.actinfo.id,
     })
   },
   tojoin(e) {

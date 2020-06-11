@@ -1,16 +1,16 @@
-<view class="flex" wx:for="{{info}}">
-	<image src="{{item.img}}" class="img padding"></image>
+<view class="flex" wx:for="{{collect}}">
+	<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFit"></image>
 	<view class="desc padding-sm">
 		<view class="flex">
-			<view class="padding-sm text-bold">{{item.name}}</view>
-			<view class="point text-bold " bindtap="handleShow" data-id="{{index}}">...</view>
+			<view class="padding-sm text-bold">{{item.activity.title}}</view>
+			<view class="point text-bold " bindtap="handleShow" data-id="{{item.activity.id}}">...</view>
 		</view>
 		<view class="padding-bottom-sm">{{item.name}}</view>
-		<view class="padding-bottom-sm">{{item.name}}</view>
-		<view class="padding-bottom-sm">{{item.name}}</view>
+		<view class="padding-bottom-sm">{{item.activity.time}}</view>
+		<view class="padding-bottom-sm">{{item.activity.number}}人已报名/共{{item.activity.number}}个名额</view>
 	</view>
 </view>
 <popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
-	<view bindtap="bind">取消收藏</view>
+	<view bindtap="cutcollect" class="padding" >取消收藏</view>
 	<view bindtap="handleCancel">取消</view>
 </popup-bottom>
