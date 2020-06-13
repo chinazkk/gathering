@@ -62,8 +62,8 @@
 
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">我创建的小组：</view>
-	<view wx:if="{{myCreateGroup}}" wx:for="{{myCreateGroup}}" bindtap="toCreateGroup" data-id="{{item.id}}">
-		<view class="flex">
+	<view wx:if="{{myCreateGroup}}" wx:for="{{myCreateGroup}}" >
+		<view class="flex" bindtap="toCreateGroup" data-id="{{item.id}}">
 			<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 			<view class="desc">
 				<view class="padding-sm">{{item.name}}</view>
@@ -79,7 +79,7 @@
 
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">我加入的小组：</view>
-	<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}"  bindtap="toJoinGroup" data-id="{{item.id}}">
+	<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}"  bindtap="toJoinGroup" data-id="{{item.user.id}}">
 		<view class="flex">
 			<image src="{{item.img}}" class="img padding" mode="aspectFit"></image>
 			<view class="desc">
@@ -113,12 +113,12 @@
 
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">我加入的活动：</view>
-	<view wx:if="{{myJoinActivity}}" wx:for="{{myJoinActivity}}" bindtap="toActivity" data-id="{{item.id}}">
+	<view wx:if="{{myJoinActivity}}" wx:for="{{myJoinActivity}}" bindtap="toActivity" data-id="{{item.activity.id}}">
 		<view class="flex">
-			<image src="{{item.img}}" class="img padding" mode="aspectFit"></image>
+			<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFit"></image>
 			<view class="desc">
-				<view class="padding-sm">{{item.user.name}}</view>
-				<view class="padding-sm">活动举办时间：{{item.name}}</view>
+				<view class="padding-sm">{{item.activity.title}}</view>
+				<view class="padding-sm">活动举办时间：{{item.activity.time}}</view>
 			</view>
 		</view>
 	</view>

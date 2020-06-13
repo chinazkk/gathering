@@ -1,11 +1,51 @@
 <!--pages/message/message.wxml-->
 <view wx:for="{{message}}" class="flex" style="height:200rpx;">
-  <view class="flex" bindtap="todetail" data-id="{{item.id}}">
-    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
-    <view class="desc">
-      <view class="padding-sm text-bold">{{item.content}}</view>
-      <view class="padding-xs">{{item.lasttime}}</view>
-      <!-- <view class="padding-xs">{{item.number}}人已报名/共{{item.number}}个名额</view> -->
-    </view>
-  </view>
+	<!-- 0-小组审核  -->
+	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==0}}">
+		<image src="{{item.image}}" class="img" mode="aspectFit"></image>
+		<view class="desc">
+			<view class="padding-sm text-bold">{{item.content}}</view>
+			<view class="padding-xs">{{item.lasttime}}</view>
+		</view>
+	</view>
+	<!-- 1-站内好友私信 -->
+	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==1}}">
+		<image src="{{item.image}}" class="img" mode="aspectFit"></image>
+		<view class="desc">
+			<view class="padding-sm text-bold">{{item.content}}</view>
+			<view class="padding-xs">{{item.lasttime}}</view>
+		</view>
+	</view>
+	<!-- 2-提醒：即将参加的活动 -->
+	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==2}}">
+		<image src="{{item.image}}" class="img" mode="aspectFit"></image>
+		<view class="desc">
+			<view class="padding-sm text-bold">{{item.content}}</view>
+			<view class="padding-xs">{{item.lasttime}}</view>
+		</view>
+	</view>
+	<!-- 3-参加小组的公告和活动提醒 -->
+	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==3}}">
+		<image src="{{item.image}}" class="img" mode="aspectFit"></image>
+		<view class="desc">
+			<view class="padding-sm text-bold">{{item.title}}</view>
+			<view class="padding-xs">{{item.lasttime}}</view>
+		</view>
+	</view>
+	<!-- 4-已参加/已过期 -->
+	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==4}}">
+		<image src="{{item.image}}" class="img" mode="aspectFit"></image>
+		<view class="desc">
+			<view class="padding-sm text-bold">{{item.content}}</view>
+			<view class="padding-xs">{{item.lasttime}}</view>
+		</view>
+	</view>
+	<!-- 5-讨论被回复点赞 -->
+	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==5}}">
+		<image src="{{item.image}}" class="img" mode="aspectFit"></image>
+		<view class="desc">
+			<view class="padding-sm text-bold">{{item.content}}</view>
+			<view class="padding-xs">{{item.lasttime}}</view>
+		</view>
+	</view>
 </view>

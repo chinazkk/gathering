@@ -195,6 +195,13 @@
 					"id": -1,
 					"name": "通知栏",
 					"pathName": "pages/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "私信列表",
+					"pathName": "pages/privateLetter/privateLetter",
 					"scene": null
 				}
 			]

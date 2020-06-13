@@ -3,3 +3,6 @@
   border-radius: 15rpx;
   padding-left: 30rpx;
 }
+page{
+  padding-bottom: 100rpx;
+}

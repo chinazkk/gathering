@@ -1,0 +1,4 @@
+/* pages/privateLetter/privateLetter.wxss */
+page{
+  padding-bottom: 100rpx;
+}

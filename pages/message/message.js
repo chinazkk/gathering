@@ -9,6 +9,7 @@ Page({
   // 3-参加小组的公告和活动提醒
   // 4-已参加/已过期
   // 5-讨论被回复点赞
+  
   /**
    * 页面的初始数据
    */
@@ -22,7 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that=this
+    let that = this
     //获取通知列表
     let url = app.globalData.URL + '/inform/list';
     var data = {
@@ -33,6 +34,16 @@ Page({
       let tmp = res.data.data
       for (let i of tmp) {
         i.lasttime = time.formatMsgTime(i.create_time)
+        if (i.image == null) {
+          url = app.globalData.URL + '/user';
+          data = {
+            user_id: i.user_id
+          }
+          util.get(url, data).then(function (res) {
+            console.log(res.data.data.avatar)
+            i.image=res.data.data.avatar
+          })
+        }
       }
       that.setData({
         message: tmp

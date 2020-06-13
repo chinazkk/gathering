@@ -24,18 +24,22 @@ Page({
     imgurl: app.globalData.imgurl,
   },
   toCreateGroup(e){
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/groupdetail/groupdetail?id'+e.currentTarget.dataset.id,
+      url: '/pages/groupdetail/groupdetail?id='+e.currentTarget.dataset.id,
     })
   },
   toJoinGroup(e){
+    console.log(e.currentTarget.dataset.id)
+
     wx.navigateTo({
-      url: '/pages/groupdetail2/groupdetail2?id'+e.currentTarget.dataset.id,
+      url: '/pages/groupdetail2/groupdetail2?id='+e.currentTarget.dataset.id,
     })
   },
   toActivity(e){
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/activityDetail/activityDetail?id'+e.currentTarget.dataset.id,
+      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
     })
   },
   login2(e) {
@@ -273,14 +277,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.onLoad()
+
   },
 
   /**
