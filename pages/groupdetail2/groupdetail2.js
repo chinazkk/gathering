@@ -204,7 +204,7 @@ Page({
       })
     })
     //小组参与者
-    url = app.globalData.URL + '/groupjoin/user/list';
+    url = app.globalData.URL + '/group/join/user/list';
     data = {
       group_id: options.id,
     }
@@ -215,7 +215,7 @@ Page({
         joinnum: res.data.data.length
       })
     })
-    //判断用户是否加入小组
+    //获取参加小组
     url = app.globalData.URL + '/group/join/list';
     data = {
       audit_status:0,

@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentpage: 1, //当前页数
+    fleshlimit: '6', //每次刷新页数
   },
 
   /**
@@ -14,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    //获得私信列表
     let url = app.globalData.URL + '/user';
     let data = {
       user_id: wx.getStorageSync('userId'),
@@ -25,6 +27,19 @@ Page({
       })
       wx.setNavigationBarTitle({
         title: res.data.data.nick
+      })
+    })
+    //获取私信列表
+    url = app.globalData.URL + '/inform/message/list';
+    data = {
+      id: wx.getStorageSync('userId'),
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      that.setData({
+        letter: res.data.data,
+        limit: that.data.fleshlimit,
+        page: that.data.currentpage
       })
     })
   },

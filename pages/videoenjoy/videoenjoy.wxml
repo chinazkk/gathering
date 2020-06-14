@@ -12,7 +12,7 @@
 </view>
 <view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">
   <view class="flex" bindtap="todetail" data-id="{{item.id}}">
-    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+    <image src="{{imgurl}}{{item.image}}" class="img padding-sm" mode="aspectFit"></image>
     <view class="desc">
       <view class="padding-sm text-bold">{{item.title}}</view>
       <view class="padding-xs">{{item.time}}</view>
