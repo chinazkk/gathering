@@ -28,7 +28,12 @@ Page({
       message: e.detail.value
     })
   },
-
+  toActivity(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -92,6 +97,8 @@ Page({
         myJoinActivity: res.data.data
       })
     })
+
+    
     //获取浏览用户信息
     url = app.globalData.URL + '/user';
     data = {

@@ -133,7 +133,7 @@ Page({
     //获取即将到来的活动
     url = app.globalData.URL + '/group/activity/list';
     let data={
-      isComing: that.data.keyword,
+      isComing: 1,
       limit: that.data.fleshlimit,
       page: that.data.currentpage
     }
