@@ -39,8 +39,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('detail',options.id)
-    let ids=options.id
+    console.log('detail', options.id)
+    let ids = options.id
     var that = this
     //小组信息
     let url = app.globalData.URL + '/group';
@@ -135,7 +135,11 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (wx.getStorageSync('isCreateGroup')) {
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    }
   },
 
   /**

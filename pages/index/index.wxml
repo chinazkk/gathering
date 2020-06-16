@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="padding text-lg">我创建的小组</view>
-<view class="flex">
-	<view wx:for="{{mygroup}}" wx:key="key" class="flex" bindtap="todetail" data-id="{{item.id}}">
-		<view class="bg-blue margin-sm padding-sm">{{item.name}}</view>
+<view class="wrap">
+	<view wx:for="{{mygroup}}" wx:key="key" class="wrap " bindtap="todetail" data-id="{{item.id}}">
+		<view class="bg-blue margin-sm padding-sm " >{{item.name}}</view>
 	</view>
 	<image src="/images/add.png" class="img padding-sm" bindtap="tocreate"></image>
 </view>

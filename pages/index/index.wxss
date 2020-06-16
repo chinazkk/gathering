@@ -74,3 +74,7 @@
   bottom: 10rpx;
   color:#1296db;
 }
+.wrap{
+  flex-wrap: wrap; /*允许换行*/
+  display: flex; /*弹性布局*/
+}

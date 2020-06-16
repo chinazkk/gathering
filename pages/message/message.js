@@ -15,7 +15,7 @@ Page({
    */
   data: {
     currentpage: 1, //当前页数
-    fleshlimit: '7', //每次刷新页数
+    fleshlimit: '3', //每次刷新页数
     imgurl: app.globalData.imgurl
   },
 
@@ -34,16 +34,6 @@ Page({
       let tmp = res.data.data
       for (let i of tmp) {
         i.lasttime = time.formatMsgTime(i.create_time)
-        if (i.image == null) {
-          url = app.globalData.URL + '/user';
-          data = {
-            user_id: i.user_id
-          }
-          util.get(url, data).then(function (res) {
-            console.log(res.data.data.avatar)
-            i.image=res.data.data.avatar
-          })
-        }
       }
       that.setData({
         message: tmp

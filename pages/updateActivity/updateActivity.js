@@ -89,7 +89,8 @@ Page({
       summarize: that.summarize,
       number: that.num,
       image: that.image,
-      tags: 'string'
+      tags: that.tags,
+      notice_status:this.data.check
     }
     util.other(url, data, 'PUT').then(function (res) {
       console.log(res.data)
@@ -306,7 +307,8 @@ Page({
       that.setData({
         info: res.data.data,
         type: _type,
-        imgList: tmp
+        imgList: tmp,
+        check:res.data.data.notice_status
       })
     })
   },

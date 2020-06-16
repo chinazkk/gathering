@@ -81,7 +81,8 @@ Page({
       summarize: this.data.area,
       number: this.data.num,
       image: this.data.imgurl,
-      tags:this.data.tagchoose
+      tags:this.data.tagchoose,
+      notice_status: this.data.check==true?1:0,
     }
     util.post(url, data).then(function (res) {
       console.log(res.data)

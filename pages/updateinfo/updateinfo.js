@@ -73,7 +73,9 @@ Page({
       number: this.data.userinfo.number,
       location: this.data.userinfo.location,
       question: this.data.userinfo.question,
-      image: this.data.userinfo.image
+      image: this.data.userinfo.image,
+      private_status: this.data.check1==true?1:0,
+      exhibition_status: this.data.check2==true?1:0
     }
     util.other(url, data, 'PUT').then(function (res) {
       console.log(res.data)
@@ -179,7 +181,10 @@ Page({
     util.get(url, data).then(function (res) {
       console.log(res.data)
       that.setData({
-        userinfo: res.data.data
+        userinfo: res.data.data,
+        check1:res.data.data.private_status,
+        check2:res.data.data.exhibition_status,
+
       })
     })
   },

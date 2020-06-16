@@ -47,6 +47,7 @@ Page({
     util.post(url, data).then(function(res) {
       console.log(res.data)
       if (res.data.code == 200) {
+        wx.setStorageSync('isCreateGroup', 1)
         wx.showToast({ 
           title: '提交成功',
            duration: 2000,

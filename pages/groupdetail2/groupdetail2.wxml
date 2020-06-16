@@ -10,7 +10,7 @@
 <image src="{{imgurl}}{{info.image}}" mode="widthFix"></image>
 
 <view class="flex solid-bottom padding-sm justify-between bg-white">
-	<view class=" padding-sm  radius">xxxx</view>
+	<view class=" padding-sm  radius">{{info.name}}</view>
 	<view class=" padding-sm  radius  text-blue " wx:if="{{isjoin}}" bindtap="quitgroup">退出小组</view>
 	<view class=" padding-sm  radius  text-blue " wx:else bindtap="tojoin">申请加入</view>
 </view>
