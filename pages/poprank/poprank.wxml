@@ -1,9 +1,10 @@
 <!--pages/poprank/poprank.wxml-->
 <view wx:for="{{hotgroup}}" class="flex" style="height:200rpx;" bindtap="toactdetail" data-id="{{item.id}}">
 	<view class="flex">
-		<view class="indexs  ">
+		<!-- <view class="indexs  ">
 			<view class="index  text-grey">{{index+1}}</view>
-		</view>
+		</view> -->
+		<image src="/images/num/人气总榜 第{{index+1}}.png" class="num padding"></image>
 		<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
 		<view class="desc left">
 			<view class="padding-xs text-xl">{{item.title}}</view>

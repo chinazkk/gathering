@@ -7,6 +7,10 @@
 
   /* flex-shrink:0; */
 }
+.num{
+  width: 170rpx;
+  height: 170rpx;
+}
 .left{
   position: relative;
   left: 50rpx;

@@ -30,9 +30,13 @@ Page({
    */
   onLoad: function (options) {
     var that=this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     let url = app.globalData.URL + '/group/activity/list';
     var data = {
-      limit: '7',
+      limit: '10',
       page: '1',
       isHot:'1'
     }
@@ -41,6 +45,7 @@ Page({
       that.setData({
         hotgroup: res.data.data
       })
+      wx.hideLoading()
     })
   },
   toactdetail(e)
