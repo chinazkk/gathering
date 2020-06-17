@@ -1,8 +1,9 @@
 <!--pages/my/my.wxml-->
 <block wx:if="{{!islogin}}">
 	<!-- <view class="cu-avatar round xl" style="background-image:url({{userInfoAll.head}})"></view> -->
-	<view>
-		<view class="cu-avatar  touimage" style="background-image:url({{avatarUrl}})"></view>
+	<view class="padding logos">
+		<!-- <view class="cu-avatar  touimage" style="background-image:url({{avatarUrl}})"></view> -->
+		<image class="logo" src="/images/Logo.png"></image>
 		<!-- <view class="bg-white area">
       <view class="padding text-center text-bold">手机号登录</view>
 	   <view class="backcolor cu-form-group input">
@@ -10,121 +11,117 @@
 		</view>
 	</view> -->
 	</view>
-
 	<view class='padding bg-white pad area'>
-		<view class="padding text-center text-bold">手机号登录</view>
-		<view class="cu-form-group margin-top bg-gray light round">
+		<view class="padding text-center text-bold text-xl">手机号登录</view>
+		<view class="cu-form-group margin-top input radius" style="height:70rpx;">
 			<!-- <view class="title">姓名</view> -->
-			<input placeholder="请输入手机号" class="" name='userName' bindinput="getname"></input>
+			<input placeholder="请输入手机号" class=""  name='userName' bindinput="getname"></input>
 		</view>
-		<view class="cu-form-group margin-top bg-gray light round">
-			<!-- <view class="title">密码</view> -->
-			<view class="flex  justify ">
-				<input placeholder="验证码" name='userPhone' bindinput="getpassword"></input>
+		<view class="cu-form-group margin-top input radius" style="height:70rpx;">
+			<view class="flex" style="height:70rpx;">
+				<input placeholder="请输入验证码" name='userPhone' placeholder-style="top: 8rpx;"  bindinput="getpassword"></input>
 				<!-- <button class="button2 round" style="width:50%;height:90rpx;left:30rpx; ">获取验证码</button> -->
-				<view class=" ">获取验证码</view>
+				<button class="getcode" style="width:200rpx; font-size:28rpx">获取验证码</button>
 			</view>
 		</view>
-
 		<view class="margin-top-lg  text-center">
-			<button class="cu-btn bg-grey  round button1" bindtap="commit">立即登录</button>
+			<button class="cu-btn bg-grey  button1" bindtap="commit" style="width:200rpx;border-radius: 25rpx;font-weight: 500;">立即登录</button>
 			<!-- <button class="cu-btn bg-grey  btn margin-top round lg" form-type='reset'>重置</button> -->
 		</view>
 	</view>
 	<view class="text-center bottom flex">
 		<!-- <image src="/images/wechat.png" class="btnImg"></image> -->
-
-		<button class="cuIcon-weixin  cu-btn bg-grey btn round bottom" open-type="getUserInfo" bindgetuserinfo='login2'>微信快捷登录</button>
+		<button class="cuIcon-weixin cu-btn bg-grey btn round bottom" style=" background-color: #f2683e;width:300rpx;border-radius: 25rpx;font-weight: 500;" open-type="getUserInfo" bindgetuserinfo='login2'>微信快捷登录</button>
 	</view>
 </block>
 <block wx:else>
-<view class="bg-white">
-	<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfodetail.avatar}})"></view>
-	<navigator url="/pages/updateinfo/updateinfo" class="text-blue padding update">编辑</navigator>
+	<view class="bg-white">
+		<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfodetail.avatar}})"></view>
+		<navigator url="/pages/updateinfo/updateinfo" class="text-blue padding update">编辑</navigator>
 
 
-	<view class="text-center text-bold padding-top padding-xs margin-top-xl">{{userinfodetail.nick}}</view>
-	<view class="text-center text-bold padding-xs">位置:{{userinfodetail.location!='null'?userinfodetail.location:'暂无'}}</view>
-	<view class="text-center text-bold padding-xs">简介：{{userinfodetail.introduction!='null'?userinfodetail.introduction:'暂无'}}</view>
-	<view class="text-center text-bold padding-xs">兴趣标签:{{userinfodetail.tags!='null'?userinfodetail.tags:'暂无'}}</view> 
-</view>
+		<view class="text-center text-bold padding-top padding-xs margin-top-xl">{{userinfodetail.nick}}</view>
+		<view class="text-center text-bold padding-xs">位置:{{userinfodetail.location!='null'?userinfodetail.location:'暂无'}}</view>
+		<view class="text-center text-bold padding-xs">简介：{{userinfodetail.introduction!='null'?userinfodetail.introduction:'暂无'}}</view>
+		<view class="text-center text-bold padding-xs">兴趣标签:{{userinfodetail.tags!='null'?userinfodetail.tags:'暂无'}}</view>
+	</view>
 
-<view class="flex title1 margin-top">
-	<navigator class="flex" class="cu-item " url="/pages/mycalendar/mycalendar">
-		<text class="cuIcon-calendar xxl text-black padding iconword"></text>
-		<text class="iconword">我的日历</text>
-	</navigator>
-	<navigator class="flex" class="cu-item" url="/pages/mycollect/mycollect">
-		<text class="cuIcon-favor xxl text-black padding iconword "></text>
-		<text class="iconword">我的收藏</text>
-	</navigator>
-</view>
+	<view class="flex title1 margin-top-sm">
+		<navigator class="flex cu-item" url="/pages/mycalendar/mycalendar">
+			<image src="/images/日历.png" class="icon padding-xs"></image>
+			<text class="iconword padding-xs">我的日历</text>
+		</navigator>
+		<navigator class="flex cu-item" url="/pages/mycollect/mycollect">
+			<image src="/images/收藏.png" class="icon padding-xs"></image>
+			<text class="iconword padding-xs">我的收藏</text>
+		</navigator>
+	</view>
 
-<view class="padding ">
-	<view class="text-left padding text-bold text-lg">我创建的小组：</view>
-	<view wx:if="{{myCreateGroup}}" wx:for="{{myCreateGroup}}" >
-		<view class="flex" bindtap="toCreateGroup" data-id="{{item.id}}">
-			<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
-			<view class="desc">
-				<view class="padding-sm">{{item.name}}</view>
-				<view class="padding-sm">现有参与者人数：{{item.applicantNum}}</view>
+	<view class="padding ">
+		<view class="text-left padding text-bold text-lg">我创建的小组：</view>
+		<view wx:if="{{myCreateGroup}}" wx:for="{{myCreateGroup}}">
+			<view class="flex" bindtap="toCreateGroup" data-id="{{item.id}}">
+				<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
+				<view class="desc">
+					<view class="padding-sm">{{item.name}}</view>
+					<view class="padding-sm">现有参与者人数：{{item.applicantNum}}</view>
+				</view>
 			</view>
 		</view>
+		<view wx:if="{{!myCreateGroup}}">
+			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		</view>
+		<view class="divLine"></view>
 	</view>
-	<view wx:if="{{!myCreateGroup}}">
-		<text class="padding-xxl text-bold text-gray title1">无 </text>
-	</view>
-	<view class="divLine"></view>
-</view>
 
-<view class="padding ">
-	<view class="text-left padding text-bold text-lg">我加入的小组：</view>
-	<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}"  bindtap="toJoinGroup" data-id="{{item.user.id}}">
-		<view class="flex">
-			<image src="{{item.img}}" class="img padding" mode="aspectFit"></image>
-			<view class="desc">
-				<view class="padding-sm">{{item.user.name}}</view>
-				<view class="padding-sm">现有参与者人数:{{item.applicantNum}}</view>
+	<view class="padding ">
+		<view class="text-left padding text-bold text-lg">我加入的小组：</view>
+		<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}" bindtap="toJoinGroup" data-id="{{item.user.id}}">
+			<view class="flex">
+				<image src="{{item.img}}" class="img padding" mode="aspectFit"></image>
+				<view class="desc">
+					<view class="padding-sm">{{item.user.name}}</view>
+					<view class="padding-sm">现有参与者人数:{{item.applicantNum}}</view>
+				</view>
 			</view>
 		</view>
+		<view wx:if="{{!myjoingroup.length}}">
+			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		</view>
+		<view class="divLine"></view>
 	</view>
-	<view wx:if="{{!myjoingroup.length}}">
-		<text class="padding-xxl text-bold text-gray title1">无 </text>
-	</view>
-	<view class="divLine"></view>
-</view>
 
-<view class="padding ">
-	<view class="text-left padding text-bold text-lg">我创建的活动：</view>
-	<view wx:if="{{myCreateActivity}}" wx:for="{{myCreateActivity}}" bindtap="toActivity" data-id="{{item.id}}">
-		<view class="flex">
-			<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
-			<view class="desc">
-				<view class="padding-sm">{{item.title}}</view>
-				<view class="padding-sm">活动举办时间:{{item.time}}</view>
+	<view class="padding ">
+		<view class="text-left padding text-bold text-lg">我创建的活动：</view>
+		<view wx:if="{{myCreateActivity}}" wx:for="{{myCreateActivity}}" bindtap="toActivity" data-id="{{item.id}}">
+			<view class="flex">
+				<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
+				<view class="desc">
+					<view class="padding-sm">{{item.title}}</view>
+					<view class="padding-sm">活动举办时间:{{item.time}}</view>
+				</view>
 			</view>
 		</view>
+		<view wx:if="{{!myCreateActivity.length}}">
+			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		</view>
+		<view class="divLine"></view>
 	</view>
-	<view wx:if="{{!myCreateActivity.length}}">
-		<text class="padding-xxl text-bold text-gray title1">无 </text>
-	</view>
-	<view class="divLine"></view>
-</view>
 
-<view class="padding ">
-	<view class="text-left padding text-bold text-lg">我加入的活动：</view>
-	<view wx:if="{{myJoinActivity}}" wx:for="{{myJoinActivity}}" bindtap="toActivity" data-id="{{item.activity.id}}">
-		<view class="flex">
-			<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFit"></image>
-			<view class="desc">
-				<view class="padding-sm">{{item.activity.title}}</view>
-				<view class="padding-sm">活动举办时间：{{item.activity.time}}</view>
+	<view class="padding ">
+		<view class="text-left padding text-bold text-lg">我加入的活动：</view>
+		<view wx:if="{{myJoinActivity}}" wx:for="{{myJoinActivity}}" bindtap="toActivity" data-id="{{item.activity.id}}">
+			<view class="flex">
+				<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFit"></image>
+				<view class="desc">
+					<view class="padding-sm">{{item.activity.title}}</view>
+					<view class="padding-sm">活动举办时间：{{item.activity.time}}</view>
+				</view>
 			</view>
 		</view>
+		<view wx:if="{{!myJoinActivity.length}}">
+			<text class="padding-xxl text-bold text-gray title1">无 </text>
+		</view>
+		<view class="divLine"></view>
 	</view>
-	<view wx:if="{{!myJoinActivity.length}}">
-		<text class="padding-xxl text-bold text-gray title1">无 </text>
-	</view>
-	<view class="divLine"></view>
-</view>
 </block>

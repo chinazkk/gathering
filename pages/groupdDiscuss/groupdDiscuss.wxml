@@ -4,7 +4,7 @@
 	<view class="action">
 		<!-- <text class="cuIcon-emojifill text-grey"></text> -->
 	</view>
-	<button class="cu-btn bg-grey shadow " style="width:150rpx" bindtap="commit">提交</button>
+	<button class="cu-btn text-blue " style="width:150rpx" bindtap="commit">提交</button>
 </view>
 
   <view class="cu-list menu-avatar" wx:for="{{talkinfo}}">
@@ -19,7 +19,9 @@
         </view>
         <view class="text-gray text-sm flex">
           <view class="text-cut" bindtap="tothumb" data-index="{{index}}" data-id="{{item.id}}">
-							<text  class="cuIcon-appreciate{{item.praise==true?'fill':''}} lg pading-xs text-red  margin-right-xs"></text> 
+							<!-- <text  class="cuIcon-appreciate xl pading-xs text-{{item.praise==true?'red':'black'}}  margin-right-xs big"></text>  -->
+              <image src="/images/点击.png" class="icon" wx:if="{{item.praise==true}}"></image>
+              <image src="/images/点赞 - 未点击.png" class="icon" wx:else></image>
           </view>
         </view>
       </view>

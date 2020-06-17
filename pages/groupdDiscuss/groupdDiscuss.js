@@ -67,6 +67,10 @@ Page({
   },
   onLoad: function (options) {
     var that = this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     console.log(options.id)
     this.setData({
       groupnum: options.id
@@ -87,6 +91,7 @@ Page({
       that.setData({
         talkinfo: tmp,
       })
+      wx.hideLoading()
     })
   },
   secondload() {

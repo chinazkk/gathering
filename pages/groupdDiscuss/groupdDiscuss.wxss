@@ -6,3 +6,10 @@
 page{
   padding-bottom: 100rpx;
 }
+.icon{
+  width: 35rpx;
+  height: 35rpx;
+}
+.big{
+  font-size: 33rpx;
+}

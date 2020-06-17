@@ -1,12 +1,23 @@
-<scroll-view scroll-x class="bg-white nav">
+<!-- <scroll-view scroll-x class="bg-white nav">
 	<view class="flex text-center">
 		<view class="cu-item flex-sub text-bold {{index==TabCur?'text-orange cur':''}}" wx:for="{{3}}" wx:key bindtap="tabSelect" data-id="{{index}}">
 			{{list[index]}}
 		</view>
 	</view>
-</scroll-view>
+</scroll-view> -->
+<view class="flex">
+<image src="/images/calendar/日历 全部（150x35px）.png" wx:if="{{TabCur==0}}" class="icon padding"  bindtap="choose" data-id="0"></image>
+<image src="/images/calendar/日历 全部 - 未点击（150x35px）.png" wx:else class="icon padding" bindtap="choose" data-id="0"></image>
+
+<image src="/images/calendar/日历 即将到来（150x35px）.png" wx:if="{{TabCur==1}}" class="icon padding"  bindtap="choose" data-id="1"></image>
+<image src="/images/calendar/日历 即将到来 - 未点击（150x35px）.png" wx:else class="icon padding"  bindtap="choose" data-id="1"></image>
+
+<image src="/images/calendar/日历 已过期（150x35px）.png" wx:if="{{TabCur==2}}" class="icon padding"  bindtap="choose" data-id="2"></image>
+<image src="/images/calendar/日历 已过期 - 未点击（150x35px）.png" wx:else class="icon padding"  bindtap="choose" data-id="2"></image>
+
+</view>
 <block wx:if="{{TabCur==0}}">
-	<view class="flex" wx:for="{{allactivity}}" bindtap="toactdetail"  data-id="{{item.id}}">
+	<view class="flex bg-white" wx:for="{{allactivity}}" bindtap="toactdetail"  data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 		<view class="desc padding-sm">
 			<view class="padding-sm text-bold">{{item.title}}</view>

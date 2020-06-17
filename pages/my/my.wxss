@@ -1,51 +1,92 @@
 .touimage {
   /* 居中 */
-  margin: 0 auto;  
-  display: flex;
   justify-content: center;
-  overflow: hidden;
-  width: 161rpx;
-  height: 161rpx;
-  border-radius: 50%;
+  width: 250rpx;
+  height: 250rpx;
   top: 60rpx;
 }
-.justify{
-  justify-content: center;
-
+page{
+  background-color: white;
 }
-.area{
+.logos{
+  display: flex;
+  justify-content: center;
+}
+.logo {
+
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.getcode {
+  background-color: #f2683e;
+  color: white;
+  position: relative;
+  left: 28rpx;
+  text-align: center;
+  justify-content: center;
+  letter-spacing:4rpx;
+  border-radius: 29rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-weight: 500;
+}
+
+.justify {
+  justify-content: center;
+}
+
+.input {
+  background-color: #d8d8d8;
+  height: 70rpx;
+  border-radius: 29rpx;
+}
+
+.area {
   /* background-color: #d8d8d8; */
-  width:84%;
+  width: 84%;
   position: relative;
   left: 8%;
-  top: 120rpx;
+  top: 40rpx;
+  box-shadow:0px 1px 1px 1px #d8d8d8;
 }
-.bottom{
+
+.bottom {
   top: 200rpx;
+  font-size: 32rpx;
+  letter-spacing:3rpx;
 }
-.button1{
+
+.button1 {
   width: 100rpx;
+  font-size: 32rpx;
+  background-color: #f2683e;
 }
-.button2{
- font-size: 28rpx;
- background-color: #bfbfbf;
+
+.button2 {
+  font-size: 28rpx;
+  background-color: #bfbfbf;
 }
+
 .btnImg {
   margin-right: 8rpx;
   width: 46rpx;
   height: 46rpx;
 }
-.input{
+
+.input {
   height: 40rpx;
-  min-height:40rpx;
+  min-height: 40rpx;
 }
-.bottom{
+
+.bottom {
   position: relative;
   top: 80rpx;
 }
+
 .touimage {
   /* 居中 */
-  margin: 0 auto;  
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -55,39 +96,49 @@
   padding-top: 60rpx;
   padding-bottom: 60rpx;
 }
-.iconword{
 
+.iconword {
   font-size: 45rpx;
 }
-.divLine{
+
+.divLine {
   margin-top: 20rpx;
   background: #c6c8c9;
   width: 100%;
 
   height: 5rpx;
- }
-.update{
+}
+
+.update {
   position: absolute;
   right: 20rpx;
   top: 10rpx;
 }
-.code{
-  background-color:#4a4a4a ;
+
+.code {
+  background-color: #4a4a4a;
   color: white;
   padding: 20rpx;
   /* border-radius: 40%; */
 }
-.title1{
+
+.title1 {
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   position: relative;
   top: 20rpx;
   width: 100%;
   height: 100%;
   font-size: 35rpx;
 }
-.img{
+
+.img {
   height: 180rpx;
   width: 250rpx;
+}
+
+.icon {
+  width: 75rpx;
+  height: 75rpx;
 }

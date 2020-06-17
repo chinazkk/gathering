@@ -83,6 +83,13 @@ Page({
       })
     })
   },
+  choose(e){
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      currentpage:1,
+      needflesh: true,
+    })
+  },
   onReachBottom: function () {
     var that = this
     if (that.data.needflesh) {

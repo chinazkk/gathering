@@ -33,36 +33,36 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f2683e",
     "navigationBarTitleText": "聚玩 Gathering",
     "enablePullDownRefresh": true,
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "selectedColor": "#2db7f5",
+    "selectedColor": "#f2683e",
     "color": "#909090",
     "list": [
       {
         "text": "首页",
-        "iconPath": "images/tabbar/首页.png",
+        "iconPath": "images/tabbar/首页 - 未点击.png",
         "selectedIconPath": "images/tabbar/首页.png",
         "pagePath": "pages/index/index"
       },
       {
         "text": "探索",
-        "iconPath": "images/tabbar/探索.png",
+        "iconPath": "images/tabbar/探索 - 未点击.png",
         "selectedIconPath": "images/tabbar/探索.png",
         "pagePath": "pages/explore/explore"
       },
       {
         "text": "通知",
-        "iconPath": "images/tabbar/通知.png",
+        "iconPath": "images/tabbar/通知 - 未点击.png",
         "selectedIconPath": "images/tabbar/通知.png",
         "pagePath": "pages/message/message"
       },
       {
         "text": "我的",
-        "iconPath": "images/tabbar/我的.png",
+        "iconPath": "images/tabbar/我的 - 未点击.png",
         "selectedIconPath": "images/tabbar/我的.png",
         "pagePath": "pages/my/my"
       }
