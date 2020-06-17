@@ -13,7 +13,7 @@
 }
 .left{
   position: relative;
-  left: 50rpx;
+  left: 100rpx;
 }
 .img{
   height: 180rpx;
