@@ -1,5 +1,5 @@
 <!--pages/groupdetail/groupdetail.wxml-->
-<image src="{{imgurl}}{{info.image}}" mode="widthFix" class="img"></image>
+<image src="{{imgurl}}{{info.image}}" mode="widthFix" class=""></image>
 
 <view class="flex solid-bottom padding-sm justify-between bg-white">
 	<view class=" padding-sm  radius">{{info.name}}</view>

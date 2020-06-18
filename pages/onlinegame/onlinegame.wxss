@@ -1,7 +1,7 @@
 .items{
   height: 80rpx;
   position: fixed;
-  right: 50rpx;
+  right: 30rpx;
   top: 120rpx;
 }
 .item{

@@ -5,14 +5,15 @@
 	</view>
 </view>
 <view class="flex solid-bottom padding-sm justify-between">
-	<view class=" padding-xs text-bold  radius text-lg">热门标签</view>
+	<view class=" padding-xs radius text-lg">热门标签</view>
 	<navigator url="/pages/choosetag/choosetag" class="padding-xs  radius  text-blue " bindtap="toupdate">全部</navigator>
 </view>
 <view class="menu">
 	<view class="menu-item padding" wx:for="{{tags}}" wx:if="{{index<6}}">
-		<text class="menu-name text-{{tagindex==index?'orange':''}} bg-{{tagindex==index?'orange':''}}" bindtap="choosetag" data-id="{{index}}" >{{item}}</text>
+		<text class="menu-name  text-{{tagindex==index?'orange':''}}" bindtap="choosetag" data-id="{{index}}" >{{item}}</text>
 	</view>
 </view>
+
 <block wx:if="{{!issearch}}">
   <view class="padding content text-lg">即将到来的活动</view>
 	<view wx:for="{{lastactivity}}" class="flex" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">

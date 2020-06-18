@@ -12,8 +12,7 @@
   padding-bottom: 60rpx; */
 }
 .img{
-  width: auto;
-  height: 100%;
+  width: 100%;
 }
 .actimg {
   height: 200rpx;
