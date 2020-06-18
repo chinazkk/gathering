@@ -9,12 +9,14 @@ Page({
     type:'0',
     currentpage: 1, //当前页数
     fleshlimit: '7', //每次刷新页数
-    imgurl: app.globalData.imgurl
+    imgurl: app.globalData.imgurl,
+    choosetag:false
   },
   choose(e) {
     console.log(e.currentTarget.dataset.id)
     this.setData({
       order: e.currentTarget.dataset.id,
+      choosetag:!this.data.choosetag,
       currentpage: 1
     })
     this.flesh()
@@ -39,6 +41,11 @@ Page({
         groupinfo: res.data.data,
         currentpage: that.data.currentpage
       })
+    })
+  },
+  tap(e){
+    this.setData({
+      choosetag:!this.data.choosetag
     })
   },
   //搜索刷新 或 选择刷新

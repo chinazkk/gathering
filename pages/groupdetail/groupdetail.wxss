@@ -11,7 +11,10 @@
   /* padding-top: 60rpx;
   padding-bottom: 60rpx; */
 }
-
+.img{
+  width: auto;
+  height: 100%;
+}
 .actimg {
   height: 200rpx;
   width: 200rpx;

@@ -1,10 +1,10 @@
-<view class="cu-bar bg-white search " style="top:{{CustomBar}}px">
-	<view class="search-form radius">
-		<text class="cuIcon-search xl" ></text>
-		<input type="text" placeholder="搜索" confirm-type="search" bindinput="getkeyword"></input>
+<view class="cu-bar  search " style="top:{{CustomBar}}px">
+	<view class="search-form radius "  style="background-color:#d8d8d8">
+		<text class="cuIcon-search xl padding-right  searchicon text-white" style="background-color:#d8d8d8" ></text>
+		<input type="text" placeholder="搜索" placeholder-class="input"  confirm-type="search" bindinput="getkeyword"></input>
 	</view>
 </view>
-<view class="flex solid-bottom padding-sm justify-between bg-white">
+<view class="flex solid-bottom padding-sm justify-between">
 	<view class=" padding-xs text-bold  radius text-lg">热门标签</view>
 	<navigator url="/pages/choosetag/choosetag" class="padding-xs  radius  text-blue " bindtap="toupdate">全部</navigator>
 </view>
@@ -14,11 +14,11 @@
 	</view>
 </view>
 <block wx:if="{{!issearch}}">
-  <view class="padding content text-bold text-lg">即将到来的活动</view>
+  <view class="padding content text-lg">即将到来的活动</view>
 	<view wx:for="{{lastactivity}}" class="flex" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">
-		<view class="flex">
+		<view class="flex padding">
 			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
-			<view class="desc">
+			<view class="desc padding-left-xl">
 				<view class="padding-sm text-bold">{{item.title}}</view>
 				<view class="padding-xs">{{item.time}}</view>
 				<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>

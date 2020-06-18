@@ -2,9 +2,9 @@
 <view class="padding text-lg">我创建的小组</view>
 <view class="wrap">
 	<view wx:for="{{mygroup}}" wx:key="key" class="wrap " bindtap="todetail" data-id="{{item.id}}">
-		<view class="bg-grey margin-sm padding-sm " >{{item.name}}</view>
+		<view class="gruopinfo margin-sm padding-sm ">{{item.name}}</view>
 	</view>
-	<image src="/images/add.png" class="img padding-sm" bindtap="tocreate"></image>
+	<image src="/images/add.jpg" class="img" bindtap="tocreate"></image>
 </view>
 
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
@@ -16,19 +16,19 @@
 <view class="menu bg-white">
 	<navigator url="/pages/onlinegame/onlinegame" class="menu-item" hover-class="none">
 		<image src="/images/tabbar/线上游戏.png" class="menu-img"></image>
-		<text class="menu-name text-bold">线上游戏</text>
+		<text class="menu-name ">线上游戏</text>
 	</navigator>
 	<navigator url="/pages/experience/experience" class="menu-item" hover-class="none">
 		<image src="/images/tabbar/经验分享.png" class="menu-img"></image>
-		<text class="menu-name text-bold">经验分享</text>
+		<text class="menu-name ">经验分享</text>
 	</navigator>
 	<navigator url="/pages/videoenjoy/videoenjoy" class="menu-item" hover-class="none">
 		<image src="/images/tabbar/影视鉴赏.png" class="menu-img"></image>
-		<text class="menu-name text-bold">影视鉴赏</text>
+		<text class="menu-name">影视鉴赏</text>
 	</navigator>
 	<navigator url="/pages/foodenjoy/foodenjoy" class="menu-item" hover-class="none">
 		<image src="/images/tabbar/美食探店.png" class="menu-img"></image>
-		<text class="menu-name text-bold">美食探店</text>
+		<text class="menu-name">美食探店</text>
 	</navigator>
 </view>
 <!-- //人气总榜 -->
@@ -41,14 +41,15 @@
 </view>
 <view wx:for="{{hotactivity}}" wx:key="key">
 	<view bindtap="toactdetail" data-id="{{item.id}}">
-		<image src="{{imgurl}}{{item.image}}" mode="aspectFit" class="imglimit">
-		</image>
+		<view class="imgs">
+		<image src="{{imgurl}}{{item.image}}" mode="aspectFit" class="imglimit"></image>
+		</view>
 		<view class="padding-sm padding-left bg-white">
 			<text class="cu-bar-title text-bold text-black text-lg ">{{item.title}}</text>
 		</view>
-		<view class="bg-white padding ">
-			<text class="cu-bar-title text-bold text-black ">{{item.applicantNum}}人已报名/{{item.number}}个名额</text>
-			<text class="text-black right">距离报名截止日期还有{{item.lasttime}}天</text>
+		<view class="bg-white padding justify-between flex">
+			<view class="text-sm text-black ">{{item.applicantNum}}人已报名/{{item.number}}个名额</view>
+			<view class="text-sm text-black ">距离报名截止日期还有{{item.lasttime}}天</view>
 		</view>
 	</view>
 </view>

@@ -31,6 +31,20 @@
   flex-direction: column;
 }
 
+.input{
+  background-color:#d8d8d8 ;
+}
+.input::after{
+  background-color:#d8d8d8 ;
+}
+.searchicon{
+  position: relative;
+  left: 20rpx;
+  padding-right:40rpx;
+  padding-left:0rpx;
+  font-size: 40rpx;
+  height: auto;
+}
 .menu-name {
   background-color: #d8d8d8;
   padding: 10rpx;
