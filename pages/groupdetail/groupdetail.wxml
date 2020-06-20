@@ -1,6 +1,7 @@
 <!--pages/groupdetail/groupdetail.wxml-->
-<image src="{{imgurl}}{{info.image}}" mode="widthFix" class=""></image>
-
+<view class="flex imagefirst">
+	<image src="{{imgurl}}{{info.image}}" mode="widthFix" class="imgtou"></image>
+</view>
 <view class="flex solid-bottom padding-sm justify-between bg-white">
 	<view class=" padding-sm  radius">{{info.name}}</view>
 	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">编辑</view>

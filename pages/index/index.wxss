@@ -73,9 +73,6 @@
 .img {
   height: 60rpx;
   width: 60rpx;
-  position: relative;
-  top: 40rpx;
-
 }
 .imgs{
   display: flex;
@@ -104,8 +101,9 @@
 }
 
 .wrap {
-  flex-wrap: wrap;
-  /*允许换行*/
-  display: flex;
-  /*弹性布局*/
+  flex-wrap: wrap; /*允许换行*/
+  display: flex;/*弹性布局*/
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
 }

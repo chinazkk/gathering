@@ -11,6 +11,16 @@
   /* padding-top: 60rpx;
   padding-bottom: 60rpx; */
 }
+.imgtou{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.imagefirst{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .img{
   width: 100%;
 }
