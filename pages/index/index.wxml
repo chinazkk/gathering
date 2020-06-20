@@ -4,7 +4,7 @@
 	<view wx:for="{{mygroup}}" wx:key="key" class="wrap " bindtap="todetail" data-id="{{item.id}}">
 		<view class="gruopinfo margin-sm padding-sm ">{{item.name}}</view>
 	</view>
-	<image src="/images/add.jpg" class="img" bindtap="tocreate"></image>
+	<image src="/images/addgrey.png" class="img margin-sm" bindtap="tocreate"></image>
 </view>
 
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
