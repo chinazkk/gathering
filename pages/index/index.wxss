@@ -73,6 +73,8 @@
 .img {
   height: 50rpx;
   width: 50rpx;
+  position: relative;
+  right: 10rpx;
 }
 
 .imgs {
