@@ -164,6 +164,10 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options.id)
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     var that = this
     //小组信息
     let url = app.globalData.URL + '/group';
@@ -228,6 +232,7 @@ Page({
       that.setData({
         joininfo: res.data.data,
       })
+      wx.hideLoading()
     })
   },
   toactdetail(e)

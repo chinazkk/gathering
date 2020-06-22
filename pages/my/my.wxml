@@ -41,19 +41,19 @@
 
 
 		<view class="text-center text-bold padding-top padding-xs margin-top-xl">{{userinfodetail.nick}}</view>
-		<view class="text-center text-bold padding-xs">位置:{{userinfodetail.location!='null'?userinfodetail.location:'暂无'}}</view>
-		<view class="text-center text-bold padding-xs">简介：{{userinfodetail.introduction!='null'?userinfodetail.introduction:'暂无'}}</view>
-		<view class="text-center text-bold padding-xs">兴趣标签:{{userinfodetail.tags!='null'?userinfodetail.tags:'暂无'}}</view>
+		<view class="text-center text-bold padding-xs">位置: {{userinfodetail.location!==null?userinfodetail.location:'暂无该信息'}}</view>
+		<view class="text-center text-bold padding-xs">简介：{{userinfodetail.introduction!==null?userinfodetail.introduction:'暂无该信息'}}</view>
+		<view class="text-center text-bold padding-xs padding-bottom">兴趣标签: {{userinfodetail.tags!=null?userinfodetail.tags:'暂无该信息'}}</view>
 	</view>
 
-	<view class="flex title1 margin-top-sm">
-		<navigator class="flex cu-item" url="/pages/mycalendar/mycalendar">
-			<image src="/images/日历.png" class="icon padding-xs"></image>
-			<text class="iconword padding-xs">我的日历</text>
+	<view class="flex title1 margin-top-sm justify-between">
+		<navigator class="flex cu-item" url="/pages/mycalendar/mycalendar" class="aligina">
+			<image src="/images/日历.png" class="icon "></image>
+			<text class="padding-xs text-lg">我的日历</text>
 		</navigator>
-		<navigator class="flex cu-item" url="/pages/mycollect/mycollect">
-			<image src="/images/收藏.png" class="icon padding-xs"></image>
-			<text class="iconword padding-xs">我的收藏</text>
+		<navigator class="flex cu-item" url="/pages/mycollect/mycollect" class="aliginb">
+			<image src="/images/收藏.png" class="icon"></image>
+			<text class="padding-xs text-lg">我的收藏</text>
 		</navigator>
 	</view>
 

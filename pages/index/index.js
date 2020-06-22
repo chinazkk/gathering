@@ -93,7 +93,7 @@ Page({
     //   user_id: wx.getStorageSync('userId'),
     // })
     var data = {
-      limit: '1',
+      limit: '3',
       page: '1',
       user_id: wx.getStorageSync('userId'),
     }

@@ -16,6 +16,10 @@ Page({
 
   onLoad: function (options) {
     var that = this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     console.log(options.id)
     //获取活动情况
     let url = app.globalData.URL + '/group/activity';
@@ -101,7 +105,9 @@ Page({
       that.setData({
         joinlist: res.data.data
       })
+      wx.hideLoading()
     })
+    
   },
   toOtherAct(e) {
     wx.navigateTo({

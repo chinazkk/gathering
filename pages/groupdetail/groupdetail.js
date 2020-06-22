@@ -39,6 +39,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     console.log('detail', options.id)
     let ids = options.id
     var that = this
@@ -91,6 +95,7 @@ Page({
         joininfo: res.data.data,
         joinnum: res.data.data.length
       })
+      wx.hideLoading()
     })
   },
   toactdetail(e) {

@@ -56,8 +56,8 @@
 }
 
 .menu-img {
-  width: 100rpx;
-  height: 100rpx;
+  width: 90rpx;
+  height: 90rpx;
   padding: 10rpx;
   margin-left: 80rpx;
 }
@@ -71,14 +71,16 @@
 }
 
 .img {
-  height: 60rpx;
-  width: 60rpx;
+  height: 50rpx;
+  width: 50rpx;
 }
-.imgs{
+
+.imgs {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .imglimit {
   height: 280rpx;
   display: flex;
@@ -101,8 +103,10 @@
 }
 
 .wrap {
-  flex-wrap: wrap; /*允许换行*/
-  display: flex;/*弹性布局*/
+  flex-wrap: wrap;
+  /*允许换行*/
+  display: flex;
+  /*弹性布局*/
   flex-direction: row;
   align-items: center;
   /* justify-content: center; */

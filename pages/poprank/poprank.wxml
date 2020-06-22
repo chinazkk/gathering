@@ -5,11 +5,11 @@
 			<view class="index  text-grey">{{index+1}}</view>
 		</view> -->
 		<image src="/images/num/人气总榜 第{{index+1}}.png" class="num padding"></image>
-		<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
-		<view class="desc left">
+		<image src="{{imgurl}}{{item.image}}" class="img margin-sm" mode="aspectFit"></image>
+		<view class="desc margin-sm">
 			<view class="padding-xs text-xl">{{item.title}}</view>
 			<view class="padding-xs">{{item.time}}</view>
-			<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
+			<view class="padding-xs text-sm">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
 		</view>
 	</view>
 </view>

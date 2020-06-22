@@ -233,6 +233,10 @@ Page({
    */
   onLoad: function (options) {
     var that=this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     console.log(app.globalData.avatarUrl)
     let t = wx.getStorageSync('userInfo')
     if (t) {
@@ -243,6 +247,7 @@ Page({
       })
     }
     that.afterlogin()
+    wx.hideLoading()
   },
 
   /**

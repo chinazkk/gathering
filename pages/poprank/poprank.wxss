@@ -4,7 +4,6 @@
   position: relative;
   top: 9rpx;
   left: 24rpx;
-
   /* flex-shrink:0; */
 }
 .num{
@@ -18,8 +17,7 @@
 .img{
   height: 180rpx;
   width: 250rpx;
-  position: relative;
-  left: 40rpx;
+
 }
 .indexs{
   border: 5px solid #d8d8d8 ;

@@ -5,9 +5,7 @@
   height: 250rpx;
   top: 60rpx;
 }
-page{
-  background-color: white;
-}
+
 .logos{
   display: flex;
   justify-content: center;
@@ -139,6 +137,23 @@ page{
 }
 
 .icon {
-  width: 75rpx;
-  height: 75rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.aligina{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  right: 40rpx;
+}
+.aliginb{
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 40rpx;
 }

@@ -1,10 +1,10 @@
 <view class="flex" style="height:200rpx;">
 	<view class="flex">
-		<image src="{{imgurl}}{{groupinfo.image}}" class="img" mode="aspectFit"></image>
+		<image src="{{imgurl}}{{groupinfo.image}}" class="img margin-sm" mode="aspectFit"></image>
 		<view class="desc">
-			<view class="padding-sm text-bold">{{groupinfo.name}}</view>
-			<view class="padding-sm">小组类别：{{actinfo.time}}</view>
-			<view class="padding-sm">剩余活动席位：{{groupinfo.number-joinnum}}</view>
+			<view class="padding-sm text-bold text-lg">{{groupinfo.name}}</view>
+			<view class="padding-xs padding-left-sm">小组类别：{{actinfo.time}}</view>
+			<view class="padding-xs padding-left-sm">剩余活动席位：{{groupinfo.number-joinnum}}</view>
 		</view>
 	</view>
 </view>
@@ -31,7 +31,7 @@
 	<view class="padding-xs">{{actinfo.location}}</view>
 	<view class="padding-xs text-lg text-bold">已报名参加的人</view>
 	<view class="padding-xs content flex">
-		<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joinlist}}" wx:key="key" style="background-image:url({{item.avatar}});">
+		<view wx:if="{{joinlist.length!=0}}" class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joinlist}}" wx:key="key" style="background-image:url({{item.avatar}});" >
 			<!-- <text class="avatar-text">{{item.avatar}}</text> -->
 		</view>
 		<view wx:if="{{joinlist.length}}" class="padding-xs">暂无已参加</view>
@@ -42,7 +42,16 @@
 <image class="padding imglimit" mode="aspectFit" src="{{imgurl}}{{actinfo.image}}"></image>
 
 <view class="content padding text-lg text-bold ">同一小组的其他活动</view>
-<view class="padding-sm" wx:for="{{groupOtherActivity}}">
+
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{groupOtherActivity}}" wx:key bindtap="toOtherAct" data-id="{{item.id}}">
+    <image src="{{imgurl}}{{item.image}}" mode="aspectFit" ></image>
+    <!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
+  </swiper-item>
+</swiper>
+
+<!-- <view class="padding-sm" wx:for="{{groupOtherActivity}}">
 	<image class="padding" mode="aspectFit" src="{{imgurl}}{{item.image}}" class="imglimit" bindtap="toOtherAct" data-id="{{item.id}}"></image>
 	<view class="padding-sm text-center">{{item.title}}</view>
-</view>
+</view> -->
+
