@@ -63,6 +63,6 @@
 <text class="padding-xxl  text-gray title2" wx:if="{{!talkinfo.length}}">该小组暂无评论喔</text>
 
 
-<modal hidden="{{hiddenmodalput}}" title="{{info.question}}" confirm-text="提交" cancel-text='取消'bindcancel="cancel" bindconfirm="confirm">  
-    <input type='text' bindinput="getans" placeholder="请输入内容" auto-focus/>  
+<modal hidden="{{hiddenmodalput}}" title="问题内容：{{info.question}}" confirm-text="提交" cancel-text='取消'bindcancel="cancel" bindconfirm="confirm">  
+    <input type='text' bindinput="getans" placeholder="请输入答案" auto-focus/>  
 </modal>  

@@ -163,7 +163,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options.id)
+    console.log('detail', options.id)
     wx.showLoading({
       title: '加载中...',
       mask: true //显示触摸蒙层  防止事件穿透触发

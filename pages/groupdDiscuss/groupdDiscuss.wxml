@@ -7,30 +7,29 @@
 	<button class="cu-btn text-blue " style="width:150rpx" bindtap="commit">提交</button>
 </view>
 
-  <view class="cu-list menu-avatar" wx:for="{{talkinfo}}">
-    <view class="cu-item">
-      <view class="cu-avatar round lg" style="background-image:url({{item.user.avatar}});"></view>
-      <view class="content">
-      <view class="flex">
-        <view class="text-black text-lg">{{item.user.nick}}</view>
-        <view class="text-grey text-sm margin-left margin-top-xs">{{item.lasttime}}</view>
-      </view>
-        <view class=" text-sm flex">
-          <text class="">
-							<text class="margin-right-xs  ">{{item.content}}</text>
-          </text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <view class="text-cut" bindtap="tothumb" data-index="{{index}}" data-id="{{item.id}}">
-							<!-- <text  class="cuIcon-appreciate xl pading-xs text-{{item.praise==true?'red':'black'}}  margin-right-xs big"></text>  -->
-              <image src="/images/点击.png" class="icon" wx:if="{{item.praise==true}}"></image>
-              <image src="/images/点赞 - 未点击.png" class="icon" wx:else></image>
-          </view>
-        </view>
-      </view>
-      <view class="action">
-        <view class="text-grey text-xs text-xxl ">...</view>
-        <!-- <view class="cu-tag round bg-grey sm">5</view> -->
-      </view>
-    </view>
-  </view>
+<view class="cu-list menu-avatar">
+	<view class="cu-item" style="height:200rpx" wx:for="{{talkinfo}}">
+		<view class="cu-avatar round avaimage" style="background-image:url({{item.user.avatar}});"></view>
+		<view class="content">
+			<view class="flex padding-xs2">
+				<view class="flex">
+					<view class="text-black text-lg">{{item.user.nick}}</view>
+					<view class="text-grey text-sm margin-left">{{item.lasttime}}</view>
+				</view>
+				<view class="text-grey  text-right text-xxl text-big">...</view>
+			</view>
+			<view class=" text-sm flex padding-xs2">
+				<text class="margin-right-xs  ">{{item.content}}</text>
+			</view>
+			<view class="text-gray text-sm flex padding-xs2">
+				<view class="text-cut" bindtap="tothumb" data-index="{{index}}" data-id="{{item.id}}">
+					<!-- <text  class="cuIcon-appreciate xl pading-xs text-{{item.praise==true?'red':'black'}}  margin-right-xs big"></text>  -->
+					<image src="/images/点击.png" class="icon" wx:if="{{item.praise==true}}"></image>
+					<image src="/images/点赞 - 未点击.png" class="icon" wx:else></image>
+				</view>
+			</view>
+		</view>
+
+		<view class="divLine"></view>
+	</view>
+</view>

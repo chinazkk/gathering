@@ -103,15 +103,16 @@ Page({
       })
     })
     //获取首页轮播图
-    url = app.globalData.URL + '/group/activity/list';
+    url = app.globalData.URL + '/group/list';
     data = {
       limit: '3',
       page: '1',
+      isHot:'1'
     }
     util.get(url, data).then(function (res) {
       // console.log(res.data)
       that.setData({
-        activity: res.data.data
+        hotgroup: res.data.data
       })
     })
     //获取人气总榜

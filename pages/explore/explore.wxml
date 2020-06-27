@@ -10,7 +10,7 @@
 </view>
 <view class="menu">
 	<view class="menu-item padding" wx:for="{{tags}}" wx:if="{{index<6}}">
-		<text class="menu-name  text-{{tagindex==index?'orange':''}}" bindtap="choosetag" data-id="{{index}}" >{{item}}</text>
+		<text class="menu-name  text-{{tagindex==index?'orange':''}}" bindtap="choosetag" data-id="{{index}}" >#{{item}}</text>
 	</view>
 </view>
 

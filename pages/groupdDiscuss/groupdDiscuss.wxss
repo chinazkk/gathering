@@ -7,9 +7,32 @@ page{
   padding-bottom: 100rpx;
 }
 .icon{
-  width: 35rpx;
-  height: 35rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 .big{
   font-size: 33rpx;
 }
+.text-big{
+  font-size: 45rpx;
+  position: absolute;
+  right: 10rpx;
+}
+.padding-xs2{
+  padding: 6rpx;
+}
+.avaimage{
+  height: 100rpx;
+  width: 100rpx;
+}
+/* 横着的分割View样式 */
+/*分割线样式*/
+.divLine{
+  background: #E0E3DA;
+  width:90%;
+  left: 5%;
+  height: 3rpx;
+  position: relative;
+  top: 90rpx;
+  
+ }

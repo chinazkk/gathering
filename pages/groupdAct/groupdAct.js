@@ -9,11 +9,17 @@ Page({
     tag:['排序','参与人数','最新发布'],
     tagindex:0,
     imgurl: app.globalData.imgurl,
+    choosetag:false
   },
   choose(e){
     console.log(e.currentTarget.dataset.id)
     this.setData({
       tagindex:e.currentTarget.dataset.id
+    })
+  },
+  tap(e){
+    this.setData({
+      choosetag:!this.data.choosetag
     })
   },
   /**
