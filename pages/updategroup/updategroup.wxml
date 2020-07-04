@@ -34,6 +34,14 @@
 	<view class="backcolor cu-form-group input">
 		<input placeholder="{{id}}" class="" bindinput="getque" placeholder-style="color:white" placeholder="{{info.question}}"></input>
 	</view>
+		<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >小组公告设定：</text>
+		</view>
+	</view>
+	<view class="backcolor cu-form-group input">
+		<input class="" bindinput="getann" placeholder-style="color:white" placeholder="{{info.announcement}}"></input>
+	</view>
 	<view class="cu-bar bg-white margin-top">
 		<view class="action">
 		小组封面图

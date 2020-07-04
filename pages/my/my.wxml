@@ -3,7 +3,7 @@
 	<!-- <view class="cu-avatar round xl" style="background-image:url({{userInfoAll.head}})"></view> -->
 	<view class="padding logos">
 		<!-- <view class="cu-avatar  touimage" style="background-image:url({{avatarUrl}})"></view> -->
-		<image class="logo" src="/images/Logo.png"></image>
+		<image class="logo" src="/images/Logo.png" mode="aspectFit"></image>
 		<!-- <view class="bg-white area">
       <view class="padding text-center text-bold">手机号登录</view>
 	   <view class="backcolor cu-form-group input">
@@ -36,7 +36,7 @@
 </block>
 <block wx:else>
 	<view class="bg-white">
-		<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfodetail.avatar}})"></view>
+		<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfodetail.avatar.length>40?userinfodetail.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+userinfodetail.avatar}})"></view>
 		<navigator url="/pages/updateinfo/updateinfo" class="text-blue padding update">编辑</navigator>
 
 

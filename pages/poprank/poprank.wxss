@@ -6,9 +6,28 @@
   left: 24rpx;
   /* flex-shrink:0; */
 }
+.text{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all; /* 追加这一行代码 */
+  font-size: 35rpx;
+  color: #4A4A4A;
+  }
+.text-detail{
+  opacity:90%;
+  font-size:25rpx ;
+  padding: 9rpx;
+  color: #4A4A4A;
+}
 .num{
-  width: 170rpx;
-  height: 170rpx;
+  width: 160rpx;
+  height: 160rpx;
+  position: relative;
+  top: 20rpx;
+  flex-shrink: 0;
 }
 .left{
   position: relative;
@@ -17,7 +36,7 @@
 .img{
   height: 180rpx;
   width: 250rpx;
-
+  flex-shrink: 0;
 }
 .indexs{
   border: 5px solid #d8d8d8 ;

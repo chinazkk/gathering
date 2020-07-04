@@ -12,8 +12,8 @@
 }
 
 .gruopinfo {
-  background-color: #d8d8d8;
-  width: 180rpx;
+  /* background-color: #d8d8d8; */
+  width: 180rpx; 
   height: 100rpx;
   color: white;
   display: flex;
@@ -57,9 +57,9 @@
 
 .menu-img {
   width: 90rpx;
-  height: 90rpx;
-  padding: 10rpx;
-  margin-left: 80rpx;
+  height: 80rpx;
+  padding: 6rpx;
+  margin-left: 95rpx;
 }
 
 .menu {

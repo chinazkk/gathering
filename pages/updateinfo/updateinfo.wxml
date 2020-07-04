@@ -1,6 +1,6 @@
 <view>
 	<view class="cu-avatar  touimage" bindtap="handleShow" style="background-image:url({{userinfo.avatar.length>40?userinfo.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+userinfo.avatar}})"></view>
-	<view class="text-center text-bold bottom" >点击头像可更换图片{{userinfo.avatar.length}}</view>
+	<view class="text-center text-bold bottom" >点击头像可更换图片</view>
 </view>
 <form class="bottom">
 	<view class="flex-sub text-left bg-white">

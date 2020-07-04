@@ -6,6 +6,15 @@
 page{
   padding-bottom: 100rpx;
 }
+.text{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all; /* 追加这一行代码 */
+  color: #4A4A4A;
+  }
 .icon{
   width: 40rpx;
   height: 40rpx;
@@ -30,7 +39,8 @@ page{
 .divLine{
   background: #E0E3DA;
   width:90%;
-  left: 5%;
+  /* left: 5%; */
+  right: 4%;
   height: 3rpx;
   position: relative;
   top: 90rpx;

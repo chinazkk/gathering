@@ -21,8 +21,13 @@
   justify-content: center;
   width: 100%;
 }
-.img{
-  width: 100%;
+.imgadd{
+  width: 70rpx;
+  height: 70rpx;
+  /* display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  right: 20rpx; */
 }
 .actimg {
   height: 200rpx;

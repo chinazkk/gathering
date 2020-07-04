@@ -2,32 +2,32 @@
 <view class="padding text-lg">我创建的小组</view>
 <view class="wrap">
 	<view wx:for="{{mygroup}}" wx:key="key" class="wrap " bindtap="todetail" data-id="{{item.id}}">
-		<view class="gruopinfo margin-sm padding-sm ">{{item.name}}</view>
+		<view class="gruopinfo margin-sm padding-sm " style="background: url({{imgurl}}{{item.image}}) no-repeat  center / cover">{{item.name}}</view>
 	</view>
 	<image src="/images/addgrey.png" class="img margin-sm" bindtap="tocreate"></image>
 </view>
 
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
 	<swiper-item wx:for="{{hotgroup}}" bindtap="toswiperdetail" data-id="{{item.id}}" wx:key="key">
-		<image src="{{imgurl}}{{item.image}}" mode="aspectFit"></image>
+		<image src="{{imgurl}}{{item.image}}" mode="aspectFill"></image>
 		<!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
 	</swiper-item>
 </swiper>
 <view class="menu bg-white">
-	<navigator url="/pages/onlinegame/onlinegame" class="menu-item" hover-class="none">
-		<image src="/images/tabbar/线上游戏.png" class="menu-img"></image>
+	<navigator url="/pages/onlinegame/onlinegame" class="menu-item"  hover-class="none">
+		<image src="/images/tabbar/线上游戏.png" class="menu-img" mode="aspectFit"></image>
 		<text class="menu-name ">线上游戏</text>
 	</navigator>
 	<navigator url="/pages/experience/experience" class="menu-item" hover-class="none">
-		<image src="/images/tabbar/经验分享.png" class="menu-img"></image>
+		<image src="/images/tabbar/经验分享.png" class="menu-img" mode="aspectFit"></image>
 		<text class="menu-name ">经验分享</text>
 	</navigator>
 	<navigator url="/pages/videoenjoy/videoenjoy" class="menu-item" hover-class="none">
-		<image src="/images/tabbar/影视鉴赏.png" class="menu-img"></image>
+		<image src="/images/tabbar/影视鉴赏.png" class="menu-img" mode="aspectFit"></image>
 		<text class="menu-name">影视鉴赏</text>
 	</navigator>
 	<navigator url="/pages/foodenjoy/foodenjoy" class="menu-item" hover-class="none">
-		<image src="/images/tabbar/美食探店.png" class="menu-img"></image>
+		<image src="/images/tabbar/美食探店.png" class="menu-img" mode="aspectFit"></image>
 		<text class="menu-name">美食探店</text>
 	</navigator>
 </view>
@@ -42,7 +42,7 @@
 <view wx:for="{{hotactivity}}" wx:key="key">
 	<view bindtap="toactdetail" data-id="{{item.id}}">
 		<view class="imgs">
-		<image src="{{imgurl}}{{item.image}}" mode="aspectFit" class="imglimit"></image>
+		<image src="{{imgurl}}{{item.image}}" mode="aspectFill" class="imglimit"></image>
 		</view>
 		<view class="padding-sm padding-left bg-white">
 			<text class="cu-bar-title text-bold text-black text-lg ">{{item.title}}</text>

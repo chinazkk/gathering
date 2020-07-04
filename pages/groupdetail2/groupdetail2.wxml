@@ -15,12 +15,12 @@
 	<view class=" padding-sm  radius  text-blue " wx:if="{{isjoin}}" bindtap="quitgroup">退出小组</view>
 	<view class=" padding-sm  radius  text-blue " wx:else bindtap="tojoin">申请加入</view>
 </view>
-	<view class="padding-xs bg-white content flex">
-		<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joininfo}}" wx:key="key" style="background-image:url({{item.avatar}});">
-			<!-- <text class="avatar-text">{{item.avatar}}</text> -->
-		</view>
-			<image wx:if="{{joininfo.length}}" src="/images/array.png" bindtap="tojoindetail" class="icon"></image>
+<view class="padding-xs bg-white content flex">
+	<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joininfo}}" wx:key="key" style="background-image:url({{item.avatar}});">
+		<!-- <text class="avatar-text">{{item.avatar}}</text> -->
 	</view>
+	<image wx:if="{{joininfo.length}}" src="/images/array.png" bindtap="tojoindetail" class="icon"></image>
+</view>
 
 <view class="bg-white">
 	<view class="padding  flex">
@@ -35,7 +35,8 @@
 	<view class="divLine"></view>
 	<view class="padding">
 		<view class="content text-lg padding-xs">小组公告</view>
-		<text class="padding-xxl  text-gray title1">此小组暂无公告</text>
+		<text class="padding-xxl  text-gray title1" wx:if="{{info.announcement}}">{{info.announcement}}</text>
+		<text class="padding-xxl  text-gray title1" wx:else>你还没发表公告</text>
 		<!-- <text class="padding-xxl  text-gray title1">xxxxx</text> -->
 	</view>
 </view>
@@ -47,7 +48,7 @@
 	<view wx:for="{{activityinfo}}" class=" padding-sm " wx:key="key" bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="actimg" mode="aspectFit"></image>
 	</view>
-	<image src="/images/add2.png" class="img padding " bindtap="tocreate"></image>
+	<image src="/images/addgrey.png" class="img padding " bindtap="tocreate"></image>
 </view>
 <view class="flex solid-bottom padding-sm justify-between">
 	<view class=" padding-sm  radius">讨论区</view>
@@ -63,6 +64,6 @@
 <text class="padding-xxl  text-gray title2" wx:if="{{!talkinfo.length}}">该小组暂无评论喔</text>
 
 
-<modal hidden="{{hiddenmodalput}}" title="问题内容：{{info.question}}" confirm-text="提交" cancel-text='取消'bindcancel="cancel" bindconfirm="confirm">  
-    <input type='text' bindinput="getans" placeholder="请输入答案" auto-focus/>  
-</modal>  
+<modal hidden="{{hiddenmodalput}}" title="问题内容：{{info.question}}" confirm-text="提交" cancel-text='取消' bindcancel="cancel" bindconfirm="confirm">
+	<input type='text' bindinput="getans" placeholder="请输入答案" auto-focus />
+</modal>

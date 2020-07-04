@@ -68,12 +68,12 @@ Page({
     let url = app.globalData.URL + '/user';
     var data = {
       id: this.data.groupnum,
-      nick: this.data.userinfo.name,
+      nick: this.data.userinfo.nick,
       introduction: this.data.userinfo.introduction,
       number: this.data.userinfo.number,
       location: this.data.userinfo.location,
       question: this.data.userinfo.question,
-      image: this.data.userinfo.image,
+      avatar: this.data.userinfo.avatar,
       private_status: this.data.check1==true?1:0,
       exhibition_status: this.data.check2==true?1:0
     }
@@ -88,6 +88,9 @@ Page({
             if (res.confirm) {
               console.log('finish update')
             }
+            wx.navigateBack({
+              delta:1
+            })
           }
         })
         // wx.showToast({
@@ -161,7 +164,8 @@ Page({
             let t = JSON.parse(res.data)
             that.setData({
               [tmp]: t.data.url,
-              imgurl: t.data.url
+              imgurl: t.data.url,
+              visible: false
             })
           }
         })

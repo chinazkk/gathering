@@ -27,6 +27,13 @@ Page({
       [t]: e.detail.value
     })
   },
+  getann(e)
+  {
+    let t = 'info.announcement'
+    this.setData({
+      [t]: e.detail.value
+    })
+  },
   getque(e) {
     let t = 'info.question'
     this.setData({
@@ -88,11 +95,13 @@ Page({
     })
   },
   commit(e) {
+    var that=this
     let url = app.globalData.URL + '/group';
     var data = {
       id: this.data.groupnum,
       name: this.data.info.name,
       introduction: this.data.info.introduction,
+      announcement:this.data.info.announcement,
       number: this.data.info.number,
       question: this.data.info.question,
       image: this.data.info.image
@@ -104,9 +113,10 @@ Page({
           title: '提交成功',
           duration: 2000,
           success: function () {
+            console.log('modify success')
             setTimeout(function () {
-              wx.reLaunch({
-                url: '/pages/index/index',
+              wx.navigateTo({
+                url: '/pages/groupdetail/groupdetail?id='+that.data.groupnum,
               })
             }, 2000);
           }

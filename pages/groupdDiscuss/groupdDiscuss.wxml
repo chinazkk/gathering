@@ -19,7 +19,7 @@
 				<view class="text-grey  text-right text-xxl text-big">...</view>
 			</view>
 			<view class=" text-sm flex padding-xs2">
-				<text class="margin-right-xs  ">{{item.content}}</text>
+				<text class="margin-right-xs text ">{{item.content}}</text>
 			</view>
 			<view class="text-gray text-sm flex padding-xs2">
 				<view class="text-cut" bindtap="tothumb" data-index="{{index}}" data-id="{{item.id}}">

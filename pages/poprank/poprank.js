@@ -42,8 +42,13 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+         item.time = item.time.substring(0, 10)
+       })
       that.setData({
-        hotgroup: res.data.data
+        hotgroup:test
       })
       wx.hideLoading()
     })
