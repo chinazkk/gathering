@@ -1,6 +1,6 @@
 <view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
 
-	<input class="solid-bottom" placeholder-class="input" bindfocus="InputFocus" bindinput="gettext" bindblur="InputBlur" adjust-position="{{false}}" placeholder="输入内容（字数限制300）" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+	<input class="solid-bottom" placeholder-class="input" bindfocus="InputFocus" bindinput="gettext" bindblur="InputBlur" adjust-position="{{false}}" value="{{text}}" placeholder="输入内容（字数限制300）" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
 	<view class="action">
 		<!-- <text class="cuIcon-emojifill text-grey"></text> -->
 	</view>
@@ -9,7 +9,7 @@
 
 <view class="cu-list menu-avatar">
 	<view class="cu-item" style="height:200rpx" wx:for="{{talkinfo}}">
-		<view class="cu-avatar round avaimage" style="background-image:url({{item.user.avatar}});"></view>
+		<view class="cu-avatar round avaimage" style="background-image:url({{item.user.avatar.length>40?item.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.user.avatar}});"></view>
 		<view class="content">
 			<view class="flex padding-xs2">
 				<view class="flex">
@@ -18,7 +18,7 @@
 				</view>
 				<view class="text-grey  text-right text-xxl text-big">...</view>
 			</view>
-			<view class=" text-sm flex padding-xs2">
+			<view class=" text-sm  padding-xs2">
 				<text class="margin-right-xs text ">{{item.content}}</text>
 			</view>
 			<view class="text-gray text-sm flex padding-xs2">

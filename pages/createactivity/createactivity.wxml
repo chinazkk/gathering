@@ -40,7 +40,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getlocation" type="number" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getlocation" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
 	</view>
 	<view class="flex-sub text-left">
 		<view class="solid-bottom text-lg padding">
@@ -57,7 +57,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getnum" placeholder-style="color:white" placeholder="输入内容（一个小组的人数上限为50人）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getnum" type="number" placeholder-style="color:white" placeholder="输入内容（一个小组的人数上限为50人）"></input>
 	</view>
 	<view class="cu-bar bg-white margin-top">
 		<view class="action">

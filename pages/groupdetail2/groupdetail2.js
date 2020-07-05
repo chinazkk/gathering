@@ -2,6 +2,7 @@ const app = getApp();
 var util = require("../../script/utils.js");
 Page({
   data: {
+    hiddenmodalput2: true,
     isjoin: false,
     ans: '',
     hiddenmodalput: true,
@@ -21,20 +22,20 @@ Page({
     ]
   },
   //点击按钮痰喘指定的hiddenmodalput弹出框  
-  modalinput: function () {
+  modalinput2: function () {
     this.setData({
-      hiddenmodalput: !this.data.hiddenmodalput
+      hiddenmodalput2: !this.data.hiddenmodalput2
     })
   },
   //取消按钮  
-  cancel: function () {
+  cancel2: function () {
     this.setData({
-      hiddenmodalput: true
+      hiddenmodalput2: true
     });
 
   },
   //确认  
-  confirm: function () {
+  confirm2: function () {
     var that=this
     this.setData({
       hiddenmodalput: true
@@ -58,10 +59,23 @@ Page({
       // content: '这是一个模态弹窗',
       showCancel: false,
       success(res) {
+        that.setData({
+          hiddenmodalput2:!that.data.hiddenmodalput2,
+          message:''
+        })
         if (res.confirm) {
           console.log('用户点击确定')
         }
       }
+    })
+  },
+  test()
+  {
+    console.log('test')
+  },
+  getmessage(e) {
+    this.setData({
+      message: e.detail.value
     })
   },
   quitgroup(e) {
@@ -144,6 +158,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
 
+  //点击按钮弹窗指定的hiddenmodalput弹出框  
+  modalinput: function () {
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput
+    })
+  },
+  //取消按钮  
+  cancel: function () {
+    this.setData({
+      hiddenmodalput: true
+    });
+
+  },
+  //确认  
+  confirm: function () {
+    var that = this
+    this.setData({
+      hiddenmodalput: true
+    })
+    let url = app.globalData.URL + '/inform/message';
+    var data = {
+      content:this.data.message,
+      to_id:this.data.userinfo.id,
+      from_id:wx.getStorageSync('userId')
+    }
+    util.post(url, data).then(function (res) {
+      console.log(res.data)
+      if (res.data.code == 200) {
+        wx.showToast({
+          title: '私信成功',
+          duration: 2000,
+        })
+      } 
+    })
+  },
   toupdate() {
     wx.navigateTo({
       url: '/pages/updategroup/updategroup?id=' + this.data.groupnum,
@@ -154,9 +203,9 @@ Page({
       url: '/pages/createactivity/createactivity?id=' + this.data.groupnum,
     })
   },
-  tojoindetail() {
+  tojoindetail(e) {
     wx.navigateTo({
-      url: '/pages/groupdeMate/groupdeMate?id=' + this.data.groupnum,
+      url: '/pages/groupdeMate/groupdeMate?id=' + this.data.groupnum+'&userid='+e.currentTarget.dataset.userid,
     })
   },
   /**
@@ -265,7 +314,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let t=wx.getStorageSync('groupid')
+    console.log('other page group id',t)
+    let tmp={}
+    tmp.id=t
+    this.onLoad(tmp)
   },
 
   /**
@@ -279,7 +332,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (wx.getStorageSync('isCreateGroup')) {
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    }
+    wx.removeStorageSync('groupid')
   },
 
   /**

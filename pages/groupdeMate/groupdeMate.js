@@ -9,6 +9,7 @@ Page({
     tag: ['排序', '参与人数', '最新发布'],
     tagindex: 0,
     visible: false,
+    flag:0
   },
   cut(e) {
     var that=this
@@ -98,6 +99,9 @@ Page({
   onLoad: function (options) {
     var that = this
     //小组信息
+    let tmpuserid=options.userid
+    console.log('tmpuserid',tmpuserid)
+    let ableFlag=wx.getStorageSync('userId')==options.userid?'1':'0'
     let url = app.globalData.URL + '/group/join/user/list';
     var data = {
       group_id: options.id
@@ -106,7 +110,8 @@ Page({
       console.log(res.data)
       that.setData({
         joininfo: res.data.data,
-        groupnum: options.id
+        groupnum: options.id,
+        flag:ableFlag
       })
     })
   },

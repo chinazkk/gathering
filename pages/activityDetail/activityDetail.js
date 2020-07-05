@@ -13,7 +13,16 @@ Page({
     isjoin: false,
     iscollect: false,
   },
-
+  toGroupDetail(e) {
+    if (wx.getStorageSync('userId') == this.data.groupinfo.user_id)
+      wx.navigateTo({
+        url: '/pages/groupdetail/groupdetail?id=' + this.data.groupinfo.id,
+      })
+    else
+      wx.navigateTo({
+        url: '/pages/groupdetail2/groupdetail2?id=' + this.data.groupinfo.id,
+      })
+  },
   onLoad: function (options) {
     var that = this
     wx.showLoading({
@@ -107,7 +116,7 @@ Page({
       })
       wx.hideLoading()
     })
-    
+
   },
   toOtherAct(e) {
     wx.navigateTo({
@@ -245,7 +254,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.removeStorageSync('isCreateGroup')
   },
 
   /**

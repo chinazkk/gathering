@@ -24,6 +24,12 @@ Page({
       
     }]
   },
+  toActivity(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+    })
+  },
   cutcollect(e){
     console.log(this.data.chooseindex)
     var that = this
@@ -69,8 +75,14 @@ Page({
       page: '1',
     }
     util.get(url, data).then(function (res) {
+      let obj=res.data.data
+      console.log(obj)
+      for(let i of obj)
+      {
+        i.activity.time= i.activity.time.substring(0, 10)
+      }
       that.setData({
-        collect: res.data.data
+        collect:obj
       })
     })
   },

@@ -76,5 +76,5 @@
 </view>
 
 <modal hidden="{{hiddenmodalput}}" title="请输入私信内容" confirm-text="提交" cancel-text='取消' bindcancel="cancel" bindconfirm="confirm">
-	<input type='text' bindinput="getmessage" placeholder="请输入内容" auto-focus />
+	<input type='text' bindinput="getmessage" value="message" placeholder="请输入内容" auto-focus />
 </modal>

@@ -2,7 +2,6 @@ const app = getApp();
 var util = require("../../script/utils.js");
 var time = require("../../script/time.js");
 Page({
-
   data: {
     thumb: 1,
     text: '',
@@ -72,6 +71,7 @@ Page({
       mask: true //显示触摸蒙层  防止事件穿透触发
     });
     console.log(options.id)
+    wx.setStorageSync('groupid', options.id)
     this.setData({
       groupnum: options.id
     })
@@ -123,7 +123,9 @@ Page({
     util.post(url, data).then(function (res) {
       console.log(res.data)
       if (res.data.code == 200) {
-
+        that.setData({
+          text:''
+        })
         wx.showToast({
           title: '提交成功',
           duration: 2000,

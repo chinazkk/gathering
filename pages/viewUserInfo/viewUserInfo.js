@@ -138,7 +138,11 @@ Page({
     }
     util.post(url, data).then(function (res) {
       console.log(res.data)
+      that.setData({
+        message:''
+      })
       if (res.data.code == 200) {
+
         wx.showToast({
           title: '私信成功',
           duration: 2000,

@@ -22,7 +22,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getid" type="number" bindinput="getnum"placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getid" type="number" bindinput="getnum"placeholder-style="color:white" placeholder="人数限定（50人以内）"></input>
 	</view>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">

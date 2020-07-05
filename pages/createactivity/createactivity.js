@@ -104,7 +104,7 @@ Page({
       } else {
         wx.showToast({
           title: '提交失败',
-          image: '/img/fail.png',
+          image: '/images/fail.png',
           icon: 'success',
           duration: 2000
         })
@@ -113,6 +113,7 @@ Page({
       console.log(res)
       wx.showToast({
         title: '提交失败！',
+        image: '/images/fail.png',
         icon: 'success',
         duration: 2000
       })

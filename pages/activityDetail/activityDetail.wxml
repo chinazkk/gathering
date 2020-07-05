@@ -1,5 +1,5 @@
 <view class="flex" style="height:200rpx;">
-	<view class="flex">
+	<view class="flex" bindtap="toGroupDetail" >
 		<image src="{{imgurl}}{{groupinfo.image}}" class="img margin-sm" mode="aspectFit"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{groupinfo.name}}</view>

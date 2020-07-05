@@ -1,4 +1,4 @@
-<view class="flex" wx:for="{{collect}}">
+<view class="flex" wx:for="{{collect}}" bindtap="toActivity" data-id="{{item.activity.id}}">
 	<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFit"></image>
 	<view class="desc padding-sm">
 		<view class="flex">
@@ -11,6 +11,6 @@
 	</view>
 </view>
 <popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
-	<view bindtap="cutcollect" class="padding" >取消收藏</view>
+	<view bindtap="cutcollect" class="padding">取消收藏</view>
 	<view bindtap="handleCancel">取消</view>
 </popup-bottom>

@@ -1,21 +1,47 @@
 .touimage {
   margin: 0 auto;
   display: flex;
-  position: relative;
-  left: 140rpx;
-  top: 40rpx;
+  /* left: 140rpx;
+  top: 40rpx; */
   overflow: hidden;
   width: 110rpx;
   height: 110rpx;
   border-radius: 50%;
+  flex-shrink: 0;
   /* padding-top: 60rpx;
   padding-bottom: 60rpx; */
+}
+.align{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.align2{
+  align-items: center;
+  justify-content: center;
+}
+.messtext{
+  position: relative;
+  left: 30rpx;
+  font-size: 25rpx;
+  top: 10rpx;
+}
+.mess{
+  flex-shrink: 0;
 }
 .imgtou{
   display: flex;
   justify-content: center;
   width: 100%;
 }
+.text{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all; /* 追加这一行代码 */
+  }
 .imagefirst{
   display: flex;
   justify-content: center;
@@ -47,7 +73,19 @@
   justify-content: space-between;
   /* text-align: center; */
 }
-
+.text{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all; /* 追加这一行代码 */
+  color: #4A4A4A;
+  }
+  .vivod
+  {
+   flex-shrink: 0;
+  }
 .icon {
   position: relative;
   /* left: 700rpx;

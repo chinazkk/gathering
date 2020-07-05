@@ -1,48 +1,62 @@
-.input{
+.input {
   background-color: #d8d8d8;
   border-radius: 15rpx;
   padding-left: 30rpx;
 }
-page{
+
+page {
   padding-bottom: 100rpx;
 }
-.text{
-  overflow : hidden;
+
+.content {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.text {
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  word-break: break-all; /* 追加这一行代码 */
+  word-break: break-all;
+  /* 追加这一行代码 */
   color: #4A4A4A;
-  }
-.icon{
+}
+
+.icon {
   width: 40rpx;
   height: 40rpx;
 }
-.big{
+
+.big {
   font-size: 33rpx;
 }
-.text-big{
+
+.text-big {
   font-size: 45rpx;
   position: absolute;
   right: 10rpx;
 }
-.padding-xs2{
+
+.padding-xs2 {
   padding: 6rpx;
 }
-.avaimage{
+
+.avaimage {
   height: 100rpx;
   width: 100rpx;
 }
+
 /* 横着的分割View样式 */
 /*分割线样式*/
-.divLine{
+.divLine {
   background: #E0E3DA;
-  width:90%;
+  width: 90%;
   /* left: 5%; */
   right: 4%;
   height: 3rpx;
   position: relative;
   top: 90rpx;
-  
- }
+
+}
