@@ -36,23 +36,23 @@ Page({
   },
   //确认  
   confirm2: function () {
-    var that=this
+    var that = this
     this.setData({
       hiddenmodalput: true
     })
     let url = app.globalData.URL + '/group/join';
     var data = {
-      answer:this.data.ans,
-      group_id:this.data.groupnum
+      answer: this.data.ans,
+      group_id: this.data.groupnum
     }
     util.post(url, data).then(function (res) {
       console.log(res.data)
       if (res.data.code == 200) {
         that.setData({
-          isjoin:true
+          isjoin: true
         })
         console.log('join success')
-      } 
+      }
     })
     wx.showModal({
       title: '你的申请已发送',
@@ -60,8 +60,8 @@ Page({
       showCancel: false,
       success(res) {
         that.setData({
-          hiddenmodalput2:!that.data.hiddenmodalput2,
-          message:''
+          hiddenmodalput2: !that.data.hiddenmodalput2,
+          message: ''
         })
         if (res.confirm) {
           console.log('用户点击确定')
@@ -69,8 +69,7 @@ Page({
       }
     })
   },
-  test()
-  {
+  test() {
     console.log('test')
   },
   getmessage(e) {
@@ -139,20 +138,26 @@ Page({
 
   tojoin() {
     var that = this
-    wx.showModal({
-      title: '申请加入该小组',
-      // content: '确定要删除这张照片吗',
-      cancelText: '取消',
-      confirmText: '确认',
-      success: res => {
-        if (res.confirm) {
-          console.log('first confirm')
-          that.setData({
-            hiddenmodalput: !this.data.hiddenmodalput
-          })
+    if (app.globalData.nickName) {
+      wx.showModal({
+        title: '申请加入该小组',
+        // content: '确定要删除这张照片吗',
+        cancelText: '取消',
+        confirmText: '确认',
+        success: res => {
+          if (res.confirm) {
+            console.log('first confirm')
+            that.setData({
+              hiddenmodalput: !this.data.hiddenmodalput
+            })
+          }
         }
-      }
-    })
+      })
+    } else {
+      wx.switchTab({
+        url: '/pages/my/my',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -179,9 +184,9 @@ Page({
     })
     let url = app.globalData.URL + '/inform/message';
     var data = {
-      content:this.data.message,
-      to_id:this.data.userinfo.id,
-      from_id:wx.getStorageSync('userId')
+      content: this.data.message,
+      to_id: this.data.userinfo.id,
+      from_id: wx.getStorageSync('userId')
     }
     util.post(url, data).then(function (res) {
       console.log(res.data)
@@ -190,7 +195,7 @@ Page({
           title: '私信成功',
           duration: 2000,
         })
-      } 
+      }
     })
   },
   toupdate() {
@@ -205,7 +210,7 @@ Page({
   },
   tojoindetail(e) {
     wx.navigateTo({
-      url: '/pages/groupdeMate/groupdeMate?id=' + this.data.groupnum+'&userid='+e.currentTarget.dataset.userid,
+      url: '/pages/groupdeMate/groupdeMate?id=' + this.data.groupnum + '&userid=' + e.currentTarget.dataset.userid,
     })
   },
   /**
@@ -271,10 +276,10 @@ Page({
     //获取参加小组
     url = app.globalData.URL + '/group/join/list';
     data = {
-      audit_status:0,
-      limit:6,
-      page:1,
-      user_id:wx.getStorageSync('userId')
+      audit_status: 0,
+      limit: 6,
+      page: 1,
+      user_id: wx.getStorageSync('userId')
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
@@ -284,10 +289,9 @@ Page({
       wx.hideLoading()
     })
   },
-  toactdetail(e)
-  {
+  toactdetail(e) {
     wx.navigateTo({
-      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+      url: '/pages/activityDetail/activityDetail?id=' + e.currentTarget.dataset.id,
     })
   },
   toallact(e) {
@@ -314,10 +318,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let t=wx.getStorageSync('groupid')
-    console.log('other page group id',t)
-    let tmp={}
-    tmp.id=t
+    let t = wx.getStorageSync('groupid')
+    console.log('other page group id', t)
+    let tmp = {}
+    tmp.id = t
     this.onLoad(tmp)
   },
 

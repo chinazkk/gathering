@@ -130,25 +130,33 @@ Page({
   },
   tojoin(e) {
     var that = this
-    let url = app.globalData.URL + '/group/activity/join';
-    var data = {
-      activity_id: this.data.actinfo.id
-    }
-    util.post(url, data).then(function (res) {
-      console.log(res.data)
-      if (res.data.code == 200) {
-        wx.showToast({
-          title: '参加成功',
-          duration: 2000,
-          success: function () {
-            console.log('join success')
-            that.setData({
-              isjoin: true
-            })
-          }
-        })
+    if (app.globalData.nickName) {
+      let url = app.globalData.URL + '/group/activity/join';
+      var data = {
+        activity_id: this.data.actinfo.id
       }
-    })
+      util.post(url, data).then(function (res) {
+        console.log(res.data)
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: '参加成功',
+            duration: 2000,
+            success: function () {
+              console.log('join success')
+              that.setData({
+                isjoin: true
+              })
+            }
+          })
+        }
+      })
+    }
+    else
+    {
+      wx.switchTab({
+        url: '/pages/my/my',
+      })
+    }
   },
   tocollect(e) {
     var that = this

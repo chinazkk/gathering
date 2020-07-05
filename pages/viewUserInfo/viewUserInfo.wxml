@@ -2,9 +2,9 @@
 	<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfo.avatar}})"></view>
 	<view url="/pages/updateinfo/updateinfo" bindtap="modalinput" class="text-blue padding update">私信</view>
 	<view class="text-center text-bold padding-top">{{nickname}}</view>
-	<view class="text-center text-bold margin-top">位置：{{userinfo.location=='null'?userinfo.location:'暂无'}}</view>
-	<view class="text-center text-bold ">简介：{{userinfo.introduction=='null'?userinfo.introduction:'暂无'}}</view>
-	<view class="text-center text-bold ">兴趣标签:{{userinfo.tags=='null'?userinfo.tags:'暂无'}}</view>
+	<view class="text-center text-bold margin-top">位置：{{userinfo.location!==null?userinfo.location:'暂无'}}</view>
+	<view class="text-center text-bold ">简介：{{userinfo.introduction!==null?userinfo.introduction:'暂无'}}</view>
+	<view class="text-center text-bold ">兴趣标签:{{userinfo.tags!==null?userinfo.tags:'暂无'}}</view>
 </view>
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">他创建的小组：</view>
