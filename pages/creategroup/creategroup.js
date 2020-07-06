@@ -12,7 +12,14 @@ Page({
     name: '',
     area: '',
     num: 0,
-    question: ''
+    question: '',
+    array:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50]
+  },
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
   getname(e) {
     this.setData({
@@ -40,16 +47,20 @@ Page({
       wx.showToast({
         title: '请上传小组封面图',
       })
-    } else if (!this.data.name || !this.data.num || !this.data.area || !this.data.question) {
+    } else if (!this.data.name || !this.data.index || !this.data.area || !this.data.question) {
       wx.showToast({
         title: '请完善小组信息',
       })
     } else {
+      wx.showLoading({
+        title: '加载中...',
+        mask: true //显示触摸蒙层  防止事件穿透触发
+      });
       let url = app.globalData.URL + '/group';
       var data = {
         name: this.data.name,
         introduction: this.data.area,
-        number: this.data.num,
+        number: parseInt(this.data.index)+1,
         question: this.data.question,
         image: this.data.imgurl
       }
@@ -76,6 +87,7 @@ Page({
             duration: 2000
           })
         }
+        wx.hideLoading()
       }).catch(function (res) {
         console.log(res)
         wx.showToast({

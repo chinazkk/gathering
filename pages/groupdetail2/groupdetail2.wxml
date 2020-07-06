@@ -25,7 +25,7 @@
 <view class="bg-white">
 	<view class="padding flex justify-between align">
 		<view class="desc margin-right">
-			<view class="content padding-xs">成员数量：{{joinnum}}/{{info.number}}</view>
+			<view class="content padding-xs">成员数量：{{joininfo.length}}/{{info.number}}</view>
 			<!-- <view class="content padding-xs">小组类别：</view> -->
 			<view class="content padding-xs">小组简介：{{info.introduction}}</view>
 			<view class="content padding-xs">组织者昵称：{{info.user.nick}}</view>

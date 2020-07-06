@@ -8,6 +8,10 @@
   position: relative;
   top:50rpx;
 }
+.bottom{
+  position: relative;
+  top: 30rpx;
+}
 /* pages/poprank/poprank.wxss */
 .index{
   font-size: 60rpx;

@@ -32,8 +32,15 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
+  <picker mode="date" value="{{info.time}}" start="2020-07-01" end="2030-09-01" bindchange="gettime">
+    <view class=" text-left ">
+      {{info.time}}
+    </view>
+  </picker>
+</view>
+	<!-- <view class="backcolor cu-form-group input">
 		<input placeholder="{{id}}" class="" bindinput="gettime" value="{{info.time}}" placeholder-style="color:white" placeholder="输入内容(xxxx-xx-xx)"></input>
-	</view>
+	</view> -->
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
 			<text class="text-black text-bold" >活动地点/形式：</text>

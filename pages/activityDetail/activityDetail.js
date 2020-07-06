@@ -103,7 +103,7 @@ Page({
       })
     })
     //获取活动用户列表
-    url = app.globalData.URL + '/group/activity/join/list'
+    url = app.globalData.URL + '/group/activity/join/user/list'
     data = {
       limit: 10,
       page: 1,

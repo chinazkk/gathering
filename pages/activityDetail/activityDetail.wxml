@@ -3,15 +3,15 @@
 		<image src="{{imgurl}}{{groupinfo.image}}" class="img margin-sm" mode="aspectFit"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{groupinfo.name}}</view>
-			<view class="padding-xs padding-left-sm">小组类别：{{actinfo.time}}</view>
+			<view class="padding-xs padding-left-sm">小组类别：{{actinfo.tags==null?actinfo.tags:'暂无'}}</view>
 			<view class="padding-xs padding-left-sm">剩余活动席位：{{groupinfo.number-joinnum}}</view>
 		</view>
 	</view>
 </view>
 
 <view class="flex solid-bottom padding-sm justify-between margin-top-xl">
-	<view class=" padding-sm  radius text-lg text-boldw">{{actinfo.title}}</view>
-	<view wx:if="{{iscreater}}" class=" padding-sm  radius  text-blue" bindtap="editact">编辑</view>
+	<view class="padding-sm radius text-lg text-boldw bottom text-bold">{{actinfo.title}}</view>
+	<view wx:if="{{iscreater}}" class="padding-sm radius  text-blue bottom" bindtap="editact">编辑</view>
 	<view wx:else>
 		<view wx:if="{{!isjoin}}" class="flex">
 			<view class=" padding-sm  radius  text-blue " wx:if="{{!iscollect}}" bindtap="tocollect">收藏</view>
@@ -31,21 +31,21 @@
 	<view class="padding-xs">{{actinfo.location}}</view>
 	<view class="padding-xs text-lg text-bold">已报名参加的人</view>
 	<view class="padding-xs content flex">
-		<view wx:if="{{joinlist.length!=0}}" class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joinlist}}" wx:key="key" style="background-image:url({{item.avatar}});" >
+		<view wx:if="{{joinlist.length!=0}}" class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joinlist}}" wx:key="key" style="background-image:url({{item.user.avatar.length>40?item.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.user.avatar}});" >
 			<!-- <text class="avatar-text">{{item.avatar}}</text> -->
 		</view>
-		<view wx:if="{{joinlist.length}}" class="padding-xs">暂无已参加</view>
+		<view wx:if="{{joinlist.length==0}}" class="padding-xs">暂无已参加</view>
 	</view>
 	<view class="padding-xs text-lg">活动描述</view>
 	<view class="padding-xs">{{actinfo.summarize}}</view>
 </view>
-<image class="padding imglimit" mode="aspectFit" src="{{imgurl}}{{actinfo.image}}"></image>
+<image class="padding imglimit" mode="aspectFill" src="{{imgurl}}{{actinfo.image}}"></image>
 
 <view class="content padding text-lg text-bold ">同一小组的其他活动</view>
 
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{groupOtherActivity}}" wx:key bindtap="toOtherAct" data-id="{{item.id}}">
-    <image src="{{imgurl}}{{item.image}}" mode="aspectFit" ></image>
+    <image src="{{imgurl}}{{item.image}}" mode="aspectFill" ></image>
     <!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
   </swiper-item>
 </swiper>

@@ -23,9 +23,16 @@
 			<text class="text-black text-bold" >小组人数设定：</text>
 		</view>
 	</view>
-	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getid" type="number" bindinput="getnum"placeholder-style="color:white" placeholder="{{info.number}}"></input>
+		<view class="backcolor cu-form-group input">
+		<picker bindchange="getnum" value="{{index}}" range="{{array}}">
+			<view class="text-white">
+				当前选择：{{info.number}}
+			</view>
+		</picker>
 	</view>
+	<!-- <view class="backcolor cu-form-group input">
+		<input placeholder="{{id}}" class="" bindinput="getid" type="number" bindinput="getnum"placeholder-style="color:white" placeholder="{{info.number}}"></input>
+	</view> -->
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
 			<text class="text-black text-bold" >加入小组问题设定：</text>

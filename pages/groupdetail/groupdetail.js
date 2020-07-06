@@ -145,12 +145,16 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    if (wx.getStorageSync('isCreateGroup')) {
+    if (wx.getStorageSync('isCreateGroup')||wx.getStorageSync('isUpdateGroup')) {
       wx.switchTab({
         url: '/pages/index/index',
       })
     }
     wx.removeStorageSync('groupid')
+    wx.removeStorageSync('isUpdateGroup')
+    wx.removeStorageSync('isCreateGroup')
+
+    
   },
 
   /**

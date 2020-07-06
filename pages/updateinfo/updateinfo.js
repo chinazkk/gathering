@@ -71,6 +71,7 @@ Page({
       nick: this.data.userinfo.nick,
       introduction: this.data.userinfo.introduction,
       number: this.data.userinfo.number,
+      tags:this.data.userinfo.tags,
       location: this.data.userinfo.location,
       question: this.data.userinfo.question,
       avatar: this.data.userinfo.avatar,
