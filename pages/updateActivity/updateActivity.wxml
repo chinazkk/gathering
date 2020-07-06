@@ -93,9 +93,9 @@
 		<image src="/images/array.png" class="icon"  bindtap="totag"></image>
 	</view>
 	<view class="padding text-lg">活动提醒</view>
-	<view class="flex">
+	<view class="flex align">
 		<checkbox class="checkbos" bindtap="check" checked="{{check}}"></checkbox>
-		<view class="title padding-xs">活动开始前给参与者发送提醒</view>
+		<view class="title padding-left-sm">活动开始前给参与者发送提醒</view>
 	</view>
 </form>
 <view class="flex padding">

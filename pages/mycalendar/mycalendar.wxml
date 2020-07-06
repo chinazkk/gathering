@@ -5,7 +5,7 @@
 		</view>
 	</view>
 </scroll-view> -->
-<view class="flex">
+<view class="flex bg-white">
 	<image src="/images/calendar/日历 全部（150x35px）.png" wx:if="{{TabCur==0}}" class="icon padding" bindtap="choose" data-id="0"></image>
 	<image src="/images/calendar/日历 全部 - 未点击（150x35px）.png" wx:else class="icon padding" bindtap="choose" data-id="0"></image>
 
@@ -17,7 +17,7 @@
 
 </view>
 <block wx:if="{{TabCur==0}}">
-	<view class="flex bg-white" wx:for="{{allactivity}}" bindtap="toactdetail" data-id="{{item.id}}">
+	<view class="flex " wx:for="{{allactivity}}" bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 		<view class="desc padding-sm">
 			<view class="padding-sm text-bold">{{item.title}}</view>
@@ -27,7 +27,7 @@
 	</view>
 </block>
 <block wx:if="{{TabCur==1}}">
-	<view class="flex bg-white" wx:for="{{upcommingActivity}}" bindtap="toactdetail" data-id="{{item.id}}">
+	<view class="flex " wx:for="{{upcommingActivity}}" bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 		<view class="desc padding-sm">
 			<view class="padding-sm text-bold">{{item.title}}</view>
@@ -37,7 +37,7 @@
 	</view>
 </block>
 <block wx:if="{{TabCur==2}}">
-	<view class="flex bg-white" wx:for="{{expiredActivity}}" bindtap="toactdetail" data-id="{{item.id}}">
+	<view class="flex " wx:for="{{expiredActivity}}" bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
 		<view class="desc padding-sm">
 			<view class="padding-sm text-bold">{{item.title}}</view>

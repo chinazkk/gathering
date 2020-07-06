@@ -18,7 +18,7 @@
   <view class="padding content text-lg">即将到来的活动</view>
 	<view wx:for="{{lastactivity}}" class="flex" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">
 		<view class="flex padding">
-			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
 			<view class="desc padding-left-xl">
 				<view class="padding-sm text-bold">{{item.title}}</view>
 				<view class="padding-xs">{{item.time}}</view>
@@ -30,7 +30,7 @@
 <block wx:else>
 	<view wx:for="{{info}}" class="flex" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">
 		<view class="flex" >
-			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
 			<view class="desc">
 				<view class="padding-sm text-bold">{{item.title}}</view>
 				<view class="padding-xs">{{item.time}}</view>

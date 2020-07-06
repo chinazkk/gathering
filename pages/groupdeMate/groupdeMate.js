@@ -9,7 +9,13 @@ Page({
     tag: ['排序', '参与人数', '最新发布'],
     tagindex: 0,
     visible: false,
-    flag:0
+    flag:0,
+    choosetag:false
+  },
+  tap(e){
+    this.setData({
+      choosetag:!this.data.choosetag
+    })
   },
   cut(e) {
     var that=this

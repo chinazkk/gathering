@@ -5,10 +5,10 @@
 	</view>
 </view>
 <view class="items text-center">
-	<view class="padding-xs bg-orange">排序</view>
-	<view class="padding-xs bg-{{tagindex==1?'grey':'gray'}}" bindtap="choose" data-id="1">活跃度</view>
-	<view class="padding-xs bg-{{tagindex==2?'grey':'gray'}}" bindtap="choose" data-id="2">最新添加</view>
-	<view class="padding-xs bg-{{tagindex==3?'grey':'gray'}}" bindtap="choose" data-id="3">按字母排序</view>
+	<view class="padding-xs bg-orange" bindtap="tap" style="width:150rpx">排序</view>
+	<view class="padding-xs bg-{{tagindex==1?'grey':'gray'}}" bindtap="choose" data-id="1" wx:if="{{choosetag}}">活跃度</view>
+	<view class="padding-xs bg-{{tagindex==2?'grey':'gray'}}" bindtap="choose" data-id="2" wx:if="{{choosetag}}">最新添加</view>
+	<view class="padding-xs bg-{{tagindex==3?'grey':'gray'}}" bindtap="choose" data-id="3" wx:if="{{choosetag}}">按字母排序</view>
 </view>
 
 <view class="padding flex text-left" wx:for="{{joininfo}}">
