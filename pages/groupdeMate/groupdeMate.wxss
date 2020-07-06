@@ -10,10 +10,19 @@
 }
 .divLine{
   margin-top: 3rpx;
-  background: #c6c8c9;
+  background: #b6b6b6;
   width: 120%;
   position: relative;
   right: 20rpx;
   border-radius: 10rpx;
   height: 10rpx;
+ }
+ .divLine2{
+  margin-top: 3rpx;
+  background: #c6c8c9;
+  width: 120%;
+  position: relative;
+  right: 20rpx;
+  border-radius: 10rpx;
+  height: 2rpx;
  }

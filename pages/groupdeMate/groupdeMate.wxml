@@ -17,8 +17,9 @@
 	<view class="text-blue padding" wx:if="{{flag==1}}" bindtap="handleShow" data-id="{{item.id}}" data-target="bottomModal">移除</view>
 </view>
 <popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
-	<view class="text-sm text-xl padding">移除该成员后，小组将不能查看此成员</view>
-	<view bindtap="cut" class="text-red padding-xs text-xl">移除该成员</view>
+	<view class="text-sm text-lg padding text-grey">移除该成员后，小组将不能查看此成员</view>
+	<view class="divLine2"></view>
+	<view bindtap="cut" class="text-red padding text-xl">移除该成员</view>
 	<view class="divLine"></view>
-	<view bindtap="cancel" class="text-xl padding-xs">取消</view>
+	<view bindtap="cancel" class="text-xl padding-sm">取消</view>
 </popup-bottom>

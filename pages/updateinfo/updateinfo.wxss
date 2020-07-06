@@ -37,6 +37,15 @@
   left: 20rpx;
   /* top: 15rpx; */
 }
+.divLine{
+  margin-top: 3rpx;
+  background: #d9d9da;
+  width: 120%;
+  position: relative;
+  right: 20rpx;
+  border-radius: 10rpx;
+  height: 14rpx;
+ }
 page{
   background: white;
 }
