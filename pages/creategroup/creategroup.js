@@ -36,6 +36,11 @@ Page({
       question: e.detail.value
     })
   },
+  getannouncement(e){
+    this.setData({
+      announcement: e.detail.value
+    })
+  },
   textareaAInput(e) {
     this.setData({
       area: e.detail.value
@@ -61,6 +66,7 @@ Page({
         name: this.data.name,
         introduction: this.data.area,
         number: parseInt(this.data.index)+1,
+        announcement:this.data.announcement,
         question: this.data.question,
         image: this.data.imgurl
       }
