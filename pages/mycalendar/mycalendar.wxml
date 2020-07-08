@@ -18,7 +18,7 @@
 </view>
 <block wx:if="{{TabCur==0}}">
 	<view class="flex " wx:for="{{allactivity}}" bindtap="toactdetail" data-id="{{item.id}}">
-		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
+		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFill"></image>
 		<view class="desc padding-sm">
 			<view class="padding-sm text-bold">{{item.title}}</view>
 			<view class="padding-sm">{{item.name}}</view>
@@ -28,7 +28,7 @@
 </block>
 <block wx:if="{{TabCur==1}}">
 	<view class="flex " wx:for="{{upcommingActivity}}" bindtap="toactdetail" data-id="{{item.id}}">
-		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
+		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFill"></image>
 		<view class="desc padding-sm">
 			<view class="padding-sm text-bold">{{item.title}}</view>
 			<view class="padding-sm">{{item.name}}</view>
@@ -38,7 +38,7 @@
 </block>
 <block wx:if="{{TabCur==2}}">
 	<view class="flex " wx:for="{{expiredActivity}}" bindtap="toactdetail" data-id="{{item.id}}">
-		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
+		<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFill"></image>
 		<view class="desc padding-sm">
 			<view class="padding-sm text-bold">{{item.title}}</view>
 			<view class="padding-sm">{{item.name}}</view>

@@ -41,6 +41,10 @@ Page({
   },
   onLoad: function (options) {
     var that = this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     let url = app.globalData.URL + '/group/activity/list';
     var data = {
       user_id: wx.getStorageSync('userId'),
@@ -49,8 +53,13 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+         item.time = item.time.substring(0, 10)
+       })
       that.setData({
-        allactivity: res.data.data
+        allactivity:test
       })
     })
     //即将到来
@@ -63,9 +72,15 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+         item.time = item.time.substring(0, 10)
+       })
       that.setData({
-        upcommingActivity: res.data.data
+        upcommingActivity:test
       })
+      
     })
     //已过期
 
@@ -78,9 +93,15 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+         item.time = item.time.substring(0, 10)
+       })
       that.setData({
-        expiredActivity: res.data.data
+        expiredActivity:test
       })
+      wx.hideLoading()
     })
   },
   choose(e){

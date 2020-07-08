@@ -9,7 +9,7 @@ Page({
   // 3-参加小组的公告和活动提醒
   // 4-已参加/已过期
   // 5-讨论被回复点赞
-  
+
   /**
    * 页面的初始数据
    */
@@ -34,6 +34,12 @@ Page({
       let tmp = res.data.data
       for (let i of tmp) {
         i.lasttime = time.formatMsgTime(i.create_time)
+        if (i.image == null) {
+          if (i.user.avatar.length > 40)
+            i.image = i.user.avatar
+          else
+            i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.user.avatar
+        }
       }
       that.setData({
         message: tmp

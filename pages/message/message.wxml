@@ -1,16 +1,17 @@
 <!--pages/message/message.wxml-->
+<!-- <view class="margin-top">  </view> -->
 <view wx:for="{{message}}" class="flex" style="height:200rpx;">
 	<!-- 0-小组审核  -->
-	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==0}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFit"></image>
-		<view class="desc">
+	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==0}}">
+		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img message" mode="aspectFit"></image>
+		<view class="desc padding-sm">
 			<view class="padding-sm text-bold">{{item.content}}</view>
 			<view class="padding-xs">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 1-站内好友私信 -->
 	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==1}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFit"></image>
+		<image src="{{item.image==null?item.user.avatar:item.image}}"  class="img message" mode="aspectFit"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold">{{item.content}}</view>
 			<view class="padding-xs">{{item.lasttime}}</view>

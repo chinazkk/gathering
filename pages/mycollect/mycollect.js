@@ -68,6 +68,10 @@ Page({
    */
   onLoad: function (options) {
     let that=this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     //获取我的收藏
     let url = app.globalData.URL + '/group/collection/list';
     var data = {
@@ -84,7 +88,9 @@ Page({
       that.setData({
         collect:obj
       })
+      wx.hideLoading()
     })
+
   },
 
   /**

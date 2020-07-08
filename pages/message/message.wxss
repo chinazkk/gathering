@@ -15,6 +15,10 @@
   border-radius: 80%;
 }
 .img{
-  height: 180rpx;
-  width: 250rpx;
+  height: 160rpx;
+  width: 160rpx;
+}
+.message{
+  border-radius: 50%;
+  overflow:hidden;
 }
