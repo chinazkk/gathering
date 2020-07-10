@@ -25,18 +25,32 @@ page {
 }
 
 .icon {
-  width: 40rpx;
-  height: 40rpx;
+  width: 36rpx;
+  height: 36rpx;
 }
 
 .big {
   font-size: 33rpx;
 }
-
-.text-big {
-  font-size: 45rpx;
-  position: absolute;
-  left: 50rpx;
+.divLine2{
+  margin-top: 3rpx;
+  background: #d9d9da;
+  width: 120%;
+  position: relative;
+  right: 20rpx;
+  border-radius: 10rpx;
+  height: 14rpx;
+ }
+.text-point {
+  /* display: flex;
+  flex-direction: row-reverse; */
+  flex-shrink:0;
+  position: fixed;
+  right: 50rpx;
+  font-size: 70rpx;
+  color: #D8D8D8;
+  top: 0rpx;
+  font-family: PingFangSC-Regular;
 }
 
 .padding-xs2 {
@@ -46,6 +60,8 @@ page {
 .avaimage {
   height: 100rpx;
   width: 100rpx;
+  position: relative;
+  top: 25rpx;
 }
 
 /* 横着的分割View样式 */

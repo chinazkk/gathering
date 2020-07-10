@@ -1,16 +1,16 @@
 <view class="bg-white">
-	<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfo.avatar}})"></view>
+	<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfo.avatar.length>40?userinfo.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+userinfo.avatar}})"></view>
 	<view url="/pages/updateinfo/updateinfo" bindtap="modalinput" class="text-blue padding update">私信</view>
-	<view class="text-center text-bold padding-top">{{nickname}}</view>
-	<view class="text-center text-bold margin-top">位置：{{userinfo.location!==null?userinfo.location:'暂无'}}</view>
-	<view class="text-center text-bold ">简介：{{userinfo.introduction!==null?userinfo.introduction:'暂无'}}</view>
-	<view class="text-center text-bold ">兴趣标签:{{userinfo.tags!==null?userinfo.tags:'暂无'}}</view>
+	<view class="text-center text-bold padding-top padding-xs margin-top-xl">昵称：{{userinfo.nick}}</view>
+	<view class="text-center text-bold   padding-xs">位置：{{userinfo.location!==null?userinfo.location:'暂无'}}</view>
+	<view class="text-center text-bold padding-xs ">简介：{{userinfo.introduction!==null?userinfo.introduction:'暂无'}}</view>
+	<view class="text-center text-bold padding-xs">兴趣标签:{{userinfo.tags!==null?userinfo.tags:'暂无'}}</view>
 </view>
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">他创建的小组：</view>
 	<view wx:if="{{mycreategroup}}" wx:for="{{mycreategroup}}" wx:key="key">
 		<view class="flex" bindtap="toactdetail" data-id="{{item.id}}">
-			<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFit"></image>
+			<image src="{{imgurl}}{{item.image}}" class="img padding" mode="aspectFill"></image>
 			<view class="desc">
 				<view class="padding-sm">{{item.name}}</view>
 				<view class="padding-sm">现有参与者人数：{{item.applicantNum}}</view>
@@ -62,7 +62,7 @@
 
 	<view wx:if="{{myJoinActivity}}" wx:for="{{myJoinActivity}}" bindtap="toActivity" data-id="{{item.activity.id}}">
 		<view class="flex">
-			<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFit"></image>
+			<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFill"></image>
 			<view class="desc">
 				<view class="padding-sm">{{item.activity.title}}</view>
 				<view class="padding-sm">活动举办时间：{{item.activity.time}}</view>
@@ -76,5 +76,5 @@
 </view>
 
 <modal hidden="{{hiddenmodalput}}" title="请输入私信内容" confirm-text="提交" cancel-text='取消' bindcancel="cancel" bindconfirm="confirm">
-	<input type='text' bindinput="getmessage" value="message" placeholder="请输入内容" auto-focus />
+	<input type='text' bindinput="getmessage" value="{{message}}" placeholder="请输入内容" auto-focus />
 </modal>

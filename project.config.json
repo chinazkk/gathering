@@ -164,10 +164,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 15,
 					"name": "小组讨论",
 					"pathName": "pages/groupdDiscuss/groupdDiscuss",
-					"query": "",
+					"query": "id=8",
 					"scene": null
 				},
 				{
@@ -202,6 +202,7 @@
 					"id": -1,
 					"name": "私信列表",
 					"pathName": "pages/privateLetter/privateLetter",
+					"query": "",
 					"scene": null
 				}
 			]

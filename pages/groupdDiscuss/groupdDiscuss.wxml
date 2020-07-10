@@ -1,35 +1,66 @@
 <view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
-
-	<input class="solid-bottom" placeholder-class="input" bindfocus="InputFocus" bindinput="gettext" bindblur="InputBlur" adjust-position="{{false}}" value="{{text}}" placeholder="输入内容（字数限制300）" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+	<input class="solid-bottom" placeholder-class="input" bindfocus="InputFocus" bindinput="gettext" bindblur="InputBlur" adjust-position="{{false}}" value="{{text}}" placeholder="输入内容" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
 	<view class="action">
 		<!-- <text class="cuIcon-emojifill text-grey"></text> -->
 	</view>
 	<button class="cu-btn text-blue " style="width:150rpx" bindtap="commit">提交</button>
 </view>
 
-<view class="cu-list menu-avatar">
-	<view class="cu-item" style="height:200rpx" wx:for="{{talkinfo}}">
+<view class="cu-list menu-avatar" wx:for-items="{{talkinfo}}">
+	<view class="cu-item" style="height:200rpx" >
 		<view class="cu-avatar round avaimage" style="background-image:url({{item.user.avatar.length>40?item.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.user.avatar}});"></view>
 		<view class="content">
 			<view class="flex padding-xs2">
-				<view class="flex">
-					<view class="text-black text-lg">{{item.user.nick}}</view>
-					<view class="text-grey text-sm margin-left">{{item.lasttime}}</view>
-				</view>
-				<view class="text-grey  text-right text-xxl text-big">...</view>
+				<view class="text-black text-lg">{{item.user.nick}}</view>
+				<view class="text-grey text-sm margin-left">{{item.lasttime}}</view>
+				<view class="text-point text-bold" bindtap="talkback" data-id="{{item.id}}" data-userid="{{item.user_id}}">...</view>
 			</view>
 			<view class=" text-sm  padding-xs2">
-				<text class="margin-right-xs text ">{{item.content}}</text>
+				<text class="margin-right-xs text">{{item.content}}</text>
 			</view>
 			<view class="text-gray text-sm flex padding-xs2">
 				<view class="text-cut" bindtap="tothumb" data-index="{{index}}" data-id="{{item.id}}">
-					<!-- <text  class="cuIcon-appreciate xl pading-xs text-{{item.praise==true?'red':'black'}}  margin-right-xs big"></text>  -->
 					<image src="/images/点击.png" class="icon" wx:if="{{item.praise==true}}"></image>
 					<image src="/images/点赞 - 未点击.png" class="icon" wx:else></image>
 				</view>
 			</view>
 		</view>
-
 		<view class="divLine"></view>
 	</view>
+
+	<view class="cu-list menu-avatar" wx:for-items="{{item.reply}}" wx:for-item="inside">
+		<view class="cu-item" style="height:200rpx">
+			<view class="cu-avatar round avaimage" style="background-image:url({{inside.user.avatar.length>40?inside.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+inside.user.avatar}});"></view>
+			<view class="content">
+				<view class="flex padding-xs2">
+					<view class="text-black text-lg">{{inside.user.nick}}</view>
+					<view class="text-grey text-sm margin-left">{{inside.lasttime}}</view>
+					<view class="text-point text-bold" bindtap="talkback" data-id="{{inside.id}}" data-userid="{{inside.user_id}}">...</view>
+				</view>
+				<view class=" text-sm  padding-xs2">
+					<text class="margin-right-xs text">回复@用户{{item.user.nick}}:{{inside.content}}</text>
+				</view>
+				<view class="text-gray text-sm flex padding-xs2">
+					<view class="text-cut" bindtap="tothumb" data-index="{{index}}" data-id="{{inside.id}}">
+						<image src="/images/点击.png" class="icon" wx:if="{{inside.praise==true}}"></image>
+						<image src="/images/点赞 - 未点击.png" class="icon" wx:else></image>
+					</view>
+				</view>
+			</view>
+			<view class="divLine"></view>
+		</view>
+	</view>
 </view>
+
+<popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
+	<view style="background-color:#d3d3d3">
+		<view class="text-lg padding" style="background-color:#d3d3d3" bindtap="modalinput">回复</view>
+	</view>
+	<view class="text-lg padding" bindtap="delmessage" wx:if="{{showDel}}">删除</view>
+	<view class="divLine2" wx:if="{{showDel}}"></view>
+	<view bindtap="handleCancel" class="padding">取消</view>
+</popup-bottom>
+
+<modal hidden="{{hiddenmodalput}}" title="请输入私信内容" confirm-text="提交" cancel-text='取消' bindcancel="cancel" bindconfirm="reply">
+	<input type='text' bindinput="getmessage" value="{{message}}" placeholder="请输入内容" auto-focus />
+</modal>

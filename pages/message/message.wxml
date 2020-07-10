@@ -5,7 +5,7 @@
 	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==0}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img message" mode="aspectFill"></image>
 		<view class="desc padding-sm">
-			<view class="paddin text-bold text-lg">您有新的小组审核</view>
+			<view class="paddin text-bold text-lg">你有待审核信息</view>
 			<view class="paddig text-bold">{{item.user.nick}}发出申请：{{item.content}}</view>
 			<view class="padding-xs">{{item.lasttime}}</view>
 		</view>
