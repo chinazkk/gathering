@@ -36,7 +36,7 @@ page {
 .text-big {
   font-size: 45rpx;
   position: absolute;
-  right: 10rpx;
+  left: 50rpx;
 }
 
 .padding-xs2 {

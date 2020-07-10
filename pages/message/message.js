@@ -15,8 +15,9 @@ Page({
    */
   data: {
     currentpage: 1, //当前页数
-    fleshlimit: '3', //每次刷新页数
-    imgurl: app.globalData.imgurl
+    fleshlimit: '6', //每次刷新页数
+    imgurl: app.globalData.imgurl,
+    needflesh: true
   },
 
   /**
@@ -24,6 +25,10 @@ Page({
    */
   onLoad: function (options) {
     let that = this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     //获取通知列表
     let url = app.globalData.URL + '/inform/list';
     var data = {
@@ -39,11 +44,15 @@ Page({
             i.image = i.user.avatar
           else
             i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.user.avatar
+        } else {
+          if (i.image.length < 40)
+            i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.image
         }
       }
       that.setData({
         message: tmp
       })
+      wx.hideLoading()
     })
   },
 
@@ -86,7 +95,48 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var that = this
+    if (that.data.needflesh) {
+      console.log("上拉刷新")
+      wx.showLoading({
+        title: '加载中...',
+        mask: true //显示触摸蒙层  防止事件穿透触发
+      });
+      //获取通知列表
+      let url = app.globalData.URL + '/inform/list';
+      var data = {
+        limit: that.data.fleshlimit,
+        page: that.data.currentpage+1
+      }
+      util.get(url, data).then(function (res) {
+        let tmp = that.data.message
+        if(res.data.data.length==0)
+        {
+          console.log('no other message')
+          that.setData({
+            needflesh:false
+          })
+        }
+        for (let i of res.data.data) {
+          i.lasttime = time.formatMsgTime(i.create_time)
+          if (i.image == null) {
+            if (i.user.avatar.length > 40)
+              i.image = i.user.avatar
+            else
+              i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.user.avatar
+          } else {
+            if (i.image.length < 40)
+              i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.image
+          }
+          tmp.push(i)
+        }
+        that.setData({
+          message: tmp,
+          currentpage:that.data.currentpage+1
+        })
+        wx.hideLoading()
+      })
+    }
   },
 
   /**

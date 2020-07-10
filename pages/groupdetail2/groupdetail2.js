@@ -34,7 +34,7 @@ Page({
     });
 
   },
-  //确认  
+  //确认  加入小组
   confirm2: function () {
     var that = this
     this.setData({
@@ -55,7 +55,7 @@ Page({
       }
     })
     wx.showModal({
-      title: '你的申请已发送',
+      title: '发送成功',
       // content: '这是一个模态弹窗',
       showCancel: false,
       success(res) {
@@ -180,12 +180,12 @@ Page({
   confirm: function () {
     var that = this
     this.setData({
-      hiddenmodalput: true
+      hiddenmodalput2: true
     })
     let url = app.globalData.URL + '/inform/message';
     var data = {
       content: this.data.message,
-      to_id: this.data.userinfo.id,
+      to_id: this.data.info.user.id,
       from_id: wx.getStorageSync('userId')
     }
     util.post(url, data).then(function (res) {
@@ -290,6 +290,7 @@ Page({
       wx.hideLoading()
     })
   },
+
   toactdetail(e) {
     wx.navigateTo({
       url: '/pages/activityDetail/activityDetail?id=' + e.currentTarget.dataset.id,

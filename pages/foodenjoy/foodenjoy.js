@@ -6,22 +6,22 @@ Page({
     keyword: '',
     tag: ['排序', '参与人数', '最新发布'],
     order: '0', //	 0-参与人数 1-最新发布
-    type:'3',
+    type: '3',
     currentpage: 1, //当前页数
     fleshlimit: '7', //每次刷新页数
     imgurl: app.globalData.imgurl,
-    choosetag:false
+    choosetag: false
   },
-  tap(e){
+  tap(e) {
     this.setData({
-      choosetag:!this.data.choosetag
+      choosetag: !this.data.choosetag
     })
   },
   choose(e) {
     console.log(e.currentTarget.dataset.id)
     this.setData({
       order: e.currentTarget.dataset.id,
-      choosetag:!this.data.choosetag,
+      choosetag: !this.data.choosetag,
       currentpage: 1
     })
     this.flesh()
@@ -42,8 +42,13 @@ Page({
       page: that.data.currentpage
     }
     util.get(url, data).then(function (res) {
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.time = item.time.substring(0, 10)
+      })
       that.setData({
-        groupinfo: res.data.data,
+        groupinfo: test,
         currentpage: that.data.currentpage
       })
     })
@@ -61,8 +66,13 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log('flesh', res.data)
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.time = item.time.substring(0, 10)
+      })
       that.setData({
-        groupinfo: res.data.data,
+        groupinfo: test,
       })
     })
   },
@@ -88,8 +98,10 @@ Page({
           })
         } else {
           let tmp = that.data.groupinfo
-          for (let i of res.data.data)
+          for (let i of res.data.data) {
+            i.time = i.time.substring(0, 10)
             tmp.push(i)
+          }
           that.setData({
             groupinfo: tmp,
             currentpage: that.data.currentpage + 1
@@ -101,7 +113,7 @@ Page({
   todetail(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+      url: '/pages/activityDetail/activityDetail?id=' + e.currentTarget.dataset.id,
     })
   }
 })

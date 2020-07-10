@@ -23,7 +23,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getname" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getname" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
@@ -48,7 +48,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getlocation" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getlocation" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 	<view class="flex-sub text-left">
 		<view class="solid-bottom text-lg padding">
@@ -56,7 +56,7 @@
 		</view>
 	</view>
 	<view class="cu-form-group area">
-		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="输入内容（100字以内）"></textarea>
+		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="输入内容"></textarea>
 	</view>
 
 	<view class="flex-sub text-left bg-white">
@@ -65,7 +65,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getnum" type="number" placeholder-style="color:white" placeholder="输入内容（一个小组的人数上限为50人）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getnum" type="number" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 	<view class="cu-bar bg-white margin-top">
 		<view class="action">
@@ -96,7 +96,7 @@
 	<view class="padding text-lg">活动提醒</view>
 	<view class="flex">
 		<checkbox class="checkbos" bindtap="check" checked="{{check}}"></checkbox>
-		<view class="title padding-xs">活动开始前给参与者发送提醒</view>
+		<view class="title padding">活动开始前给参与者发送提醒</view>
 	</view>
 </form>
 <view class="flex padding">

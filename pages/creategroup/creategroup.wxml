@@ -5,7 +5,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getname" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getname" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 
 	<view class="flex-sub text-left">
@@ -14,7 +14,7 @@
 		</view>
 	</view>
 	<view class="cu-form-group area">
-		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="输入内容（100字以内）"></textarea>
+		<textarea maxlength="-1" placeholder-style="color:white" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="输入内容"></textarea>
 	</view>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
@@ -39,7 +39,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getque" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getque" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 		<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
@@ -47,7 +47,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getannouncement" placeholder-style="color:white" placeholder="输入内容（100字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getannouncement" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 	<view class="cu-bar bg-white margin-top">
 		<view class="action">

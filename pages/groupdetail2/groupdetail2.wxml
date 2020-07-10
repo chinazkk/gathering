@@ -23,7 +23,7 @@
 </view>
 
 <view class="bg-white">
-	<view class="padding flex justify-between align">
+<view class="padding flex justify-between align">
 		<view class="desc margin-right">
 			<view class="content padding-xs">成员数量：{{joininfo.length}}/{{info.number}}</view>
 			<!-- <view class="content padding-xs">小组类别：</view> -->
@@ -31,9 +31,9 @@
 			<view class="content padding-xs">组织者昵称：{{info.user.nick}}</view>
 		</view>
 		<view class="desc mess align2">
-			<view class="cu-avatar touimage margin-top" style="background-image:url({{info.user.avatar.length>40?info.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+info.user.avatar}})"></view>
-			<!-- <image src="/images/addgrey.png" class="touimage"></image> -->
-			<view class="messtext text-blue" bindtap="modalinput2">私信</view>
+			<!-- <view class="cu-avatar mess touimage margin-top" style="background-image:url({{info.user.avatar.length>40?info.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+info.user.avatar}})"></view> -->
+			<image src="{{info.user.avatar.length>40?info.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+info.user.avatar}}" class="imgadd"></image>
+			<view class="messtext text-blue" bindtap="modalinput2">私信</view> 
 		</view>
 	</view>
 	<view class="divLine"></view>
@@ -68,10 +68,10 @@
 <text class="padding-xxl  text-gray title2" wx:if="{{!talkinfo.length}}">该小组暂无评论喔</text>
 
 
-<modal hidden="{{hiddenmodalput}}" title="问题内容：{{info.question}}" confirm-text="提交" cancel-text='取消' bindcancel="cancel" bindconfirm="confirm">
+<modal hidden="{{hiddenmodalput}}" title="问题内容：{{info.question}}" confirm-text="提交" cancel-text='取消' bindcancel="cancel" bindconfirm="confirm2">
 	<input type='text' bindinput="getans" placeholder="请输入答案" auto-focus />
 </modal>
 
-<modal hidden="{{hiddenmodalput2}}" title="请输入私信内容" confirm-text="提交" cancel-text='取消' bindcancel="cancel2" bindconfirm="confirm2">
+<modal hidden="{{hiddenmodalput2}}" title="请输入私信内容" confirm-text="提交" cancel-text='取消' bindcancel="cancel2" bindconfirm="confirm">
 	<input type='text' bindinput="getmessage" placeholder="请输入内容" auto-focus />
 </modal>

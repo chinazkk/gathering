@@ -36,7 +36,7 @@
 		</view>
 		<view wx:if="{{joinlist.length==0}}" class="padding-xs">暂无已参加</view>
 	</view>
-	<view class="padding-xs text-lg">活动描述</view>
+	<view class="padding-xs text-lg text-bold">活动描述</view>
 	<view class="padding-xs">{{actinfo.summarize}}</view>
 </view>
 <image class="padding imglimit" mode="aspectFill" src="{{imgurl}}{{actinfo.image}}"></image>

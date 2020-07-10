@@ -104,6 +104,11 @@ Page({
       wx.hideLoading()
     })
   },
+  tabSelect(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+    })
+  },
   choose(e){
     this.setData({
       TabCur: e.currentTarget.dataset.id,

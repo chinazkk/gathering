@@ -3,50 +3,51 @@
 <view wx:for="{{message}}" class="flex" style="height:200rpx;">
 	<!-- 0-小组审核  -->
 	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==0}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img message" mode="aspectFit"></image>
+		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img message" mode="aspectFill"></image>
 		<view class="desc padding-sm">
-			<view class="padding-sm text-bold">{{item.content}}</view>
+			<view class="paddin text-bold text-lg">您有新的小组审核</view>
+			<view class="paddig text-bold">{{item.user.nick}}发出申请：{{item.content}}</view>
 			<view class="padding-xs">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 1-站内好友私信 -->
-	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==1}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}"  class="img message" mode="aspectFit"></image>
+	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==1}}">
+		<image src="{{item.image==null?item.user.avatar:item.image}}"  class="img message" mode="aspectFill"></image>
 		<view class="desc">
-			<view class="padding-sm text-bold">{{item.content}}</view>
-			<view class="padding-xs">{{item.lasttime}}</view>
+			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
+			<view class="padding-sm">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 2-提醒：即将参加的活动 -->
-	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==2}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFit"></image>
+	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==2}}">
+		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img " mode="aspectFill"></image>
 		<view class="desc">
-			<view class="padding-sm text-bold">{{item.content}}</view>
-			<view class="padding-xs">{{item.lasttime}}</view>
+			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
+			<view class="padding-sm">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 3-参加小组的公告和活动提醒 -->
-	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==3}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFit"></image>
+	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==3}}">
+		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>
 		<view class="desc">
-			<view class="padding-sm text-bold">{{item.title}}</view>
-			<view class="padding-xs">{{item.lasttime}}</view>
+			<view class="padding-sm text-bold text-lg">{{item.title}}</view>
+			<view class="padding-sm">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 4-已参加/已过期 -->
-	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==4}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFit"></image>
+	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==4}}">
+		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>
 		<view class="desc">
-			<view class="padding-sm text-bold">{{item.content}}</view>
-			<view class="padding-xs">{{item.lasttime}}</view>
+			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
+			<view class="padding-sm">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 5-讨论被回复点赞 -->
-	<view class="flex" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==5}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFit"></image>
+	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==5||item.type==6}}">
+		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>
 		<view class="desc">
-			<view class="padding-sm text-bold">{{item.content}}</view>
-			<view class="padding-xs">{{item.lasttime}}</view>
+			<view class="padding-sm text-bold text-lg">{{item.title}}</view>
+			<view class="padding-sm">{{item.lasttime}}</view>
 		</view>
 	</view>
 </view>

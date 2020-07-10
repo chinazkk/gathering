@@ -1,8 +1,54 @@
-.img{
+.img {
   height: 250rpx;
   width: 300rpx;
 }
-.icon{
+
+.icon {
   width: 250rpx;
   height: 110rpx;
+}
+
+.border {
+  border-bottom: 6rpx orange;
+}
+
+.zg {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  flex-grow: 1;
+}
+
+.zg_txt {
+  font-family: PingFangSC-Regular;
+  font-size: 38rpx;
+  align-items: center;
+  justify-content: center;
+  /* color: #666; */
+  flex-grow: 1;
+}
+.zi{
+  color: black;
+  z-index:9;
+  position: relative;
+}
+.line {
+  width: 200rpx;
+  height: 23rpx;
+  background: #bababa;
+  position: relative;
+  left: 10rpx;
+  bottom: 15rpx;
+  z-index:0;
+}
+.line2 {
+  width: 200rpx;
+  height: 23rpx;
+  background: #f2683e;
+  position: relative;
+  left: 10rpx;
+  bottom: 15rpx;
+  z-index:0;
 }

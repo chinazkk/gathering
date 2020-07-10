@@ -37,11 +37,12 @@
   font-weight: bold;
 }
 
-.checkbos {
-  transform: scale(0.6, 0.6);
-  /* padding: 20rpx; */
-  padding-right: 10rpx;
-  left: 15rpx;
+.checkbos{
+  transform: scale(0.7,0.7);
+  width: 40rpx;
+  height: 40rpx;
+  padding: 20rpx;
+  left: 20rpx;
   /* top: 15rpx; */
 }
 .list-msg {

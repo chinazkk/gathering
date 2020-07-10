@@ -42,8 +42,13 @@ Page({
       page: that.data.currentpage
     }
     util.get(url, data).then(function (res) {
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+         item.time = item.time.substring(0, 10)
+       })
       that.setData({
-        groupinfo: res.data.data,
+        groupinfo: test,
         currentpage: that.data.currentpage
       })
     })
@@ -61,8 +66,13 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log('flesh', res.data)
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.time = item.time.substring(0, 10)
+      })
       that.setData({
-        groupinfo: res.data.data,
+        groupinfo: test,
       })
     })
   },
@@ -89,7 +99,10 @@ Page({
         } else {
           let tmp = that.data.groupinfo
           for (let i of res.data.data)
+          {
+            i.time=i.time.substring(0,10)
             tmp.push(i)
+          }
           that.setData({
             groupinfo: tmp,
             currentpage: that.data.currentpage + 1

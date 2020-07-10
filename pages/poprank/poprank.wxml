@@ -6,11 +6,11 @@
 		</view> -->
 		<image src="/images/num/人气总榜 第{{index+1}}.png" class="num padding"></image>
 		<image src="{{imgurl}}{{item.image}}" class="img margin-sm" mode="aspectFill"></image>
-		<view class="desc margin-sm">
-			<view class="padding-xs text">{{item.title}}</view>
-			<view class="padding-s text text-detail text-grey">{{item.summarize}}</view>
-			<view class="padding-s text-detail text-grey">{{item.time}}</view>
-			<view class="padding-s text-sm text-grey text-detail">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
+		<view class="desc margin-top-lg">
+			<view class=" my_text text-black text-size2">{{item.title}}</view>
+			<view class=" my_text text-size text-grey">{{item.summarize}}</view>
+			<view class="  text-grey text-size">{{item.time}}</view>
+			<view class=" text-sm text-grey text-size3">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
 		</view>
 	</view>
 </view>
