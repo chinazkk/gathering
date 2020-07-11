@@ -206,7 +206,7 @@ Page({
     var that = this
 
     wx.showModal({
-      title: '退出该小组',
+      title: '退出该活动',
       // content: '确定要删除这张照片吗',
       cancelText: '取消',
       confirmText: '确认',

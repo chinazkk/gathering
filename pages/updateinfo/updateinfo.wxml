@@ -9,7 +9,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getname" value="{{userinfo.nick}}" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getname" value="{{userinfo.nick}}" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
@@ -17,7 +17,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="getloc" value="{{userinfo.location}}" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="getloc" value="{{userinfo.location}}" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 	<view class="flex-sub text-left">
 		<view class="solid-bottom text-lg padding">
@@ -25,7 +25,7 @@
 		</view>
 	</view>
 	<view class="cu-form-group area">
-		<textarea maxlength="-1" placeholder-style="color:white" value="{{userinfo.introduction}}" disabled="{{modalName!=null}}" bindinput="getinfo" placeholder="输入内容（100字以内）"></textarea>
+		<textarea maxlength="-1" placeholder-style="color:white" value="{{userinfo.introduction}}" disabled="{{modalName!=null}}" bindinput="getinfo" placeholder="输入内容"></textarea>
 	</view>
 
 	<view class="flex-sub text-left bg-white">
@@ -34,7 +34,7 @@
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-		<input placeholder="{{id}}" class="" bindinput="gettag" value="{{userinfo.tags}}" placeholder-style="color:white" placeholder="输入内容（10字以内）"></input>
+		<input placeholder="{{id}}" class="" bindinput="gettag" value="{{userinfo.tags}}" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
 	<view class="flex">
 		<checkbox class="checkbos" bindtap="check1" checked="{{check1}}"></checkbox>
