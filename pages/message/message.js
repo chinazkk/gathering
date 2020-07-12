@@ -97,6 +97,13 @@ Page({
       }
     })
   },
+  //去详细私信
+  totalkdetail(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/userTalk/userTalk?id='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

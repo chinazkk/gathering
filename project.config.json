@@ -204,6 +204,13 @@
 					"pathName": "pages/privateLetter/privateLetter",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "详细聊天",
+					"pathName": "pages/userTalk/userTalk",
+					"query": "id=2",
+					"scene": null
 				}
 			]
 		}
