@@ -59,7 +59,6 @@ Page({
         //这里需要截取的内容
          item.create_time = item.create_time.substring(5, 16)
        })
-
       that.setData({
         messageinfo: test
       })

@@ -104,6 +104,12 @@ Page({
       url: '/pages/userTalk/userTalk?id='+e.currentTarget.dataset.id,
     })
   },
+  togroupdetail(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/groupdetail2/groupdetail2?id='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
