@@ -139,7 +139,7 @@ Page({
         console.log(res.data)
         if (res.data.code == 200) {
           wx.showToast({
-            title: '参加成功',
+            title: '您的申请已发送',
             duration: 2000,
             success: function () {
               console.log('join success')

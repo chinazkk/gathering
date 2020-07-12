@@ -15,7 +15,7 @@ Page({
    */
   data: {
     currentpage: 1, //当前页数
-    fleshlimit: '6', //每次刷新页数
+    fleshlimit: '7', //每次刷新页数
     imgurl: app.globalData.imgurl,
     needflesh: true
   },
@@ -55,7 +55,48 @@ Page({
       wx.hideLoading()
     })
   },
-
+  //小组通过审核
+  verify(e) {
+    var that = this
+    console.log(e.currentTarget.dataset.id)
+    wx.showModal({
+      title: '通过该申请',
+      // content: '确定要删除这张照片吗',
+      cancelText: '不通过',
+      confirmText: '通过',
+      success: res => {
+        if (res.confirm) {
+          console.log('pass')
+          let url = app.globalData.URL + '/group/join';
+          var data = {
+            id: e.currentTarget.dataset.id,
+            audit_status:'1'
+          }
+          util.other(url, data, 'PUT').then(function (res) {
+            console.log(res.data)
+            if (res.data.code == 200) {
+              wx.showToast({
+                title: '审核成功',
+                duration: 2000,
+                success: function () {
+                  console.log('verify success')
+                }
+              })
+            } else {
+              wx.showToast({
+                title: res.data.msg,
+                image: '/img/fail.png',
+                icon: 'success',
+                duration: 2000
+              })
+            }
+          })
+        } else {
+          console.log('not pass')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -88,7 +129,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    // this.onLoad()
   },
 
   /**
@@ -106,15 +147,14 @@ Page({
       let url = app.globalData.URL + '/inform/list';
       var data = {
         limit: that.data.fleshlimit,
-        page: that.data.currentpage+1
+        page: that.data.currentpage + 1
       }
       util.get(url, data).then(function (res) {
         let tmp = that.data.message
-        if(res.data.data.length==0)
-        {
+        if (res.data.data.length == 0) {
           console.log('no other message')
           that.setData({
-            needflesh:false
+            needflesh: false
           })
         }
         for (let i of res.data.data) {
@@ -132,13 +172,16 @@ Page({
         }
         that.setData({
           message: tmp,
-          currentpage:that.data.currentpage+1
+          currentpage: that.data.currentpage + 1
         })
         wx.hideLoading()
       })
     }
   },
-
+  todetail(e)
+  {
+    console.log(e.currentTarget.dataset.id)
+  },
   /**
    * 用户点击右上角分享
    */

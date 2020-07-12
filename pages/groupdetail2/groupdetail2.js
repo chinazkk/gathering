@@ -32,7 +32,6 @@ Page({
     this.setData({
       hiddenmodalput2: true
     });
-
   },
   //确认  加入小组
   confirm2: function () {
@@ -48,9 +47,9 @@ Page({
     util.post(url, data).then(function (res) {
       console.log(res.data)
       if (res.data.code == 200) {
-        that.setData({
-          isjoin: true
-        })
+        // that.setData({
+        //   isjoin: true
+        // })
         console.log('join success')
       }
     })
@@ -60,8 +59,8 @@ Page({
       showCancel: false,
       success(res) {
         that.setData({
-          hiddenmodalput2: !that.data.hiddenmodalput2,
-          message: ''
+          hiddenmodalput: true,
+          ans: ''
         })
         if (res.confirm) {
           console.log('用户点击确定')
@@ -78,6 +77,7 @@ Page({
     })
   },
   quitgroup(e) {
+    var that=this
     wx.showModal({
       title: '退出该小组',
       // content: '确定要删除这张照片吗',
@@ -94,7 +94,7 @@ Page({
             console.log(res.data)
             if (res.data.code == 200) {
               wx.showToast({
-                title: '删除',
+                title: '退出成功！',
                 duration: 2000,
                 success: function () {
                   // setTimeout(function () {
@@ -102,6 +102,9 @@ Page({
                   //     url: '/pages/index/index',
                   //   })
                   // }, 2000);
+                  that.setData({
+                    isjoin:false
+                  })
                   console.log('quit group success')
                 }
               })
@@ -174,13 +177,13 @@ Page({
     this.setData({
       hiddenmodalput: true
     });
-
   },
   //确认  
   confirm: function () {
     var that = this
     this.setData({
-      hiddenmodalput2: true
+      hiddenmodalput2: true,
+      message:''
     })
     let url = app.globalData.URL + '/inform/message';
     var data = {
@@ -273,6 +276,17 @@ Page({
         joininfo: res.data.data,
         joinnum: res.data.data.length
       })
+      let id=wx.getStorageSync('userId')
+      for(let i of res.data.data)
+      {
+        if(id==i.id)
+        {
+          that.setData({
+            isjoin:true
+          })
+          break;
+        }
+      }
     })
     //获取参加小组
     url = app.globalData.URL + '/group/join/list';

@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "通知栏"
+  "navigationBarTitleText": "通知栏",
+  "enablePullDownRefresh":false
 }
