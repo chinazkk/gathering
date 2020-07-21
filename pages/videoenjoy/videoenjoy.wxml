@@ -6,8 +6,8 @@
 </view>
 <view class="items text-center">
 	<view class="padding-xs bg-orange" bindtap="tap" style="width:140rpx">排序</view>
-	<view class="padding-xs bg-{{order==0?'grey':'gray'}}" bindtap="choose" wx:if="{{choosetag}}" data-id="0">参与人数</view>
-	<view class="padding-xs bg-{{order==1?'grey':'gray'}}" bindtap="choose" wx:if="{{choosetag}}" data-id="1">最新发布</view>
+	<view class="padding-xs bg-gray" bindtap="choose" wx:if="{{choosetag}}" data-id="0">参与人数</view>
+	<view class="padding-xs bg-gray" bindtap="choose" wx:if="{{choosetag}}" data-id="1">最新发布</view>
 
 </view>
 <view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">

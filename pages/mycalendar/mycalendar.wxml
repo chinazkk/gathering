@@ -30,7 +30,7 @@
 		<view class="line" wx:else ></view>
 	</view>
 		<view class="desx zg_txt" bindtap="choose" data-id="2">
-		<view class=' text-center text-bold zi'>已过期</view>
+		<view class=' text-center text-bold zi' style="position: relative;left: 6rpx;">已过期</view>
 		<view class="line2" style="position: relative;left: 25rpx;" wx:if="{{TabCur==2}}"></view>
 		<view class="line" style="position: relative;left: 25rpx;" wx:else ></view>
 	</view>
