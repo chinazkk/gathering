@@ -110,6 +110,29 @@ Page({
       visible: false
     });
   },
+  delmessage(e){
+    var that = this
+    let url = app.globalData.URL + '/group/topic';
+    var data = {
+      topic_id: this.data.chooseindex
+    }
+    util.other(url, data, 'DELETE').then(function (res) {
+      console.log(res.data)
+      if (res.data.code == 200) {
+        wx.showToast({
+          title: '删除回复成功',
+          duration: 2000,
+          success: function () {
+            console.log('cancel topic success')
+          }
+        })
+        that.setData({
+          visible:false
+        })
+        that.secondload()
+      }
+    })
+  },
   tothumb(e) {
     var that = this
     let url = app.globalData.URL + '/group/topic/praise';

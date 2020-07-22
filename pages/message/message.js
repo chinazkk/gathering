@@ -121,7 +121,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.onLoad()
   },
 
   /**
@@ -193,7 +193,12 @@ Page({
   },
   todetail(e)
   {
-    console.log(e.currentTarget.dataset.id)
+    console.log(e.currentTarget.dataset.group_id)
+    console.log(e.currentTarget.dataset.activity_id)
+    wx.navigateTo({
+      url: '/pages/groupdDiscuss/groupdDiscuss?id='+e.currentTarget.dataset.group_id,
+    })
+
   },
   /**
    * 用户点击右上角分享

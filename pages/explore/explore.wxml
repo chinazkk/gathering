@@ -28,12 +28,22 @@
 	</view>
 </block>
 <block wx:else>
-	<view wx:for="{{info}}" class="flex" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">
+	<view wx:for="{{info}}" class="flex padding" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">
 		<view class="flex" >
 			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
 			<view class="desc">
 				<view class="padding-sm text-bold">{{item.title}}</view>
 				<view class="padding-xs">{{item.time}}</view>
+				<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
+			</view>
+		</view>
+	</view>
+		<view wx:for="{{infogroup}}" class="flex padding" style="height:200rpx;" bindtap="toactivity" data-id="{{item.id}}">
+		<view class="flex" >
+			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
+			<view class="desc">
+				<view class="padding-sm text-bold">{{item.name}}</view>
+				<view class="padding-xs">{{item.announcement}}</view>
 				<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
 			</view>
 		</view>

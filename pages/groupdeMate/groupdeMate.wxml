@@ -4,12 +4,12 @@
 		<input type="text" placeholder="搜索" confirm-type="search" bindinput="searchIcon"></input>
 	</view>
 </view>
-<view class="items text-center">
+<!-- <view class="items text-center">
 	<view class="padding-xs bg-orange" bindtap="tap" style="width:150rpx">排序</view>
 	<view class="padding-xs bg-{{tagindex==1?'grey':'gray'}}" bindtap="choose" data-id="1" wx:if="{{choosetag}}">活跃度</view>
 	<view class="padding-xs bg-{{tagindex==2?'grey':'gray'}}" bindtap="choose" data-id="2" wx:if="{{choosetag}}">最新添加</view>
 	<view class="padding-xs bg-{{tagindex==3?'grey':'gray'}}" bindtap="choose" data-id="3" wx:if="{{choosetag}}">按字母排序</view>
-</view>
+</view> -->
 
 <view class="padding flex text-left" wx:for="{{joininfo}}">
 	<view class="cu-avatar lg round margin-left" bindtap="touserinfo" data-id="{{item.id}}" style="background-image:url({{item.avatar.length>40?item.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.avatar}});"></view >

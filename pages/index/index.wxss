@@ -21,6 +21,11 @@
   justify-content: center;
 }
 
+.titlepadding{
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+}
+
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
@@ -75,6 +80,7 @@
   width: 50rpx;
   position: relative;
   right: 10rpx;
+  top: 30rpx;
 }
 
 .imgs {
@@ -84,10 +90,11 @@
 }
 
 .imglimit {
-  height: 280rpx;
+  height: 290rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .icon2 {
@@ -112,4 +119,14 @@
   flex-direction: row;
   align-items: center;
   /* justify-content: center; */
+}
+scroll-view {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.item-content {
+  /* width: 40%; */
+  display: inline-block;
+  text-align: center;
 }

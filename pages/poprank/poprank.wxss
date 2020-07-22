@@ -41,6 +41,7 @@
 }
 .text-size{
   font-size: 32rpx;
+ 
 }
 .text-size2{
   font-size: 36rpx;
@@ -48,11 +49,21 @@
 text-size3{
   font-size: 30rpx;
 }
-.num{
-  width: 160rpx;
-  height: 160rpx;
+.duiqi{
+  align-items: center;
+  justify-content: center;
+}
+.duiqi2{
   position: relative;
-  top: 20rpx;
+  left: 20rpx;
+  align-items: center;
+  justify-content: center;
+}
+.num{
+  width: 135rpx;
+  height: 135rpx;
+  position: relative;
+  /* top: 20rpx; */
   flex-shrink: 0;
 }
 .left{
@@ -63,6 +74,8 @@ text-size3{
   height: 180rpx;
   width: 250rpx;
   flex-shrink: 0;
+  position: relative;
+  left: 10rpx;
 }
 .indexs{
   border: 5px solid #d8d8d8 ;

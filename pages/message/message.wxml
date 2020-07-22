@@ -18,7 +18,7 @@
 		</view>
 	</view>
 	<!-- 2-提醒：即将参加的活动 -->
-	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==2}}">
+	<view class="flex padding" bindtap="todetail2" data-id="{{item.id}}" wx:if="{{item.type==2}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img " mode="aspectFill"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
@@ -34,7 +34,7 @@
 		</view>
 	</view>
 	<!-- 4-已参加/已过期 -->
-	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==4}}">
+	<view class="flex padding" bindtap="todetail4" data-id="{{item.id}}" wx:if="{{item.type==4}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
@@ -42,7 +42,7 @@
 		</view>
 	</view>
 	<!-- 5-讨论被回复点赞 -->
-	<view class="flex padding" bindtap="todetail" data-id="{{item.id}}" wx:if="{{item.type==5||item.type==6}}">
+	<view class="flex padding" bindtap="todetail" data-group_id="{{item.group_id}}" data-activity_id="{{item.activity_id}}" wx:if="{{item.type==5||item.type==6}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{item.title}}</view>

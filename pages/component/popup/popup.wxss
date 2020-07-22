@@ -25,8 +25,8 @@
 
 .box {
   position: fixed;
-  font-size: 40rpx;
-  padding: 20rpx;
+  font-size: 35rpx;
+  /* padding: 20rpx; */
   top: 100vh;
   left: 0;
   z-index: 2;

@@ -23,6 +23,7 @@
 					<image src="/images/点击.png" class="icon" wx:if="{{item.praise==true}}"></image>
 					<image src="/images/点赞 - 未点击.png" class="icon" wx:else></image>
 				</view>
+				<view class="text-grey padding-left-sm text-lg">{{item.praiseNum}}</view>
 			</view>
 		</view>
 		<view class="divLine"></view>
@@ -45,6 +46,7 @@
 						<image src="/images/点击.png" class="icon" wx:if="{{inside.praise==true}}"></image>
 						<image src="/images/点赞 - 未点击.png" class="icon" wx:else></image>
 					</view>
+					<view class="text-grey padding-left-sm text-lg">{{inside.praiseNum}}</view>
 				</view>
 			</view>
 			<view class="divLine"></view>
@@ -61,6 +63,6 @@
 	<view bindtap="handleCancel" class="padding">取消</view>
 </popup-bottom>
 
-<modal hidden="{{hiddenmodalput}}" title="请输入私信内容" confirm-text="提交" cancel-text='取消' bindcancel="cancel" bindconfirm="reply">
+<modal hidden="{{hiddenmodalput}}" title="请输入回复内容" confirm-text="提交" cancel-text='取消' bindcancel="cancel" bindconfirm="reply">
 	<input type='text' bindinput="getmessage" value="{{message}}" placeholder="请输入内容" auto-focus />
 </modal>

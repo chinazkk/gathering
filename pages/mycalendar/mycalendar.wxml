@@ -20,7 +20,7 @@
 
 <view class='zg bg-white padding'>
 	<view class="desx zg_txt" bindtap="choose" data-id="0">
-		<view class=' text-center text-bold zi' style="position: relative;right: 10rpx;">全部</view>
+		<view class='text-center text-bold zi' style="position: relative;right: 10rpx;">全部</view>
 		<view class="line2" wx:if="{{TabCur==0}}"></view>
 		<view class="line" wx:else ></view>
 	</view>

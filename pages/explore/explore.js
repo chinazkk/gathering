@@ -40,6 +40,21 @@ Page({
         issearch:true
       })
     })
+
+    url = app.globalData.URL + '/group/list';
+    data = {
+      keyword: that.data.keyword,
+      limit: that.data.fleshlimit,
+      page: that.data.currentpage
+    }
+    util.get(url, data).then(function (res) {
+      console.log('flesh', res.data)
+      that.setData({
+        infogroup: res.data.data,
+        issearch:true
+      })
+    })
+
   },
   flesh2() {
     console.log('flesh2')

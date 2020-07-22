@@ -105,7 +105,7 @@ Page({
     //   user_id: wx.getStorageSync('userId'),
     // })
     var data = {
-      limit: '3',
+      limit: '50',
       page: '1',
       user_id: wx.getStorageSync('userId'),
     }

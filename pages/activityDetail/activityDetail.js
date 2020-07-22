@@ -158,6 +158,12 @@ Page({
       })
     }
   },
+
+  toUserDetail(e){
+    wx.navigateTo({
+      url: '/pages/viewUserInfo/viewUserInfo?id=' + e.currentTarget.dataset.id,
+    })
+  },
   tocollect(e) {
     var that = this
     let url = app.globalData.URL + '/group/collection';

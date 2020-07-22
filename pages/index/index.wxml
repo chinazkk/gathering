@@ -1,11 +1,21 @@
 <!--index.wxml-->
 <view class="padding text-lg">我创建的小组</view>
-<view class="wrap">
+
+
+<scroll-view scroll-x="true">
+		<view class="item-content" wx:for="{{mygroup}}" wx:key="key" bindtap="todetail" data-id="{{item.id}}">
+				<view class="gruopinfo margin-sm padding-sm " style="background: url({{imgurl}}{{item.image}}) no-repeat  center / cover">{{item.name}}</view>
+		</view>
+		<image src="/images/addgrey.png" class="img margin-sm" bindtap="tocreate"></image>
+</scroll-view>
+
+
+<!-- <view class="wrap">
 	<view wx:for="{{mygroup}}" wx:key="key" class="wrap " bindtap="todetail" data-id="{{item.id}}">
 		<view class="gruopinfo margin-sm padding-sm " style="background: url({{imgurl}}{{item.image}}) no-repeat  center / cover">{{item.name}}</view>
 	</view>
 	<image src="/images/addgrey.png" class="img margin-sm" bindtap="tocreate"></image>
-</view>
+</view> -->
 
 <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
 	<swiper-item wx:for="{{hotgroup}}" bindtap="toswiperdetail" data-id="{{item.id}}" wx:key="key">
@@ -42,9 +52,9 @@
 <view wx:for="{{hotactivity}}" wx:key="key">
 	<view bindtap="toactdetail" data-id="{{item.id}}">
 		<view class="imgs">
-		<image src="{{imgurl}}{{item.image}}" mode="aspectFill" class="imglimit"></image>
+			<image src="{{imgurl}}{{item.image}}" mode="aspectFill" class="imglimit"></image>
 		</view>
-		<view class="padding-sm padding-left bg-white">
+		<view class=" bg-white titlepadding">
 			<text class="cu-bar-title text-bold text-black text-lg ">{{item.title}}</text>
 		</view>
 		<view class="bg-white padding justify-between flex">

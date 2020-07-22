@@ -1,8 +1,8 @@
-<view class="flex" wx:for="{{collect}}" bindtap="toActivity" data-id="{{item.activity.id}}">
-	<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFit"></image>
+<view class="flex" wx:for="{{collect}}" >
+	<image src="{{imgurl}}{{item.activity.image}}" class="img padding" mode="aspectFill" bindtap="toActivity" data-id="{{item.activity.id}}"></image>
 	<view class="desc padding-sm">
-		<view class="flex">
-			<view class="padding-sm text-bold">{{item.activity.title}}</view>
+		<view class="flex duiqi">
+			<view class="padding-title text-bold">{{item.activity.title}}</view>
 			<view class="point text-bold " bindtap="handleShow" data-id="{{item.activity.id}}">...</view>
 		</view>
 		<view class="padding-bottom-sm">{{item.name}}</view>
@@ -11,6 +11,6 @@
 	</view>
 </view>
 <popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
-	<view bindtap="cutcollect" class="padding">取消收藏</view>
-	<view bindtap="handleCancel">取消</view>
+	<view bindtap="cutcollect" style="background-color:#d3d3d3" class="padding">取消收藏</view>
+	<view bindtap="handleCancel" class="padding">取消</view>
 </popup-bottom>

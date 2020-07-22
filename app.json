@@ -15,6 +15,7 @@
     "pages/privateLetter/privateLetter",
     
     "pages/mycollect/mycollect",
+    "pages/mycalendar/mycalendar",
     "pages/updateinfo/updateinfo",
     "pages/myinfo/myinfo",
     "pages/creategroup/creategroup",

@@ -23,6 +23,13 @@ Page({
     timenow: '',
     index: null,
     picker: ['喵喵喵', '汪汪汪', '哼唧哼唧'],
+    array:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+  },
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
   totag() {
     wx.navigateTo({
@@ -85,7 +92,7 @@ Page({
       time: this.data.date,
       location:this.data.location,
       summarize: this.data.area,
-      number: this.data.num,
+      number: parseInt(this.data.index)+1,
       image: this.data.imgurl,
       tags:this.data.tagchoose,
       notice_status: this.data.check==true?1:0,

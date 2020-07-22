@@ -37,21 +37,25 @@
   font-weight: bold;
 }
 
-.checkbos{
-  transform: scale(0.7,0.7);
-  width: 40rpx;
-  height: 40rpx;
-  padding: 20rpx;
+.checkbos {
+  /* transform: scale(0.66,0.66); */
+  transform: scale(.7);
+  position: relative;
   left: 20rpx;
   /* top: 15rpx; */
 }
+
+.duiqi {
+  align-items: center;
+  /* justify-content: center; */
+}
+
 .list-msg {
   margin: 0 50rpx;
   /* background-color: rgb(124, 122, 122); */
-   position: relative; 
-   height: 60rpx;
+  position: relative;
+  height: 60rpx;
   width: 88%;
-  
 }
 
 .list-msg1 {
@@ -87,11 +91,12 @@
 
 @keyframes myfirst {
   from {
-      height: 0rpx;
+    height: 0rpx;
   }
 
   to {
-      height: 210rpx;/* 设置显示的长度  和效果配合才有效  这个不写也行 */
+    height: 210rpx;
+    /* 设置显示的长度  和效果配合才有效  这个不写也行 */
   }
 }
 
@@ -102,6 +107,7 @@
   width: 88%;
 
 }
+
 page {
   background: white;
 }

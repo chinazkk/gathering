@@ -1,12 +1,20 @@
 .img{
   height: 250rpx;
-  width: 420rpx;
+  width: 400rpx;
 }
 .point{
   float: right;
   position: fixed;
   right: 20rpx;
   font-size: 50rpx;
+  padding: 0rpx 0rpx 40rpx 0rpx;
+}
+.padding-title{
+  padding: 10rpx 0rpx 30rpx 0rpx;
+}
+.duiqi{
+  align-items: center;
+  /* justify-content: center; */
 }
 page{
   background: white;
