@@ -24,6 +24,11 @@ Page({
       url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
     })
   },
+  togroup(e){
+    wx.navigateTo({
+      url: '/pages/groupdetail2/groupdetail2?id='+e.currentTarget.dataset.id,
+    })
+  },
   //搜索刷新 或 选择刷新
   flesh() {
     var that = this
