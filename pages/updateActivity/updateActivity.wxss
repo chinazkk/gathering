@@ -41,12 +41,11 @@
   align-items: center;
 }
 .checkbos {
-  transform: scale(0.7,0.7);
-  width: 40rpx;
-  height: 40rpx;
-  padding: 20rpx;
+  /* transform: scale(0.66,0.66); */
+  transform: scale(.7);
+  position: relative;
   left: 20rpx;
-  bottom: 5rpx;
+  /* top: 15rpx; */
 }
 .list-msg {
   margin: 0 50rpx;
