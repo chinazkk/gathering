@@ -84,6 +84,10 @@ Page({
   commit(e) {
     // console.log(this.data.imgurl.data.url)
     var that=this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     let url = app.globalData.URL + '/group/activity';
     var data = {
       type: this.data.type,
@@ -122,6 +126,7 @@ Page({
           duration: 2000
         })
       }
+      wx.hideLoading()
     }).catch(function (res) {
       console.log(res)
       wx.showToast({
