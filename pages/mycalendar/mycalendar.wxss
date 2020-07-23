@@ -45,7 +45,7 @@
 }
 .line2 {
   width: 200rpx;
-  height: 23rpx;
+  height: 18rpx;
   background: #f2683e;
   position: relative;
   left: 10rpx;

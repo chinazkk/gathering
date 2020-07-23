@@ -10,21 +10,21 @@
 		</view>
 	</view>
 	<!-- 1-站内好友私信 -->
-	<view class="flex padding" bindtap="totalkdetail" data-id="{{item.user_id}}" wx:if="{{item.type==1}}">
+	<view class="flex padding" bindtap="toUserInfo" data-id="{{item.user_id}}" wx:if="{{item.type==1||item.type==2}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}"  class="img message" mode="aspectFill"></image>
-		<view class="desc">
+		<view class="desc" bindtap="totalkdetail" data-id="{{item.user_id}}">
 			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
 			<view class="margin-top text-lg margin-left">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 2-提醒：即将参加的活动 -->
-	<view class="flex padding" bindtap="todetail2" data-id="{{item.id}}" wx:if="{{item.type==2}}">
+	<!-- <view class="flex padding" bindtap="todetail2" data-id="{{item.id}}" wx:if="{{item.type==2}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img " mode="aspectFill"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
 			<view class="margin-top text-lg margin-left">{{item.lasttime}}</view>
 		</view>
-	</view>
+	</view> -->
 	<!-- 3-参加小组的公告和活动提醒 -->
 	<view class="flex padding" bindtap="togroupdetail" data-id="{{item.group_id}}" wx:if="{{item.type==3}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>

@@ -81,8 +81,13 @@ Page({
       user_id: options.id,
     }
     util.get(url, data).then(function (res) {
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.time = item.time.substring(0, 10)
+      })
       that.setData({
-        myCreateActivity: res.data.data
+        myCreateActivity: test
       })
     })
     // 获取用户参加的活动
@@ -93,9 +98,15 @@ Page({
       user_id: options.id,
     }
     util.get(url, data).then(function (res) {
-      that.setData({
-        myJoinActivity: res.data.data
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.activity.time = item.activity.time.substring(0, 10)
       })
+      that.setData({
+        myJoinActivity: test
+      })
+
     })
 
     

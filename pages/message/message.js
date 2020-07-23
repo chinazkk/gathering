@@ -97,6 +97,11 @@ Page({
       }
     })
   },
+  toUserInfo(e){
+    wx.navigateTo({
+      url: '/pages/viewUserInfo/viewUserInfo?id='+e.currentTarget.dataset.id,
+    })
+  },
   //去详细私信
   totalkdetail(e){
     console.log(e.currentTarget.dataset.id)
@@ -121,6 +126,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      currentpage:1,
+      needflesh: true
+    })
+    console.log('onshow')
     this.onLoad()
   },
 

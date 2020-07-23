@@ -201,9 +201,15 @@ Page({
        user_id: wx.getStorageSync('userId'),
      }
      util.get(url, data).then(function (res) {
-       that.setData({
-         myCreateActivity: res.data.data
-       })
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.time = item.time.substring(0, 10)
+      })
+      that.setData({
+        myCreateActivity: test
+      })
+
      })
      // 获取用户参加的活动
      url = app.globalData.URL + '/group/activity/join/list';
@@ -213,9 +219,16 @@ Page({
        user_id: wx.getStorageSync('userId'),
      }
      util.get(url, data).then(function (res) {
-       that.setData({
-         myJoinActivity: res.data.data
-       })
+      let test = res.data.data
+      console.log(test)
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.activity.time = item.activity.time.substring(0, 10)
+      })
+      that.setData({
+        myJoinActivity: test
+      })
+
      })
     //我的信息
     url = app.globalData.URL + '/user';

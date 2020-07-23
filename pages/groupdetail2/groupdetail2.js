@@ -181,10 +181,7 @@ Page({
   //确认  
   confirm: function () {
     var that = this
-    this.setData({
-      hiddenmodalput2: true,
-      message:''
-    })
+    
     let url = app.globalData.URL + '/inform/message';
     var data = {
       content: this.data.message,
@@ -197,6 +194,10 @@ Page({
         wx.showToast({
           title: '私信成功',
           duration: 2000,
+        })
+        that.setData({
+          hiddenmodalput2: true,
+          message:''
         })
       }
     })
