@@ -26,11 +26,11 @@
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">他加入的小组：</view>
 	<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}" wx:key="key">
-		<view class="flex" bindtap="toactdetail2" data-id="{{item.user.id}}">
-			<image src="{{imgurl}}{{item.user.image}}" class="img padding"></image>
+		<view class="flex" bindtap="toactdetail2" data-id="{{item.group.id}}">
+			<image src="{{item.group.image.length>40?item.group.image:'https://gathering.chinazkk.cn/v1/user/img?url='+item.group.image}}" class="img padding"></image>
 			<view class="desc">
-				<view class="padding-sm">{{item.user.name}}</view>
-				<view class="padding-sm">现有参与者人数：{{item.user.number}}</view>
+				<view class="padding-sm">{{item.group.name}}</view>
+				<view class="padding-sm">现有参与者人数：{{item.applicantNum}}</view>
 			</view>
 		</view>
 	</view>

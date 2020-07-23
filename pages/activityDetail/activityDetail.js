@@ -130,6 +130,10 @@ Page({
   },
   tojoin(e) {
     var that = this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     if (app.globalData.nickName) {
       let url = app.globalData.URL + '/group/activity/join';
       var data = {
@@ -148,6 +152,7 @@ Page({
               })
             }
           })
+          wx.hideLoading()
         }
       })
     }
@@ -166,6 +171,10 @@ Page({
   },
   tocollect(e) {
     var that = this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     let url = app.globalData.URL + '/group/collection';
     var data = {
       activity_id: this.data.actinfo.id
@@ -183,11 +192,16 @@ Page({
             })
           }
         })
+        wx.hideLoading()
       }
     })
   },
   cancelcollect() {
     var that = this
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     let url = app.globalData.URL + '/group/collection';
     var data = {
       id: this.data.actinfo.id
@@ -205,12 +219,16 @@ Page({
             })
           }
         })
+        wx.hideLoading()
       }
     })
   },
   quitact() {
     var that = this
-
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
     wx.showModal({
       title: '退出该活动',
       // content: '确定要删除这张照片吗',
@@ -236,6 +254,7 @@ Page({
                   })
                 }
               })
+              wx.hideLoading()
             }
           })
         }
