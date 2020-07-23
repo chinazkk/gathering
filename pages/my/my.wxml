@@ -76,11 +76,11 @@
 
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">我加入的小组：</view>
-		<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}" bindtap="toJoinGroup" data-id="{{item.user.id}}">
+		<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}" bindtap="toJoinGroup" data-id="{{item.group.id}}">
 			<view class="flex">
-				<image src="{{item.img}}" class="img padding" mode="aspectFill"></image>
+				<image src="{{imgurl}}{{item.group.image}}" class="img padding" mode="aspectFill"></image>
 				<view class="desc">
-					<view class="padding-sm">{{item.user.name}}</view>
+					<view class="padding-sm">{{item.group.name}}</view>
 					<view class="padding-sm">现有参与者人数:{{item.applicantNum}}</view>
 				</view>
 			</view>
