@@ -36,11 +36,12 @@
 	<view class="backcolor cu-form-group input">
 		<input placeholder="{{id}}" class="" bindinput="gettag" value="{{userinfo.tags}}" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
-	<view class="flex">
+
+	<view class="flex duiqi">
 		<checkbox class="checkbos" bindtap="check1" checked="{{check1}}"></checkbox>
 		<view class="title padding">允许陌生人私信</view>
 	</view>
-	<view class="flex">
+	<view class="flex duiqi">
 		<checkbox class="checkbos" bindtap="check2" checked="{{check2}}"></checkbox>
 		<view class="title padding">向陌生人展示你的全部小组/活动</view>
 	</view>
@@ -49,9 +50,9 @@
 	<button class="cu-btn  bg-grey padding margin" style="width:20%" bindtap="saveinfo">保存</button>
 </view>
 <popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel" >
-	<view style="background-color:#d3d3d3">
-		<view class=" text-lg padding" style="background-color:#d3d3d3" bindtap="uploadpic">更换头像</view>
-	</view>
+
+		<view class=" text-lg padding"  bindtap="uploadpic">更换头像</view>
+	<view class="divLine2"></view>
 	<view class=" text-lg padding" bindtap="ViewImage">查看大图</view>
 	<view class="divLine"></view>
 	<view bindtap="handleCancel" class="padding">取消</view>

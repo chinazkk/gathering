@@ -1,10 +1,9 @@
 <!--index.wxml-->
-<view class="padding text-lg">我创建的小组</view>
-
+<view class="paddingfirst text-lg">我创建的小组</view>
 
 <scroll-view scroll-x="true">
 		<view class="item-content" wx:for="{{mygroup}}" wx:key="key" bindtap="todetail" data-id="{{item.id}}">
-				<view class="gruopinfo margin-sm padding-sm " style="background: url({{imgurl}}{{item.image}}) no-repeat  center / cover">{{item.name}}</view>
+				<view class="gruopinfo margin-sm padding-sm text-cut" style="background: url({{imgurl}}{{item.image}}) no-repeat  center / cover">{{item.name}}</view>
 		</view>
 		<image src="/images/addgrey.png" class="img margin-sm" bindtap="tocreate"></image>
 </scroll-view>
@@ -57,7 +56,7 @@
 		<view class=" bg-white titlepadding">
 			<text class="cu-bar-title text-bold text-black text-lg ">{{item.title}}</text>
 		</view>
-		<view class="bg-white padding justify-between flex">
+		<view class="bg-white paddingsub justify-between flex">
 			<view class="text-sm text-black ">{{item.applicantNum}}人已报名/{{item.number}}个名额</view>
 			<view class="text-sm text-black ">距离报名截止日期还有{{item.lasttime}}天</view>
 		</view>

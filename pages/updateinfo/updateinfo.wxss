@@ -31,14 +31,18 @@
   position: relative;
   left: 7%;
 }
-.checkbos{
-  transform: scale(0.7,0.7);
-  width: 40rpx;
-  height: 40rpx;
-  padding: 20rpx;
+.checkbos {
+  /* transform: scale(0.66,0.66); */
+  transform: scale(.7);
+  position: relative;
   left: 20rpx;
   /* top: 15rpx; */
 }
+.duiqi {
+  align-items: center;
+  /* justify-content: center; */
+}
+
 .divLine{
   margin-top: 3rpx;
   background: #d9d9da;
@@ -47,6 +51,15 @@
   right: 20rpx;
   border-radius: 10rpx;
   height: 14rpx;
+ }
+ .divLine2{
+  margin-top: 3rpx;
+  background: #d9d9da;
+  width: 120%;
+  position: relative;
+  right: 20rpx;
+  border-radius: 10rpx;
+  height: 4rpx;
  }
 page{
   background: white;

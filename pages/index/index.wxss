@@ -20,12 +20,19 @@
   align-items: center;
   justify-content: center;
 }
-
+.paddingfirst{
+  padding: 30rpx 30rpx 0rpx 30rpx;
+}
 .titlepadding{
   padding-left: 30rpx;
   padding-top: 10rpx;
 }
-
+.paddingsub{
+ padding-top: 5rpx;
+ padding-right: 20rpx;
+ padding-left: 30rpx;
+ padding-bottom: 40rpx;
+}
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;

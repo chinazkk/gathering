@@ -110,6 +110,11 @@ Page({
       visible: false
     });
   },
+  toUserInfo(e){
+    wx.navigateTo({
+      url: '/pages/viewUserInfo/viewUserInfo?id='+e.currentTarget.dataset.id,
+    })
+  },
   delmessage(e){
     var that = this
     let url = app.globalData.URL + '/group/topic';

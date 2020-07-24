@@ -7,7 +7,7 @@
 <view class="items text-center">
 	<view class="padding-xs "  bindtap="tap" style="width:140rpx;background-color:#f2683e;color:white">排序</view>
 	<view class="padding-xs bg-gray" bindtap="choose" wx:if="{{choosetag}}" data-id="0">参与人数</view>
-	<view class="padding-xs bg-gray" bindtap="choose" wx:if="{{choosetag}}" data-id="1">最新发布</view>
+	<view class="padding-xs bg-gray" bindtap="choose" wx:if="{{choosetag}}" data-id="1">即将到来</view>
 
 </view>
 <view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">

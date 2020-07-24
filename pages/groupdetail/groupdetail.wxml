@@ -4,13 +4,13 @@
 </view>
 <view class="flex solid-bottom padding-sm justify-between bg-white">
 	<view class=" padding-sm  radius">{{info.name}}</view>
-	<view class=" padding-sm  radius  text-blue " bindtap="toupdate">编辑</view>
+	<view class=" padding-sm  radius  text-blue " style=" flex-shrink: 0;" bindtap="toupdate">编辑</view>
 </view>
 
 <view class="padding-xs bg-white content flex">
-	<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:if="{{joininfo}}" wx:for="{{joininfo}}" wx:key="key" style="background-image:url({{item.avatar.length>40?item.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.avatar}});">
-		<!-- <text class="avatar-text">{{item.avatar}}</text> -->
+	<view class="cu-avatar round lg margin-xs" wx:if="{{joininfo.length!=0}}" wx:for="{{joininfo}}" wx:key="key" style="background-image:url({{item.avatar.length>40?item.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.avatar}});">
 	</view>
+	<view wx:if="{{joininfo.length==0}}" class="cu-avatar round lg margin-xs" style="background-image:url({{info.user.avatar.length>40?info.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+info.user.avatar}})"></view>
 	<image wx:if="{{joininfo.length}}" src="/images/array.png" bindtap="tojoindetail" data-userid="{{info.user_id}}" class="icon"></image>
 </view>
 

@@ -16,6 +16,15 @@
   align-items: center;
   /* justify-content: center; */
 }
+.divLine2{
+  margin-top: 3rpx;
+  background: #d9d9da;
+  width: 120%;
+  position: relative;
+  right: 20rpx;
+  border-radius: 10rpx;
+  height: 4rpx;
+ }
 page{
   background: white;
 }

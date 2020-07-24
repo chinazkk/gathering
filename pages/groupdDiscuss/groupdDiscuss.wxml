@@ -8,7 +8,7 @@
 
 <view class="cu-list menu-avatar" wx:for-items="{{talkinfo}}">
 	<view class="cu-item" style="height:200rpx" >
-		<view class="cu-avatar round avaimage" style="background-image:url({{item.user.avatar.length>40?item.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.user.avatar}});"></view>
+		<view class="cu-avatar round avaimage" bindtap="toUserInfo" data-id="{{item.user_id}}" style="background-image:url({{item.user.avatar.length>40?item.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.user.avatar}});"></view>
 		<view class="content">
 			<view class="flex padding-xs2">
 				<view class="text-black text-lg">{{item.user.nick}}</view>
@@ -31,7 +31,7 @@
 
 	<view class="cu-list menu-avatar" wx:for-items="{{item.reply}}" wx:for-item="inside">
 		<view class="cu-item" style="height:200rpx">
-			<view class="cu-avatar round avaimage" style="background-image:url({{inside.user.avatar.length>40?inside.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+inside.user.avatar}});"></view>
+			<view class="cu-avatar round avaimage" bindtap="toUserInfo" data-id="{{inside.user_id}}" style="background-image:url({{inside.user.avatar.length>40?inside.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+inside.user.avatar}});"></view>
 			<view class="content">
 				<view class="flex padding-xs2">
 					<view class="text-black text-lg">{{inside.user.nick}}</view>
@@ -55,9 +55,8 @@
 </view>
 
 <popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
-	<view style="background-color:#d3d3d3">
-		<view class="text-lg padding" style="background-color:#d3d3d3" bindtap="modalinput">回复</view>
-	</view>
+		<view class="text-lg padding"  bindtap="modalinput">回复</view>
+			<view class="divLine3" wx:if="{{showDel}}"></view>
 	<view class="text-lg padding" bindtap="delmessage" wx:if="{{showDel}}">删除</view>
 	<view class="divLine2" wx:if="{{showDel}}"></view>
 	<view bindtap="handleCancel" class="padding">取消</view>

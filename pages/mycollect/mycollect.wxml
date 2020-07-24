@@ -11,6 +11,7 @@
 	</view>
 </view>
 <popup-bottom myVisible="{{visible}}" bindmyOnCancel="handleCancel">
-	<view bindtap="cutcollect" style="background-color:#d3d3d3" class="padding">取消收藏</view>
+	<view bindtap="cutcollect"  class="padding">取消收藏</view>
+		<view class="divLine2"></view>
 	<view bindtap="handleCancel" class="padding">取消</view>
 </popup-bottom>

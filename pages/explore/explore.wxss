@@ -15,8 +15,8 @@
   border-radius: 80%;
 }
 .img{
-  height: 180rpx;
-  width: 250rpx;
+  height: 170rpx;
+  width: 260rpx;
 }
 .menu {
   display: flex; /*弹性布局*/

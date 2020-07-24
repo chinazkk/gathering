@@ -40,11 +40,11 @@
   color: #4A4A4A;
 }
 .text-size{
-  font-size: 32rpx;
+  font-size: 28rpx;
  
 }
 .text-size2{
-  font-size: 36rpx;
+  font-size: 33rpx;
 }
 text-size3{
   font-size: 30rpx;
@@ -71,7 +71,7 @@ text-size3{
   left: 100rpx;
 }
 .img{
-  height: 180rpx;
+  height: 160rpx;
   width: 250rpx;
   flex-shrink: 0;
   position: relative;
@@ -85,4 +85,7 @@ text-size3{
   position: relative;
   top: 20rpx;
   left: 20rpx;
+}
+.all{
+  overflow-x: hidden;
 }

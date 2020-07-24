@@ -41,6 +41,15 @@ page {
   border-radius: 10rpx;
   height: 14rpx;
  }
+ .divLine3{
+  margin-top: 3rpx;
+  background: #d9d9da;
+  width: 120%;
+  position: relative;
+  right: 20rpx;
+  border-radius: 10rpx;
+  height: 4rpx;
+ }
 .text-point {
   /* display: flex;
   flex-direction: row-reverse; */
