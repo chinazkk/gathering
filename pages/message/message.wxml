@@ -11,10 +11,10 @@
 	</view>
 	<!-- 1-站内好友私信 -->
 	<view class="flex padding" bindtap="toUserInfo" data-id="{{item.user_id}}" wx:if="{{item.type==1||item.type==2}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}"  class="img message" mode="aspectFill"></image>
-		<view class="desc" bindtap="totalkdetail" data-id="{{item.user_id}}">
-			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
-			<view class="margin-top text-lg margin-left">{{item.lasttime}}</view>
+		<image src="{{item.from_user.avatar.length>40?item.from_user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.from_user.avatar}}"  class="img message" mode="aspectFill"></image>
+		<view class="desc" bindtap="totalkdetail" data-id="{{item.from_user.id}}">
+			<view class="padding text-bold text-lg">{{item.content}}</view>
+			<view class="margin-top-xs text-lg margin-left">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 2-提醒：即将参加的活动 -->

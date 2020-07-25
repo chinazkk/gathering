@@ -98,13 +98,14 @@ Page({
     })
   },
   toUserInfo(e){
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
       url: '/pages/viewUserInfo/viewUserInfo?id='+e.currentTarget.dataset.id,
     })
   },
   //去详细私信
   totalkdetail(e){
-    console.log(e.currentTarget.dataset.id)
+    console.log('id',e.currentTarget.dataset.id)
     wx.navigateTo({
       url: '/pages/userTalk/userTalk?id='+e.currentTarget.dataset.id,
     })

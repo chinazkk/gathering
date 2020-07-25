@@ -9,12 +9,12 @@ Page({
   data: {
     messageinfo:[],
     currentpage: 1, //当前页数
-    fleshlimit: '7', //每次刷新页数
+    fleshlimit: '20', //每次刷新页数
     scrollHeight: '100vh',
     inputBottom: 0
   },
   onLoad: function (options) {
-    console.log(options.id)
+    console.log('userid',options.id)
     var that = this
     wx.showLoading({
       title: '加载中...',

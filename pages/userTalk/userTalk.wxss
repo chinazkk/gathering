@@ -54,7 +54,7 @@ input {
 }
 .usernick{
   position: relative;
-  left: 530rpx;
+  left: 550rpx;
   font-size: 30rpx;
 }
 .anonick{

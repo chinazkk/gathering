@@ -56,9 +56,8 @@
   right: 20rpx; */
 }
 .actimg {
-  height: 200rpx;
-  width: 200rpx;
-
+  height: 180rpx;
+  width: 240rpx;
 }
 
 .menu {
