@@ -1,5 +1,5 @@
 <!--pages/poprank/poprank.wxml-->
-<view class="all">
+<view class="">
 	<view wx:for="{{hotgroup}}" class="flex" style="height:200rpx;" bindtap="toactdetail" data-id="{{item.id}}">
 		<view class="flex duiqi">
 			<!-- <view class="indexs  ">

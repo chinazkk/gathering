@@ -25,6 +25,7 @@
     "pages/choosetag/choosetag",
     "pages/choosetagForAct/choosetagForAct",
     "pages/groupdeMate/groupdeMate",
+    "pages/activityMate/activityMate",
     "pages/groupdAct/groupdAct",
     "pages/groupdDiscuss/groupdDiscuss",
     "pages/updategroup/updategroup",

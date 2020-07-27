@@ -23,6 +23,11 @@ Page({
         url: '/pages/groupdetail2/groupdetail2?id=' + this.data.groupinfo.id,
       })
   },
+  toUserList(){
+    wx.navigateTo({
+      url: '/pages/activityMate/activityMate?id='+this.data.actid,
+    })
+  },
   onLoad: function (options) {
     var that = this
     wx.showLoading({
@@ -30,6 +35,9 @@ Page({
       mask: true //显示触摸蒙层  防止事件穿透触发
     });
     console.log(options.id)
+    this.setData({
+      actid:options.id
+    })
     //获取活动情况
     let url = app.globalData.URL + '/group/activity';
     var data = {

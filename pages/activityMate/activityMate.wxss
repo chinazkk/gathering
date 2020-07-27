@@ -1,0 +1,28 @@
+.items{
+  height: 80rpx;
+  position: fixed;
+  right: 50rpx;
+  top: 120rpx;
+}
+.item{
+  position: relative;
+  top:50rpx;
+}
+.divLine{
+  margin-top: 3rpx;
+  background: #b6b6b6;
+  width: 120%;
+  position: relative;
+  right: 20rpx;
+  border-radius: 10rpx;
+  height: 10rpx;
+ }
+ .divLine2{
+  margin-top: 3rpx;
+  background: #c6c8c9;
+  width: 120%;
+  position: relative;
+  right: 20rpx;
+  border-radius: 10rpx;
+  height: 2rpx;
+ }

@@ -12,19 +12,18 @@
 </view>
 <view class="flex solid-bottom padding-sm justify-between bg-white">
 	<view class=" padding-sm  radius">{{info.name}}</view>
-	<view class=" padding-sm  radius  text-blue "  style=" flex-shrink: 0;" wx:if="{{isjoin}}" bindtap="quitgroup">退出小组</view>
-	<view class=" padding-sm  radius  text-blue "  style=" flex-shrink: 0;" wx:else bindtap="tojoin">申请加入</view>
+	<view class=" padding-sm  radius  text-blue " style=" flex-shrink: 0;" wx:if="{{isjoin}}" bindtap="quitgroup">退出小组</view>
+	<view class=" padding-sm  radius  text-blue " style=" flex-shrink: 0;" wx:else bindtap="tojoin">申请加入</view>
 </view>
 <view class="padding-xs bg-white content flex">
-	<view class="cu-avatar round lg bg-{{item.name}} margin-xs" wx:for="{{joininfo}}" wx:if="{{joininfo.length!=0}}" wx:key="key" style="background-image:url({{item.avatar.length>40?item.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.avatar}});">
-		<!-- <text class="avatar-text">{{item.avatar}}</text> -->
-			<image wx:if="{{joininfo.length==0}}"  src="{{info.user.avatar.length>40?info.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+info.user.avatar}}" class="imgadd" mode="aspectFill"></image>
+	<view class="cu-avatar round lg margin-xs" wx:if="{{joininfo.length!=0}}" wx:for="{{joininfo}}" wx:key="key" style="background-image:url({{item.avatar.length>40?item.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.avatar}});">
 	</view>
-	<image wx:if="{{joininfo.length}}" src="/images/array.png" mode="aspectFill" bindtap="tojoindetail" data-userid="{{info.user_id}}" class="icon"></image>
+	<view wx:if="{{joininfo.length==0}}" class="cu-avatar round lg margin-xs" style="background-image:url({{info.user.avatar.length>40?info.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+info.user.avatar}})"></view>
+	<image wx:if="{{joininfo.length}}" src="/images/array.png" bindtap="tojoindetail" data-userid="{{info.user_id}}" class="icon"></image>
 </view>
 
 <view class="bg-white">
-<view class="padding flex justify-between align">
+	<view class="padding flex justify-between align">
 		<view class="desc margin-right">
 			<view class="content padding-xs">成员数量：{{joininfo.length}}/{{info.number}}</view>
 			<!-- <view class="content padding-xs">小组类别：</view> -->
@@ -34,7 +33,7 @@
 		<view class="desc mess align2">
 			<!-- <view class="cu-avatar mess touimage margin-top" style="background-image:url({{info.user.avatar.length>40?info.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+info.user.avatar}})"></view> -->
 			<image src="{{info.user.avatar.length>40?info.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+info.user.avatar}}" class="imgadd" mode="aspectFill"></image>
-			<view class="messtext text-blue" bindtap="modalinput2">私信</view> 
+			<view class="messtext text-blue" bindtap="modalinput2">私信</view>
 		</view>
 	</view>
 	<view class="divLine"></view>

@@ -31,7 +31,7 @@
 	<view class="padding-xs">{{actinfo.location}}</view>
 	<view class="padding-xs text-lg text-bold">已报名参加的人</view>
 	<view class="padding-xs content flex">
-		<view wx:if="{{joinlist.length!=0&&index<6}}" bindtap="toUserDetail" data-id="{{item.user_id}}" class="cu-avatar round lg  margin-xs" wx:for="{{joinlist}}" wx:key="key" style="background-image:url({{item.user.avatar.length>40?item.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.user.avatar}});" >
+		<view wx:if="{{joinlist.length!=0&&index<6}}" bindtap="toUserList" data-id="{{item.user_id}}" class="cu-avatar round lg  margin-xs" wx:for="{{joinlist}}" wx:key="key" style="background-image:url({{item.user.avatar.length>40?item.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.user.avatar}});" >
 			<!-- <text class="avatar-text">{{item.avatar}}</text> -->
 		</view>
 		<view wx:if="{{joinlist.length==0}}" class="padding-xs">暂无已参加</view>
