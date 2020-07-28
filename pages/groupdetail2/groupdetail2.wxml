@@ -52,14 +52,14 @@
 	<view wx:for="{{activityinfo}}" class=" padding-sm " wx:key="key" bindtap="toactdetail" data-id="{{item.id}}">
 		<image src="{{imgurl}}{{item.image}}" class="actimg" mode="aspectFill"></image>
 	</view>
-	<image src="/images/addgrey.png" class="img padding " bindtap="tocreate"></image>
+	<image src="/images/addgrey.png" wx:if="{{flag}}" class="img padding " bindtap="tocreate"></image>
 </view>
 <view class="flex solid-bottom padding-sm justify-between">
 	<view class=" padding-sm  radius">讨论区</view>
 	<view class=" padding-sm  radius  text-blue " bindtap="toalltalk">查看全部</view>
 </view>
 <view class="padding-xs" wx:for="{{talkinfo}}" wx:if="{{talkinfo}}" wx:key="key">
-	<view class="flex padding-sm menu" style="background-color:#d8d8d8">
+	<view class="flex padding-sm menu">
 		<view class="cu-avatar lg round margin-left vivod" style="background-image:url({{item.user.avatar.length>40?item.user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.user.avatar}})"></view>
 		<view class="pading text-lg margin vivod">{{item.user.nick}}: </view>
 		<view class="pading text-lg text">{{item.content}}</view>

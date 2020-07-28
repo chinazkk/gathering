@@ -5,18 +5,17 @@
 	</view>
 </view>
 <view class="items text-center">
-	<view class="padding-xs bg-orange" bindtap="tap" style="width:150rpx">排序</view>
-	<view class="padding-xs bg-{{tagindex==1?'grey':'gray'}}" bindtap="choose" data-id="1" wx:if="{{choosetag}}">活跃度</view>
-	<view class="padding-xs bg-{{tagindex==2?'grey':'gray'}}" bindtap="choose" data-id="2" wx:if="{{choosetag}}">最近添加</view>
-	<view class="padding-xs bg-{{tagindex==3?'grey':'gray'}}" bindtap="choose" data-id="3" wx:if="{{choosetag}}">按字母排序</view>
+	<view class="padding-xs bg-orange" bindtap="tap" style="width:160rpx">排序</view>
+	<view class="padding-xs bg-gray" bindtap="choose" data-id="1" wx:if="{{choosetag}}">参与人数</view>
+	<view class="padding-xs bg-gray" bindtap="choose" data-id="2" wx:if="{{choosetag}}">即将到来</view>
 </view>
 <view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">
   <view class="flex"  bindtap="toactdetail" data-id="{{item.id}}">
-    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFit"></image>
+    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
     <view class="desc">
       <view class="padding-xs text-bold">{{item.title}}</view>
       <view class="padding-xs">{{item.time}}</view>
-      <view class="padding-xs">{{item.number}}人已报名/共{{item.number}}个名额</view>
+      <view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
     </view>
   </view>
 </view>

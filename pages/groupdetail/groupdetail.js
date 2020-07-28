@@ -12,6 +12,7 @@ Page({
     activityinfo: [], //活动
     talkinfo: [], //讨论
     imgurl: app.globalData.imgurl,
+    flag:false,
     test: [{
         avatar: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ervn5p4iczibJjA5ZVRLibE4VwU7IMK9pkuP068LaAcjj7dHJVpuicppFeudLAs3Sj78cgHKUp92lJjaA/132'
       },
@@ -54,9 +55,11 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
+
       that.setData({
         info: res.data.data,
-        groupnum: ids
+        groupnum: ids,
+        flag:res.data.data.user.id==wx.getStorageSync('userId')?true:false
       })
     })
     //小组活动

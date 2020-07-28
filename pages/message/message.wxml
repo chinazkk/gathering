@@ -1,19 +1,20 @@
 <!--pages/message/message.wxml-->
 <view wx:for="{{message}}" class="flex" style="height:200rpx;">
 	<!-- 0-小组审核  -->
-	<view class="flex padding" bindtap="verify" data-id="{{item.id}}" wx:if="{{item.type==0}}">
-		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img message" mode="aspectFill"></image>
+	<view class="flex padding duiqimessage" bindtap="verify" data-id="{{item.id}}" data-group="{{item.group_id}}" wx:if="{{item.type==0}}">
+		<image src="{{item.from_user.avatar.length>40?item.from_user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.from_user.avatar}}" class="img message" mode="aspectFill"></image>
 		<view class="desc padding-sm">
 			<view class="paddin text-bold text-lg">你有待审核信息</view>
-			<view class="paddig text-bold">{{item.user.nick}}发出申请：{{item.content}}</view>
+			<view class="paddig text-bold">{{item.from_user.nick}}发出申请：{{item.content}}</view>
 			<view class="margin-top text-lg">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 1-站内好友私信 -->
-	<view class="flex padding" bindtap="toUserInfo" data-id="{{item.user_id}}" wx:if="{{item.type==1||item.type==2}}">
+	<view class="flex padding duiqimessage" bindtap="toUserInfo" data-id="{{item.user_id}}" wx:if="{{item.type==1||item.type==2}}">
 		<image src="{{item.from_user.avatar.length>40?item.from_user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.from_user.avatar}}"  class="img message" mode="aspectFill"></image>
 		<view class="desc" bindtap="totalkdetail" data-id="{{item.from_user.id}}">
-			<view class="padding text-bold text-lg">{{item.content}}</view>
+			<view class="padding-left text-bold text-lg">{{item.from_user.nick}}</view>
+			<view class="padding-left  text-lg text-cut">{{item.content}}</view>
 			<view class="margin-top-xs text-lg margin-left">{{item.lasttime}}</view>
 		</view>
 	</view>
@@ -26,7 +27,7 @@
 		</view>
 	</view> -->
 	<!-- 3-参加小组的公告和活动提醒 -->
-	<view class="flex padding" bindtap="togroupdetail" data-id="{{item.group_id}}" wx:if="{{item.type==3}}">
+	<view class="flex padding duiqimessage" bindtap="togroupdetail" data-id="{{item.group_id}}" wx:if="{{item.type==3}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{item.title}}</view>
@@ -34,7 +35,7 @@
 		</view>
 	</view>
 	<!-- 4-已参加/已过期 -->
-	<view class="flex padding" bindtap="todetail4" data-id="{{item.id}}" wx:if="{{item.type==4}}">
+	<view class="flex padding duiqimessage" bindtap="todetail4" data-id="{{item.id}}" wx:if="{{item.type==4}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{item.content}}</view>
@@ -42,7 +43,7 @@
 		</view>
 	</view>
 	<!-- 5-讨论被回复点赞 -->
-	<view class="flex padding" bindtap="todetail" data-group_id="{{item.group_id}}" data-activity_id="{{item.activity_id}}" wx:if="{{item.type==5||item.type==6}}">
+	<view class="flex padding duiqimessage" bindtap="todetail" data-group_id="{{item.group_id}}" data-activity_id="{{item.activity_id}}" wx:if="{{item.type==5||item.type==6}}">
 		<image src="{{item.image==null?item.user.avatar:item.image}}" class="img" mode="aspectFill"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{item.title}}</view>

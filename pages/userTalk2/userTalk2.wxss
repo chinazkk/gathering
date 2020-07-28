@@ -1,0 +1,26 @@
+/* pages/userTalk2/userTalk2.wxss */
+
+.duiqi
+{
+  align-items: center;
+}
+
+.rightduiqi
+{
+  align-items: flex-end;
+}
+.leftduiqi
+{
+  align-items: flex-start;
+}
+.contentright{
+  display: inline-flex;
+  text-overflow:ellipsis;
+  /* overflow: hidden; */
+  word-wrap:break-word;
+  word-break: break-all;
+  white-space: pre-line;
+}
+page {
+  padding-bottom: 100rpx;
+}

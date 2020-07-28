@@ -31,7 +31,8 @@
     "pages/updategroup/updategroup",
     "pages/updateActivity/updateActivity",
     "pages/viewUserInfo/viewUserInfo",
-    "pages/userTalk/userTalk"
+    "pages/userTalk/userTalk",
+    "pages/userTalk2/userTalk2"
 
   ],
   "window": {

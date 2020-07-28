@@ -15,6 +15,7 @@
   border-radius: 80%;
 }
 .img{
+  padding: 10rpx;
   height: 180rpx;
   width: 250rpx;
 }

@@ -59,42 +59,51 @@ Page({
   verify(e) {
     var that = this
     console.log(e.currentTarget.dataset.id)
-    wx.showModal({
-      title: '通过该申请',
-      // content: '确定要删除这张照片吗',
-      cancelText: '不通过',
-      confirmText: '通过',
-      success: res => {
-        if (res.confirm) {
-          console.log('pass')
-          let url = app.globalData.URL + '/group/join';
-          var data = {
-            id: e.currentTarget.dataset.id,
-            audit_status:'1'
-          }
-          util.other(url, data, 'PUT').then(function (res) {
-            console.log(res.data)
-            if (res.data.code == 200) {
-              wx.showToast({
-                title: '审核成功',
-                duration: 2000,
-                success: function () {
-                  console.log('verify success')
-                }
-              })
-            } else {
-              wx.showToast({
-                title: res.data.msg,
-                image: '/img/fail.png',
-                icon: 'success',
-                duration: 2000
-              })
+
+    let url = app.globalData.URL + '/group';
+    var data = {
+     id:e.currentTarget.dataset.group
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data.data)
+      var groupinfo=res.data.data
+      wx.showModal({
+        title: '小组名：'+groupinfo.name,
+        content: '通过该申请',
+        cancelText: '不通过',
+        confirmText: '通过',
+        success: res => {
+          if (res.confirm) {
+            console.log('pass')
+            let url = app.globalData.URL + '/group/join';
+            var data = {
+              id: e.currentTarget.dataset.id,
+              audit_status:'1'
             }
-          })
-        } else {
-          console.log('not pass')
+            util.other(url, data, 'PUT').then(function (res) {
+              console.log(res.data)
+              if (res.data.code == 200) {
+                wx.showToast({
+                  title: '审核成功',
+                  duration: 2000,
+                  success: function () {
+                    console.log('verify success')
+                  }
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.msg,
+                  image: '/img/fail.png',
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            })
+          } else {
+            console.log('not pass')
+          }
         }
-      }
+      })
     })
   },
   toUserInfo(e){
@@ -107,7 +116,7 @@ Page({
   totalkdetail(e){
     console.log('id',e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/userTalk/userTalk?id='+e.currentTarget.dataset.id,
+      url: '/pages/userTalk2/userTalk2?id='+e.currentTarget.dataset.id,
     })
   },
   togroupdetail(e){

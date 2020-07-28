@@ -22,7 +22,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -210,6 +210,13 @@
 					"id": 21,
 					"name": "详细聊天",
 					"pathName": "pages/userTalk/userTalk",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "/userTalk2",
+					"pathName": "pages/userTalk2/userTalk2",
 					"query": "id=2",
 					"scene": null
 				}

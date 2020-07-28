@@ -1,0 +1,37 @@
+<view class="margin-top"></view>
+<view class="cu-chat" wx:for="{{messageinfo}}">
+	<!-- 右边 自己发出 -->
+	<block wx:if="{{item.from_id==userid}}">
+		<view class="text-center">{{item.create_time}}</view>
+		<view class="cu-item self duiqi">
+			<view class="main rightduiqi">
+        <view class="padding-xs">{{userInfo.nick}}</view>
+				<view class="content contentright">
+					<text>{{item.content}}</text>
+				</view>
+			</view>
+			<view class="cu-avatar round" style="background-image:url({{userInfo.avatar.length>40?userInfo.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+userInfo.avatar}});"></view>
+			<!-- <view class="date">2018年3月23日 13:23</view> -->
+		</view>
+	</block>
+
+	<!-- 左边 对方发出 -->
+	<block wx:if="{{item.from_id!=userid}}">
+		<view class="text-center">{{item.create_time}}</view>
+		<view class="cu-item duiqi">
+			<view class="cu-avatar round" style="background-image:url({{anotherUser.avatar.length>40?anotherUser.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+anotherUser.avatar}});"></view>
+			<view class="main leftduiqi">
+        <view class="padding-xs">{{anotherUser.nick}}</view>
+				<view class="content contentright">
+					<text>{{item.content}}</text>
+				</view>
+			</view>
+			<!-- <view class="date "> 13:23</view> -->
+		</view>
+	</block>
+</view>
+
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+  <input class="solid-bottom" placeholder-style="background-color:#f1f1f1" bindinput="getinput" value="{{input}}" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+  <button class="cu-btn shadow " style="width:120rpx;background-color:#f2683e;color:white" bindtap="submit">发送</button>
+</view>

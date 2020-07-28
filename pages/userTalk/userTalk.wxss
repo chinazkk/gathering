@@ -53,8 +53,7 @@ input {
   z-index: 10;
 }
 .usernick{
-  position: relative;
-  left: 550rpx;
+  justify-content:flex-end;
   font-size: 30rpx;
 }
 .anonick{

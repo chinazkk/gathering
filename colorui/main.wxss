@@ -2113,10 +2113,12 @@ button.icon.lg {
 }
 
 .cu-chat .cu-item>.main {
-	max-width: calc(100% - 260rpx);
+	max-width: calc(100% - 180rpx);
+	/* max-width: 100%; */
 	margin: 0 40rpx;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	
 }
 
 .cu-chat .cu-item>image {
@@ -2157,9 +2159,9 @@ button.icon.lg {
 }
 
 .cu-chat .cu-item>.main .content::after {
-	content: "";
+	/* content: ""; */
 	top: 27rpx;
-	transform: rotate(45deg);
+	/* transform: rotate(45deg); */
 	position: absolute;
 	z-index: 100;
 	display: inline-block;
@@ -2194,8 +2196,8 @@ button.icon.lg {
 }
 
 .cu-chat .cu-item>.main .content:not([class*="bg-"])::before {
-	background-color: var(--black);
-	opacity: 0.1;
+	/* background-color: var(--black);
+	opacity: 0.1; */
 }
 
 .cu-chat .cu-item.self>.main .content::before {

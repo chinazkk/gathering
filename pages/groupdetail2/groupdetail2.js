@@ -13,6 +13,7 @@ Page({
     activityinfo: [], //活动
     talkinfo: [], //讨论
     imgurl: app.globalData.imgurl,
+    flag:false,
     test: [{
         avatar: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ervn5p4iczibJjA5ZVRLibE4VwU7IMK9pkuP068LaAcjj7dHJVpuicppFeudLAs3Sj78cgHKUp92lJjaA/132'
       },
@@ -237,7 +238,8 @@ Page({
       console.log(res.data)
       that.setData({
         info: res.data.data,
-        groupnum: options.id
+        groupnum: options.id,
+        flag:res.data.data.user.id==wx.getStorageSync('userId')?true:false
       })
     })
     //小组活动
@@ -300,7 +302,7 @@ Page({
     util.get(url, data).then(function (res) {
       console.log(res.data)
       that.setData({
-        joininfo: res.data.data,
+        joininfoUser: res.data.data,
       })
       wx.hideLoading()
     })
