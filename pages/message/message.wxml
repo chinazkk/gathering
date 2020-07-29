@@ -1,7 +1,7 @@
 <!--pages/message/message.wxml-->
 <view wx:for="{{message}}" class="flex" style="height:200rpx;">
 	<!-- 0-小组审核  -->
-	<view class="flex padding duiqimessage" bindtap="verify" data-id="{{item.id}}" data-group="{{item.group_id}}" wx:if="{{item.type==0}}">
+	<view class="flex padding duiqimessage" bindtap="verify" data-user="{{item.from_user_id}}" data-group="{{item.group_id}}" wx:if="{{item.type==0}}">
 		<image src="{{item.from_user.avatar.length>40?item.from_user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.from_user.avatar}}" class="img message" mode="aspectFill"></image>
 		<view class="desc padding-sm">
 			<view class="paddin text-bold text-lg">你有待审核信息</view>

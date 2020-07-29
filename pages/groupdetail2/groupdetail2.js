@@ -279,18 +279,19 @@ Page({
         joininfo: res.data.data,
         joinnum: res.data.data.length
       })
-      let id=wx.getStorageSync('userId')
-      for(let i of res.data.data)
-      {
-        if(id==i.id)
-        {
-          that.setData({
-            isjoin:true
-          })
-          break;
-        }
-      }
     })
+     //判断用户在小组中的状态
+     url = app.globalData.URL + '/group/join';
+     data = {
+      group_id:options.id,
+      user_id:wx.getStorageSync('userId')
+     }
+     util.get(url, data).then(function (res) {
+       console.log('用户在小组中的状态',res.data.data)
+        that.setData({
+          isjoin:res.data.data.audit_status==1?true:false
+        })
+     })
     //获取参加小组
     url = app.globalData.URL + '/group/join/list';
     data = {

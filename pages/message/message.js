@@ -58,8 +58,8 @@ Page({
   //小组通过审核
   verify(e) {
     var that = this
-    console.log(e.currentTarget.dataset.id)
-
+    console.log(e.currentTarget.dataset.group)
+    console.log(e.currentTarget.dataset.user)
     let url = app.globalData.URL + '/group';
     var data = {
      id:e.currentTarget.dataset.group
@@ -77,7 +77,8 @@ Page({
             console.log('pass')
             let url = app.globalData.URL + '/group/join';
             var data = {
-              id: e.currentTarget.dataset.id,
+              group_id:e.currentTarget.dataset.group,
+              user_id:e.currentTarget.dataset.user,
               audit_status:'1'
             }
             util.other(url, data, 'PUT').then(function (res) {
@@ -101,6 +102,31 @@ Page({
             })
           } else {
             console.log('not pass')
+            let url = app.globalData.URL + '/group/join';
+            var data = {
+              group_id:e.currentTarget.dataset.group,
+              user_id:e.currentTarget.dataset.user,
+              audit_status:'2'
+            }
+            util.other(url, data, 'PUT').then(function (res) {
+              console.log(res.data)
+              if (res.data.code == 200) {
+                wx.showToast({
+                  title: '审核成功',
+                  duration: 2000,
+                  success: function () {
+                    console.log('verify success')
+                  }
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.msg,
+                  image: '/img/fail.png',
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            })
           }
         }
       })
