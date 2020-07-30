@@ -105,7 +105,7 @@ Page({
       activity_id: options.id
     }
     util.get(url, data).then(function (res) {
-      console.log('isjoin', res.data.data)
+      console.log('isjoin', res.data)
       that.setData({
         isjoin: res.data.data
       })
