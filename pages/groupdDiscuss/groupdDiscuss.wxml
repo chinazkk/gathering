@@ -12,7 +12,7 @@
 		<view class="content">
 			<view class="flex padding-xs2">
 				<view class="text-black text-lg">{{item.user.nick}}</view>
-				<view class="text-grey text-sm margin-left">{{item.lasttime}}</view>
+				<view class="text-grey text-sm margin-left shrink">{{item.lasttime}}</view>
 				<view class="text-point text-bold" bindtap="talkback" data-id="{{item.id}}" data-userid="{{item.user_id}}">...</view>
 			</view>
 			<view class=" text-sm  padding-xs2">

@@ -12,7 +12,9 @@ page {
   text-overflow: ellipsis;
   word-wrap: break-word;
 }
-
+.shrink{
+  flex-shrink: 0;
+}
 .text {
   overflow: hidden;
   text-overflow: ellipsis;

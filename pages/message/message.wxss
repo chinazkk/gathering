@@ -20,6 +20,7 @@
 .img{
   height: 160rpx;
   width: 160rpx;
+  flex-shrink: 0;
 }
 .message{
   border-radius: 50%;

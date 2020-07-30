@@ -233,10 +233,10 @@ Page({
   },
   quitact() {
     var that = this
-    wx.showLoading({
-      title: '加载中...',
-      mask: true //显示触摸蒙层  防止事件穿透触发
-    });
+    // wx.showLoading({
+    //   title: '加载中...',
+    //   mask: true //显示触摸蒙层  防止事件穿透触发
+    // });
     wx.showModal({
       title: '退出该活动',
       // content: '确定要删除这张照片吗',

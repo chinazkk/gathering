@@ -39,6 +39,8 @@ Page({
       let tmp = res.data.data
       for (let i of tmp) {
         i.lasttime = time.formatMsgTime(i.create_time)
+        if(i.content.length>10)
+        i.content=i.content.substring(0, 10)+'...'
         if (i.image == null) {
           if (i.user.avatar.length > 40)
             i.image = i.user.avatar
