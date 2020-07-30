@@ -1,5 +1,5 @@
 <view class="bg-white">
-	<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfo.avatar.length>40?userinfo.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+userinfo.avatar}})"></view>
+	<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfo.avatar.length>40?userinfo.avatar:'https://gathering.cooltian.cn/v1//user/img?url='+userinfo.avatar}})"></view>
 	<view url="/pages/updateinfo/updateinfo" bindtap="modalinput" class="text-blue padding update">私信</view>
 	<view class="text-center text-bold padding-top padding-xs margin-top-xl">昵称：{{userinfo.nick}}</view>
 	<view class="text-center text-bold   padding-xs">位置：{{userinfo.location!==null?userinfo.location:'暂无'}}</view>
@@ -27,7 +27,7 @@
 	<view class="text-left padding text-bold text-lg">他加入的小组：</view>
 	<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}" wx:key="key">
 		<view class="flex" bindtap="toactdetail2" data-id="{{item.group.id}}">
-			<image src="{{item.group.image.length>40?item.group.image:'https://gathering.cooltian.cn/v1/user/img?url='+item.group.image}}" class="img padding"></image>
+			<image src="{{item.group.image.length>40?item.group.image:'https://gathering.cooltian.cn/v1//user/img?url='+item.group.image}}" class="img padding"></image>
 			<view class="desc">
 				<view class="padding-sm">{{item.group.name}}</view>
 				<view class="padding-sm">现有参与者人数：{{item.applicantNum}}</view>
@@ -43,7 +43,7 @@
 <view class="padding ">
 	<view class="text-left padding text-bold text-lg">他创建的活动：</view>
 	<view wx:if="{{myCreateActivity}}" wx:for="{{myCreateActivity}}" wx:key="key">
-		<view class="flex" bindtap="toActivity" data-id="{{item.activity.id}}">
+		<view class="flex" bindtap="toActivity" data-id="{{item.id}}">
 			<image src="{{imgurl}}{{item.image}}" class="img padding"></image>
 			<view class="desc">
 				<view class="padding-sm">{{item.title}}</view>

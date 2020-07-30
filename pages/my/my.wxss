@@ -136,7 +136,10 @@
   width: 250rpx;
   flex-shrink: 0;
 }
-
+.duiqi
+{
+  align-items: center;
+}
 .icon {
   width: 60rpx;
   height: 60rpx;
