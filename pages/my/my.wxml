@@ -36,7 +36,7 @@
 </block>
 <block wx:else>
 	<view class="bg-white">
-		<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfodetail.avatar.length>40?userinfodetail.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+userinfodetail.avatar}})"></view>
+		<view class="cu-avatar  touimage margin-top" style="background-image:url({{userinfodetail.avatar.length>40?userinfodetail.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+userinfodetail.avatar}})"></view>
 		<navigator url="/pages/updateinfo/updateinfo" class="text-blue padding update">编辑</navigator>
 
 

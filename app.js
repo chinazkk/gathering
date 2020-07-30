@@ -81,7 +81,7 @@ App({
     userInfo: null,
     nickName:'',
     avatarUrl:'',
-    URL: 'https://gathering.chinazkk.cn/v1',
-    imgurl:'https://gathering.chinazkk.cn/v1/user/img?url='
+    URL: 'https://gathering.cooltian.cn/v1',
+    imgurl:'https://gathering.cooltian.cn/v1/user/img?url='
   }
 })

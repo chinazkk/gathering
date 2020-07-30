@@ -43,10 +43,10 @@ Page({
           if (i.user.avatar.length > 40)
             i.image = i.user.avatar
           else
-            i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.user.avatar
+            i.image = 'https://gathering.cooltian.cn/v1/user/img?url=' + i.user.avatar
         } else {
           if (i.image.length < 40)
-            i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.image
+            i.image = 'https://gathering.cooltian.cn/v1/user/img?url=' + i.image
         }
       }
       that.setData({
@@ -222,10 +222,10 @@ Page({
             if (i.user.avatar.length > 40)
               i.image = i.user.avatar
             else
-              i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.user.avatar
+              i.image = 'https://gathering.cooltian.cn/v1/user/img?url=' + i.user.avatar
           } else {
             if (i.image.length < 40)
-              i.image = 'https://gathering.chinazkk.cn/v1/user/img?url=' + i.image
+              i.image = 'https://gathering.cooltian.cn/v1/user/img?url=' + i.image
           }
           tmp.push(i)
         }

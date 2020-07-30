@@ -10,7 +10,7 @@
 					<!-- <view style='width: 11vw; height: 11vw;'>
         </view> -->
 					<view style='width: 11wvw; height: 11vw; margin-left: 0.5vw; display: flex; align-items: center; z-index: 9;bottom:20rpx;position:relative;'>
-						<image style='width: 11vw; height: 11vw; border-radius: 50%;' src="{{anotherUser.avatar.length>40?anotherUser.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+anotherUser.avatar}}" mode='aspectFill'></image>
+						<image style='width: 11vw; height: 11vw; border-radius: 50%;' src="{{anotherUser.avatar.length>40?anotherUser.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+anotherUser.avatar}}" mode='aspectFill'></image>
 					</view>
           <view class='anonick'>{{anotherUser.nick}}</view>
 					<view class='leftMsg'>{{item.content}}</view>
@@ -27,7 +27,7 @@
 							<!-- <image style='width: 4vw;' src='../../images/right_msg.png' mode='widthFix'></image> -->
 						</view>
 						<view style='width: 11vw; height: 11vw;bottom:40rpx;position:relative;'>
-							<image style='width: 11vw; height: 11vw; border-radius: 50%;' src="{{userInfo.avatar.length>40?userInfo.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+userInfo.avatar}}"></image>
+							<image style='width: 11vw; height: 11vw; border-radius: 50%;' src="{{userInfo.avatar.length>40?userInfo.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+userInfo.avatar}}"></image>
 						</view>
 					</view>
 				</block>

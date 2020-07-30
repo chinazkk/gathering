@@ -2,7 +2,7 @@
 <view wx:for="{{message}}" class="flex" style="height:200rpx;">
 	<!-- 0-小组审核  -->
 	<view class="flex padding duiqimessage" bindtap="verify" data-user="{{item.from_user_id}}" data-group="{{item.group_id}}" wx:if="{{item.type==0}}">
-		<image src="{{item.from_user.avatar.length>40?item.from_user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.from_user.avatar}}" class="img message" mode="aspectFill"></image>
+		<image src="{{item.from_user.avatar.length>40?item.from_user.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+item.from_user.avatar}}" class="img message" mode="aspectFill"></image>
 		<view class="desc padding-sm">
 			<view class="paddin text-bold text-lg">你有待审核信息</view>
 			<view class="paddig text-bold">{{item.from_user.nick}}发出申请：{{item.content}}</view>
@@ -11,7 +11,7 @@
 	</view>
 	<!-- 1-站内好友私信 -->
 	<view class="flex padding duiqimessage" bindtap="toUserInfo" data-id="{{item.user_id}}" wx:if="{{item.type==1||item.type==2}}">
-		<image src="{{item.from_user.avatar.length>40?item.from_user.avatar:'https://gathering.chinazkk.cn/v1/user/img?url='+item.from_user.avatar}}"  class="img message" mode="aspectFill"></image>
+		<image src="{{item.from_user.avatar.length>40?item.from_user.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+item.from_user.avatar}}"  class="img message" mode="aspectFill"></image>
 		<view class="desc" bindtap="totalkdetail" data-id="{{item.from_user.id}}">
 			<view class="padding-left text-bold text-lg">{{item.from_user.nick}}</view>
 			<view class="padding-left  text-lg text-cut">{{item.content}}</view>

@@ -16,7 +16,7 @@ const newSym = ['%2A', '%2F', '%2D', '%5F', '%2E', '%3A', '', '', '%2B', '%', 'u
 
 /** @description 生成签名
 * @param {string} method - 网络请求的方法，例如’GET’、’POST’
-* @param {string} url - 请求url，包括host，例如’https://gathering.chinazkk.cn/v1/’
+* @param {string} url - 请求url，包括host，例如’https://gathering.cooltian.cn/v1’
 * @param {Object} params - 请求参数的json形式
 * @returns {Object} 原始请求参数中添加ts（时间戳）、sig（签名）字段后返回
 */
@@ -50,7 +50,7 @@ const genSig = function genSig (method, url, params) {
 
 /** @description 验证签名
 * @param {string} method - 网络请求的方法，例如’GET’、’POST’
-* @param {string} url - 请求url，包括host，例如’https://gathering.chinazkk.cn/v1/’
+* @param {string} url - 请求url，包括host，例如’https://gathering.cooltian.cn/v1’
 * @param {Object} params - 请求参数的json形式，此处应包括ts（时间戳）、sig（签名）字段
 * @returns {int} 验证通过:1; 验证不通过:0
 */
