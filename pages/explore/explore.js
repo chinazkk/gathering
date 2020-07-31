@@ -54,8 +54,19 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log('flesh', res.data)
+      let tmp = res.data.data
+      for (let i of tmp) {
+        if (i.announcement != null) {
+          if (i.announcement.length > 12)
+            i.announcement = i.announcement.substring(0, 12) + '...'
+        } else {
+          i.announcement = '暂无'
+        }
+
+      }
+
       that.setData({
-        infogroup: res.data.data,
+        infogroup: tmp,
         issearch:true
       })
     })

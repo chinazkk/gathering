@@ -45,7 +45,7 @@
 			<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
 			<view class="desc padding-left-xl">
 				<view class="padding-xs text-bold">{{item.name}}</view>
-				<view class="padding-xs">{{item.announcement}}</view>
+				<view class="padding-xs text-cut margin-right-sm">{{item.announcement}}</view>
 				<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
 			</view>
 		</view>
