@@ -39,8 +39,12 @@ Page({
       let tmp = res.data.data
       for (let i of tmp) {
         i.lasttime = time.formatMsgTime(i.create_time)
-        if(i.content.length>10)
-        i.content=i.content.substring(0, 10)+'...'
+        if (i.content != null) {
+          if (i.content.length > 10)
+            i.content = i.content.substring(0, 10) + '...'
+        } else {
+          i.content = '暂无'
+        }
         if (i.image == null) {
           if (i.user.avatar.length > 40)
             i.image = i.user.avatar
@@ -64,13 +68,13 @@ Page({
     console.log(e.currentTarget.dataset.user)
     let url = app.globalData.URL + '/group';
     var data = {
-     id:e.currentTarget.dataset.group
+      id: e.currentTarget.dataset.group
     }
     util.get(url, data).then(function (res) {
       console.log(res.data.data)
-      var groupinfo=res.data.data
+      var groupinfo = res.data.data
       wx.showModal({
-        title: '小组名：'+groupinfo.name,
+        title: '小组名：' + groupinfo.name,
         content: '通过该申请',
         cancelText: '不通过',
         confirmText: '通过',
@@ -79,9 +83,9 @@ Page({
             console.log('pass')
             let url = app.globalData.URL + '/group/join';
             var data = {
-              group_id:e.currentTarget.dataset.group,
-              user_id:e.currentTarget.dataset.user,
-              audit_status:'1'
+              group_id: e.currentTarget.dataset.group,
+              user_id: e.currentTarget.dataset.user,
+              audit_status: '1'
             }
             util.other(url, data, 'PUT').then(function (res) {
               console.log(res.data)
@@ -106,9 +110,9 @@ Page({
             console.log('not pass')
             let url = app.globalData.URL + '/group/join';
             var data = {
-              group_id:e.currentTarget.dataset.group,
-              user_id:e.currentTarget.dataset.user,
-              audit_status:'2'
+              group_id: e.currentTarget.dataset.group,
+              user_id: e.currentTarget.dataset.user,
+              audit_status: '2'
             }
             util.other(url, data, 'PUT').then(function (res) {
               console.log(res.data)
@@ -134,23 +138,23 @@ Page({
       })
     })
   },
-  toUserInfo(e){
+  toUserInfo(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/viewUserInfo/viewUserInfo?id='+e.currentTarget.dataset.id,
+      url: '/pages/viewUserInfo/viewUserInfo?id=' + e.currentTarget.dataset.id,
     })
   },
   //去详细私信
-  totalkdetail(e){
-    console.log('id',e.currentTarget.dataset.id)
+  totalkdetail(e) {
+    console.log('id', e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/userTalk2/userTalk2?id='+e.currentTarget.dataset.id,
+      url: '/pages/userTalk2/userTalk2?id=' + e.currentTarget.dataset.id,
     })
   },
-  togroupdetail(e){
+  togroupdetail(e) {
     console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '/pages/groupdetail2/groupdetail2?id='+e.currentTarget.dataset.id,
+      url: '/pages/groupdetail2/groupdetail2?id=' + e.currentTarget.dataset.id,
     })
   },
   /**
@@ -165,7 +169,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      currentpage:1,
+      currentpage: 1,
       needflesh: true
     })
     console.log('onshow')
@@ -239,12 +243,11 @@ Page({
       })
     }
   },
-  todetail(e)
-  {
+  todetail(e) {
     console.log(e.currentTarget.dataset.group_id)
     console.log(e.currentTarget.dataset.activity_id)
     wx.navigateTo({
-      url: '/pages/groupdDiscuss/groupdDiscuss?id='+e.currentTarget.dataset.group_id,
+      url: '/pages/groupdDiscuss/groupdDiscuss?id=' + e.currentTarget.dataset.group_id,
     })
 
   },
