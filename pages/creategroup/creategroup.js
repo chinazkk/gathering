@@ -76,13 +76,14 @@ Page({
           wx.setStorageSync('isCreateGroup', 1)
           wx.showToast({
             title: '提交成功',
-            duration: 2000,
+            duration: 1000,
             success: function () {
               setTimeout(function () {
+                wx.hideLoading()
                 wx.navigateTo({
                   url: '/pages/groupdetail/groupdetail?id=' + res.data.data,
                 })
-              }, 2000);
+              }, 10);
             }
           })
         } else {
@@ -93,7 +94,7 @@ Page({
             duration: 2000
           })
         }
-        wx.hideLoading()
+        
       }).catch(function (res) {
         console.log(res)
         wx.showToast({

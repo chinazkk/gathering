@@ -18,8 +18,8 @@
 			<input placeholder="请输入手机号" class=""  name='userName' bindinput="getname"></input>
 		</view>
 		<view class="cu-form-group margin-top input radius" style="height:70rpx;">
-			<view class="flex" style="height:70rpx;">
-				<input placeholder="请输入验证码" name='userPhone' placeholder-style="top: 8rpx;"  bindinput="getpassword"></input>
+			<view class="flex duiqi" style="height:70rpx;">
+				<input placeholder="请输入验证码" name='userPhone' placeholder-style=""  bindinput="getpassword"></input>
 				<!-- <button class="button2 round" style="width:50%;height:90rpx;left:30rpx; ">获取验证码</button> -->
 				<button class="getcode" style="width:200rpx; font-size:28rpx">获取验证码</button>
 			</view>

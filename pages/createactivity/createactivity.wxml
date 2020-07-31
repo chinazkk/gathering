@@ -96,11 +96,11 @@
 			</view>
 		</view>
 	</view>
-	<view class="flex">
+	<!-- <view class="flex">
 		<view class="padding text-lg" style="backgroud-color:blue">活动标签选择：</view>
 		<view wx:for="{{tagchoose}}" wx:if="{{tagchoose}}" class="menu-name padding-xs text-blue" wx:if="{{index<3}}">{{item}}</view>
 		<image src="/images/array.png" class="icon" bindtap="totag"></image>
-	</view>
+	</view> -->
 	<view class="padding text-lg">活动提醒</view>
 	<view class="flex duiqi">
 		<checkbox class="checkbos" bindtap="check" checked="{{check}}"></checkbox>

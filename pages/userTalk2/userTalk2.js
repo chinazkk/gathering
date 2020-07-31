@@ -7,12 +7,22 @@ var windowHeight = wx.getSystemInfoSync().windowHeight;
 var keyHeight = 0;
 Page({
   data: {
-    messageinfo:[],
+    messageinfo: [],
     currentpage: 1, //当前页数
     fleshlimit: '20', //每次刷新页数
     scrollHeight: '100vh',
     inputBottom: 0,
-    input:''
+    input: ''
+  },
+  tomyinfo() {
+    wx.navigateTo({
+      url: '/pages/viewUserInfo/viewUserInfo?id=' + this.data.userInfo.id,
+    })
+  },
+  toanoinfo() {
+    wx.navigateTo({
+      url: '/pages/viewUserInfo/viewUserInfo?id=' + this.data.anotherUser.id,
+    })
   },
   InputFocus(e) {
     this.setData({
@@ -24,8 +34,8 @@ Page({
       InputBottom: 0
     })
   },
-  submit(){
-    var that=this
+  submit() {
+    var that = this
     let url = app.globalData.URL + '/inform/message';
     var data = {
       content: this.data.input,
@@ -40,15 +50,14 @@ Page({
           duration: 2000,
         })
         that.setData({
-          input:''
+          input: ''
         })
         that.secondload()
       }
     })
   },
-  secondload()
-  {
-    var that=this
+  secondload() {
+    var that = this
     //消息列表
     var url = app.globalData.URL + '/inform/message/list';
     var data = {
@@ -57,26 +66,29 @@ Page({
       id: this.data.talkid,
     }
     util.get(url, data).then(function (res) {
-      console.log('message list',res.data)
+      console.log('message list', res.data)
       let test = res.data.data
       test.forEach((item) => {
         //这里需要截取的内容
-         item.create_time = item.create_time.substring(5, 16)
-       })
+        item.create_time = item.create_time.substring(5, 16)
+      })
       that.setData({
         messageinfo: test
       })
       wx.hideLoading()
     })
   },
-  getinput(e)
-  {
+  getinput(e) {
     this.setData({
-      input:e.detail.value
+      input: e.detail.value
     })
   },
+  sorttime(a, b) {
+    return a.create_time - b.create_time; //由低到高
+    //return b.distance - a.distance;//由高到低
+  },
   onLoad: function (options) {
-    console.log('userid',options.id)
+    console.log('userid', options.id)
     var that = this
     wx.showLoading({
       title: '加载中...',
@@ -85,8 +97,8 @@ Page({
     // initData(this);
     this.setData({
       cusHeadIcon: wx.getStorageSync('userInfo').avatarUrl,
-      userid:wx.getStorageSync('userId'),
-      talkid:options.id
+      userid: wx.getStorageSync('userId'),
+      talkid: options.id
     });
     //对话者的信息
     let url = app.globalData.URL + '/user';
@@ -116,12 +128,25 @@ Page({
       id: options.id,
     }
     util.get(url, data).then(function (res) {
-      console.log('message list',res.data)
+      console.log('message list', res.data)
       let test = res.data.data
       test.forEach((item) => {
         //这里需要截取的内容
-         item.create_time = item.create_time.substring(5, 16)
-       })
+        item.create_time = item.create_time.substring(5, 16)
+      })
+      console.log(test.length)
+      //按時間排序
+      for (var i = 0; i < test.length; i++) {
+        for (var u = i + 1; u < test.length; u++) {
+          if (test[i].create_time > test[u].create_time) {
+            console.log(test[i].create_time)
+            var num = [];
+            num = test[i];
+            test[i] = test[u];
+            test[u] = num;
+          }
+        }
+      }
       that.setData({
         messageinfo: test
       })

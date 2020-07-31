@@ -1,6 +1,7 @@
 .img{
   height: 250rpx;
   width: 400rpx;
+  flex-shrink: 0;
 }
 .point{
   float: right;

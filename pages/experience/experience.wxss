@@ -17,4 +17,5 @@
 .img{
   height: 180rpx;
   width: 250rpx;
+  flex-shrink: 0;
 }

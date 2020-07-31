@@ -10,7 +10,7 @@
 					<text>{{item.content}}</text>
 				</view>
 			</view>
-			<view class="cu-avatar round" style="background-image:url({{userInfo.avatar.length>40?userInfo.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+userInfo.avatar}});"></view>
+			<view class="cu-avatar round" bindtap="tomyinfo" style="background-image:url({{userInfo.avatar.length>40?userInfo.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+userInfo.avatar}});"></view>
 			<!-- <view class="date">2018年3月23日 13:23</view> -->
 		</view>
 	</block>
@@ -19,7 +19,7 @@
 	<block wx:if="{{item.from_id!=userid}}">
 		<view class="text-center">{{item.create_time}}</view>
 		<view class="cu-item duiqi">
-			<view class="cu-avatar round" style="background-image:url({{anotherUser.avatar.length>40?anotherUser.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+anotherUser.avatar}});"></view>
+			<view class="cu-avatar round"  bindtap="toanoinfo" style="background-image:url({{anotherUser.avatar.length>40?anotherUser.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+anotherUser.avatar}});"></view>
 			<view class="main leftduiqi">
         <view class="padding-xs">{{anotherUser.nick}}</view>
 				<view class="content contentright">

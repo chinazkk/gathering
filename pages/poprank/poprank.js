@@ -38,7 +38,8 @@ Page({
     var data = {
       limit: '10',
       page: '1',
-      isHot:'1'
+      isHot:'1',
+      isExpired:'0'
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)

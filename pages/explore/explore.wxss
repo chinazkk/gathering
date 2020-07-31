@@ -17,6 +17,7 @@
 .img{
   height: 170rpx;
   width: 260rpx;
+  flex-shrink: 0;
 }
 .menu {
   display: flex; /*弹性布局*/
