@@ -124,6 +124,14 @@ Page({
   },
   //点击按钮弹窗指定的hiddenmodalput弹出框  
   modalinput: function () {
+    if(this.data.userinfo.private_status==0)
+    {
+      wx.showToast({
+        icon: 'none',
+        title: '对方设置拒绝陌生人私信',
+      })
+      return
+    }
     this.setData({
       hiddenmodalput: !this.data.hiddenmodalput
     })
@@ -137,6 +145,16 @@ Page({
   },
   //确认  
   confirm: function () {
+
+    if(this.data.userinfo.private_status==0)
+    {
+      wx.showToast({
+        icon: 'none',
+        title: '对方设置拒绝陌生人私信',
+      })
+      return
+    }
+    else{
     var that = this
     this.setData({
       hiddenmodalput: true
@@ -160,6 +178,7 @@ Page({
         })
       } 
     })
+  }
   },
   message(e) {
 

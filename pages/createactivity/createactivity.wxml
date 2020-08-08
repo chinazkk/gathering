@@ -25,19 +25,35 @@
 	<view class="backcolor cu-form-group input">
 		<input placeholder="{{id}}" class="" bindinput="getname" placeholder-style="color:white" placeholder="输入内容"></input>
 	</view>
+
+	<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >活动日期：</text>
+		</view>
+	</view>
+
+	<view class="backcolor cu-form-group input">
+		<picker mode="date" value="{{date}}" start="2020-07-01" end="2030-09-01" bindchange="bindDateChange">
+			<view class=" text-left text-white ">
+				{{date==''?'选择日期':date}}
+			</view>
+		</picker>
+	</view>
+
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
 			<text class="text-black text-bold" >活动时间：</text>
 		</view>
 	</view>
 
-<view class="backcolor cu-form-group input">
-  <picker mode="date" value="{{date}}" start="2020-07-01" end="2030-09-01" bindchange="bindDateChange">
-    <view class=" text-left text-white ">
-      {{date==''?'选择日期':date}}
-    </view>
-  </picker>
-</view>
+	<view class="backcolor cu-form-group input">
+	<picker mode="time" value="{{time}}" start="00:00" end="24：00" bindchange="TimeChange">
+			<view class=" text-left text-white ">
+			{{time==''?'选择时间':time}}
+			</view>
+		</picker>
+	</view>
+
 
 	<!-- <view class="backcolor cu-form-group input">
 		<input placeholder="{{id}}" class="" bindinput="gettime" placeholder-style="color:white" placeholder="输入内容(xxxx-xx-xx)"></input>
@@ -64,7 +80,7 @@
 			<text class="text-black text-bold" >活动人数设定：</text>
 		</view>
 	</view>
-		<view class="backcolor cu-form-group input">
+	<view class="backcolor cu-form-group input">
 		<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
 			<view class="text-white">
 				当前选择：{{array[index]}}
@@ -101,11 +117,11 @@
 		<view wx:for="{{tagchoose}}" wx:if="{{tagchoose}}" class="menu-name padding-xs text-blue" wx:if="{{index<3}}">{{item}}</view>
 		<image src="/images/array.png" class="icon" bindtap="totag"></image>
 	</view> -->
-	<view class="padding text-lg">活动提醒</view>
-	<view class="flex duiqi">
+	<!-- <view class="padding text-lg">活动提醒</view> -->
+	<!-- <view class="flex duiqi">
 		<checkbox class="checkbos" bindtap="check" checked="{{check}}"></checkbox>
 		<view class="title padding">活动开始前给参与者发送提醒</view>
-	</view>
+	</view> -->
 </form>
 <view class="flex padding">
 	<button class="cu-btn radius line-orange padding margin" style="width:200rpx">保存</button>

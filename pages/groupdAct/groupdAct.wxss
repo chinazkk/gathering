@@ -1,8 +1,8 @@
 .items{
   height: 80rpx;
-  position: fixed;
-  right: 50rpx;
-  top: 120rpx;
+  position: relative;
+  top: 10rpx;
+  left: 30rpx;
 }
 .item{
   position: relative;

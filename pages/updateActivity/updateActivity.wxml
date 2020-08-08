@@ -1,24 +1,23 @@
-
 <form>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
 			<text class="text-black text-bold" >活动类别选择：</text>
 		</view>
 	</view>
-  <view class='list-msg'>
-    <view class='list-msg2' bindtap='bindShowMsg'>
-        <text class=" ">{{tihuoWay}}</text>
-        <image style='height:20rpx;width:20rpx;' src='/images/down.png'></image>
-    </view>
-    <cover-view class="select_box" wx:if="{{select}}">
-        <cover-view class="select_one" bindtap="mySelect" data-name="线上游戏" data-id="0">线上游戏</cover-view>
-        <cover-view class="select_one" bindtap="mySelect" data-name="经验分享" data-id="1">经验分享</cover-view>
-        <cover-view class="select_one" bindtap="mySelect" data-name="影视鉴赏" data-id="2">影视鉴赏</cover-view>
-        <cover-view class="select_one" bindtap="mySelect" data-name="美食探店" data-id="3">美食探店</cover-view>
-    </cover-view>
-  </view>
-<!-- <view style="position:relative;top:40rpx"> -->
-	<view class="flex-sub text-left bg-white" >
+	<view class='list-msg'>
+		<view class='list-msg2' bindtap='bindShowMsg'>
+			<text class=" ">{{tihuoWay}}</text>
+			<image style='height:20rpx;width:20rpx;' src='/images/down.png'></image>
+		</view>
+		<cover-view class="select_box" wx:if="{{select}}">
+			<cover-view class="select_one" bindtap="mySelect" data-name="线上游戏" data-id="0">线上游戏</cover-view>
+			<cover-view class="select_one" bindtap="mySelect" data-name="经验分享" data-id="1">经验分享</cover-view>
+			<cover-view class="select_one" bindtap="mySelect" data-name="影视鉴赏" data-id="2">影视鉴赏</cover-view>
+			<cover-view class="select_one" bindtap="mySelect" data-name="美食探店" data-id="3">美食探店</cover-view>
+		</cover-view>
+	</view>
+	<!-- <view style="position:relative;top:40rpx"> -->
+	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
 			<text class="text-black text-bold" >活动标题：</text>
 		</view>
@@ -28,16 +27,30 @@
 	</view>
 	<view class="flex-sub text-left bg-white">
 		<view class="solid-bottom text-lg padding">
-			<text class="text-black text-bold" >活动时间：</text>
+			<text class="text-black text-bold" >活动日期：</text>
 		</view>
 	</view>
 	<view class="backcolor cu-form-group input">
-  <picker mode="date" value="{{info.time}}" start="2020-07-01" end="2030-09-01" bindchange="gettime">
-    <view class=" text-left ">
-      {{info.time}}
-    </view>
-  </picker>
-</view>
+		<picker mode="date" value="{{info.time}}" start="2020-07-01" end="2030-09-01" bindchange="gettime">
+			<view class=" text-left ">
+				{{info.time}}
+			</view>
+		</picker>
+	</view>
+
+		<view class="flex-sub text-left bg-white">
+		<view class="solid-bottom text-lg padding">
+			<text class="text-black text-bold" >活动时间：</text>
+		</view>
+	</view>
+
+	<view class="backcolor cu-form-group input">
+	<picker mode="time" value="{{time}}" start="00:00" end="24：00" bindchange="TimeChange">
+			<view class=" text-left ">
+			{{time}}
+			</view>
+		</picker>
+	</view>
 	<!-- <view class="backcolor cu-form-group input">
 		<input placeholder="{{id}}" class="" bindinput="gettime" value="{{info.time}}" placeholder-style="color:white" placeholder="输入内容(xxxx-xx-xx)"></input>
 	</view> -->
@@ -87,16 +100,16 @@
 			</view>
 		</view>
 	</view>
-	<view class="flex">
+	<!-- <view class="flex">
 		<view class="padding text-lg" style="backgroud-color:blue">活动标签选择：</view>
 		<view wx:for="{{info.tags}}" wx:if="{{info.tags}}" class="menu-name padding-xs text-blue" wx:if="{{index<3}}">{{item}}</view>
 		<image src="/images/array.png" class="icon"  bindtap="totag"></image>
 	</view>
-	<view class="padding text-lg">活动提醒</view>
-	<view class="flex align">
+	<view class="padding text-lg">活动提醒</view> -->
+	<!-- <view class="flex align">
 		<checkbox class="checkbos" bindtap="check" checked="{{check}}"></checkbox>
 		<view class="title padding-left-sm">活动开始前给参与者发送提醒</view>
-	</view>
+	</view> -->
 </form>
 <view class="flex padding">
 	<button class="cu-btn radius text-blue padding margin" style="width:140rpx" bindtap="commit">提交</button>

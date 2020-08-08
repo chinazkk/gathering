@@ -84,7 +84,7 @@ Page({
       type: that.type,
       group_id: that.group_id,
       title: that.title,
-      time: that.time,
+      time: that.time.substring(0,10)+" "+this.data.time,
       location: that.location,
       summarize: that.summarize,
       number: that.num,
@@ -284,6 +284,11 @@ Page({
     }
     util.get(url, data).then(function (res) {
       console.log(res.data)
+      let timetmp=res.data.data.time
+
+      let ttmp=res.data.data
+      ttmp.time=ttmp.time.substring(0,10)
+      console.log(timetmp)
       let t = res.data.data.image
       let tmp = that.data.imgList
       tmp.push(that.data.imgurl + t)
@@ -305,14 +310,19 @@ Page({
           tihuoWay: '美食探店'
         })
       that.setData({
-        info: res.data.data,
+        info: ttmp,
         type: _type,
         imgList: tmp,
-        check:res.data.data.notice_status
+        check:res.data.data.notice_status,
+        time:timetmp.slice(11)
       })
     })
   },
-
+  TimeChange(e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

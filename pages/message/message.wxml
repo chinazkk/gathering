@@ -6,7 +6,7 @@
 		<view class="desc padding-sm" bindtap="verify" data-user="{{item.from_user_id}}" data-group="{{item.group_id}}">
 			<view class="paddin text-bold text-lg">你有待审核信息</view>
 			<view class="paddig text-bold">{{item.from_user.nick}}发出申请：{{item.content}}</view>
-			<view class="margin-top text-lg">{{item.lasttime}}</view>
+			<view class="margin-top-xs text-lg">{{item.lasttime}}</view>
 		</view>
 	</view>
 	<!-- 1-站内好友私信 -->

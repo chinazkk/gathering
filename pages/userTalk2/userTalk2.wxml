@@ -2,7 +2,7 @@
 <view class="cu-chat" wx:for="{{messageinfo}}">
 	<!-- 右边 自己发出 -->
 	<block wx:if="{{item.from_id==userid}}">
-		<view class="text-center">{{item.create_time}}</view>
+		<view class="text-center" wx:if="{{(messageinfo[index].formaltime-messageinfo[index-1].formaltime)>300||index==0}}">{{item.create_time}}</view>
 		<view class="cu-item self duiqi">
 			<view class="main rightduiqi">
         <view class="padding-xs">{{userInfo.nick}}</view>
@@ -17,7 +17,7 @@
 
 	<!-- 左边 对方发出 -->
 	<block wx:if="{{item.from_id!=userid}}">
-		<view class="text-center">{{item.create_time}}</view>
+		<view class="text-center" wx:if="{{(messageinfo[index].formaltime-messageinfo[index-1].formaltime)>300||index==0}}">{{item.create_time}}</view>
 		<view class="cu-item duiqi">
 			<view class="cu-avatar round"  bindtap="toanoinfo" style="background-image:url({{anotherUser.avatar.length>40?anotherUser.avatar:'https://gathering.cooltian.cn/v1/user/img?url='+anotherUser.avatar}});"></view>
 			<view class="main leftduiqi">

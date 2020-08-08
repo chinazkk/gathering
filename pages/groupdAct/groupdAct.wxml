@@ -1,21 +1,26 @@
 <view class="cu-bar bg-white search " style="top:{{CustomBar}}px">
 	<view class="search-form radius">
 		<text class="cuIcon-search xl" ></text>
-		<input type="text" placeholder="搜索" confirm-type="search" bindinput="searchIcon"></input>
+		<input type="text" placeholder="搜索" confirm-type="search" bindinput="getkeyword"></input>
 	</view>
 </view>
-<view class="items text-center">
+<!-- <view class="items text-center">
 	<view class="padding-xs bg-orange" bindtap="tap" style="width:160rpx;background-color:#f2683e;color:white">排序</view>
-	<view class="padding-xs bg-gray" bindtap="choose" data-id="1" wx:if="{{choosetag}}">参与人数</view>
-	<view class="padding-xs bg-gray" bindtap="choose" data-id="2" wx:if="{{choosetag}}">即将到来</view>
-</view>
+	<view class="padding-xs bg-gray" bindtap="choose" data-id="0" wx:if="{{choosetag}}">参与人数</view>
+	<view class="padding-xs bg-gray" bindtap="choose" data-id="1" wx:if="{{choosetag}}">即将到来</view>
+</view> -->
 <view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">
-  <view class="flex"  bindtap="toactdetail" data-id="{{item.id}}">
-    <image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
-    <view class="desc">
-      <view class="padding-xs text-bold">{{item.title}}</view>
-      <view class="padding-xs">{{item.time}}</view>
-      <view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
-    </view>
-  </view>
+	<view class="flex">
+		<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
+		<view class="desc"  bindtap="toactdetail" data-id="{{item.id}}">
+			<view class="padding-xs text-bold">{{item.title}}</view>
+			<view class="padding-xs">{{item.time}}</view>
+			<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
+		</view>
+		<view class="items text-center" wx:if="{{index==0}}">
+			<view class="padding-xs " bindtap="tap" style="width:140rpx;background-color:#f2683e;color:white">排序</view>
+			<view class="padding-xs bg-gray" bindtap="choose" data-id="0" wx:if="{{choosetag}}">参与人数</view>
+			<view class="padding-xs bg-gray" bindtap="choose" data-id="1" wx:if="{{choosetag}}">即将到来</view>
+		</view>
+	</view>
 </view>

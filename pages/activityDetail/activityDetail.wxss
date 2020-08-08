@@ -27,5 +27,6 @@
   height: 300rpx;
 }
 .imglimit{
+  width: 100%;
   height: 250rpx;
 }

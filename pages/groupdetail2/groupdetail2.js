@@ -24,6 +24,15 @@ Page({
   },
   //点击按钮痰喘指定的hiddenmodalput弹出框  
   modalinput2: function () {
+
+    if(this.data.info.user.private_status==0)
+    {
+      wx.showToast({
+        icon: 'none',
+        title: '对方设置拒绝陌生人私信',
+      })
+    }
+    else
     this.setData({
       hiddenmodalput2: !this.data.hiddenmodalput2
     })

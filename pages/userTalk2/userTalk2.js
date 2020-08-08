@@ -139,7 +139,7 @@ Page({
       for (var i = 0; i < test.length; i++) {
         for (var u = i + 1; u < test.length; u++) {
           if (test[i].create_time > test[u].create_time) {
-            console.log(test[i].create_time)
+            // console.log(test[i].create_time)
             var num = [];
             num = test[i];
             test[i] = test[u];
@@ -147,6 +147,12 @@ Page({
           }
         }
       }
+      for (var i = 0; i < test.length; i++) {
+          var repTime = test[i].create_time.replace(/-/g, '/')
+
+          test[i].formaltime = Date.parse(repTime) / 1000
+      }
+
       that.setData({
         messageinfo: test
       })

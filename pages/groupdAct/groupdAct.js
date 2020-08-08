@@ -6,49 +6,87 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tag:['排序','参与人数','最新发布'],
-    tagindex:0,
+    tag: ['排序', '参与人数', '最新发布'],
+    tagindex: 0,
     imgurl: app.globalData.imgurl,
-    choosetag:false
+    keyword: '',
+    choosetag: false,
+    order: '0', //	 0-参与人数 1-最新发布
+    currentpage: 1, //当前页数
+    fleshlimit: '7', //每次刷新页数
   },
-  choose(e){
+  choose(e) {
     console.log(e.currentTarget.dataset.id)
     this.setData({
-      tagindex:e.currentTarget.dataset.id
+      order: e.currentTarget.dataset.id,
+      tagindex: e.currentTarget.dataset.id
+    })
+    this.flesh()
+  },
+  getkeyword(e) {
+    this.setData({
+      keyword: e.detail.value
+    })
+    this.flesh()
+  },
+  flesh() {
+    var that = this
+    let url = app.globalData.URL + '/group/activity/list';
+    let data = {
+      keyword: that.data.keyword,
+      order: that.data.order,
+      limit: that.data.fleshlimit,
+      page: that.data.currentpage,
+      group_id:this.data.groupnum
+    }
+    util.get(url, data).then(function (res) {
+      console.log('flesh', res.data)
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.time = item.time.substring(0, 10)
+      })
+      that.setData({
+        groupinfo: test,
+      })
     })
   },
-  tap(e){
+  tap(e) {
     this.setData({
-      choosetag:!this.data.choosetag
+      choosetag: !this.data.choosetag
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this
+    var that = this
     console.log(options.id)
     this.setData({
-      groupnum:options.id
+      groupnum: options.id
     })
-       //小组活动
-       let url = app.globalData.URL + '/group/activity/list';
-       let data = {
-         group_id: options.id,
-         limit: '3',
-         page: '1'
-       }
-       util.get(url, data).then(function (res) {
-         console.log(res.data)
-         that.setData({
-           groupinfo: res.data.data,
-         })
-       })
+    //小组活动
+    let url = app.globalData.URL + '/group/activity/list';
+    let data = {
+      group_id: options.id,
+      limit: '7',
+      page: '1'
+    }
+    util.get(url, data).then(function (res) {
+      console.log(res.data)
+      let test = res.data.data
+      test.forEach((item) => {
+        //这里需要截取的内容
+        item.time = item.time.substring(0, 10)
+      })
+      that.setData({
+        groupinfo: test,
+      })
+    })
   },
-  toactdetail(e)
-  {
+  toactdetail(e) {
     wx.navigateTo({
-      url: '/pages/activityDetail/activityDetail?id='+e.currentTarget.dataset.id,
+      url: '/pages/activityDetail/activityDetail?id=' + e.currentTarget.dataset.id,
     })
   },
   /**

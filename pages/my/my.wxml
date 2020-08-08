@@ -77,9 +77,9 @@
 	<view class="padding ">
 		<view class="text-left padding text-bold text-lg">我加入的小组：</view>
 		<view wx:if="{{myjoingroup}}" wx:for="{{myjoingroup}}" bindtap="toJoinGroup" data-id="{{item.group.id}}">
-			<view class="flex duiqi">
+			<view class="flex ">
 				<image src="{{imgurl}}{{item.group.image}}" class="img padding" mode="aspectFill"></image>
-				<view class="desc">
+				<view class="desc duiqi">
 					<view class="padding-sm">{{item.group.name}}</view>
 					<view class="padding-sm">现有参与者人数:{{item.applicantNum}}</view>
 				</view>

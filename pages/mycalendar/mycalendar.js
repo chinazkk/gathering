@@ -28,7 +28,7 @@ Page({
   },
   toactdetail(e) {
     wx.navigateTo({
-      url: '/pages/groupdetail2/groupdetail2?id=' + e.currentTarget.dataset.id,
+      url: '/pages/activityDetail/activityDetail?id=' + e.currentTarget.dataset.id,
     })
   },
   tabSelect(e) {
