@@ -58,12 +58,42 @@ Page({
   },
   secondload() {
     var that = this
-    //消息列表
-    var url = app.globalData.URL + '/inform/message/list';
+    wx.showLoading({
+      title: '加载中...',
+      mask: true //显示触摸蒙层  防止事件穿透触发
+    });
+    // initData(this);
+    this.setData({
+      cusHeadIcon: wx.getStorageSync('userInfo').avatarUrl,
+      userid: wx.getStorageSync('userId'),
+      talkid: that.data.talkid
+    });
+    //对话者的信息
+    let url = app.globalData.URL + '/user';
     var data = {
+      user_id: that.data.talkid,
+    }
+    util.get(url, data).then(function (res) {
+      that.setData({
+        anotherUser: res.data.data
+      })
+    })
+    //自己的身份信息
+    url = app.globalData.URL + '/user';
+    data = {
+      user_id: wx.getStorageSync('userId'),
+    }
+    util.get(url, data).then(function (res) {
+      that.setData({
+        userInfo: res.data.data
+      })
+    })
+    //消息列表
+    url = app.globalData.URL + '/inform/message/list';
+    data = {
       page: that.data.currentpage,
       limit: that.data.fleshlimit,
-      id: this.data.talkid,
+      id: that.data.talkid,
     }
     util.get(url, data).then(function (res) {
       console.log('message list', res.data)
@@ -72,6 +102,24 @@ Page({
         //这里需要截取的内容
         item.create_time = item.create_time.substring(5, 16)
       })
+      console.log(test.length)
+      //按時間排序
+      for (var i = 0; i < test.length; i++) {
+        for (var u = i + 1; u < test.length; u++) {
+          if (test[i].create_time > test[u].create_time) {
+            // console.log(test[i].create_time)
+            var num = [];
+            num = test[i];
+            test[i] = test[u];
+            test[u] = num;
+          }
+        }
+      }
+      for (var i = 0; i < test.length; i++) {
+          var repTime = test[i].create_time.replace(/-/g, '/')
+          test[i].formaltime = Date.parse(repTime) / 1000
+      }
+
       that.setData({
         messageinfo: test
       })
@@ -149,7 +197,6 @@ Page({
       }
       for (var i = 0; i < test.length; i++) {
           var repTime = test[i].create_time.replace(/-/g, '/')
-
           test[i].formaltime = Date.parse(repTime) / 1000
       }
 
