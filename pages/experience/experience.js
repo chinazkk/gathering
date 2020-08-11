@@ -36,6 +36,7 @@ Page({
     var that = this
     let url = app.globalData.URL + '/group/activity/list';
     let data = {
+      isExpired:'0',
       order: that.data.order,
       type: that.data.type,
       limit: that.data.fleshlimit,
@@ -58,6 +59,7 @@ Page({
     var that = this
     let url = app.globalData.URL + '/group/activity/list';
     let data = {
+      isExpired:'0',
       keyword: that.data.keyword,
       order: that.data.order,
       type: that.data.type,
@@ -85,6 +87,7 @@ Page({
       console.log("上拉刷新")
       let url = app.globalData.URL + '/group/activity/list';
       let data = {
+        isExpired:'0',
         order: that.data.order,
         type: that.data.type,
         limit: that.data.fleshlimit,

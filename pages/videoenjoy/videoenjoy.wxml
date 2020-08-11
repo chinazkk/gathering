@@ -16,7 +16,7 @@
     <view class="desc"  bindtap="todetail" data-id="{{item.id}}">
       <view class="padding-sm text-bold">{{item.title}}</view>
       <view class="padding-xs">{{item.time}}</view>
-      <view class="padding-xs">{{item.number}}人已报名/共{{item.number}}个名额</view>
+      <view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
     </view>
     		<view class="items text-center" wx:if="{{index==0}}">
 			<view class="padding-xs " bindtap="tap" style="width:140rpx;background-color:#f2683e;color:white">排序</view>

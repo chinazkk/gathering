@@ -19,7 +19,8 @@ Page({
     console.log(e.currentTarget.dataset.id)
     this.setData({
       order: e.currentTarget.dataset.id,
-      tagindex: e.currentTarget.dataset.id
+      tagindex: e.currentTarget.dataset.id,
+      choosetag: !this.data.choosetag,
     })
     this.flesh()
   },
