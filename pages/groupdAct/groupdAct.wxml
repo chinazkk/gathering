@@ -11,9 +11,9 @@
 </view> -->
 <view wx:for="{{groupinfo}}" class="flex" style="height:200rpx;">
 	<view class="flex">
-		<image src="{{imgurl}}{{item.image}}" class="img" mode="aspectFill"></image>
-		<view class="desc"  bindtap="toactdetail" data-id="{{item.id}}">
-			<view class="padding-xs text-bold">{{item.title}}</view>
+		<image src="{{imgurl}}{{item.image}}" class="img bi" mode="aspectFill"></image>
+		<view class="desc bi"  bindtap="toactdetail" data-id="{{item.id}}">
+			<view class="padding-xs text-bold text-cut">{{item.title}}</view>
 			<view class="padding-xs">{{item.time}}</view>
 			<view class="padding-xs">{{item.applicantNum}}人已报名/共{{item.number}}个名额</view>
 		</view>

@@ -19,3 +19,6 @@
   height: 180rpx;
   width: 250rpx;
 }
+.bi{
+  flex-shrink: 0;
+}

@@ -122,7 +122,7 @@ Page({
               wx.navigateBack({
                 delta: 1,
               })
-            }, 2000);
+            }, 10);
           }
         })
       } else {

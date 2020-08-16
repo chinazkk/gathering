@@ -40,6 +40,8 @@ Page({
     util.get(url, data).then(function (res) {
       let test = res.data.data
       test.forEach((item) => {
+        if(item.title.length>10)
+        item.title=item.title.substring(0,10)+"..."
         //这里需要截取的内容
         item.time = item.time.substring(0, 10)
       })
@@ -70,6 +72,8 @@ Page({
       console.log('flesh', res.data)
       let test = res.data.data
       test.forEach((item) => {
+        if(item.title.length>10)
+        item.title=item.title.substring(0,10)+"..."
         //这里需要截取的内容
         item.time = item.time.substring(0, 10)
       })
