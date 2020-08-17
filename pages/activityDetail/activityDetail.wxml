@@ -3,7 +3,7 @@
 		<image src="{{imgurl}}{{groupinfo.image}}" class="img margin-sm" mode="aspectFill"></image>
 		<view class="desc">
 			<view class="padding-sm text-bold text-lg">{{groupinfo.name}}</view>
-			<view class="padding-xs padding-left-sm">小组类别：{{actTypeName}}</view>
+			<view class="padding-xs padding-left-sm">活动类别：{{actTypeName}}</view>
 			<view class="padding-xs padding-left-sm">剩余活动席位：{{groupinfo.number-joinnum}}</view>
 		</view>
 	</view>
