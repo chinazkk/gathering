@@ -12,6 +12,7 @@ Page({
     actinfo: [],
     isjoin: false,
     iscollect: false,
+    types:["线上游戏","经验分享","影视鉴赏","美食探店"]
   },
   toGroupDetail(e) {
     if (wx.getStorageSync('userId') == this.data.groupinfo.user_id)
@@ -45,7 +46,8 @@ Page({
     }
     util.get(url, data).then(function (res) {
       that.setData({
-        actinfo: res.data.data
+        actinfo: res.data.data,
+        actTypeName:that.data.types[res.data.data.type]
       })
       let userid = wx.getStorageSync('userId')
       if (res.data.data.user.id == userid) {
