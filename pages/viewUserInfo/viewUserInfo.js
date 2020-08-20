@@ -64,6 +64,7 @@ Page({
     // 获取参加的小组
     url = app.globalData.URL + '/group/join/list';
     data = {
+      audit_status:'1',
       limit: '6',
       page: '1',
       user_id: options.id,

@@ -184,6 +184,7 @@ Page({
      // 获取参加的小组
      url = app.globalData.URL + '/group/join/list';
      data = {
+       audit_status:'1',
        limit: '3',
        page: '1',
        user_id: wx.getStorageSync('userId'),
