@@ -97,6 +97,7 @@ Page({
     });
     let url = app.globalData.URL + '/group/activity';
     var data = {
+      user_id:wx.getStorageSync('userId'),
       type: this.data.type,
       group_id: this.data.groupnum,
       title: this.data.name,
