@@ -1,6 +1,9 @@
 # Gathering
 一款线上活动组团微信小程序
 
+## 邮箱
+939682389@qq.com
+
 ## 微信
 ![](https://github.com/939682389/gathering/blob/master/WechatIMG12.jpeg)
 
